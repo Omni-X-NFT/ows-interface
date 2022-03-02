@@ -12,9 +12,7 @@ General:
 * User should stay logged-in as long as the browser session is active.
 
 Screens:
-* Starting screen: Omniverse DAO logo and Login with Metamask Button.
-* Dashboard: if the user has no Omni army yet, they should be prompted with minting the initial army on the network of their choice (default Polygon). If a user already has an army, it should be displayed with each unit and hero being a separate "card" on the screen. Users also should be able to mint an additional starting army (excluding a hero) to their account from this screen for a 0.1 ETH/MATIC/AVAX/BNB fee.
-* Combat: currently supports attack mode only, user's army is being displayed in a simplified fashion with all attack points pre-calculated. On this screen users should be able to select an id and network of the hostile army that they want to attack. After initiating the combat, the pop up screen would appear with the results of the combat: how much experience has the hero received and how many troops have been lost.
+* Omniverse: vision, roadmap, team and links subsections. Homepage of the website.
 
 Miscellaneous:
 * favicon.ico should be changed to omniversedao.ico, an .ico version of the omniverse DAO logo

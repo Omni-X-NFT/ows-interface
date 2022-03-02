@@ -1,3 +1,94 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mainnavcorner {
+    background:
+    linear-gradient(to right, rgba(91, 93, 94, .5) 2px, transparent 2px) 0 0,
+    linear-gradient(to right, rgba(91, 93, 94, .5) 2px, transparent 2px) 0 100%,
+    linear-gradient(to left, rgba(91, 93, 94, .5) 2px, transparent 2px) 100% 0,
+    linear-gradient(to left, rgba(91, 93, 94, .5) 2px, transparent 2px) 100% 100%,
+    linear-gradient(to bottom, rgba(91, 93, 94, .5) 2px, transparent 2px) 0 0,
+    linear-gradient(to bottom, rgba(91, 93, 94, .5) 2px, transparent 2px) 100% 0,
+    linear-gradient(to top, rgba(91, 93, 94, .5) 2px, transparent 2px) 0 100%,
+    linear-gradient(to top, rgba(91, 93, 94, .5) 2px, transparent 2px) 100% 100%;
+    @apply bg-no-repeat my-0 mx-20;
+    background-size: 100% 20px;
+}
+
+.mainnav {
+    @apply rounded-none flex items-center justify-center px-0 py-5;
+    font-family: Roboto Mono;
+}
+
+.button-borders {
+    @apply my-0 mx-28 relative;
+}
+
+.button-borders:before {
+    @apply border-solid border-b-0 border-t border-r border-l absolute;
+    content: "";
+    width: calc(100% + 0.5em);
+    height: 50%;
+    left: -0.3em;
+    top: -0.3em;
+    border-width: 1px;
+    border-color: rgba(233, 236, 239, 1);
+}
+
+.button-borders:after {
+    @apply border-solid border-t-0 border-r border-b border-l absolute z-0;
+    content: "";
+    width: calc(100% + 0.5em);
+    height: 50%;
+    left: -0.3em;
+    bottom: -0.3em;
+    border-width: 1px;
+    border-color: rgba(233, 236, 239, 1);
+}
+
+.primary-button {
+    font-family: Roboto Mono;
+    color: #e9ecef;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #000000;
+    padding: 0.25rem 1rem;
+    background-color: #000000;
+    background-size: 200%;
+    background-position: 200%;
+    background-repeat: no-repeat;
+    transition: 0.3s ease-in-out;
+    transition-property: background-position, border, color;
+    position: relative;
+    z-index: 1;
+    width: 110px;
+    font-weight:bold;
+}
+
+.primary-button:hover {
+    border-top: 1px solid #E84142;
+    border-right:1px solid #28A0F0;
+    border-bottom:1px solid #8247E5;
+    border-left:1px solid #F3BA2F;
+    color: #e9ecef;
+    background-position: 40%;
+}
+
+.primary-button:before {
+    @apply h-1 absolute w-1 hover:bg-black;
+    content: "";
+    background-color: rgba(233, 236, 239, 1);
+    top: -1px;
+    left: -1px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.primary-button:after {
+    @apply h-1 absolute w-1 hover:bg-black;
+    content: "";
+    background-color: rgba(233, 236, 239, 1);
+    bottom: -1px;
+    right: -1px;
+    transition: background-color 0.15s ease-in-out;
+  }

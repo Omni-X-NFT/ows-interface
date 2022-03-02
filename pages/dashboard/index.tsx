@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import MainNav from '../../components/MainNav'
 
 export default function Dashboard() {
   const router = useRouter()
@@ -10,6 +11,7 @@ export default function Dashboard() {
       <Head>
         <title>Omniverse DAO - Dashboard</title>
       </Head>
+      <MainNav/>
       <div className='text-white'>
         Dashboard
       </div>
