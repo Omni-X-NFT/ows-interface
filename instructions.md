@@ -1,10 +1,10 @@
 # Instructions
 
-## Omnichain Wars Interface: Road To Web3 version
+## Omniverse DAO and Omni Wars website
 
 Inspiration: [LayerZero website](https://layerzero.network/)
 
-The main purpose of the Omni Wars Interface is to provide a robust platform for minting and managing armies in the game.
+The main purpose of this website is to provide basic information about the project, team, roadmap, products and an interface for minting NFT collections.
 
 The general design of the dapp should be dark-mode first, completed in monochrome tones with appropriate colors being used for highlighting different blockchains and factions.
 
