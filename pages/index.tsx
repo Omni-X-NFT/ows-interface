@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import MainNav from '../components/MainNav'
+import SideNav from '../components/SideNav'
 
 export default function Home() {
 
@@ -15,10 +16,12 @@ export default function Home() {
         <meta name='description' content='A homepage for Omniverse DAO'/>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div>
-        <MainNav/>
-        <div className='text-white'>Omniverse DAO</div>
-        <button className='text-white' onClick={() => router.replace('/dashboard')}>Dashboard</button>
+      <MainNav/>
+      <div className='tabletcorner'>
+        <div className='tablet'>
+          <SideNav/>
+          sdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </div>
       </div>
     </div>
   )
