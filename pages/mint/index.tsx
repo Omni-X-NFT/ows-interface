@@ -1,9 +1,11 @@
 import MainNav from '../../components/MainNav'
 import Head from 'next/head'
-import { ethers } from 'ethers'
-import { useEffect } from 'react'
+import { ethers, Signer } from 'ethers'
+import { useEffect, useState } from 'react'
+import MintScreen from '../../components/MintScreen'
 
 export default function Mint() {
+  const [connectedSigner, setConnectedSigner] = useState<Signer>()
 
   useEffect(() => {
     const connectToMetamask = async () => {
@@ -11,7 +13,8 @@ export default function Mint() {
       // Prompt user for account connections
       await provider.send('eth_requestAccounts', [])
       const signer = provider.getSigner()
-      console.log('Account:', await signer.getAddress())
+      console.log('Account:', await signer.getAddress(), 'chain id:', await signer.getChainId())
+      setConnectedSigner(signer)
     }
     connectToMetamask()
   },[])
@@ -24,6 +27,13 @@ export default function Mint() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <MainNav/>
+      <div className='tabletcorner'>
+        <div className='tablet'>
+          <div className='main-grid'>
+            <MintScreen signer={connectedSigner}/>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
