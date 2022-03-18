@@ -714,6 +714,8 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
   //State variables
   const [connectedChainId, setConnectedChainId] = useState<number>(0)
   const [currentContract, setCurrentContract] = useState<Contract>()
+  const [currentBalance, setCurrentBalance] = useState<number>(0)
+  const [currentIds, setCurrentIds] = useState<number[]>([])
 
   //Hook that records the connected chain id and NFT contract on component render
   useEffect(() => {
@@ -738,10 +740,14 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
       if (currentContract !== undefined) {
         const balance = await currentContract.balanceOf(signer?.getAddress())
         console.log(`Signer owns ${balance} tokens`)
+        setCurrentBalance(Number(balance))
+        const ids:number[] = []
         for (let i = 0; i< balance; i++) {
           const tokenId = await currentContract.tokenOfOwnerByIndex(signer?.getAddress(),i)
+          ids.push(Number(tokenId))
           console.log(`Signer owns ${tokenId} tokenId`)
         }
+        setCurrentIds(ids)
       }
     }
     getBalanceAndIds()
@@ -775,7 +781,12 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
       <div className='button-borders'>
         <button className='primary-button' onClick={() => mintGreg()}>Mint</button>
       </div>
-      <span className='my-3'>Your Greg balance is:</span>
+      <span className='my-3'>Your Greg balance is: {currentBalance}</span>
+      <div className='flex flex-col '>
+        {currentIds.map(id => {
+          return <span>Greg #{id}</span>
+        })}
+      </div>
     </>
   )
 }
