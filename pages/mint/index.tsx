@@ -14,6 +14,12 @@ export default function Mint() {
       await provider.send('eth_requestAccounts', [])
       const signer = provider.getSigner()
       console.log('Account:', await signer.getAddress(), 'chain id:', await signer.getChainId())
+      //listen to network change and reload the page
+      provider.on('network', (newNetwork, oldNetwork) => {
+        if (oldNetwork) {
+          window.location.reload()
+        }
+      })
       setConnectedSigner(signer)
     }
     connectToMetamask()
