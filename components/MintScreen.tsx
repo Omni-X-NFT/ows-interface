@@ -758,6 +758,9 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
     //@ts-expect-error this function is not accesible if the currentContract is undefined
     const result = await currentContract.safeMint(signer?.getAddress(),gregURI)
     console.log(result)
+    //wait for the transaction to complete and then we reload the page
+    await result.wait()
+    window.location.reload()
   }
 
   if (!signer) {
@@ -784,7 +787,7 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
       <span className='my-3'>Your Greg balance is: {currentBalance}</span>
       <div className='flex flex-col '>
         {currentIds.map(id => {
-          return <span>Greg #{id}</span>
+          return <span className='cursor-pointer hover:underline'>Transfer: Greg #{id}</span>
         })}
       </div>
     </>
