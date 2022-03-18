@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ethers, Signer } from 'ethers'
+import { Contract, ethers, Signer } from 'ethers'
 import greg from '../static/greg.png'
 import Image from 'next/image'
 
@@ -655,23 +655,29 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
     }
   ]
 
+  //State variables
   const [connectedChainId, setConnectedChainId] = useState<number>(0)
+  const [currentContract, setCurrentContract] = useState<Contract>()
+
+  //Hook that records the connected chain id and NFT contract on component render
   useEffect(() => {
-    const getChainId = async () => {
+    const getChainIdAndContract = async () => {
       if (signer) {
         const chainId = await signer.getChainId()
         setConnectedChainId(chainId)
+        if (approvedTestnetIds.includes(chainId)) {
+          const { address } = gregAddressList.find(a => a.id === chainId)
+          const gregContract = new ethers.Contract(address,gregAbi,signer)
+          setCurrentContract(gregContract)
+        }
       }
     }
-    getChainId()
+    getChainIdAndContract()
   },[signer])
 
   //function for minting a single greg
   const mintGreg = async () => {
-    //@ts-expect-error
-    const { address } = gregAddressList.find(a => a.id === connectedChainId)
-    const gregContract = new ethers.Contract(address,gregAbi,signer)
-    const result = await gregContract.safeMint(signer?.getAddress(),gregURI)
+    const result = await currentContract.safeMint(signer?.getAddress(),gregURI)
     console.log(result)
   }
 
