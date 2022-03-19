@@ -10,22 +10,26 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
     {
       id: 4,
       address: '0x6B17b70Dc87acd03b22fD986700a0e6389f9add2',
-      lzChainId: 10001
+      lzChainId: 10001,
+      name: 'Rinkeby'
     },
     {
       id: 43113,
       address: '0xf01f73D324eB2CE386C1A4CFd0Ce48920128281A',
-      lzChainId: 10006
+      lzChainId: 1000,
+      name:'Fuji'
     },
     {
       id: 80001,
       address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
-      lzChainId: 10009
+      lzChainId: 10009,
+      name:'Mumbai'
     },
     {
       id: 97,
       address: '0xeeFe2D3716c05333481F17A043d919dE000eFE6d',
-      lzChainId: 10002
+      lzChainId: 10002,
+      name: 'BSC'
     }
   ]
   const gregURI = 'https://gateway.pinata.cloud/ipfs/QmTZ3MqmjhSXPjC25Q7LGuB31DzXmPaYcoL9EdepShnooM/1.json'
@@ -784,7 +788,7 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
     const { address } = gregAddressList.find(a => a.lzChainId === lzChainId)
     console.log(`Dst chain id ${lzChainId}, dst address ${address}, id ${id}`)
     //@ts-expect-error this function is not accesible if the currentContract is undefined
-    const tx = await currentContract.sendNFT(lzChainId,address,id,{ value: ethers.utils.parseEther('0.1') })
+    const tx = await currentContract.sendNFT(lzChainId,address,id,{ value: ethers.utils.parseEther('0.15') })
     //wait for the transaction to complete and then we reload the page
     await tx.wait()
     window.location.reload()
@@ -804,7 +808,7 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
   }
   return(
     <>
-      <h2 className='text-white'>You are connected to a proper network and ready to mint an omnichain Greg!</h2>
+      <h2 className='text-white'>You are connected to {gregAddressList.find(a => a.id === connectedChainId)?.name} and ready to mint an omnichain Greg!</h2>
       <div className='w-72 my-3'>
         <Image src={greg} />
       </div>
