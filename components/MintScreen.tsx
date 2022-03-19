@@ -4,20 +4,28 @@ import greg from '../static/greg.png'
 import Image from 'next/image'
 
 const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
-  const approvedTestnetIds = [80001,43113,4] //Polygon Mumbai, Avalanche Fuji and Rinkeby network ids
+  const approvedTestnetIds = [80001,43113,4,97] //Polygon Mumbai, Avalanche Fuji, Rinkeby and BSC Testnet network ids
   //Omnichain Greg addresses, abi and metadata
   const gregAddressList = [
     {
       id: 4,
-      address: '0x6B17b70Dc87acd03b22fD986700a0e6389f9add2'
+      address: '0x6B17b70Dc87acd03b22fD986700a0e6389f9add2',
+      lzChainId: 10001
     },
     {
       id: 43113,
-      address: '0x8Eb93df5720b8437393F8DdeA50B5D5a1817f202'
+      address: '0xf01f73D324eB2CE386C1A4CFd0Ce48920128281A',
+      lzChainId: 10006
     },
     {
       id: 80001,
-      address: ''
+      address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
+      lzChainId: 10009
+    },
+    {
+      id: 97,
+      address: '0xeeFe2D3716c05333481F17A043d919dE000eFE6d',
+      lzChainId: 10002
     }
   ]
   const gregURI = 'https://gateway.pinata.cloud/ipfs/QmTZ3MqmjhSXPjC25Q7LGuB31DzXmPaYcoL9EdepShnooM/1.json'
@@ -763,6 +771,25 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
     window.location.reload()
   }
 
+  //function for transfering a greg from fuji to bcst and vice versa
+  const transferGreg = async (id:number) => {
+    let lzChainId:number
+    //if we are on mumbai, send tx to bsct and vice versa
+    if (connectedChainId === 43113) {
+      lzChainId = 10002
+    } else {
+      lzChainId = 10006
+    }
+    //@ts-expect-error if we locate the lzChainId, then the address is guaranteed to be a string
+    const { address } = gregAddressList.find(a => a.lzChainId === lzChainId)
+    console.log(`Dst chain id ${lzChainId}, dst address ${address}, id ${id}`)
+    //@ts-expect-error this function is not accesible if the currentContract is undefined
+    const tx = await currentContract.sendNFT(lzChainId,address,id,{ value: ethers.utils.parseEther('0.1') })
+    //wait for the transaction to complete and then we reload the page
+    await tx.wait()
+    window.location.reload()
+  }
+
   if (!signer) {
     return(
       <>
@@ -787,7 +814,7 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
       <span className='my-3'>Your Greg balance is: {currentBalance}</span>
       <div className='flex flex-col '>
         {currentIds.map(id => {
-          return <span className='cursor-pointer hover:underline'>Transfer: Greg #{id}</span>
+          return <span key={id} className='cursor-pointer hover:underline' onClick={() => transferGreg(id)}>Transfer: Greg #{id}</span>
         })}
       </div>
     </>
