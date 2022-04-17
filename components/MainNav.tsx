@@ -6,19 +6,13 @@ const MainNav:React.FC = () => {
   const router = useRouter()
 
   return(
-    <div className='mainnavcorner'>
+    <div className='mainnavcorner h-[80px]'>
       <div className='mainnav'>
         <div className='button-borders'>
           <button className='primary-button' onClick={() => router.push('/')}>OMNIVERSE</button>
         </div>
         <div className='button-borders'>
-          <button className='primary-button'>OMNI WARS</button>
-        </div>
-        <div className='button-borders'>
-          <button className='primary-button'>OMNI X</button>
-        </div>
-        <div className='button-borders'>
-          <button className='primary-button' onClick={() => router.push('mint')}>MINT</button>
+          <button className='primary-button'>GREG</button>
         </div>
       </div>
     </div>
