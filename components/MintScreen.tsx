@@ -15,7 +15,7 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
     },
     {
       id: 43113,
-      address: '0xcE122550a9cf55a84B9fe7828964e9b801dc435B',
+      address: '0xEa02aC782662F2fFcC689BC68fb268AFA3db9997',
       lzChainId: 10006,
       name:'Fuji'
     },
@@ -27,7 +27,7 @@ const MintScreen:React.FC<{signer: Signer | undefined}> = ({ signer }) => {
     },
     {
       id: 97,
-      address: '0x580ce08aaD9e99cC2a124509F424795173fcB8FD',
+      address: '0xBd45f41E88F01f39ded6EC7516214886895eA782',
       lzChainId: 10002,
       name: 'BSC'
     }
