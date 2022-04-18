@@ -6,7 +6,8 @@ body {
     font-family: Roboto Mono;
     background-image: url('../static/bg-img/gradients.svg');
     background-color: rgba(2, 6, 20, 1);
-    background-size: 100% auto;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 p {

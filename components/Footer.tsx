@@ -19,25 +19,25 @@ const Footer:React.FC = () => {
       </Link>
       <ul className='gap-[30px] lg:flex items-center hidden'>
         <li>
-          <Link href={'https://github.com/Omni-Wars'}>
+          <Link href={'/'}>
             <Image src={social1} className='cursor-pointer'>
             </Image>
           </Link>
         </li>
         <li>
-          <Link href={'https://daniel-67.gitbook.io/omniverse-dao/'}>
+          <Link href={'/'}>
             <Image src={social2} className='cursor-pointer'>
             </Image>
           </Link>
         </li>
         <li>
-          <Link href={'https://t.co/9t470guLqc'}>
+          <Link href={'/'}>
             <Image src={social3} className='cursor-pointer'>
             </Image>
           </Link>
         </li>
         <li>
-          <Link href={'https://twitter.com/omniversedao'}>
+          <Link href={'/'}>
             <Image src={social4} className='cursor-pointer'>
             </Image>
           </Link>
