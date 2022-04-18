@@ -21,9 +21,11 @@ export default function Home() {
       <div className='w-full h-screen flex flex-col justify-center items-center'>
         <p className='m-0 text-[20px] leading-[23px]'>ENTER THE</p>
         <p className='m-0 text-[40px] md:text-[100px] leading-[120px]'>Omniverse</p>
-        <button className='bg-white text-black w-[231px] h-[61px] mt-[23px]'>Explore</button>
+        <a href='#overview'>
+          <button className='bg-white text-black w-[231px] h-[61px] mt-[23px]'>Explore</button>
+        </a>
       </div>
-      <div className='w-full items-center flex-col pt-[150px]'>
+      <div className='w-full items-center flex-col pt-[150px]' id='overview'>
         <div className='flex flex-col lg:flex-row w-full lg:w-5/6 m-auto pb-20'>
           <div className='lg:w-2/5 w-full px-10 py-5'>
             <p className='m-0 text-[50px] leading-[80px] text-center lg:text-right'>OVERVIEW</p>

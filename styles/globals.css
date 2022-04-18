@@ -10,6 +10,10 @@ body {
     background-repeat: no-repeat;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 p {
     @apply my-3;
 }
