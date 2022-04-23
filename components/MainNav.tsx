@@ -12,7 +12,7 @@ const MainNav:React.FC = () => {
           <button className='primary-button' onClick={() => router.push('/')}>OMNIVERSE</button>
         </div>
         <div className='button-borders'>
-          <button className='primary-button'>GREG</button>
+          <button className='primary-button' onClick={() => router.push('/greg')}>GREG</button>
         </div>
       </div>
     </div>

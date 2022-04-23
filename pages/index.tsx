@@ -93,7 +93,7 @@ export default function Home() {
       </div>
       <div className='h-[200px] lg:block hidden'>
       </div>
-      <div className='xl:flex hidden flex-col items-center'>
+      <div className='xl:flex hidden flex-col items-center xl:mb-[220px] mb-[100px]'>
         <p className='lg:text-[50px] text-[25px] lg:leading-[120px] leading-[60px] m-0 text-white color text-center'>ROADMAP</p>
         <div className='lg:mt-[105px] mt-[20px] w-9/12 mx-auto'>
           <div className='relative w-full h-[240px]'>
