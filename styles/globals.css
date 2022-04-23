@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    font-family: Roboto Mono;
+    font-family: 'Abel', sans-serif;
     background-image: url('../static/bg-img/gradients.svg');
     background-color: rgba(2, 6, 20, 1);
     background-size: 100%;

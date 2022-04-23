@@ -20,34 +20,50 @@ const injected = new InjectedConnector({
 
 const addresses = {
   '4': {
-    address: '0x864ba3671b20c2fd3fe90788189e52ef6d98fb65'
+    address: '0x864ba3671b20c2fd3fe90788189e52ef6d98fb65',
+    image: '../static/logo/ethereum-eth-logo-1.svg',
+    price: 250
   },
   '97': {
-    address: '0x3A0EDdbAB2943C39B52D60e4871A034698dA5af0'
+    address: '0x3A0EDdbAB2943C39B52D60e4871A034698dA5af0',
+    image: '../static/logo/dbanner1_copy_1.svg',
+    price: 0.375
   },
   '43113': {
-    address: '0xc95252494ADd57CE68C1A7acB110A509E716aBf1'
+    address: '0xc95252494ADd57CE68C1A7acB110A509E716aBf1',
+    image: '../static/logo/dbanner1_copy_2_1.svg',
+    price: 0.375
   },
   '80001': {
-    address: '0x7EF144536Df082807612769Dd4F745e8E7f723c3'
+    address: '0x7EF144536Df082807612769Dd4F745e8E7f723c3',
+    image: '../static/logo/dbanner1_copy_4_1.svg',
+    price: 0.375
   },
   '421611': {
-    address: '0xBE9f85D85373A146D20d796Ea2dEC241aF42CB92'
+    address: '0xBE9f85D85373A146D20d796Ea2dEC241aF42CB92',
+    image: '../static/logo/JtpX95Rt_400x400-1.svg',
+    price: 0.05
   },
   '4002': {
-    address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7'
+    address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
+    image: '../static/logo/dbanner1_copy_3_1.svg',
+    price: 2
   },
   '69': {
-    address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7'
+    address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
+    image: '../static/logo/fantom-ftm-logo-1.svg',
+    price: 0.05
   }
 }
 
-export default function Greg() {
+export default function Greg({networkId}) {
   const { connector, chainId, activate, deactivate, error, account, active } = useWeb3React();
 
   const router = useRouter()
   const [mintNum, setMintNum] = useState(1);
   const [toChain, setToChain] = useState(1);
+  const [price, setPrice] = useState(250);
+  const [netId, setNetId] = useState(4);
 
   const { library } = useActiveWeb3React();
 
@@ -76,7 +92,7 @@ export default function Greg() {
   }
 
   const increase = () => {
-    if(mintNum < 6) {
+    if(mintNum < 5) {
       setMintNum(mintNum + 1)
     }
   }
@@ -100,6 +116,12 @@ export default function Greg() {
     checkConnect();
   }, [chainId, active])
 
+  useEffect(() => {
+    if(addresses[netId]) {
+      setPrice(addresses[netId].price);
+    }
+  }, [netId])
+
   const mint = async () => {
     const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account);
 
@@ -119,7 +141,7 @@ export default function Greg() {
         <meta name='description' content='A homepage for Omniverse DAO'/>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <MainNav/>
+      <MainNav setNetId={setNetId} netId={netId} addresses={addresses} />
 
       <div className='pt-[200px] mb-[50px]'>
         <div className='rounded-[25px] bg-black w-5/6 max-w-[1200px] min-w-[320px] lg:px-[30px] px-0 mx-auto flex lg:flex-row flex-col'>
@@ -134,7 +156,7 @@ export default function Greg() {
             <p className='text-[15px] leading-[25px]'>5 mints per wallet, and once you mint your greg will replace the default greg to the left</p>
             <p className='text-[25px] leading-[25px] mt-[40px] font-bold'>0/4444 Minted</p>
             <div className='mt-[20px] flex gap-[5px]'>
-              <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>250 MATIC</p>
+              <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{price} MATIC</p>
               <img src='../static/polygon_logo.svg' />
               <p className='lg:text-[25px] text-[12px] leading-[25px]'>each.  ~ 2.7 AVAX</p>
             </div>
@@ -156,7 +178,7 @@ export default function Greg() {
         </div>
       </div>
 
-      <div className='flex lg:flex-row flex-col w-5/6 max-w-[1200px] min-w-[320px] mx-auto gap-[50px] xl:mb-[220px] mb-[100px]'>
+      <div className='flex lg:flex-row flex-col w-5/6 max-w-[1200px] min-w-[320px] mx-auto gap-[50px] xl:pb-[220px] pb-[100px]'>
         <div className='rounded-[25px] lg:w-3/4 w-full bg-black p-[30px]'>
           <p className='text-[25px] leading-[30px] font-bold m-0'>Your gregs</p>
           <div className='w-full gap-[20px] flex md:flex-row flex-col'>

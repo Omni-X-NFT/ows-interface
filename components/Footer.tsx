@@ -10,7 +10,7 @@ import logo from '../static/logo/omniverse-logo.svg'
 
 const Footer:React.FC = () => {
   return(
-    <div className='footer flex justify-between h-[80px] py-[5px] px-5'>
+    <div className='footer flex justify-between h-[80px] py-[5px] px-5 fixed bottom-0 w-full'>
       <Link href={'/'}>
         <div className='logo flex items-center cursor-pointer gap-[20px]'>
           <Image src={logo} className='w-[70px]' />
