@@ -10,6 +10,14 @@ body {
     background-repeat: no-repeat;
 }
 
+.abel {
+    font-family: 'Abel', sans-serif;
+}
+
+.raleway {
+    font-family: 'Raleway', sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }

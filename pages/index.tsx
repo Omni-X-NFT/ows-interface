@@ -30,7 +30,7 @@ export default function Home() {
           <div className='lg:w-2/6 w-full px-10 py-5'>
             <p className='m-0 text-[50px] leading-[80px] text-center lg:text-right'>OVERVIEW</p>
           </div>
-          <div className='lg:w-3/5 w-full lg:px-6 px-4 lg:py-10 py-0'>
+          <div className='lg:w-3/5 w-full lg:px-6 px-4 lg:py-10 py-0 raleway'>
             <p className='text-[20px] m-0 leading-[23px] text-justify lg:text-left'>The Omniverse is an ecosystem of media, tools, and protocols unified by their development and interoperability via Layer Zero technology.</p>
             <br/>
             <p className='text-[20px] m-0 leading-[23px] text-justify lg:text-left'>Built by the Omniverse DAO with an emphasis on superior user experience.</p>
@@ -40,7 +40,7 @@ export default function Home() {
           <div className='lg:w-2/6 w-full px-10 py-5'>
             <p className='m-0 text-[50px] leading-[80px] text-center lg:text-right'>VISION</p>
           </div>
-          <div className='lg:w-3/5 w-full lg:px-6 px-4 lg:py-10 py-0'>
+          <div className='lg:w-3/5 w-full lg:px-6 px-4 lg:py-10 py-0 raleway'>
             <p className='text-[20px] m-0 leading-[23px] text-justify lg:text-left'>Creating a revolutionary game on groundbreaking interoperable blockchain technology will lead to us to developing a host of follow on products. There are no tools for this era of DAO run communities operating on multiple blockchains.</p>
             <br/>
             <p className='text-[20px] m-0 leading-[23px] text-justify lg:text-left'>With Omni X, we seek to change this. The first gaming DAO tool we are building is a multi-chain NFT marketplace framework. The Omni Wars game marketplace will be built on this framework, but we seek to open up this development to any other blockchain game looking to quickly bootstrap their own unique game specific NFT marketplace.</p>
@@ -48,14 +48,14 @@ export default function Home() {
         </div>
       </div>
       <div className='w-full items-center flex-col lg:pt-[150px] pt-[80px]'>
-        <div className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto lg:pb-[180px] pb-20'>
+        <div className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto lg:pb-[60px] pb-20'>
           <div className='lg:w-2/6 w-full px-10 py-5 flex flex-col lg:items-end items-center'>
             <div className='w-[200px]'>
               <img src='../static/logo/omniverse-logo.svg' />
               <p className='m-0 mt-8 text-[30px] leading-[35px] text-center'>OmniX</p>
             </div>
           </div>
-          <div className='lg:w-4/6 w-full lg:px-6 px-4 lg:py-16 py-0'>
+          <div className='lg:w-4/6 w-full lg:px-6 px-4 lg:py-16 py-0 raleway'>
             <p className='text-[20px] m-0 leading-[23px] text-justify lg:text-left'>A protocol providing tools for creating omnichain NFT tokens and marketplaces.</p>
  
             <br/>
@@ -70,16 +70,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='lg:w-4/6 w-full lg:px-6 px-4 lg:py-16 py-0'>
+          <div className='lg:w-4/6 w-full lg:px-6 px-4 lg:py-16 py-0 raleway'>
             <p className='text-[20px] m-0 leading-[23px] text-justify lg:text-left'>An omnichain compete-to-earn (C2E) strategy game developed by Omniverse DAO and built on the LayerZero protocol. </p>
             <br/>
             <p className='text-[20px] m-0 leading-[23px] text-justify lg:text-left'>The C2E model puts maximum emphasis on the team work and strategic development rather than endless grind and randomized rewards.</p>
           </div>
         </div>
       </div>
-      <div className='h-[380px] lg:block hidden'>
-      </div>
-      <div className='flex flex-col items-center'>
+      {/*<div className='h-[380px] lg:block hidden'>
+      </div>*/}
+      {/*<div className='flex flex-col items-center'>
         <p className='lg:text-[50px] text-[25px] lg:leading-[120px] leading-[60px] m-0 mb-[30px] uppercase text-white color text-center'>OMNichain Powered by layerZERO</p>
         <div className='flex lg:flex-row flex-col gap-[40px] mb-[40px]'>
           <img src='../static/logo/ethereum-eth-logo-1.svg' />
@@ -92,7 +92,7 @@ export default function Home() {
           <img src='../static/logo/dbanner1_copy_3_1.svg' />
           <img src='../static/logo/fantom-ftm-logo-1.svg' />
         </div>
-      </div>
+      </div>*/}
       <div className='h-[200px] lg:block hidden'>
       </div>
       <div className='xl:flex hidden flex-col items-center xl:pb-[220px] pb-[100px]'>

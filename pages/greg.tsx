@@ -22,37 +22,37 @@ const addresses = {
   '4': {
     address: '0x864ba3671b20c2fd3fe90788189e52ef6d98fb65',
     image: '../static/logo/ethereum-eth-logo-1.svg',
-    price: 250
+    price: '0.05 ETH'
   },
   '97': {
     address: '0x3A0EDdbAB2943C39B52D60e4871A034698dA5af0',
     image: '../static/logo/dbanner1_copy_1.svg',
-    price: 0.375
+    price: '108 MATIC'
   },
   '43113': {
     address: '0xc95252494ADd57CE68C1A7acB110A509E716aBf1',
     image: '../static/logo/dbanner1_copy_2_1.svg',
-    price: 0.375
+    price: '2 AVAX'
   },
   '80001': {
     address: '0x7EF144536Df082807612769Dd4F745e8E7f723c3',
     image: '../static/logo/dbanner1_copy_4_1.svg',
-    price: 0.375
+    price: '0.375 BNB'
   },
   '421611': {
     address: '0xBE9f85D85373A146D20d796Ea2dEC241aF42CB92',
     image: '../static/logo/JtpX95Rt_400x400-1.svg',
-    price: 0.05
+    price: '0.05 ETH'
   },
   '4002': {
     address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
     image: '../static/logo/dbanner1_copy_3_1.svg',
-    price: 2
+    price: '130 FTM'
   },
   '69': {
     address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
     image: '../static/logo/fantom-ftm-logo-1.svg',
-    price: 0.05
+    price: '0.05 ETH'
   }
 }
 
@@ -62,7 +62,7 @@ export default function Greg({networkId}) {
   const router = useRouter();
   const [mintNum, setMintNum] = useState(1);
   const [toChain, setToChain] = useState(1);
-  const [price, setPrice] = useState(250);
+  const [selectedNFT, setSelectedNFT] = useState(addresses['4']);
   const [netId, setNetId] = useState(4);
 
   const { library } = useActiveWeb3React();
@@ -118,7 +118,7 @@ export default function Greg({networkId}) {
 
   useEffect(() => {
     if(addresses[netId]) {
-      setPrice(addresses[netId].price);
+      setSelectedNFT(addresses[netId]);
     }
   }, [netId])
 
@@ -135,7 +135,7 @@ export default function Greg({networkId}) {
   }
 
   return (
-    <div className='w-full main'>
+    <div className='w-full main raleway'>
       <Head>
         <title>Omniverse DAO</title>
         <meta name='description' content='A homepage for Omniverse DAO'/>
@@ -156,8 +156,8 @@ export default function Greg({networkId}) {
             <p className='text-[15px] leading-[25px]'>5 mints per wallet, and once you mint your greg will replace the default greg to the left</p>
             <p className='text-[25px] leading-[25px] mt-[40px] font-bold'>0/4444 Minted</p>
             <div className='mt-[20px] flex gap-[5px]'>
-              <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{price} MATIC</p>
-              <img src='../static/polygon_logo.svg' />
+              <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{selectedNFT.price}</p>
+              <img src={selectedNFT.image} className='h-[40px]' />
               <p className='lg:text-[25px] text-[12px] leading-[25px]'>each.  ~ 2.7 AVAX</p>
             </div>
             <div className='mt-[20px] flex lg:flex-row flex-col gap-[30px] justify-between items-center'>
