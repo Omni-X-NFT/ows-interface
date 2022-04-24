@@ -16,7 +16,6 @@ export default function Home() {
         <title>Omniverse DAO</title>
         <meta name='description' content='A homepage for Omniverse DAO'/>
         <link rel='icon' href='/favicon.ico' />
-        <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" />
       </Head>
       <MainNav/>
       <div className='w-full h-screen flex flex-col justify-center items-center'>

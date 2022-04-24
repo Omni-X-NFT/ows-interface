@@ -59,7 +59,7 @@ const addresses = {
 export default function Greg({networkId}) {
   const { connector, chainId, activate, deactivate, error, account, active } = useWeb3React();
 
-  const router = useRouter()
+  const router = useRouter();
   const [mintNum, setMintNum] = useState(1);
   const [toChain, setToChain] = useState(1);
   const [price, setPrice] = useState(250);

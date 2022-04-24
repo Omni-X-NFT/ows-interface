@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
 const MainNav:React.FC = ({ setNetId, netId, addresses }) => {
-  
+
   const router = useRouter()
 
   return(
@@ -16,7 +16,7 @@ const MainNav:React.FC = ({ setNetId, netId, addresses }) => {
         </div>
         <div className='absolute flex w-[50px] right-[10px] h-full'>
           {
-            addresses[netId] && <img src={addresses[netId].image} className='w-[50px]' />
+            netId && (addresses[netId] && <img src={addresses[netId].image} className='w-[50px]' />)
           }
           <select className="block absolute top-[15px] w-[50px] appearance-none text-gray-700 py-3 px-4 pr-8 bg-transparent rounded-[10px] leading-tight focus:outline-none focus:border-gray-500" id="grid-state" onChange={e => setNetId(e.target.value)} value={netId}>
             <option value='4' data-img_src='../static/logo/ethereum-eth-logo-1.svg'>Rinkeby</option>
