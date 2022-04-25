@@ -6,13 +6,14 @@ import Footer from '../components/Footer'
 import Image from 'next/image'
 import omniLogo from '../static/omniverseLogoWhite.png'
 
-import AdvancedONT from '../services/abis/AdvancedONT.json';
+import AdvancedONT from '../services/abis/AdvancedONT.json'
 
-import { useActiveWeb3React } from '../hooks/useWeb3';
-import { getContract } from '../utils/contracts';
+import { useActiveWeb3React } from '../hooks/useWeb3'
+import { getContract } from '../utils/contracts'
 
-import { useWeb3React } from '@web3-react/core';
-import { InjectedConnector } from '@web3-react/injected-connector';
+import { useWeb3React } from '@web3-react/core'
+import { InjectedConnector } from '@web3-react/injected-connector'
+import { ethers } from 'ethers'
 
 const injected = new InjectedConnector({
   supportedChainIds: [4, 97, 43113, 80001, 421611, 4002, 69]
@@ -20,56 +21,70 @@ const injected = new InjectedConnector({
 
 const addresses = {
   '4': {
-    address: '0x864ba3671b20c2fd3fe90788189e52ef6d98fb65',
+    address: '0x30125C06a3D23877AC95ccc22505514833f183f8',
     image: '../static/logo/ethereum-eth-logo-1.svg',
-    price: '0.05 ETH'
+    name: 'etherscan',
+    price: 0.05,
+    unit: 'ETH'
   },
   '97': {
     address: '0x3A0EDdbAB2943C39B52D60e4871A034698dA5af0',
     image: '../static/logo/dbanner1_copy_1.svg',
-    price: '108 MATIC'
+    name: 'bscscan',
+    price: 108,
+    unit: 'MATIC'
   },
   '43113': {
-    address: '0xc95252494ADd57CE68C1A7acB110A509E716aBf1',
+    address: '0xDaA9a5107F8Ce4C4519818a5BC6d1428a99FeECF',
     image: '../static/logo/dbanner1_copy_2_1.svg',
-    price: '2 AVAX'
+    name: 'snowtrace',
+    price: 2,
+    unit: 'AVAX'
   },
   '80001': {
     address: '0x7EF144536Df082807612769Dd4F745e8E7f723c3',
     image: '../static/logo/dbanner1_copy_4_1.svg',
-    price: '0.375 BNB'
+    name: 'polygonscan',
+    price: 0.375,
+    unit: 'BNB'
   },
   '421611': {
     address: '0xBE9f85D85373A146D20d796Ea2dEC241aF42CB92',
     image: '../static/logo/JtpX95Rt_400x400-1.svg',
-    price: '0.05 ETH'
+    name: 'arbiscan',
+    price: 0.05,
+    unit: 'ETH'
   },
   '4002': {
     address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
     image: '../static/logo/dbanner1_copy_3_1.svg',
-    price: '130 FTM'
+    name: 'ftmscan',
+    price: 130,
+    unit: 'FTM'
   },
   '69': {
     address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
     image: '../static/logo/fantom-ftm-logo-1.svg',
-    price: '0.05 ETH'
+    name: 'kovan',
+    price: 0.05,
+    unit: 'ETH'
   }
 }
 
 export default function Greg({networkId}) {
-  const { connector, chainId, activate, deactivate, error, account, active } = useWeb3React();
+  const { connector, chainId, activate, deactivate, error, account, active } = useWeb3React()
 
-  const router = useRouter();
-  const [mintNum, setMintNum] = useState(1);
-  const [toChain, setToChain] = useState(1);
-  const [selectedNFT, setSelectedNFT] = useState(addresses['4']);
-  const [netId, setNetId] = useState(4);
+  const router = useRouter()
+  const [mintNum, setMintNum] = useState(1)
+  const [toChain, setToChain] = useState(1)
+  const [selectedNFT, setSelectedNFT] = useState(addresses['4'])
+  const [netId, setNetId] = useState(4)
 
-  const { library } = useActiveWeb3React();
+  const { library } = useActiveWeb3React()
 
   async function connect() {
     try {
-      await activate(injected);
+      await activate(injected)
     } catch (ex) {
       console.log("ex", ex)
     }
@@ -83,7 +98,7 @@ export default function Greg({networkId}) {
     }
   }
 
-  const accountEllipsis = account ? account : null;
+  const accountEllipsis = account ? account : null
 
   const decrease = () => {
     if(mintNum > 1) {
@@ -98,41 +113,56 @@ export default function Greg({networkId}) {
   }
 
   const checkConnect = () => {
-    if(!active) {
-      connect();
+    if(!addresses[chainId]) {
+      window.alert('Please select correct Network!')
+      return false
     }
-
-    // let enableChains = Object.keys(addresses);
-
-    // let flag = enableChains.filter(num => Number(num) == chainId);
-
-    // if(flag.length == 0) {
-    //   window.alert('Please select correct Network!');
-    //   return false;
-    // }
+    return true
   }
 
   useEffect(() => {
-    checkConnect();
-  }, [chainId, active])
-
-  useEffect(() => {
     if(addresses[netId]) {
-      setSelectedNFT(addresses[netId]);
+      setSelectedNFT(addresses[netId])
     }
   }, [netId])
 
   const mint = async () => {
-    const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account);
+    if(!checkConnect()) return
+    const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
 
-    let name = await tokenContract.mint(mintNum);
+    let mintResult
+
+    try {
+      if(chainId == '4') {
+        mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
+      }
+
+      if(chainId == '43113') {
+        // mintResult = await tokenContract.publicMint(mintNum)
+        mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
+      }
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   const sendNFT = async () => {
-    const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account);
-
-    let result = await tokenContract.sendNFT(Number(toChain), 0);
+    let result
+    try {
+      if(!checkConnect()) return
+      const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
+      // let result = await tokenContract.sendNFT(chainId, 3)
+      let result = await tokenContract.sendNFT(chainId, 3)
+    } catch (e) {
+      console.log(e)
+    }
   }
+
+  useEffect(() => {
+    if(!active) {
+      connect()
+    }
+  }, [netId])
 
   return (
     <div className='w-full main raleway'>
@@ -156,7 +186,7 @@ export default function Greg({networkId}) {
             <p className='text-[15px] leading-[25px]'>5 mints per wallet, and once you mint your greg will replace the default greg to the left</p>
             <p className='text-[25px] leading-[25px] mt-[40px] font-bold'>0/4444 Minted</p>
             <div className='mt-[20px] flex gap-[5px]'>
-              <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{selectedNFT.price}</p>
+              <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{selectedNFT.price + ' ' + selectedNFT.unit}</p>
               <img src={selectedNFT.image} className='h-[40px]' />
               <p className='lg:text-[25px] text-[12px] leading-[25px]'>each.  ~ 2.7 AVAX</p>
             </div>
@@ -223,13 +253,13 @@ export default function Greg({networkId}) {
           <p className='text-[15px] leading-[18px] m-0 text-center mt-[20px]'>Select Destination</p>
           <div className="relative mt-[20px]">
             <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-[10px] leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" value={toChain} onChange={(e) => setToChain(e.target.value)}>
-              <option value='1'>Rinkeby</option>
-              <option value='2'>Bscscan</option>
-              <option value='3'>Snowtrace</option>
-              <option value='4'>Polygonscan</option>
-              <option value='5'>Arbiscan</option>
-              <option value='6'>Ftmscan</option>
-              <option value='7'>Kovan</option>
+              <option value='4'>Rinkeby</option>
+              <option value='97'>Bscscan</option>
+              <option value='43113'>Snowtrace</option>
+              <option value='80001'>Polygonscan</option>
+              <option value='421611'>Arbiscan</option>
+              <option value='4002'>Ftmscan</option>
+              <option value='69'>Kovan</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
