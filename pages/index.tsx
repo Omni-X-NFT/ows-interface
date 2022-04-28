@@ -93,7 +93,7 @@ export default function Home() {
           <img src='../static/logo/fantom-ftm-logo-1.svg' />
         </div>
       </div>*/}
-      <div className='h-[200px] lg:block hidden'>
+      <div className='h-[200px]'>
       </div>
       <div className='xl:flex hidden flex-col items-center xl:pb-[220px] pb-[100px]'>
         <p className='lg:text-[50px] text-[25px] lg:leading-[120px] leading-[60px] m-0 text-white color text-center'>ROADMAP</p>
@@ -179,6 +179,190 @@ export default function Home() {
             </div>
             <div className='lg:w-[38%] w-4/5  absolute left-0 top-[20%]'>
               <p className='text-[30px] m-0 ml-[60px] uppercase leading-[50px] text-left'>Q4 2022</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='xl:hidden md:flex hidden flex-col items-center xl:pb-[220px] pb-[100px]'>
+        <p className='lg:text-[50px] text-[40px] lg:leading-[120px] leading-[60px] m-0 text-white color text-center'>ROADMAP</p>
+        <div className='mt-[250px] w-9/12 mx-auto'>
+          <div className='relative w-full h-full mb-[200px]'>
+            <div className='flex gap-[10px] mb-[20px] justify-center relative'>
+              <div className="absolute w-2/5 left-0 top-[-250px]">
+                <p className='text-[30px] ml-[15px] uppercase leading-[50px]'>Community & Core team Growth</p>
+                <p className='text-[20px] leading-[30px]'>Launched Socials and github launched to  establish, foster and grow community.</p>
+                <p className='text-[30px] ml-[15px] leading-[50px]'>Mar 2022</p>
+              </div>
+              <div className="absolute w-2/5 left-0 bottom-[0]">
+                <p className='text-[30px] ml-[15px] uppercase leading-[50px]'>Capital Raise</p>
+                <p className='text-[20px] leading-[30px]'>Expanded team and added core contributors to collaborate on development.</p>
+                <p className='text-[30px] ml-[15px] leading-[50px]'>APR 2022</p>
+              </div>
+              <div className="flex justify-end w-1/4 h-[450px] border-y-[1px] border-white skew-y-[20deg]">
+                <div className="w-[15%] h-[450px] bg-white">
+                </div>
+              </div>
+              <div className="flex justify-start w-1/4 h-[450px] skew-y-[-20deg]">
+                <div className="w-[15%] h-[450px] bg-white">
+                </div>
+              </div>
+            </div>
+            <div className='flex gap-[10px] mb-[20px] justify-center relative'>
+              <div className="absolute w-2/5 left-0 bottom-[0]">
+                <p className='text-[30px] ml-[15px] uppercase leading-[50px]'>GREG</p>
+                <p className='text-[20px] leading-[30px]'>Launch Website showcasing interchain nft asset transfer. <br/> Genesis omniverse greg omni-nft colection.</p>
+                <p className='text-[30px] ml-[15px] leading-[50px]'>MAY 2022</p>
+              </div>
+              <div className="flex justify-end w-1/4 h-[450px] border-b-[1px] border-white skew-y-[20deg]">
+                <div className="w-[15%] h-[450px] bg-[#8C8C8C]">
+                </div>
+              </div>
+              <div className="flex justify-start w-1/4 h-[450px] skew-y-[-20deg]">
+                <div className="w-[15%] h-[450px] bg-[#C4C4C4]">
+                </div>
+              </div>
+            </div>
+            <div className='flex gap-[10px] mb-[20px] justify-center relative'>
+              <div className="absolute w-2/5 left-0 bottom-[0]">
+                <p className='text-[30px] ml-[15px] uppercase leading-[50px]'>Omni X</p>
+                <p className='text-[20px] leading-[30px]'>Alpha NFT marketplace infrastructure release</p>
+                <p className='text-[30px] ml-[15px] leading-[50px]'>JUNE 2022</p>
+              </div>
+              <div className="flex justify-end w-1/4 h-[450px] border-b-[1px] border-white skew-y-[20deg]">
+                <div className="w-[15%] h-[450px] bg-[#8C8C8C]">
+                </div>
+              </div>
+              <div className="flex justify-start w-1/4 h-[450px] skew-y-[-20deg]">
+                <div className="w-[15%] h-[450px] bg-[#C4C4C4]">
+                </div>
+              </div>
+            </div>
+            <div className='flex gap-[10px] mb-[20px] justify-center relative'>
+              <div className="absolute w-2/5 left-0 bottom-[0]">
+                <p className='text-[30px] ml-[15px] uppercase leading-[50px]'>faction nfts</p>
+                <p className='text-[20px] leading-[30px]'>NFT PFP Collections: faction specific GENESIS collections. <br/>Engagement Competitions: rewards for world building, fan art, and lore production.</p>
+                <p className='text-[30px] ml-[15px] leading-[50px]'>Q3 2022</p>
+              </div>
+              <div className="flex justify-end w-1/4 h-[450px] border-b-[1px] border-white skew-y-[20deg]">
+                <div className="w-[15%] h-[450px] bg-[#8C8C8C]">
+                </div>
+              </div>
+              <div className="flex justify-start w-1/4 h-[450px] skew-y-[-20deg]">
+                <div className="w-[15%] h-[450px] bg-[#C4C4C4]">
+                </div>
+              </div>
+            </div>
+            <div className='flex gap-[10px] mb-[20px] justify-center relative'>
+              <div className="absolute w-2/5 left-0 bottom-[0]">
+                <p className='text-[30px] ml-[15px] uppercase leading-[50px]'>Omni Wars</p>
+                <p className='text-[20px] leading-[30px]'>Alpha gameplay launch</p>
+                <p className='text-[30px] ml-[15px] leading-[50px]'>Q4 2022</p>
+              </div>
+              <div className="flex justify-end w-1/4 h-[450px] border-b-[1px] border-white skew-y-[20deg]">
+                <div className="w-[15%] h-[450px] bg-[#8C8C8C]">
+                </div>
+              </div>
+              <div className="flex justify-start w-1/4 h-[450px] skew-y-[-20deg]">
+                <div className="w-[15%] h-[450px] bg-[#C4C4C4]">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='md:hidden flex flex-col items-center xl:pb-[220px] pb-[100px]'>
+        <p className='lg:text-[50px] text-[40px] lg:leading-[120px] leading-[60px] m-0 text-white color text-center'>ROADMAP</p>
+        <div className='mt-[250px] w-9/12 mx-auto'>
+          <div className='relative w-full h-full mb-[200px]'>
+            <div className='flex gap-[10px] mb-[20px] relative'>
+              <div className='w-1/6 flex gap-[10px]'>
+                <div className="flex justify-end w-2/4 h-[450px] skew-y-[20deg]">
+                  <div className="w-full h-[450px] bg-white">
+                  </div>
+                </div>
+                <div className="flex justify-start w-2/4 h-[450px] skew-y-[-20deg]">
+                  <div className="w-full h-[450px] bg-white">
+                  </div>
+                </div>
+              </div>
+              <div className="absolute w-4/6 right-0 top-[-200px]">
+                <p className='text-[30px] uppercase leading-[50px]'>Community & Core team Growth</p>
+                <p className='text-[20px] leading-[30px]'>Launched Socials and github launched to  establish, foster and grow community.</p>
+                <p className='text-[30px] leading-[50px]'>Mar 2022</p>
+              </div>
+              <div className="absolute w-4/6 right-0 bottom-[0]">
+                <p className='text-[30px] uppercase leading-[50px]'>Capital Raise</p>
+                <p className='text-[20px] leading-[30px]'>Expanded team and added core contributors to collaborate on development.</p>
+                <p className='text-[30px] leading-[50px]'>APR 2022</p>
+              </div>
+            </div>
+            <div className='flex gap-[10px] mb-[20px] relative'>
+              <div className='w-1/6 flex gap-[10px]'>
+                <div className="flex justify-end w-2/4 h-[450px] skew-y-[20deg]">
+                  <div className="w-full h-[450px] bg-[#8C8C8C]">
+                  </div>
+                </div>
+                <div className="flex justify-start w-2/4 h-[450px] skew-y-[-20deg]">
+                  <div className="w-full h-[450px] bg-[#C4C4C4]">
+                  </div>
+                </div>
+              </div>
+              <div className="absolute w-4/6 right-0 bottom-[0]">
+                <p className='text-[30px] uppercase leading-[50px]'>GREG</p>
+                <p className='text-[20px] leading-[30px]'>Launch Website showcasing interchain nft asset transfer. <br/> Genesis omniverse greg omni-nft colection.</p>
+                <p className='text-[30px] leading-[50px]'>MAY 2022</p>
+              </div>
+            </div>
+            <div className='flex gap-[10px] mb-[20px] relative'>
+              <div className='w-1/6 flex gap-[10px]'>
+                <div className="flex justify-end w-2/4 h-[450px] skew-y-[20deg]">
+                  <div className="w-full h-[450px] bg-[#8C8C8C]">
+                  </div>
+                </div>
+                <div className="flex justify-start w-2/4 h-[450px] skew-y-[-20deg]">
+                  <div className="w-full h-[450px] bg-[#C4C4C4]">
+                  </div>
+                </div>
+              </div>
+              <div className="absolute w-4/6 right-0 bottom-[0]">
+                <p className='text-[30px] uppercase leading-[50px]'>Omni X</p>
+                <p className='text-[20px] leading-[30px]'>Alpha NFT marketplace infrastructure release</p>
+                <p className='text-[30px] leading-[50px]'>JUNE 2022</p>
+              </div>
+            </div>
+            <div className='flex gap-[10px] mb-[20px] relative'>
+              <div className='w-1/6 flex gap-[10px]'>
+                <div className="flex justify-end w-2/4 h-[450px] skew-y-[20deg]">
+                  <div className="w-full h-[450px] bg-[#8C8C8C]">
+                  </div>
+                </div>
+                <div className="flex justify-start w-2/4 h-[450px] skew-y-[-20deg]">
+                  <div className="w-full h-[450px] bg-[#C4C4C4]">
+                  </div>
+                </div>
+              </div>
+              <div className="absolute w-4/6 right-0 bottom-[0]">
+                <p className='text-[30px] uppercase leading-[50px]'>faction nfts</p>
+                <p className='text-[20px] leading-[30px]'>NFT PFP Collections: faction specific GENESIS collections. <br/>Engagement Competitions: rewards for world building, fan art, and lore production.</p>
+                <p className='text-[30px] leading-[50px]'>Q3 2022</p>
+              </div>
+            </div>
+            <div className='flex gap-[10px] mb-[20px] relative'>
+              <div className='w-1/6 flex gap-[10px]'>
+                <div className="flex justify-end w-2/4 h-[450px] skew-y-[20deg]">
+                  <div className="w-full h-[450px] bg-[#8C8C8C]">
+                  </div>
+                </div>
+                <div className="flex justify-start w-2/4 h-[450px] skew-y-[-20deg]">
+                  <div className="w-full h-[450px] bg-[#C4C4C4]">
+                  </div>
+                </div>
+              </div>
+              <div className="absolute w-4/6 right-0 bottom-[0]">
+                <p className='text-[30px] uppercase leading-[50px]'>Omni Wars</p>
+                <p className='text-[20px] leading-[30px]'>Alpha gameplay launch</p>
+                <p className='text-[30px] leading-[50px]'>Q4 2022</p>
+              </div>
             </div>
           </div>
         </div>

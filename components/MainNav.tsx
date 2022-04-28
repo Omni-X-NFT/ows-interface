@@ -15,7 +15,7 @@ const MainNav:React.FC = ({ setNetId, netId, addresses = [] }) => {
   }
 
   return(
-    <div className='mainnavcorner h-[80px] abel'>
+    <div className='mainnavcorner h-[80px] abel z-10'>
       <div className='mainnav relative'>
         <div className='button-borders'>
           <button className='primary-button' onClick={() => router.push('/')}>OMNIVERSE</button>

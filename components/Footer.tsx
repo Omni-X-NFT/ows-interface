@@ -11,7 +11,7 @@ import logo from '../static/logo/omniverse-logo.svg'
 const Footer:React.FC = () => {
   return(
     <div className='footer flex justify-between h-[80px] py-[5px] px-5 fixed bottom-0 w-full abel'>
-      <Link href={'/'}>
+      <Link href='/' passHref>
         <div className='logo flex items-center cursor-pointer gap-[20px]'>
           <Image src={logo} className='w-[70px]' />
           <p className='text-[30px] leading-[50px]'>Omniverse </p>
@@ -19,25 +19,25 @@ const Footer:React.FC = () => {
       </Link>
       <ul className='gap-[30px] lg:flex items-center hidden'>
         <li>
-          <Link href={'/'}>
+          <Link href='/' passHref>
             <Image src={social1} className='cursor-pointer'>
             </Image>
           </Link>
         </li>
         <li>
-          <Link href={'/'}>
+          <Link href='/' passHref>
             <Image src={social2} className='cursor-pointer'>
             </Image>
           </Link>
         </li>
         <li>
-          <Link href={'/'}>
+          <Link href='/' passHref>
             <Image src={social3} className='cursor-pointer'>
             </Image>
           </Link>
         </li>
         <li>
-          <Link href={'/'}>
+          <Link href='/' passHref>
             <Image src={social4} className='cursor-pointer'>
             </Image>
           </Link>

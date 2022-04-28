@@ -18,55 +18,62 @@ import { ethers } from 'ethers'
 const injected = new InjectedConnector({
   supportedChainIds: [4, 97, 43113, 80001, 421611, 4002, 69]
 })
-
+// 10001, 10002, 10006, 10009, 10010, 10011, 10012
 const addresses = {
   '4': {
-    address: '0x30125C06a3D23877AC95ccc22505514833f183f8',
+    address: '0xe5B227D2b91225f37D742C44F1708FB8886Dc816',
     image: '../static/logo/ethereum-eth-logo-1.svg',
-    name: 'etherscan',
+    name: 'rinkeby',
     price: 0.05,
+    chainId: '10001',
     unit: 'ETH'
   },
   '97': {
-    address: '0x3A0EDdbAB2943C39B52D60e4871A034698dA5af0',
-    image: '../static/logo/dbanner1_copy_1.svg',
+    address: '0xe880C81E71acfc8d6f53b663A98676c52eec3Aa3',
+    image: '../static/logo/dbanner1_copy_4_1.svg',
     name: 'bscscan',
-    price: 108,
-    unit: 'MATIC'
+    price: 0.375,
+    chainId: '10002',
+    unit: 'BNB'
   },
   '43113': {
-    address: '0xDaA9a5107F8Ce4C4519818a5BC6d1428a99FeECF',
-    image: '../static/logo/dbanner1_copy_2_1.svg',
-    name: 'snowtrace',
+    address: '0x2ce33635c398c5C4D2864Baa870Cbd7E36060b26',
+    image: '../static/logo/dbanner1_copy_1.svg',
+    name: 'FUJI',
     price: 2,
+    chainId: '10006',
     unit: 'AVAX'
   },
   '80001': {
-    address: '0x7EF144536Df082807612769Dd4F745e8E7f723c3',
-    image: '../static/logo/dbanner1_copy_4_1.svg',
-    name: 'polygonscan',
-    price: 0.375,
-    unit: 'BNB'
+    address: '0x2E7D05Effb588EaFF8f3ae141B9462cef13cFddD',
+    image: '../static/logo/dbanner1_copy_3_1.svg',
+    name: 'Mumbai',
+    price: 108,
+    chainId: '10009',
+    unit: 'MATIC'
   },
   '421611': {
-    address: '0xBE9f85D85373A146D20d796Ea2dEC241aF42CB92',
-    image: '../static/logo/JtpX95Rt_400x400-1.svg',
-    name: 'arbiscan',
+    address: '0x580ce08aaD9e99cC2a124509F424795173fcB8FD',
+    image: '../static/logo/dbanner1_copy_2_1.svg',
+    name: 'Arbitrum',
     price: 0.05,
+    chainId: '10010',
     unit: 'ETH'
   },
   '4002': {
-    address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
-    image: '../static/logo/dbanner1_copy_3_1.svg',
-    name: 'ftmscan',
+    address: '0x8471371AeFDd6Ad7db1C93d97F07EeE2006b25E8',
+    image: '../static/logo/fantom-ftm-logo-1.svg',
+    name: 'Fantom',
     price: 130,
+    chainId: '10012',
     unit: 'FTM'
   },
   '69': {
-    address: '0x21c513573d63e6e0C1B7c7cF4f00549F5865DeB7',
-    image: '../static/logo/fantom-ftm-logo-1.svg',
-    name: 'kovan',
+    address: '0xfF6D4F31096988056611Eba104dBb70474a3C250',
+    image: '../static/logo/JtpX95Rt_400x400-1.svg',
+    name: 'Kovan',
     price: 0.05,
+    chainId: '10011',
     unit: 'ETH'
   }
 }
@@ -76,9 +83,10 @@ export default function Greg({networkId}) {
 
   const router = useRouter()
   const [mintNum, setMintNum] = useState(1)
-  const [toChain, setToChain] = useState(1)
+  const [toChain, setToChain] = useState('4')
   const [selectedNFT, setSelectedNFT] = useState(addresses['4'])
-  const [netId, setNetId] = useState(4)
+  const [selectedChainID, setSelectedChainID] = useState(addresses['4'])
+  const [netId, setNetId] = useState('4')
 
   const { library } = useActiveWeb3React()
 
@@ -113,7 +121,14 @@ export default function Greg({networkId}) {
   }
 
   const checkConnect = () => {
-    if(!addresses[chainId]) {
+    let keys = Object.keys(addresses)
+    let flag = keys.filter(item => {
+      if(item == chainId) {
+        return item;
+      }
+    })
+
+    if(flag.length == 0) {
       window.alert('Please select correct Network!')
       return false
     }
@@ -121,25 +136,33 @@ export default function Greg({networkId}) {
   }
 
   useEffect(() => {
-    if(addresses[netId]) {
-      setSelectedNFT(addresses[netId])
+    let keys = Object.keys(addresses)
+    let temp = '';
+    let flag = keys.filter(item => {
+      if(item == chainId) {
+        temp = item;
+        setSelectedChainID(item)
+        return item;
+      }
+    })
+    if(flag.length > 0) {
+      setSelectedNFT(addresses[temp])
     }
-  }, [netId])
+  }, [chainId])
 
   const mint = async () => {
     if(!checkConnect()) return
-    const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
+    const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT, library, account)
 
     let mintResult
 
     try {
-      if(chainId == '4') {
-        mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
-      }
+      // if(chainId == '4') {
+      //   mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
+      // }
 
-      if(chainId == '43113') {
-        // mintResult = await tokenContract.publicMint(mintNum)
-        mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
+      if(chainId == '43113' || chainId == '97') {
+        mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
       }
     } catch (e) {
       console.log(e)
@@ -150,9 +173,9 @@ export default function Greg({networkId}) {
     let result
     try {
       if(!checkConnect()) return
-      const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
+      const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT, library, account)
       // let result = await tokenContract.sendNFT(chainId, 3)
-      let result = await tokenContract.sendNFT(chainId, 3)
+      let result = await tokenContract.sendNFT(addresses[toChain].chainId, 1501, {value: ethers.utils.parseEther((addresses[toChain].price).toString())})
     } catch (e) {
       console.log(e)
     }
@@ -162,7 +185,7 @@ export default function Greg({networkId}) {
     if(!active) {
       connect()
     }
-  }, [netId])
+  }, [])
 
   return (
     <div className='w-full main raleway'>
@@ -188,7 +211,7 @@ export default function Greg({networkId}) {
             <div className='mt-[20px] flex gap-[5px]'>
               <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{selectedNFT.price + ' ' + selectedNFT.unit}</p>
               <img src={selectedNFT.image} className='h-[40px]' />
-              <p className='lg:text-[25px] text-[12px] leading-[25px]'>each.  ~ 2.7 AVAX</p>
+              {/*<p className='lg:text-[25px] text-[12px] leading-[25px]'>each.  ~ 2.7 AVAX</p>*/}
             </div>
             <div className='mt-[20px] flex lg:flex-row flex-col gap-[30px] justify-between items-center'>
               <div className='flex gap-[25px]'>
