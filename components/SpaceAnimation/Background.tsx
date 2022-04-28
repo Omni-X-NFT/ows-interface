@@ -19,7 +19,7 @@ function Background() {
     float Cell(vec2 c) {
       vec2 uv = fract(c);
       c -= uv;
-      return (1.-length(uv*10.-1.)) * step(fract(sin(c.x+c.y*1e2)*1e3), .04);
+      return (1.-length(uv*7.-1.)) * step(fract(sin(c.x+c.y*1e2)*1e3), .04);
     }
   
     void main() {
