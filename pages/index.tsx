@@ -5,6 +5,14 @@ import MainNav from '../components/MainNav'
 import Footer from '../components/Footer'
 import Image from 'next/image'
 import omniLogo from '../static/omniverseLogoWhite.png'
+import dynamic from "next/dynamic";
+import Link from "next/dist/client/link";
+import SpaceAnimation from '../components/SpaceAnimation'
+
+
+// const Background = dynamic(
+//   () => import("../components/Background")
+// );
 
 export default function Home() {
 
@@ -12,6 +20,8 @@ export default function Home() {
 
   return (
     <div className='w-full main'>
+      <SpaceAnimation/>
+      <div> 
       <Head>
         <title>Omniverse DAO</title>
         <meta name='description' content='A homepage for Omniverse DAO'/>
@@ -182,6 +192,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+      </div>
     </div>
   )
 }

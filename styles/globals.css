@@ -16,6 +16,7 @@ html {
 
 p {
     @apply my-3;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .mainnavcorner {
@@ -97,9 +98,22 @@ p {
 }
 
 .main {
-    background-image: url('../static/bg-img/space.svg');
-    background-size: 100% auto;
+    /* background-image: url('../static/bg-img/space.svg');
+    background-size: 100% auto; */
     color: white;
+    position: relative;
+
+
+    
+}
+
+.space {
+ background-size: 100% auto;
+ width:100%;
+ height: 100%;
+ position: fixed;
+ /* position: relative; */
+ z-index: -1;
 }
 
 .footer {
