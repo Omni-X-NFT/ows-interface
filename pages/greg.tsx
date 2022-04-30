@@ -87,6 +87,8 @@ export default function Greg({networkId}) {
   const [selectedNFT, setSelectedNFT] = useState(addresses['4'])
   const [selectedChainID, setSelectedChainID] = useState(addresses['4'])
   const [netId, setNetId] = useState('4')
+  const [ownToken, setOwnToken] = useState([])
+  const [transferNFT, setTransferNFT] = useState()
 
   const { library } = useActiveWeb3React()
 
@@ -148,21 +150,24 @@ export default function Greg({networkId}) {
     if(flag.length > 0) {
       setSelectedNFT(addresses[temp])
     }
+
+    getTokens();
   }, [chainId])
 
   const mint = async () => {
     if(!checkConnect()) return
     const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT, library, account)
 
-    let mintResult
+    let mintResult;
 
     try {
-      // if(chainId == '4') {
-      //   mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
-      // }
+      let publicmintFlag = await tokenContract._publicSaleStarted();
+      let saleFlag = await tokenContract._saleStarted();
 
-      if(chainId == '43113' || chainId == '97') {
+      if(saleFlag && publicmintFlag) {
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
+      } else if (saleFlag) {
+        mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
       }
     } catch (e) {
       console.log(e)
@@ -170,14 +175,32 @@ export default function Greg({networkId}) {
   }
 
   const sendNFT = async () => {
-    let result
+    if(!transferNFT){
+      window.alert("Select NFT you want to transfer, please.")
+      return;
+    }
     try {
       if(!checkConnect()) return
       const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT, library, account)
-      // let result = await tokenContract.sendNFT(chainId, 3)
-      let result = await tokenContract.sendNFT(addresses[toChain].chainId, 1501, {value: ethers.utils.parseEther((addresses[toChain].price).toString())})
+
+      let result = await tokenContract.sendNFT(addresses[toChain].chainId, transferNFT, {value: ethers.utils.parseEther((addresses[toChain].price).toString())})
     } catch (e) {
       console.log(e)
+    }
+  }
+
+  const getTokens = async () => {
+    if(addresses[chainId]) {
+      const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
+
+      let result = await tokenContract.balanceOf(account);
+      let token, tokenlist = [];
+      for (var i = 0; i < Number(result); i++) {
+        token = await tokenContract.tokenOfOwnerByIndex(account, i);
+        tokenlist.push(Number(token));
+      }
+
+      setOwnToken(tokenlist);
     }
   }
 
@@ -224,7 +247,7 @@ export default function Greg({networkId}) {
                 </button>
               </div>
               <button className='bg-[#E84142] px-[30px] py-[8px] rounded-[5px]' onClick={mint}>
-                Mint from Avalanche
+                Mint
               </button>
             </div>
           </div>
@@ -234,41 +257,15 @@ export default function Greg({networkId}) {
       <div className='flex lg:flex-row flex-col w-5/6 max-w-[1200px] min-w-[320px] mx-auto gap-[50px] xl:pb-[220px] pb-[100px]'>
         <div className='rounded-[25px] lg:w-3/4 w-full bg-black p-[30px]'>
           <p className='text-[25px] leading-[30px] font-bold m-0'>Your gregs</p>
-          <div className='w-full gap-[20px] flex md:flex-row flex-col'>
-            <div className='md:w-1/4 w-full my-[20px] flex flex-col items-center'>
-              <img src='../static/nft.svg' />
-              <p className='font-medium text-[25px] leading-[30px] text-center'>greg #1234</p>
-            </div>
-            <div className='md:w-1/4 w-full my-[20px] flex flex-col items-center'>
-              <img src='../static/nft.svg' />
-              <p className='font-medium text-[25px] leading-[30px] text-center'>greg #4120</p>
-            </div>
-            <div className='md:w-1/4 w-full my-[20px] flex flex-col items-center'>
-              <img src='../static/nft.svg' />
-              <p className='font-medium text-[25px] leading-[30px] text-center'>greg #0001</p>
-            </div>
-            <div className='md:w-1/4 w-full my-[20px] flex flex-col items-center'>
-              <img src='../static/nft.svg' />
-              <p className='font-medium text-[25px] leading-[30px] text-center'>greg #3123</p>
-            </div>
-          </div>
-          <div className='w-full gap-[20px] flex md:flex-row flex-col'>
-            <div className='md:w-1/4 w-full my-[20px] flex flex-col items-center'>
-              <img src='../static/nft.svg' />
-              <p className='font-medium text-[25px] leading-[30px] text-center'>greg #1234</p>
-            </div>
-            <div className='md:w-1/4 w-full my-[20px] flex flex-col items-center'>
-              <img src='../static/nft.svg' />
-              <p className='font-medium text-[25px] leading-[30px] text-center'>greg #4120</p>
-            </div>
-            <div className='md:w-1/4 w-full my-[20px] flex flex-col items-center'>
-              <img src='../static/nft.svg' />
-              <p className='font-medium text-[25px] leading-[30px] text-center'>greg #0001</p>
-            </div>
-            <div className='md:w-1/4 w-full my-[20px] flex flex-col items-center'>
-              <img src='../static/nft.svg' />
-              <p className='font-medium text-[25px] leading-[30px] text-center'>greg #3123</p>
-            </div>
+          <div className='w-full gap-[20px] grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1'>
+            {
+              ownToken.map(item => (
+                <div className={transferNFT == item ? 'w-full my-[20px] flex flex-col items-center border-[2px] rounded-[10px]' : 'w-full my-[20px] flex flex-col items-center'} onClick={() => setTransferNFT(item)}>
+                  <img src='../static/nft.svg' />
+                  <p className='font-medium text-[25px] leading-[30px] text-center'>greg #{item}</p>
+                </div>
+              ))
+            }
           </div>
         </div>
         <div className='rounded-[25px] lg:w-1/4 w-full bg-black p-[30px] h-[400px] relative'>

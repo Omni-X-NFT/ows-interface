@@ -22,7 +22,9 @@ export default function Home() {
         <p className='m-0 text-[20px] leading-[23px]'>ENTER THE</p>
         <p className='m-0 text-[40px] md:text-[100px] leading-[120px]'>OMNIVERSE</p>
         <a href='#overview'>
-          <button className='bg-white text-black w-[231px] h-[61px] mt-[23px]'>Explore</button>
+          <div className='button-borders explorer w-[231px] h-[61px]'>
+            <button className='primary-button explorer-button w-full h-full'>Explore</button>
+          </div>
         </a>
       </div>
       <div className='w-full items-center flex-col pt-[150px]' id='overview'>
@@ -95,7 +97,7 @@ export default function Home() {
       </div>*/}
       <div className='h-[200px]'>
       </div>
-      <div className='xl:flex hidden flex-col items-center xl:pb-[220px] pb-[100px]'>
+      <div className='xl:flex hidden flex-col items-center xl:pb-[220px] pb-[100px] uppercase'>
         <p className='lg:text-[50px] text-[25px] lg:leading-[120px] leading-[60px] m-0 text-white color text-center'>ROADMAP</p>
         <div className='lg:mt-[105px] mt-[20px] w-9/12 mx-auto'>
           <div className='relative w-full h-[240px]'>
@@ -135,7 +137,7 @@ export default function Home() {
               <img className='absolute bottom-[5px] left-[51%]' src='../static/road_map/line-right-grey.svg' />
             </div>
             <div className='lg:w-[38%] w-4/5  absolute right-0 top-[20%]'>
-              <p className='text-[30px] m-0 mr-[60px] leading-[50px] text-right'>Mar 2022</p>
+              <p className='text-[30px] m-0 mr-[60px] leading-[50px] text-right'>May 2022</p>
             </div>
             <div className='lg:w-[38%] w-4/5  absolute left-0 bottom-0'>
               <p className='text-[30px] m-0 uppercase leading-[50px] lg:text-right'>Omni X</p>
@@ -183,7 +185,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className='xl:hidden md:flex hidden flex-col items-center xl:pb-[220px] pb-[100px]'>
+      <div className='xl:hidden md:flex hidden flex-col items-center xl:pb-[220px] pb-[100px] uppercase'>
         <p className='lg:text-[50px] text-[40px] lg:leading-[120px] leading-[60px] m-0 text-white color text-center'>ROADMAP</p>
         <div className='mt-[250px] w-9/12 mx-auto'>
           <div className='relative w-full h-full mb-[200px]'>
@@ -270,7 +272,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className='md:hidden flex flex-col items-center xl:pb-[220px] pb-[100px]'>
+      <div className='md:hidden flex flex-col items-center xl:pb-[220px] pb-[100px] uppercase'>
         <p className='lg:text-[50px] text-[40px] lg:leading-[120px] leading-[60px] m-0 text-white color text-center'>ROADMAP</p>
         <div className='mt-[250px] w-9/12 mx-auto'>
           <div className='relative w-full h-full mb-[200px]'>
