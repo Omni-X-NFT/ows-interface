@@ -89,6 +89,8 @@ export default function Greg({networkId}) {
   const [netId, setNetId] = useState('4')
   const [ownToken, setOwnToken] = useState([])
   const [transferNFT, setTransferNFT] = useState()
+  const [totalNFTCount, setTotalNFTCount] = useState(0)
+  const [nextTokenId, setNextTokenId] = useState(0)
 
   const { library } = useActiveWeb3React()
 
@@ -168,6 +170,8 @@ export default function Greg({networkId}) {
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
       } else if (saleFlag) {
         mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
+      } else {
+        window.alert("Sale is not started yet.")
       }
     } catch (e) {
       console.log(e)
@@ -183,7 +187,17 @@ export default function Greg({networkId}) {
       if(!checkConnect()) return
       const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT, library, account)
 
+      const estimateFee = await tokenContract.estimateFeesSendNFT(addresses[toChain].chainId, transferNFT)
+      const currentBalance = await library.getBalance(account);
+
+      if(Number(estimateFee) > Number(currentBalance)) {
+        window.alert("You don't have enough balance for transfer.");
+        return;
+      }
+
       let result = await tokenContract.sendNFT(addresses[toChain].chainId, transferNFT, {value: ethers.utils.parseEther((addresses[toChain].price).toString())})
+
+      getTokens();
     } catch (e) {
       console.log(e)
     }
@@ -201,6 +215,12 @@ export default function Greg({networkId}) {
       }
 
       setOwnToken(tokenlist);
+
+      let max_mint = await tokenContract.MAX_MINT();
+      let nextId = await tokenContract.nextTokenId();
+
+      setTotalNFTCount(Number(max_mint));
+      setNextTokenId(Number(nextId));
     }
   }
 
@@ -230,7 +250,7 @@ export default function Greg({networkId}) {
             <p className='text-[15px] leading-[25px]'>greg is our genesis collection that represents our community and technological breakthroughs</p>
             <p className='text-[15px] leading-[25px]'>mint greg below from any chain you wish and transfer him to any other chain using the “Transfer” box below</p>
             <p className='text-[15px] leading-[25px]'>5 mints per wallet, and once you mint your greg will replace the default greg to the left</p>
-            <p className='text-[25px] leading-[25px] mt-[40px] font-bold'>0/4444 Minted</p>
+            <p className='text-[25px] leading-[25px] mt-[40px] font-bold'>{nextTokenId}/{totalNFTCount} Minted</p>
             <div className='mt-[20px] flex gap-[5px]'>
               <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{selectedNFT.price + ' ' + selectedNFT.unit}</p>
               <img src={selectedNFT.image} className='h-[40px]' />
@@ -260,7 +280,7 @@ export default function Greg({networkId}) {
           <div className='w-full gap-[20px] grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1'>
             {
               ownToken.map(item => (
-                <div className={transferNFT == item ? 'w-full my-[20px] flex flex-col items-center border-[2px] rounded-[10px]' : 'w-full my-[20px] flex flex-col items-center'} onClick={() => setTransferNFT(item)}>
+                <div className={transferNFT == item ? 'w-full my-[20px] flex flex-col items-center border-[2px] rounded-[10px]' : 'w-full my-[20px] flex flex-col items-center'} onClick={() => setTransferNFT(item)} key={item}>
                   <img src='../static/nft.svg' />
                   <p className='font-medium text-[25px] leading-[30px] text-center'>greg #{item}</p>
                 </div>
