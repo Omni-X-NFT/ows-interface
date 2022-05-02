@@ -78,79 +78,6 @@ const addresses = {
   }
 }
 
-const networkRPCinfos = {
-  '4': {
-    chainId: '0x04', 
-    chainName:'Rinkeby Test Network',
-    rpcUrls:['https://rinkeby.infura.io/v3/'],
-    blockExplorerUrls:['https://rinkeby.etherscan.io'],  
-    nativeCurrency: {
-      symbol:'ETH',   
-      decimals: 18
-    }
-  },
-  '97': {
-    chainId: '0x61', 
-    chainName:'Smart Chain - Testnet',
-    rpcUrls:['https://data-seed-prebsc-1-s1.binance.org:8545'],
-    blockExplorerUrls:['https://testnet.bscscan.com'],  
-    nativeCurrency: {
-      symbol:'BNB',   
-      decimals: 18
-    }
-  },
-  '43113': {
-    chainId: '0xA869', 
-    chainName:'Avalanche Testnet',
-    rpcUrls:['https://api.avax-test.network/ext/bc/C/rpc'],
-    blockExplorerUrls:['https://testnet.snowtrace.io'],  
-    nativeCurrency: {
-      symbol:'AVAX',   
-      decimals: 18
-    }
-  },
-  '80001': {
-    chainId: '0x13881', 
-    chainName:'Polygon Testnet',
-    rpcUrls:['https://matic-mumbai.chainstacklabs.com'],
-    blockExplorerUrls:['https://mumbai.polygonscan.com/'],  
-    nativeCurrency: {
-      symbol:'MATIC',   
-      decimals: 18
-    }
-  },
-  '421611': {
-    chainId: '0x66EEB', 
-    chainName:'Arbitrum Testnet',
-    rpcUrls:['https://rinkeby.arbitrum.io/rpc'],
-    blockExplorerUrls:['https://testnet.arbiscan.io/'],  
-    nativeCurrency: {
-      symbol:'ETH',   
-      decimals: 18
-    }
-  },
-  '4002': {
-    chainId: '0xFA2', 
-    chainName:'Fantom Testnet',
-    rpcUrls:['https://rpc.testnet.fantom.network'],
-    blockExplorerUrls:['https://testnet.ftmscan.com'],  
-    nativeCurrency: {
-      symbol:'FTM',   
-      decimals: 18
-    }
-  },
-  '69': {
-    chainId: '0x45', 
-    chainName:'Optimistic Ethereum Testnet Kovan',
-    rpcUrls:['https://kovan.optimism.io/'],
-    blockExplorerUrls:['https://kovan-optimistic.etherscan.io/'],  
-    nativeCurrency: {
-      symbol:'ETH',   
-      decimals: 18
-    }
-  }
-}
-
 export default function Greg() {
   const { connector, chainId, activate, deactivate, error, account, active } = useWeb3React()
 
@@ -272,7 +199,7 @@ export default function Greg() {
         return;
       }
 
-      let result = await tokenContract.sendNFT(addresses[toChain].chainId, transferNFT, {value: ethers.utils.parseEther((addresses[toChain].price).toString())})
+      let result = await tokenContract.sendNFT(addresses[toChain].chainId, transferNFT, {value: Number(estimateFee)})
 
       getInfo();
     } catch (e) {
@@ -305,9 +232,11 @@ export default function Greg() {
     const provider = window.ethereum;
     try {
       await provider.request({
-        method: 'wallet_addEthereumChain',
+        method: 'wallet_switchEthereumChain',
         params: [
-          networkRPCinfos[netId]
+          {
+            chainId: `0x${Number(netId).toString(16)}`,
+          }
         ]      
       });
     } catch (addError) {
@@ -380,7 +309,17 @@ export default function Greg() {
                     <img src='../static/nft.svg' className='w-[100px]' />
                     <p className='font-medium text-[25px] leading-[30px] text-center'>greg #{item}</p>
                   </div>
-                  <img src={transferNFT == item ? '../static/checked.svg' : '../static/unchecked.svg'} />
+                  {
+                    transferNFT == item ?
+                      <div className='w-[28px] h-[28px] relative flex items-center justify-center'>
+                        <img src='../static/check.svg' className='absolute' />
+                        <img src='../static/checked.svg' />
+                      </div>
+                    :
+                      <div className='w-[28px] h-[28px] relative'>
+                        <img src='../static/unchecked.svg' />
+                      </div>
+                  }
                 </div>
               ))
             }

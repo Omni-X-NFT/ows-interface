@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "set PORT=5000 && next dev",
+    "dev": "set PORT=5001 && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx"
