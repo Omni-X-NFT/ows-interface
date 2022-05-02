@@ -371,13 +371,16 @@ export default function Greg() {
 
       <div className='flex lg:flex-row flex-col w-5/6 max-w-[1200px] min-w-[320px] mx-auto gap-[50px] xl:pb-[220px] pb-[100px]'>
         <div className='rounded-[25px] lg:w-3/4 w-full bg-black p-[30px]'>
-          <p className='text-[25px] leading-[30px] font-bold m-0'>Your gregs</p>
-          <div className='w-full gap-[20px] grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1'>
+          <p className='text-[25px] leading-[30px] font-bold m-0 text-center'>Your NFTs</p>
+          <div className='w-full gap-[20px] flex flex-col'>
             {
               ownToken.map(item => (
-                <div className={transferNFT == item ? 'w-full my-[20px] flex flex-col items-center border-[2px] rounded-[10px]' : 'w-full my-[20px] flex flex-col items-center'} onClick={() => setTransferNFT(item)} key={item}>
-                  <img src='../static/nft.svg' />
-                  <p className='font-medium text-[25px] leading-[30px] text-center'>greg #{item}</p>
+                <div className='w-full my-[20px] flex items-center justify-between' onClick={() => setTransferNFT(item)} key={item}>
+                  <div className='flex items-center'>
+                    <img src='../static/nft.svg' className='w-[100px]' />
+                    <p className='font-medium text-[25px] leading-[30px] text-center'>greg #{item}</p>
+                  </div>
+                  <img src={transferNFT == item ? '../static/checked.svg' : '../static/unchecked.svg'} />
                 </div>
               ))
             }
