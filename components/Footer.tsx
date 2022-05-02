@@ -5,6 +5,7 @@ import social1 from '../static/social/social-1.svg'
 import social2 from '../static/social/social-2.svg'
 import social3 from '../static/social/social-3.svg'
 import social4 from '../static/social/social-4.svg'
+import social5 from '../static/social/social-5.svg'
 
 import logo from '../static/logo/omniverse-logo.svg'
 
@@ -18,6 +19,12 @@ const Footer:React.FC = () => {
         </div>
       </Link>
       <ul className='gap-[30px] lg:flex items-center hidden'>
+        <li>
+          <Link href='/' passHref>
+            <Image src={social5} className='cursor-pointer'>
+            </Image>
+          </Link>
+        </li>
         <li>
           <Link href='/' passHref>
             <Image src={social1} className='cursor-pointer'>

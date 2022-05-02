@@ -18,7 +18,7 @@ import { ethers } from 'ethers'
 const injected = new InjectedConnector({
   supportedChainIds: [4, 97, 43113, 80001, 421611, 4002, 69]
 })
-// 10001, 10002, 10006, 10009, 10010, 10011, 10012
+
 const addresses = {
   '4': {
     address: '0xe5B227D2b91225f37D742C44F1708FB8886Dc816',
@@ -78,7 +78,80 @@ const addresses = {
   }
 }
 
-export default function Greg({networkId}) {
+const networkRPCinfos = {
+  '4': {
+    chainId: '0x04', 
+    chainName:'Rinkeby Test Network',
+    rpcUrls:['https://rinkeby.infura.io/v3/'],
+    blockExplorerUrls:['https://rinkeby.etherscan.io'],  
+    nativeCurrency: {
+      symbol:'ETH',   
+      decimals: 18
+    }
+  },
+  '97': {
+    chainId: '0x61', 
+    chainName:'Smart Chain - Testnet',
+    rpcUrls:['https://data-seed-prebsc-1-s1.binance.org:8545'],
+    blockExplorerUrls:['https://testnet.bscscan.com'],  
+    nativeCurrency: {
+      symbol:'BNB',   
+      decimals: 18
+    }
+  },
+  '43113': {
+    chainId: '0xA869', 
+    chainName:'Avalanche Testnet',
+    rpcUrls:['https://api.avax-test.network/ext/bc/C/rpc'],
+    blockExplorerUrls:['https://testnet.snowtrace.io'],  
+    nativeCurrency: {
+      symbol:'AVAX',   
+      decimals: 18
+    }
+  },
+  '80001': {
+    chainId: '0x13881', 
+    chainName:'Polygon Testnet',
+    rpcUrls:['https://matic-mumbai.chainstacklabs.com'],
+    blockExplorerUrls:['https://mumbai.polygonscan.com/'],  
+    nativeCurrency: {
+      symbol:'MATIC',   
+      decimals: 18
+    }
+  },
+  '421611': {
+    chainId: '0x66EEB', 
+    chainName:'Arbitrum Testnet',
+    rpcUrls:['https://rinkeby.arbitrum.io/rpc'],
+    blockExplorerUrls:['https://testnet.arbiscan.io/'],  
+    nativeCurrency: {
+      symbol:'ETH',   
+      decimals: 18
+    }
+  },
+  '4002': {
+    chainId: '0xFA2', 
+    chainName:'Fantom Testnet',
+    rpcUrls:['https://rpc.testnet.fantom.network'],
+    blockExplorerUrls:['https://testnet.ftmscan.com'],  
+    nativeCurrency: {
+      symbol:'FTM',   
+      decimals: 18
+    }
+  },
+  '69': {
+    chainId: '0x45', 
+    chainName:'Optimistic Ethereum Testnet Kovan',
+    rpcUrls:['https://kovan.optimism.io/'],
+    blockExplorerUrls:['https://kovan-optimistic.etherscan.io/'],  
+    nativeCurrency: {
+      symbol:'ETH',   
+      decimals: 18
+    }
+  }
+}
+
+export default function Greg() {
   const { connector, chainId, activate, deactivate, error, account, active } = useWeb3React()
 
   const router = useRouter()
@@ -152,8 +225,8 @@ export default function Greg({networkId}) {
     if(flag.length > 0) {
       setSelectedNFT(addresses[temp])
     }
-
-    getTokens();
+    setNetId(chainId);
+    getInfo();
   }, [chainId])
 
   const mint = async () => {
@@ -168,8 +241,12 @@ export default function Greg({networkId}) {
 
       if(saleFlag && publicmintFlag) {
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
+
+        getInfo();
       } else if (saleFlag) {
         mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
+
+        getInfo();
       } else {
         window.alert("Sale is not started yet.")
       }
@@ -197,13 +274,13 @@ export default function Greg({networkId}) {
 
       let result = await tokenContract.sendNFT(addresses[toChain].chainId, transferNFT, {value: ethers.utils.parseEther((addresses[toChain].price).toString())})
 
-      getTokens();
+      getInfo();
     } catch (e) {
       console.log(e)
     }
   }
 
-  const getTokens = async () => {
+  const getInfo = async () => {
     if(addresses[chainId]) {
       const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
 
@@ -224,11 +301,29 @@ export default function Greg({networkId}) {
     }
   }
 
+  const switchNetwork = async () => {
+    const provider = window.ethereum;
+    try {
+      await provider.request({
+        method: 'wallet_addEthereumChain',
+        params: [
+          networkRPCinfos[netId]
+        ]      
+      });
+    } catch (addError) {
+       console.log(addError);
+    }
+  }
+
   useEffect(() => {
     if(!active) {
       connect()
     }
   }, [])
+
+  useEffect(() => {
+    switchNetwork()
+  }, [netId])
 
   return (
     <div className='w-full main raleway'>
