@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
-const MainNav:React.FC = ({ setNetId, netId, addresses = [] }) => {
+type Props = {
+  addresses: any
+  setNetId: (arg: string) => void
+  netId: string
+}
 
+const MainNav:React.FC<Props> = ({ setNetId, netId, addresses = [] }) => {
   const router = useRouter()
   const [show, setShow] = useState(false)
 
   let keys = Object.keys(addresses)
 
   const toggleModal = () => setShow(!show);
-  const selectItem = (item) => {
+  const selectItem = (item: string) => {
     setNetId(item)
     toggleModal();
   }

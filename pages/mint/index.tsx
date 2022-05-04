@@ -1,4 +1,4 @@
-import MainNav from '../../components/MainNav'
+import HomeNav from '../../components/HomeNav'
 import Head from 'next/head'
 
 export default function Mint() {
@@ -7,9 +7,9 @@ export default function Mint() {
       <Head>
         <title>Omniverse DAO Minting</title>
         <meta name='description' content='A minting page for Omniverse DAO'/>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/static/favicon.ico' />
       </Head>
-      <MainNav/>
+      <HomeNav/>
     </div>
   )
 }

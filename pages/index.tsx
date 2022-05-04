@@ -1,13 +1,12 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import MainNav from '../components/MainNav'
+import HomeNav from '../components/HomeNav'
 import Footer from '../components/Footer'
 import Image from 'next/image'
 import omniLogo from '../static/omniverseLogoWhite.png'
 
 export default function Home() {
-
   const router = useRouter()
 
   return (
@@ -15,9 +14,9 @@ export default function Home() {
       <Head>
         <title>Omniverse DAO</title>
         <meta name='description' content='A homepage for Omniverse DAO'/>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/static/favicon.ico' />
       </Head>
-      <MainNav/>
+      <HomeNav/>
       <div className='w-full h-screen flex flex-col justify-center items-center'>
         <p className='m-0 text-[20px] leading-[23px]'>ENTER THE</p>
         <p className='m-0 text-[40px] md:text-[100px] leading-[120px]'>OMNIVERSE</p>

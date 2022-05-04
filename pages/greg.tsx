@@ -19,7 +19,11 @@ const injected = new InjectedConnector({
   supportedChainIds: [4, 97, 43113, 80001, 421611, 4002, 69]
 })
 
-const addresses = {
+type ObjectType = any
+
+declare let window: any
+
+const addresses:ObjectType = {
   '4': {
     address: '0xe5B227D2b91225f37D742C44F1708FB8886Dc816',
     image: '../static/logo/ethereum-eth-logo-1.svg',
@@ -85,9 +89,9 @@ export default function Greg() {
   const [mintNum, setMintNum] = useState(1)
   const [toChain, setToChain] = useState('4')
   const [selectedNFT, setSelectedNFT] = useState(addresses['4'])
-  const [selectedChainID, setSelectedChainID] = useState(addresses['4'])
-  const [netId, setNetId] = useState('4')
-  const [ownToken, setOwnToken] = useState([])
+  const [selectedChainID, setSelectedChainID] = useState('4')
+  const [netId, setNetId] = useState('')
+  const [ownToken, setOwnToken] = useState<any[]>()
   const [transferNFT, setTransferNFT] = useState()
   const [totalNFTCount, setTotalNFTCount] = useState(0)
   const [nextTokenId, setNextTokenId] = useState(0)
@@ -127,8 +131,8 @@ export default function Greg() {
   const checkConnect = () => {
     let keys = Object.keys(addresses)
     let flag = keys.filter(item => {
-      if(item == chainId) {
-        return item;
+      if(Number(item) == chainId) {
+        return item
       }
     })
 
@@ -141,35 +145,35 @@ export default function Greg() {
 
   useEffect(() => {
     let keys = Object.keys(addresses)
-    let temp = '';
+    let temp = ''
     let flag = keys.filter(item => {
-      if(item == chainId) {
+      if(Number(item) == chainId) {
         temp = item;
         setSelectedChainID(item)
         return item;
       }
     })
     if(flag.length > 0) {
-      setSelectedNFT(addresses[temp])
+      setSelectedNFT(addresses[temp as keyof ObjectType])
     }
-    setNetId(chainId);
-    getInfo();
+    setNetId(chainId !== undefined ? chainId.toString() : '')
+    getInfo()
   }, [chainId])
 
   const mint = async () => {
     if(!checkConnect()) return
     const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT, library, account)
 
-    let mintResult;
+    let mintResult
 
     try {
-      let publicmintFlag = await tokenContract._publicSaleStarted();
-      let saleFlag = await tokenContract._saleStarted();
+      let publicmintFlag = await tokenContract._publicSaleStarted()
+      let saleFlag = await tokenContract._saleStarted()
 
       if(saleFlag && publicmintFlag) {
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
 
-        getInfo();
+        getInfo()
       } else if (saleFlag) {
         mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
 
@@ -192,10 +196,10 @@ export default function Greg() {
       const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT, library, account)
 
       const estimateFee = await tokenContract.estimateFeesSendNFT(addresses[toChain].chainId, transferNFT)
-      const currentBalance = await library.getBalance(account);
+      const currentBalance = await library.getBalance(account)
 
       if(Number(estimateFee) > Number(currentBalance)) {
-        window.alert("You don't have enough balance for transfer.");
+        window.alert("You don't have enough balance for transfer.")
         return;
       }
 
@@ -208,28 +212,30 @@ export default function Greg() {
   }
 
   const getInfo = async () => {
-    if(addresses[chainId]) {
-      const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
+    if(chainId !== undefined) {
+      if(addresses[chainId]) {
+        const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
 
-      let result = await tokenContract.balanceOf(account);
-      let token, tokenlist = [];
-      for (var i = 0; i < Number(result); i++) {
-        token = await tokenContract.tokenOfOwnerByIndex(account, i);
-        tokenlist.push(Number(token));
+        let result = await tokenContract.balanceOf(account)
+        let token, tokenlist = [-1]
+        for (let i = 0; i < Number(result); i++) {
+          token = await tokenContract.tokenOfOwnerByIndex(account, i)
+          tokenlist.push(Number(token))
+        }
+
+        setOwnToken(tokenlist);
+
+        let max_mint = await tokenContract.MAX_MINT()
+        let nextId = await tokenContract.nextTokenId()
+
+        setTotalNFTCount(Number(max_mint))
+        setNextTokenId(Number(nextId))
       }
-
-      setOwnToken(tokenlist);
-
-      let max_mint = await tokenContract.MAX_MINT();
-      let nextId = await tokenContract.nextTokenId();
-
-      setTotalNFTCount(Number(max_mint));
-      setNextTokenId(Number(nextId));
     }
   }
 
   const switchNetwork = async () => {
-    const provider = window.ethereum;
+    const provider = window.ethereum
     try {
       await provider.request({
         method: 'wallet_switchEthereumChain',
@@ -240,7 +246,7 @@ export default function Greg() {
         ]      
       });
     } catch (addError) {
-       console.log(addError);
+       console.log(addError)
     }
   }
 
@@ -251,7 +257,9 @@ export default function Greg() {
   }, [])
 
   useEffect(() => {
-    switchNetwork()
+    if(netId) {
+      switchNetwork()
+    }
   }, [netId])
 
   return (
@@ -259,7 +267,7 @@ export default function Greg() {
       <Head>
         <title>Omniverse DAO</title>
         <meta name='description' content='A homepage for Omniverse DAO'/>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/static/favicon.ico' />
       </Head>
       <MainNav setNetId={setNetId} netId={netId} addresses={addresses} />
 
@@ -303,7 +311,7 @@ export default function Greg() {
           <p className='text-[25px] leading-[30px] font-bold m-0 text-center'>Your NFTs</p>
           <div className='w-full gap-[20px] flex flex-col'>
             {
-              ownToken.map(item => (
+              ownToken !== undefined && ownToken.map(item => (
                 <div className='w-full my-[20px] flex items-center justify-between' onClick={() => setTransferNFT(item)} key={item}>
                   <div className='flex items-center'>
                     <img src='../static/nft.svg' className='w-[100px]' />

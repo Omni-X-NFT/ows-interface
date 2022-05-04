@@ -21,32 +21,42 @@ const Footer:React.FC = () => {
       <ul className='gap-[30px] lg:flex items-center hidden'>
         <li>
           <Link href='/' passHref>
-            <Image src={social5} className='cursor-pointer'>
-            </Image>
+            <a>
+              <Image src={social5} className='cursor-pointer'>
+              </Image>
+            </a>
           </Link>
         </li>
         <li>
           <Link href='/' passHref>
-            <Image src={social1} className='cursor-pointer'>
-            </Image>
+            <a>
+              <Image src={social1} className='cursor-pointer'>
+              </Image>
+            </a>
           </Link>
         </li>
         <li>
           <Link href='/' passHref>
-            <Image src={social2} className='cursor-pointer'>
-            </Image>
+            <a>
+              <Image src={social2} className='cursor-pointer'>
+              </Image>
+            </a>
           </Link>
         </li>
         <li>
           <Link href='/' passHref>
-            <Image src={social3} className='cursor-pointer'>
-            </Image>
+            <a>
+              <Image src={social3} className='cursor-pointer'>
+              </Image>
+            </a>
           </Link>
         </li>
         <li>
           <Link href='/' passHref>
-            <Image src={social4} className='cursor-pointer'>
-            </Image>
+            <a>
+              <Image src={social4} className='cursor-pointer'>
+              </Image>
+            </a>
           </Link>
         </li>
       </ul>
