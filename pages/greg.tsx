@@ -217,7 +217,7 @@ export default function Greg() {
         const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
 
         let result = await tokenContract.balanceOf(account)
-        let token, tokenlist = [-1]
+        let token, tokenlist = []
         for (let i = 0; i < Number(result); i++) {
           token = await tokenContract.tokenOfOwnerByIndex(account, i)
           tokenlist.push(Number(token))
