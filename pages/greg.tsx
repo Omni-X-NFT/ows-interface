@@ -89,7 +89,6 @@ export default function Greg() {
   const [mintNum, setMintNum] = useState(1)
   const [toChain, setToChain] = useState('4')
   const [selectedNFT, setSelectedNFT] = useState(addresses['4'])
-  const [selectedChainID, setSelectedChainID] = useState('4')
   const [netId, setNetId] = useState('')
   const [ownToken, setOwnToken] = useState<any[]>()
   const [transferNFT, setTransferNFT] = useState()
@@ -144,38 +143,29 @@ export default function Greg() {
   }
 
   useEffect(() => {
-    let keys = Object.keys(addresses)
-    let temp = ''
-    let flag = keys.filter(item => {
-      if(Number(item) == chainId) {
-        temp = item;
-        setSelectedChainID(item)
-        return item;
-      }
-    })
-    if(flag.length > 0) {
-      setSelectedNFT(addresses[temp as keyof ObjectType])
+    if(chainId) {
+      setSelectedNFT(addresses[chainId])
     }
     setNetId(chainId !== undefined ? chainId.toString() : '')
     getInfo()
   }, [chainId])
 
   const mint = async () => {
-    if(!checkConnect()) return
-    const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT, library, account)
-
-    let mintResult
-
     try {
+      if(!checkConnect()) return
+      const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
+
+      let mintResult
+
       let publicmintFlag = await tokenContract._publicSaleStarted()
       let saleFlag = await tokenContract._saleStarted()
 
       if(saleFlag && publicmintFlag) {
-        mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
+        mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
 
         getInfo()
       } else if (saleFlag) {
-        mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
+        mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
 
         getInfo();
       } else {
@@ -193,7 +183,7 @@ export default function Greg() {
     }
     try {
       if(!checkConnect()) return
-      const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT, library, account)
+      const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
 
       const estimateFee = await tokenContract.estimateFeesSendNFT(addresses[toChain].chainId, transferNFT)
       const currentBalance = await library.getBalance(account)
@@ -212,31 +202,36 @@ export default function Greg() {
   }
 
   const getInfo = async () => {
-    if(chainId !== undefined) {
-      if(addresses[chainId]) {
-        const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
+    try {
+      if(chainId !== undefined) {
+        if(addresses[chainId]) {
+          const tokenContract = getContract(addresses[chainId].address, AdvancedONT, library, account)
 
-        let result = await tokenContract.balanceOf(account)
-        let token, tokenlist = []
-        for (let i = 0; i < Number(result); i++) {
-          token = await tokenContract.tokenOfOwnerByIndex(account, i)
-          tokenlist.push(Number(token))
+          let result = await tokenContract.balanceOf(account)
+          let token, tokenlist = []
+          for (let i = 0; i < Number(result); i++) {
+            token = await tokenContract.tokenOfOwnerByIndex(account, i)
+
+            tokenlist.push(Number(token))
+          }
+
+          setOwnToken(tokenlist);
+
+          let max_mint = await tokenContract.MAX_MINT()
+          let nextId = await tokenContract.nextTokenId()
+
+          setTotalNFTCount(Number(max_mint))
+          setNextTokenId(Number(nextId))
         }
-
-        setOwnToken(tokenlist);
-
-        let max_mint = await tokenContract.MAX_MINT()
-        let nextId = await tokenContract.nextTokenId()
-
-        setTotalNFTCount(Number(max_mint))
-        setNextTokenId(Number(nextId))
       }
+    } catch (addError) {
+       console.log(addError)
     }
   }
 
   const switchNetwork = async () => {
-    const provider = window.ethereum
     try {
+      const provider = window.ethereum
       await provider.request({
         method: 'wallet_switchEthereumChain',
         params: [
@@ -284,7 +279,9 @@ export default function Greg() {
             <p className='text-[15px] leading-[25px]'>5 mints per wallet, and once you mint your greg will replace the default greg to the left</p>
             <p className='text-[25px] leading-[25px] mt-[40px] font-bold'>{nextTokenId}/{totalNFTCount} Minted</p>
             <div className='mt-[20px] flex gap-[5px]'>
-              <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{selectedNFT.price + ' ' + selectedNFT.unit}</p>
+              <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>
+                {selectedNFT.price + ' ' + selectedNFT.unit}
+              </p>
               <img src={selectedNFT.image} className='h-[40px]' />
               {/*<p className='lg:text-[25px] text-[12px] leading-[25px]'>each.  ~ 2.7 AVAX</p>*/}
             </div>

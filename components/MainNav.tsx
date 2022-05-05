@@ -42,9 +42,9 @@ const MainNav:React.FC<Props> = ({ setNetId, netId, addresses = [] }) => {
                 {
                   keys.map(item => (
                     <li key={item} onClick={() => selectItem(item)} className="h-[70px] flex items-center">
-                      <a href="#" className="block">
+                      <p className="block">
                         <img className="w-[50px]" src={addresses[item].image} />
-                      </a>
+                      </p>
                     </li>
                   ))
                 }
