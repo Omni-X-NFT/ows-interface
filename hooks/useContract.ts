@@ -3,6 +3,10 @@ import {Contract} from '@ethersproject/contracts';
 import {getContract} from '../utils/contracts';
 import {useActiveWeb3React} from './useWeb3';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
+
 export const useContract = (
   address: string | undefined,
   ABI: any,
@@ -21,7 +25,12 @@ export const useContract = (
         withSignerIfPossible && account ? account : undefined,
       );
     } catch (error) {
-      console.error('Failed to get contract', error);
+      toast.error("Failed to get contract",{
+        position: toast.POSITION.BOTTOM_RIGHT,
+        autoClose: 3000,
+        transition: Slide
+      });
+      // console.error('Failed to get contract', error);
       return null;
     }
   }, [address, ABI, library, withSignerIfPossible, account]);

@@ -7,7 +7,6 @@ class MyDocument extends Document {
         <Head>
           <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" />
-          <link rel="shortcut icon" href="/static/favicon.ico" />
         </Head>
         <body>
           <Main />

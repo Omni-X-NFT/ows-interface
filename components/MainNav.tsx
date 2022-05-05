@@ -1,20 +1,15 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
-type Props = {
-  addresses: any
-  setNetId: (arg: string) => void
-  netId: string
-}
+const MainNav:React.FC = ({ setNetId, netId, addresses = [] }) => {
 
-const MainNav:React.FC<Props> = ({ setNetId, netId, addresses = [] }) => {
   const router = useRouter()
   const [show, setShow] = useState(false)
 
   let keys = Object.keys(addresses)
 
   const toggleModal = () => setShow(!show);
-  const selectItem = (item: string) => {
+  const selectItem = (item) => {
     setNetId(item)
     toggleModal();
   }
@@ -42,9 +37,9 @@ const MainNav:React.FC<Props> = ({ setNetId, netId, addresses = [] }) => {
                 {
                   keys.map(item => (
                     <li key={item} onClick={() => selectItem(item)} className="h-[70px] flex items-center">
-                      <p className="block">
+                      <a href="#" className="block">
                         <img className="w-[50px]" src={addresses[item].image} />
-                      </p>
+                      </a>
                     </li>
                   ))
                 }

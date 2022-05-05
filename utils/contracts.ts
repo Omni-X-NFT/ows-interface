@@ -4,7 +4,7 @@ import {AddressZero} from '@ethersproject/constants';
 import {JsonRpcSigner, Web3Provider} from '@ethersproject/providers';
 
 // returns the checksummed address if the address is valid, otherwise returns false
-export function isAddress(value:any) {
+export function isAddress(value) {
   try {
     return getAddress(value);
   } catch {
@@ -13,26 +13,26 @@ export function isAddress(value:any) {
 }
 // account is not optional
 export function getSigner(
-  library:any,
-  account:any,
+  library,
+  account,
 ) {
   return library.getSigner(account).connectUnchecked();
 }
 
 // account is optional
 export function getProviderOrSigner(
-  library:any,
-  account:any,
+  library,
+  account,
 ) {
   return account ? getSigner(library, account) : library;
 }
 
 // account is optional
 export function getContract(
-  address:any,
-  ABI:any,
-  library:any,
-  account:any,
+  address,
+  ABI,
+  library,
+  account,
 ) {
   if (!isAddress(address) || address === AddressZero) {
     throw Error(`Invalid 'address' parameter '${address}'.`);

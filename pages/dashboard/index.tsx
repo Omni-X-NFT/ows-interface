@@ -1,15 +1,17 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import HomeNav from '../../components/HomeNav'
+import { useRouter } from 'next/router'
+import MainNav from '../../components/MainNav'
 
 export default function Dashboard() {
+  const router = useRouter()
+
   return (
     <div className='h-screen w-screen flex flex-col items-center justify-center bg-black'>
       <Head>
         <title>Omniverse DAO - Dashboard</title>
       </Head>
-      <HomeNav/>
+      <MainNav/>
       <div className='text-white'>
         Dashboard
       </div>
