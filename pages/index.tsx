@@ -5,9 +5,13 @@ import MainNav from '../components/MainNav'
 import Footer from '../components/Footer'
 import Image from 'next/image'
 import omniLogo from '../static/omniverseLogoWhite.png'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Home() {
-
+  useEffect (()=>{
+    Aos.init({ duration: 1000 });
+  }, [])
   const router = useRouter()
 
   return (
@@ -18,7 +22,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <MainNav/>
-      <div className='w-full h-screen flex flex-col justify-center items-center'>
+      <div data-aos="fade-up"  className='w-full h-screen flex flex-col justify-center items-center'>
         <p className='m-0 text-[20px] leading-[23px]'>ENTER THE</p>
         <p className='m-0 text-[40px] md:text-[100px] leading-[120px]'>OMNIVERSE</p>
         <a href='#overview'>
@@ -28,7 +32,7 @@ export default function Home() {
         </a>
       </div>
       <div className='w-full items-center flex-col pt-[150px]' id='overview'>
-        <div className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto pb-20'>
+        <div data-aos="fade-right" className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto pb-20'>
           <div className='lg:w-2/6 w-full px-10 py-5'>
             <p className='m-0 text-[50px] leading-[80px] text-center lg:text-right'>OVERVIEW</p>
           </div>
@@ -38,7 +42,7 @@ export default function Home() {
             <p className='text-[20px] m-0 leading-[23px] text-justify lg:text-left'>Built by the Omniverse DAO with an emphasis on superior user experience.</p>
           </div>
         </div>
-        <div className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto pb-20'>
+        <div data-aos="fade-left" className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto pb-20'>
           <div className='lg:w-2/6 w-full px-10 py-5'>
             <p className='m-0 text-[50px] leading-[80px] text-center lg:text-right'>VISION</p>
           </div>
@@ -50,7 +54,7 @@ export default function Home() {
         </div>
       </div>
       <div className='w-full items-center flex-col lg:pt-[150px] pt-[80px]'>
-        <div className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto lg:pb-[60px] pb-20'>
+        <div data-aos="fade-right" className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto lg:pb-[60px] pb-20'>
           <div className='lg:w-2/6 w-full px-10 py-5 flex flex-col lg:items-end items-center'>
             <div className='w-[200px]'>
               <img src='../static/logo/omniverse-logo.svg' />
@@ -64,7 +68,7 @@ export default function Home() {
             <p className='text-[20px] m-0 leading-[23px] text-justify lg:text-left'>Leveraging the power of sourcing both financial and social capital from multiple chains.</p>
           </div>
         </div>
-        <div className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto pb-20'>
+        <div data-aos="fade-left" className='flex flex-col lg:flex-row w-full lg:w-4/6 m-auto pb-20'>
           <div className='lg:w-2/6 w-full px-10 py-5 flex flex-col lg:items-end items-center'>
             <div className='w-[200px]'>
               <img src='../static/logo/omniwar-logo.svg' />
@@ -79,28 +83,13 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/*<div className='h-[380px] lg:block hidden'>
-      </div>*/}
-      {/*<div className='flex flex-col items-center'>
-        <p className='lg:text-[50px] text-[25px] lg:leading-[120px] leading-[60px] m-0 mb-[30px] uppercase text-white color text-center'>OMNichain Powered by layerZERO</p>
-        <div className='flex lg:flex-row flex-col gap-[40px] mb-[40px]'>
-          <img src='../static/logo/ethereum-eth-logo-1.svg' />
-          <img src='../static/logo/dbanner1_copy_1.svg' />
-          <img src='../static/logo/dbanner1_copy_2_1.svg' />
-          <img src='../static/logo/dbanner1_copy_4_1.svg' />
-        </div>
-        <div className='flex lg:flex-row flex-col gap-[40px]'>
-          <img src='../static/logo/JtpX95Rt_400x400-1.svg' />
-          <img src='../static/logo/dbanner1_copy_3_1.svg' />
-          <img src='../static/logo/fantom-ftm-logo-1.svg' />
-        </div>
-      </div>*/}
+
       <div className='h-[200px]'>
       </div>
       <div className='xl:flex hidden flex-col items-center xl:pb-[220px] pb-[100px] uppercase'>
-        <p className='lg:text-[50px] text-[25px] lg:leading-[120px] leading-[60px] m-0 text-white color text-center'>ROADMAP</p>
+        <p data-aos="fade-down" className='lg:text-[50px] text-[25px] lg:leading-[120px] leading-[60px] m-0 text-white color text-center'>ROADMAP</p>
         <div className='lg:mt-[105px] mt-[20px] w-9/12 mx-auto'>
-          <div className='relative w-full h-[240px]'>
+          <div className='relative w-full h-[240px]' data-aos="fade-left">
             <div className='lg:flex hidden justify-center left-[46%]'>
               <img src='../static/road_map/left-white.svg' />
               <img src='../static/road_map/right-white.svg' />
@@ -116,7 +105,7 @@ export default function Home() {
               <p className='text-[30px] m-0 mr-[70px] leading-[50px] text-right'>Mar 2022</p>
             </div>
           </div>
-          <div className='relative w-full h-[240px]'>
+          <div data-aos="fade-right" className='relative w-full h-[240px]'>
             <div className='lg:flex hidden justify-center left-[46%]'>
               <img src='../static/road_map/left-white.svg' />
               <img src='../static/road_map/right-white.svg' />
@@ -130,7 +119,7 @@ export default function Home() {
               <p className='text-[20px] m-0 leading-[30px] lg:text-left'>Launch Website showcasing interchain nft asset transfer. Genesis omniverse greg omni-nft colection. </p>
             </div>
           </div>
-          <div className='relative w-full h-[240px]'>
+          <div data-aos="fade-left" className='relative w-full h-[240px]'>
             <div className='lg:flex hidden justify-center left-[46%]'>
               <img src='../static/road_map/left-grey.svg' />
               <img src='../static/road_map/right-grey.svg' />
@@ -144,7 +133,7 @@ export default function Home() {
               <p className='text-[20px] m-0 leading-[30px] lg:text-right'>Alpha NFT marketplace infrastructure release</p>
             </div>
           </div>
-          <div className='relative w-full h-[240px]'>
+          <div data-aos="fade-right" className='relative w-full h-[240px]'>
             <div className='lg:flex hidden justify-center left-[46%]'>
               <img src='../static/road_map/left-grey.svg' />
               <img src='../static/road_map/right-grey.svg' />
@@ -158,7 +147,7 @@ export default function Home() {
               <p className='text-[20px] m-0 leading-[30px] lg:text-left'>NFT PFP Collections: faction specific GENESIS collections. Engagement Competitions: rewards for world building, fan art, and lore production.</p>
             </div>
           </div>
-          <div className='relative w-full h-[240px]'>
+          <div data-aos="fade-left" className='relative w-full h-[240px]'>
             <div className='lg:flex hidden justify-center left-[46%]'>
               <img src='../static/road_map/left-grey.svg' />
               <img src='../static/road_map/right-grey.svg' />
@@ -173,7 +162,7 @@ export default function Home() {
               <p className='text-[20px] m-0 leading-[30px] lg:text-right'>Alpha gameplay launch</p>
             </div>
           </div>
-          <div className='relative w-full h-[240px]'>
+          <div data-aos="fade-right" className='relative w-full h-[240px]'>
             <div className='lg:flex hidden justify-center left-[46%]'>
               <img src='../static/road_map/left-grey.svg' />
               <img src='../static/road_map/right-grey.svg' />
