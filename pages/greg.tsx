@@ -145,11 +145,7 @@ export default function Greg() {
     })
 
     if(flag.length == 0) {
-      toast.error("Please select correct Network!",{
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: 3000,
-        transition: Slide
-      });
+      errorToast("Please select correct Network!")
       return false
     }
     return true
@@ -206,27 +202,14 @@ export default function Greg() {
           getInfo();
         }
       } else {
-        toast.error("Sale is not started yet",{
-          position: toast.POSITION.BOTTOM_RIGHT,
-          autoClose: 3000,
-          transition: Slide
-        });
+        errorToast("Sale is not started yet")
         setIsMinting(false);
       }
     } catch (e) {
       if(e["code"] == 4001){
-        toast.error(e["message"].split(":")[1],{
-          position: toast.POSITION.BOTTOM_RIGHT,
-          autoClose: 3000,
-          transition: Slide
-        });
+        errorToast(e["message"].split(":")[1])
       } else {
-
-        toast.error("Mint Error",{
-          position: toast.POSITION.BOTTOM_RIGHT,
-          autoClose: 3000,
-          transition: Slide
-        });
+        errorToast("Mint Error")
       }
       setIsMinting(false);
     }
@@ -234,11 +217,7 @@ export default function Greg() {
 
   const sendNFT = async () => {
     if(!transferNFT){
-      toast.error("Select NFT you want to transfer, please",{
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: 3000,
-        transition: Slide
-      });
+      errorToast("Select NFT you want to transfer, please")
       return;
     }
     try {
@@ -249,11 +228,7 @@ export default function Greg() {
       const currentBalance = await library.getBalance(account);
 
       if(Number(estimateFee) * 1.1 > Number(currentBalance)) {
-        toast.error("You don't have enough balance for transfer",{
-          position: toast.POSITION.BOTTOM_RIGHT,
-          autoClose: 3000,
-          transition: Slide
-        });
+        errorToast("You don't have enough balance for transfer")
         return;
       }
       let gasFee = BigNumber.from(estimateFee)/Math.pow(10,18)*1.1*Math.pow(10,18)
@@ -280,19 +255,11 @@ export default function Greg() {
       
     } catch (e) {
       if(e["code"] == 4001){
-        toast.error(e["message"].split(":")[1],{
-          position: toast.POSITION.BOTTOM_RIGHT,
-          autoClose: 3000,
-          transition: Slide
-        });
+        errorToast(e["message"].split(":")[1])
       } else {
         console.log(e)
         // change the error message after confrim it
-        toast.error("Sending NFT error, Please try again",{
-          position: toast.POSITION.BOTTOM_RIGHT,
-          autoClose: 3000,
-          transition: Slide
-        });
+        errorToast("Sending NFT error, Please try again")
       }
       setIsTransferring(false)
     }
@@ -319,11 +286,7 @@ export default function Greg() {
         setTotalNFTCount(Number(max_mint));
         setNextTokenId(Number(nextId));
       } catch(error){
-        toast.error("Getting NFT Error!!!, Please Check the Internet Connection!!!",{
-          position: toast.POSITION.BOTTOM_RIGHT,
-          autoClose: 3000,
-          transition: Slide
-        });
+        errorToast("Getting NFT Error!!!, Please Check the Internet Connection!!!")
       }
       setOwnTokenisLoading(false)
     }
@@ -343,11 +306,7 @@ export default function Greg() {
       setTransferNFT();
 
     } catch (addError) {
-      toast.error("Switching network error, please try again",{
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: 3000,
-        transition: Slide
-      });
+      errorToast("Switching network error, please try again")
     }
   }
   const loadingIcon = () => {
@@ -359,6 +318,13 @@ export default function Greg() {
         </svg>
       </>
     );
+  }
+  const errorToast = (error : String) =>{
+    toast.error(error,{
+      position: toast.POSITION.BOTTOM_RIGHT,
+      autoClose: 3000,
+      transition: Slide
+    });
   }
   const mintButton = () => {
     if(chainId == "4"){
@@ -565,17 +531,9 @@ export default function Greg() {
         }
       } catch(error){
         if(selectedChainID == toChain){
-          toast.error(`${addresses[toChain].name} is currently unavailable for transfer`,{
-            position: toast.POSITION.BOTTOM_RIGHT,
-            autoClose: 3000,
-            transition: Slide
-          });
+          errorToast(`${addresses[toChain].name} is currently unavailable for transfer`)
         } else {
-          toast.error("Please Check the Internet Connection!!!",{
-            position: toast.POSITION.BOTTOM_RIGHT,
-            autoClose: 3000,
-            transition: Slide
-          });
+          errorToast("Please Check the Internet Connection!!!")
         }
 
       }
@@ -596,7 +554,7 @@ export default function Greg() {
       <div className='pt-[200px] mb-[50px]' data-aos="fade-left">
         <div className='rounded-[25px] bg-[#000207C9] w-5/6 max-w-[1200px] min-w-[320px] lg:px-[30px] px-0 mx-auto flex lg:flex-row flex-col'>
           <div className='py-[50px] lg:w-2/4 h-full  lg:px-[50px] px-[20px] flex justify-center'>
-            <img src='../static/new_nft.png' />
+            <img src='../static/nft.png' />
           </div>
           <div className='py-[50px] lg:w-2/4 w-full lg:px-[50px] px-[20px]'>
             <p className='lg:text-[30px] text-[25px] lg:leading-[75px] leading-[50px] mt-0 font-bold'>(greg, greg)</p>
@@ -639,7 +597,7 @@ export default function Greg() {
               ownToken.map(item => (
                 <div className='w-full my-[20px] flex items-center justify-between' onClick={() => setTransferNFT(item)} key={item}>
                   <div className='flex items-center'>
-                    <img src='../static/new_nft.png' className='w-[100px] h-[95px]' />
+                    <img src='../static/nft.png' className='w-[100px] h-[95px]' />
                     <p className='font-medium text-[25px] leading-[30px] text-center'>greg #{item}</p>
                   </div>
                   {
@@ -663,7 +621,7 @@ export default function Greg() {
 
           {transferNFT? <div className="flex items-center justify-between mb-4 mt-4">
             <div className="flex items-center">
-              <img className='rounded-full w-[50px] h-[47px] md:h-[47px] md:w-[50px]' src="../static/new_nft.png" alt="" />
+              <img className='rounded-full w-[50px] h-[47px] md:h-[47px] md:w-[50px]' src="../static/nft.png" alt="" />
               <div className='md:ml-2 ml-4'>
                 <small className='text-[12px]'>Omniverse Greg</small>
                 <span className='block '>greg #{transferNFT}</span>
