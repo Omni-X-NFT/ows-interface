@@ -19,7 +19,7 @@ export default function Home() {
       <Head>
         <title>Omniverse DAO</title>
         <meta name='description' content='A homepage for Omniverse DAO'/>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon'href="/static/favicon.ico" />
       </Head>
       <MainNav/>
       <div data-aos="fade-up"  className='w-full h-screen flex flex-col justify-center items-center'>
