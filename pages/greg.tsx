@@ -60,7 +60,7 @@ const addresses = {
     unit: 'MATIC'
   },
   '421611': {
-    address: '0xe8fbd12300e32c882ac7e99234355ad1b22c5807c5ac742c1b23cdd4fa0ec21a',
+    address: '0x900501b343e8975b0ec4f1439f355f0bf15c7b9f',
     image: '../static/logo/dbanner1_copy_2_1.svg',
     name: 'Arbitrum',
     price: 0.05,
