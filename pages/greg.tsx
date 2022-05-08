@@ -246,9 +246,7 @@ export default function Greg() {
       // add emit function after redploy the contract
       const destination_contract = getContract(addresses[toChain].address, AdvancedONT.abi, library, account)
       destination_contract.on("Transfer",(from , to , tokenID) => {
-        console.log(to,account)
         if(to==account){
-          console.log(to,account)
           toast.success(`${ addresses[selectedChainID].name } sent greg#${ tokenID } to ${ addresses[toChain].name}`,{
             position: toast.POSITION.TOP_RIGHT,
             autoClose: 3000,
