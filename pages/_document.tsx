@@ -5,10 +5,13 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;600&display=swap"
-            rel="stylesheet"
+        <meta
+            name="description"
+            content="Mint Omniverse NFT and Transfer between networks"
           />
+          <link rel="icon" href="/static/favicon.ico" />
+          <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

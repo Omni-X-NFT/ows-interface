@@ -1,17 +1,27 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "set PORT=5000 && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
+    "@ethersproject/address": "^5.6.0",
+    "@ethersproject/constants": "^5.6.0",
+    "@ethersproject/contracts": "^5.6.0",
+    "@ethersproject/providers": "^5.6.4",
     "@walletconnect/web3-provider": "^1.7.1",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
+    "aos": "^2.3.4",
+    "ethers": "^5.6.4",
     "magic-sdk": "^8.0.1",
     "next": "latest",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-toastify": "^8.2.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/node": "17.0.4",
