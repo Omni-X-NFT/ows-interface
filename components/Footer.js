@@ -9,7 +9,7 @@ import social5 from '../static/social/social-5.svg'
 
 import logo from '../static/logo/omniverse-logo.svg'
 
-const Footer:React.FC = () => {
+const Footer = () => {
   return(
     <div className='footer flex justify-between h-[80px] py-[5px] px-5 fixed bottom-0 w-full abel'>
       <Link href='/' passHref>

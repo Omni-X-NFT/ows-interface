@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
-const MainNav:React.FC = ({ setNetId, netId, addresses = [] }) => {
+const MainNav = ({ setNetId, netId, addresses = [] }) => {
 
   const router = useRouter()
   const [show, setShow] = useState(false)
 
   let keys = Object.keys(addresses)
 
-  const toggleModal = () => setShow(!show);
+  const toggleModal = () => setShow(!show)
   const selectItem = (item) => {
     setNetId(item)
-    toggleModal();
+    toggleModal()
   }
 
   return(

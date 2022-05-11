@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 
-const MainNav:React.FC = () => {
+const MainNav = () => {
   const router = useRouter()
 
   return(

@@ -13,5 +13,11 @@ module.exports = {
     semi: ['error', 'never'],
     indent: ['error', 2],
     quotes: ['error', 'single']
-  }
+  },
+  env: {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  },
+
 }

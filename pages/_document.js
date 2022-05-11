@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-        <meta
+          <meta
             name="description"
             content="Mint Omniverse NFT and Transfer between networks"
           />

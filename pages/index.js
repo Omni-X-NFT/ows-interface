@@ -1,18 +1,14 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 import MainNav from '../components/MainNav'
 import Footer from '../components/Footer'
-import Image from 'next/image'
-import omniLogo from '../static/omniverseLogoWhite.png'
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 export default function Home() {
   useEffect (()=>{
-    Aos.init({ duration: 1000 });
+    Aos.init({ duration: 1000 })
   }, [])
-  const router = useRouter()
 
   return (
     <div className='w-full main'>
