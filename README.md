@@ -1,6 +1,6 @@
 # Omni Wars Interface
 
-Welcome to Omniverse DAO and Omni Wars website!
+Welcome to Omniverse DAO website!
 
 Please follow the [instructions](./instructions.md) to start contributing to this repository.
 
