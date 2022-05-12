@@ -9,6 +9,9 @@ Notes:
 * For configuring Tailwind CSS theme refer to the [documentation](https://tailwindcss.com/docs/theme)
 * Dm @exakoss if you have a question, open an issue if you have a problem with setting up and running the dapp
 
+## live Link
+
+    https://omniverse-dao.vercel.app/
 
 https://rinkeby.etherscan.io/address/0xe5B227D2b91225f37D742C44F1708FB8886Dc816
 https://testnet.bscscan.com/address/0xe880C81E71acfc8d6f53b663A98676c52eec3Aa3

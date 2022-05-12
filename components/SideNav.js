@@ -6,7 +6,7 @@ import rocket from '../static/rocketWhite.png'
 import people from '../static/peopleWhite.png'
 import link from '../static/linkWhite.png'
 
-const SideNav:React.FC = () => {
+const SideNav = () => {
   return(
     <div className='sidenav'>
       <ul>
