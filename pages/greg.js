@@ -17,11 +17,11 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-toastify'
 
+const chains = [4, 97, 43113, 80001, 421611, 4002, 69]
 
 const injected = new InjectedConnector({
-  supportedChainIds: [4, 97, 43113, 80001, 421611, 4002, 69]
+  supportedChainIds: chains
 })
-
 const addresses = {
   '4': {
     address: '0xC8759D18D5c96cce77074249330b9b41A618e51A',
@@ -87,9 +87,8 @@ export default function Greg() {
 
   const [mintNum, setMintNum] = useState(1)
   const [toChain, setToChain] = useState('4')
-  const [selectedNFT, setSelectedNFT] = useState(addresses['4'])
-  const [selectedChainID, setSelectedChainID] = useState(addresses['4'])
   const [netId, setNetId] = useState('4')
+
   const [ownToken, setOwnToken] = useState([])
   const [transferNFT, setTransferNFT] = useState()
   const [totalNFTCount, setTotalNFTCount] = useState(0)
@@ -98,6 +97,7 @@ export default function Greg() {
   const [estimateFee, setEstimateFee] = useState('')
   const [isMinting, setIsMinting] = useState(false)
   const [isTransferring, setIsTransferring] = useState(false)
+  const [isSwitching, setIsSwitching] = useState(false)
 
   const { library } = useActiveWeb3React()
 
@@ -145,30 +145,60 @@ export default function Greg() {
   }
 
   useEffect(() => {
-    let keys = Object.keys(addresses)
-    let temp = ''
-    let flag = keys.filter(item => {
-      if(item == chainId) {
-        temp = item
-        setSelectedChainID(item)
-        return item
+    if(chainId!=undefined){
+      {
+          switchNetwork()
       }
-    })
-    if(flag.length > 0) {
-      setSelectedNFT(addresses[temp])
     }
-    setNetId(chainId)
-    getInfo()
-  }, [chainId])
+  }, [netId])
+
+  useEffect(()=>{
+    if(isSwitching==true){
+      if(account!=undefined){
+        getInfo()
+        setIsSwitching(false)
+      }
+    }
+  },[isSwitching,account])
 
   useEffect (()=>{
     Aos.init({ duration: 1000 })
+    if(chainId==undefined){
+      switchNetwork()
+    } 
   }, [])
 
+  const switchNetwork = async () => {
+    const provider = window.ethereum
+    if(chainId!=netId){
+      try {
+        await provider.request({
+          method: 'wallet_switchEthereumChain',
+          params: [
+            {
+              chainId: `0x${Number(netId).toString(16)}`,
+            }
+          ]      
+        })
+        
+        setTransferNFT()
+        setIsSwitching(true)
+      } catch (addError) {
+        setNetId(chainId)
+        if(addError["code"]==4001){
+          errorToast('User rejected the request to switch network')
+        } else{
+          errorToast('Switching network error, please try again')
+        }
+      }
+    } else {
+      setIsSwitching(true)
+    }
+  }
 
   const mint = async () => {
     if(!checkConnect()) return
-    const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT.abi, library, account)
+    const tokenContract = getContract(addresses[chainId].address, AdvancedONT.abi, library, account)
 
     let mintResult
     setIsMinting(true)
@@ -179,7 +209,7 @@ export default function Greg() {
 
       if(saleFlag && publicmintFlag) {
 
-        mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
+        mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
         const receipt = await mintResult.wait()
         if(receipt!=null){
           setIsMinting(false)
@@ -187,7 +217,7 @@ export default function Greg() {
         }
         // add the the function to get the emit from the contract and call the getInfo()
       } else if (saleFlag) {
-        mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[selectedChainID].price*mintNum).toString())})
+        mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
         // add the the function to get the emit from the contract and call the getInfo()
         const receipt = await mintResult.wait()
         if(receipt!=null){
@@ -202,7 +232,7 @@ export default function Greg() {
       if(e['code'] == 4001){
         errorToast(e['message'].split(':')[1])
       } else {
-        errorToast('Mint Error')
+        errorToast('There is not enough fund to mint the NFT on '+ addresses[chainId].name)
       }
       setIsMinting(false)
     }
@@ -215,7 +245,7 @@ export default function Greg() {
     }
     try {
       if(!checkConnect()) return
-      const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT.abi, library, account)
+      const tokenContract = getContract(addresses[chainId].address, AdvancedONT.abi, library, account)
 
       const estimateFee = await tokenContract.estimateFeesSendNFT(addresses[toChain].chainId, transferNFT)
       const currentBalance = await library.getBalance(account)
@@ -238,7 +268,7 @@ export default function Greg() {
       const destination_contract = getContract(addresses[toChain].address, AdvancedONT.abi, library, account)
       destination_contract.on('Transfer',(from , to , tokenID) => {
         if(to==account){
-          toast.success(`${ addresses[selectedChainID].name } sent greg#${ tokenID } to ${ addresses[toChain].name}`,{
+          toast.success(`${ addresses[chainId].name } sent greg#${ tokenID } to ${ addresses[toChain].name}`,{
             position: toast.POSITION.TOP_RIGHT,
             autoClose: 3000,
             transition: Slide
@@ -247,7 +277,6 @@ export default function Greg() {
         }
       })
 
-      
     } catch (e) {
       if(e['code'] == 4001){
         errorToast(e['message'].split(':')[1])
@@ -256,13 +285,16 @@ export default function Greg() {
       }
       setIsTransferring(false)
     }
+    setTransferNFT()
+
   }
 
   const getInfo = async () => {
-    if(addresses[chainId]) {
+    if(addresses[netId]) 
+    {
       setOwnTokenisLoading(true)
       try{
-        const tokenContract = getContract(addresses[chainId].address, AdvancedONT.abi, library, account)
+        const tokenContract = getContract(addresses[netId].address, AdvancedONT.abi, library, account)
 
         let result = await tokenContract.balanceOf(account)
         let token, tokenlist = []
@@ -279,29 +311,14 @@ export default function Greg() {
         setTotalNFTCount(Number(max_mint))
         setNextTokenId(Number(nextId))
       } catch(error){
+        setNetId(chainId)
         errorToast('Getting NFT Error!!!, Please Check the Internet Connection!!!')
       }
       setOwnTokenisLoading(false)
     }
   }
 
-  const switchNetwork = async () => {
-    const provider = window.ethereum
-    try {
-      await provider.request({
-        method: 'wallet_switchEthereumChain',
-        params: [
-          {
-            chainId: `0x${Number(netId).toString(16)}`,
-          }
-        ]      
-      })
-      setTransferNFT()
 
-    } catch (addError) {
-      errorToast('Switching network error, please try again')
-    }
-  }
   const loadingIcon = () => {
     return(
       <>
@@ -536,22 +553,20 @@ export default function Greg() {
     }
   }, [])
 
-  useEffect(() => {
-    switchNetwork()
-  }, [netId])
+
 
   useEffect(() => {
     const calculateFee = async() => {
       try{
         if(transferNFT){
-          const tokenContract = getContract(addresses[selectedChainID].address, AdvancedONT.abi, library, account)
+          const tokenContract = getContract(addresses[chainId].address, AdvancedONT.abi, library, account)
           const fee = await tokenContract.estimateFeesSendNFT(addresses[toChain].chainId, transferNFT)
-          setEstimateFee((BigNumber.from(fee)/(BigNumber.from(10).pow(18))*1.1).toFixed(10)+addresses[selectedChainID].unit)
+          setEstimateFee((BigNumber.from(fee)/(BigNumber.from(10).pow(18))*1.1).toFixed(10)+addresses[chainId].unit)
         } else {
           setEstimateFee('')
         }
       } catch(error){
-        if(selectedChainID == toChain){
+        if(chainId == toChain){
           errorToast(`${addresses[toChain].name} is currently unavailable for transfer`)
         } else {
           errorToast('Please Check the Internet Connection!!!')
@@ -585,9 +600,15 @@ export default function Greg() {
             <p className='text-[15px] leading-[25px]'>5 mints per wallet</p>
             <p className='text-[25px] leading-[25px] mt-[40px] font-bold'>{nextTokenId}/{totalNFTCount} Minted</p>
             <div className='mt-[20px] flex gap-[5px]'>
-              <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{selectedNFT.price + ' ' + selectedNFT.unit + ' each'}</p>
-              <img src={selectedNFT.image} className='h-[40px]' />
-              {/*<p className='lg:text-[25px] text-[12px] leading-[25px]'>each.  ~ 2.7 AVAX</p>*/}
+              {chainId?<>
+                <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{addresses[chainId].price + ' ' + addresses[chainId].unit + ' each'}</p>
+                <img src={addresses[chainId].image} className='h-[40px]' />
+              </>
+              :
+              null
+              }
+              {/* <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{addresses[chainId].price + ' ' + addresses[chainId].unit + ' each'}</p>
+              <img src={addresses[chainId].image} className='h-[40px]' /> */}
             </div>
             <div className='mt-[20px] flex lg:flex-row flex-col gap-[30px] justify-between items-center'>
               <div className='flex gap-[25px]'>
@@ -658,10 +679,10 @@ export default function Greg() {
             <select className='block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-[6px] leading-tight focus:outline-none focus:bg-white focus:border-gray-500' id='grid-state' value={toChain} onChange={(e) => setToChain(e.target.value)}>
               <option value='4'>Rinkeby</option>
               <option value='97'>Bscscan</option>
-              <option value='43113'>Snowtrace</option>
-              <option value='80001'>Polygonscan</option>
-              <option value='421611'>Arbiscan</option>
-              <option value='4002'>Ftmscan</option>
+              <option value='43113'>FUJI</option>
+              <option value='80001'>Mumbai</option>
+              <option value='421611'>Arbitrum</option>
+              <option value='4002'>Fantom</option>
               <option value='69'>Kovan</option>
             </select>
             <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>

@@ -1,23 +1,21 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-  ],
+  plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier'
+    'plugin:@next/next/recommended',
+    'prettier',
   ],
   rules: {
     semi: ['error', 'never'],
     indent: ['error', 2],
-    quotes: ['error', 'single']
+    quotes: [2, 'single', { avoidEscape: true }],
   },
   env: {
-    "browser": true,
-    "node": true,
-    "jasmine": true
+    browser: true,
+    node: true,
+    jasmine: true,
   },
-
 }
