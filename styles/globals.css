@@ -27,7 +27,7 @@ p {
 }
 
 .mainnavcorner {
-  width: 100%;
+  /* width: 100%; */
   /*background:
     linear-gradient(to right, rgba(91, 93, 94, .5) 2px, transparent 2px) 0 0,
     linear-gradient(to right, rgba(91, 93, 94, .5) 2px, transparent 2px) 0 100%,
@@ -37,17 +37,25 @@ p {
     linear-gradient(to bottom, rgba(91, 93, 94, .5) 2px, transparent 2px) 100% 0,
     linear-gradient(to top, rgba(91, 93, 94, .5) 2px, transparent 2px) 0 100%,
     linear-gradient(to top, rgba(91, 93, 94, .5) 2px, transparent 2px) 100% 100%;*/
-  @apply sticky top-0 my-0 bg-no-repeat;
+  /* @apply sticky top-0 my-0 bg-no-repeat; */
+  @apply bg-no-repeat my-0 fixed top-0;
   width: 100%;
   background: rgba(0, 0, 0, 0.63);
 }
 
-.mainnav {
+/* .mainnav {
   @apply flex items-center justify-between rounded-none px-0 py-6;
 }
 
 .button-borders {
   @apply relative my-0 mx-4;
+} */
+.mainnav {
+  @apply rounded-none flex items-center justify-center px-0 py-6;
+}
+
+.button-borders {
+  @apply my-0 mx-28 relative;
 }
 
 .button-borders:before {

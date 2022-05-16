@@ -52,7 +52,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="relative m-auto mb-20  h-[50px] w-[200px] sm:w-[500px]">
+        <div  data-aos="fade-right" className="relative m-auto mb-20  h-[50px] w-[200px] sm:w-[500px]">
           <Image
             src="/static/separator.png"
             alt=""

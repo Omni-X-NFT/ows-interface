@@ -607,8 +607,6 @@ export default function Greg() {
               :
               null
               }
-              {/* <p className='lg:text-[25px] text-[12px] leading-[25px] font-bold'>{addresses[chainId].price + ' ' + addresses[chainId].unit + ' each'}</p>
-              <img src={addresses[chainId].image} className='h-[40px]' /> */}
             </div>
             <div className='mt-[20px] flex lg:flex-row flex-col gap-[30px] justify-between items-center'>
               <div className='flex gap-[25px]'>
