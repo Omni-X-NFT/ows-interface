@@ -11,7 +11,7 @@ import logo from '../static/logo/omniverse-logo.svg'
 
 const Footer = () => {
   return (
-    <div className="footer abel  flex h-[80px]  justify-between py-[5px] px-5  fixed bottom-0 w-full">
+    <div className="footer abel fixed left-0 right-0 bottom-0 flex h-[80px]  justify-between py-[5px] px-5">
       <Link href="/" passHref>
         <div className="logo flex cursor-pointer items-center gap-[20px]">
           <Image src={logo} className="w-[70px]" />

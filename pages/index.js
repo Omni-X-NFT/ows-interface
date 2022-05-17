@@ -13,7 +13,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="main w-full">
+    <div className="main w-full overflow-hidden ">
       <Head>
         <title>Omniverse DAO</title>
         <meta name="description" content="A homepage for Omniverse DAO" />
@@ -44,11 +44,11 @@ export default function Home() {
           <div className="raleway w-full px-4 py-0 lg:px-6 lg:py-10">
             <p className="m-0 text-center text-[36px] font-medium leading-[42px] lg:text-center">
               The Omniverse is an ecosystem of truly interoperable media and
-              protocols developed with&nbsp;
+              protocols developed with{' '}
               <Link href="https://layerzero.network/">
                 <a target="_blank" className="underline">Layer Zero</a>
               </Link>
-              &nbsp;technology
+              {' '}technology
             </p>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Home() {
 
             <br />
             <p className="m-0 text-justify text-[24px] leading-[25px] lg:text-left">
-              Learn more about our innovative features &nbsp;
+              Learn more about our innovative features {' '}
               <Link href="https://daniel-67.gitbook.io/omniverse-dao/omni-x/home/">
                 <a target="_blank" className="underline">here</a>
               </Link>
