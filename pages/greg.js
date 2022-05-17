@@ -184,12 +184,150 @@ export default function Greg() {
         setTransferNFT()
         setIsSwitching(true)
       } catch (addError) {
-        setNetId(chainId)
         if(addError["code"]==4001){
           errorToast('User rejected the request to switch network')
+          setNetId(chainId)
         } else{
-          errorToast('Switching network error, please try again')
+          if(netId=='4'){
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainId: '0x4',
+                  chainName: 'Rinkeby Test Network',
+                  nativeCurrency: {
+                      name: 'rinkeby',
+                      symbol: 'ETH',
+                      decimals: 18
+                },
+                rpcUrls: ['https://rinkeby.infura.io/v3/'],
+                blockExplorerUrls: ['https://rinkeby.etherscan.io']
+                }
+              ]
+            })
+            setTransferNFT()
+            setIsSwitching(true)
+          } else if (netId=='97'){
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainId: '0x61',
+                  chainName: 'BNB Smart Chain Testnet',
+                  nativeCurrency: {
+                      name: 'Binance Coin',
+                      symbol: 'tBNB',
+                      decimals: 18
+                },
+                rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
+                blockExplorerUrls: ['https://testnet.bscscan.com/']
+                }
+              ]
+            })
+            setTransferNFT()
+            setIsSwitching(true)
+          } else if(netId=='43113'){
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainId: '0xA869',
+                  chainName: 'Avalanche Testnet C-Chain',
+                  nativeCurrency: {
+                      name: 'Avalanche',
+                      symbol: 'AVAX',
+                      decimals: 18
+                },
+                rpcUrls: ['https://api.avax-test.network/ext/bc/C/rpc'],
+                blockExplorerUrls: ['https://testnet.snowtrace.io/']
+                }
+              ]
+            })
+            setTransferNFT()
+            setIsSwitching(true)
+          } else if(netId=='80001'){
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainId: '0x13881',
+                  chainName: 'Mumbai Testnet',
+                  nativeCurrency: {
+                      name: 'Mumbai',
+                      symbol: 'MATIC',
+                      decimals: 18
+                },
+                rpcUrls: ['https://rpc-mumbai.maticvigil.com/'],
+                blockExplorerUrls: ['https://polygonscan.com/']
+                }
+              ]
+            })
+            setTransferNFT()
+            setIsSwitching(true)
+          } else if(netId=='421611'){
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainId: '0x66EEB',
+                  chainName: 'Arbitrum Rinkeby',
+                  nativeCurrency: {
+                      name: 'Arbitrum',
+                      symbol: 'ETH',
+                      decimals: 18
+                },
+                rpcUrls: ['https://rinkeby.arbitrum.io/rpc'],
+                blockExplorerUrls: ['https://testnet.arbiscan.io/']
+                }
+              ]
+            })
+            setTransferNFT()
+            setIsSwitching(true)
+          } 
+          else if(netId=='4002'){
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainId: '0xFA2',
+                  chainName: 'Fantom testnet',
+                  nativeCurrency: {
+                      name: 'Fantom',
+                      symbol: 'MTF',
+                      decimals: 18
+                },
+                rpcUrls: ['https://rpc.testnet.fantom.network/'],
+                blockExplorerUrls: ['https://faucet.fantom.network/']
+                }
+              ]
+            })
+            setTransferNFT()
+            setIsSwitching(true)
+          } else if(netId=='69'){
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainId: '0x45',
+                  chainName: 'Optimistic Ethereum Testnet Kovan',
+                  nativeCurrency: {
+                      name: 'Kovan',
+                      symbol: 'KOR',
+                      decimals: 18
+                },
+                rpcUrls: ['https://kovan.optimism.io/'],
+                blockExplorerUrls: ['']
+                }
+              ]
+            })
+            setTransferNFT()
+            setIsSwitching(true)
+          }else{
+            setNetId(chainId)
+            errorToast('Switching network error, please try again')
+          }
         }
+        
       }
     } else {
       setIsSwitching(true)
