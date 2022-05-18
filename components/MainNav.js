@@ -23,7 +23,7 @@ const MainNav = ({ setNetId, netId, addresses = [] }) => {
         <div className='button-borders'>
           <button className='primary-button' onClick={() => router.push('/greg')}>GREG</button>
         </div>
-        <div className='absolute flex w-[50px] right-[10px] h-full'>
+        <div className='absolute flex w-[50px] right-[10px] top-[70px] sm:top-[0px]  h-full'>
           <button onClick={toggleModal} className="text-white rounded-lg text-sm text-center inline-flex items-center">
             {
               netId && (addresses[netId] && <img src={addresses[netId].image} className='w-[50px]' />)

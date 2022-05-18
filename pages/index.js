@@ -158,20 +158,18 @@ export default function Home() {
             </div>
             <div className="absolute left-0  bottom-0 w-4/5 lg:w-[38%]">
               <p className="m-0 text-justify text-[30px] uppercase leading-[50px] lg:text-right">
-                Capital Raise
+                CAPITAL RAISE
               </p>
               <p className="m-0 text-justify text-[20px] leading-[30px] lg:text-right">
-                Expanded team and added core contributors to collaborate on
-                development.
+                EXPANDED TEAM AND ADDED CORE CONTRIBUTORS TO COLLABORATE ON DEVELOPMENT.
               </p>
             </div>
             <div className="absolute right-0  top-[-120px] w-4/5 lg:w-[38%]">
               <p className="m-0 text-justify text-[30px] uppercase leading-[50px] lg:text-left">
-                Community & Core team Growth
+                COMMUNITY & CORE TEAM GROWTH
               </p>
               <p className="m-0 text-justify text-[20px] leading-[30px] lg:text-left">
-                Launched Socials and github launched to establish, foster and
-                grow community.
+                LAUNCHED SOCIALS AND GITHUB LAUNCHED TO ESTABLISH FOSTER AND GROW COMMUNITY.
               </p>
               <p className="m-0 mr-[70px] text-right text-[30px] leading-[50px]">
                 Mar 2022
@@ -197,8 +195,8 @@ export default function Home() {
                 GREG
               </p>
               <p className="m-0 text-[20px] leading-[30px] lg:text-left">
-                Launch Website showcasing interchain nft asset transfer. Genesis
-                omniverse greg omni-nft colection.{' '}
+                LAUNCH WEBSITE SHOWCASING INTERCHAIN NFT ASSET TRANSFER{' '}
+                <br /> GENESIS OMNIVERSE GREG OMNI-NFT COLLECTION.
               </p>
             </div>
           </div>
@@ -218,10 +216,10 @@ export default function Home() {
             </div>
             <div className="absolute left-0  bottom-0 w-4/5 lg:w-[38%]">
               <p className="m-0 text-[30px] uppercase leading-[50px] lg:text-right">
-                Omni X
+                OMNI X BETA
               </p>
               <p className="m-0 text-[20px] leading-[30px] lg:text-right">
-                Alpha NFT marketplace infrastructure release
+                BETA NFT MARKETPLACE INFRASTRUCTURE RELEASE.
               </p>
             </div>
           </div>
@@ -241,12 +239,10 @@ export default function Home() {
             </div>
             <div className="absolute right-0  bottom-0 w-4/5 lg:w-[38%]">
               <p className="m-0 text-[30px] uppercase leading-[50px] lg:text-left">
-                faction nfts
+                COMMUNITY GROWTH
               </p>
               <p className="m-0 text-[20px] leading-[30px] lg:text-left">
-                NFT PFP Collections: faction specific GENESIS collections.
-                Engagement Competitions: rewards for world building, fan art,
-                and lore production.
+                ENGAGEMENT COMPETITIONS REWARDS FOR WORLD BUILDING, FAN ART, AND LORE PRODUCTION.
               </p>
             </div>
           </div>
@@ -267,10 +263,10 @@ export default function Home() {
             </div>
             <div className="absolute left-0  bottom-0 w-4/5 lg:w-[38%]">
               <p className="m-0 text-[30px] uppercase leading-[50px] lg:text-right">
-                Omni Wars
+                OMNI X
               </p>
               <p className="m-0 text-[20px] leading-[30px] lg:text-right">
-                Alpha gameplay launch
+                NFT MARKETPLACE MAINNET RELEASE
               </p>
             </div>
           </div>
@@ -300,21 +296,19 @@ export default function Home() {
             <div className="relative mb-[20px] flex justify-center gap-[10px]">
               <div className="absolute left-0 top-[-250px] w-2/5">
                 <p className="ml-[15px] text-[30px] uppercase leading-[50px]">
-                  Community & Core team Growth
+                  COMMUNITY & CORE TEAM GROWTH
                 </p>
                 <p className="text-[20px] leading-[30px]">
-                  Launched Socials and github launched to establish, foster and
-                  grow community.
+                  LAUNCHED SOCIALS AND GITHUB LAUNCHED TO ESTABLISH FOSTER AND GROW COMMUNITY.
                 </p>
                 <p className="ml-[15px] text-[30px] leading-[50px]">Mar 2022</p>
               </div>
               <div className="absolute left-0 bottom-[0] w-2/5">
                 <p className="ml-[15px] text-[30px] uppercase leading-[50px]">
-                  Capital Raise
+                  CAPITAL RAISE
                 </p>
                 <p className="text-[20px] leading-[30px]">
-                  Expanded team and added core contributors to collaborate on
-                  development.
+                  EXPANDED TEAM AND ADDED CORE CONTRIBUTORS TO COLLABORATE ON DEVELOPMENT.
                 </p>
                 <p className="ml-[15px] text-[30px] leading-[50px]">APR 2022</p>
               </div>
@@ -331,8 +325,8 @@ export default function Home() {
                   GREG
                 </p>
                 <p className="text-[20px] leading-[30px]">
-                  Launch Website showcasing interchain nft asset transfer.{' '}
-                  <br /> Genesis omniverse greg omni-nft colection.
+                  LAUNCH WEBSITE SHOWCASING INTERCHAIN NFT ASSET TRANSFER{' '}
+                  <br /> GENESIS OMNIVERSE GREG OMNI-NFT COLLECTION.
                 </p>
                 <p className="ml-[15px] text-[30px] leading-[50px]">MAY 2022</p>
               </div>
@@ -346,10 +340,10 @@ export default function Home() {
             <div className="relative mb-[20px] flex justify-center gap-[10px]">
               <div className="absolute left-0 bottom-[0] w-2/5">
                 <p className="ml-[15px] text-[30px] uppercase leading-[50px]">
-                  Omni X
+                  OMNI X BETA
                 </p>
                 <p className="text-[20px] leading-[30px]">
-                  Alpha NFT marketplace infrastructure release
+                  BETA NFT MARKETPLACE INFRASTRUCTURE RELEASE.
                 </p>
                 <p className="ml-[15px] text-[30px] leading-[50px]">
                   JUNE 2022
@@ -365,13 +359,10 @@ export default function Home() {
             <div className="relative mb-[20px] flex justify-center gap-[10px]">
               <div className="absolute left-0 bottom-[0] w-2/5">
                 <p className="ml-[15px] text-[30px] uppercase leading-[50px]">
-                  faction nfts
+                  COMMUNITY GROWTH
                 </p>
                 <p className="text-[20px] leading-[30px]">
-                  NFT PFP Collections: faction specific GENESIS collections.{' '}
-                  <br />
-                  Engagement Competitions: rewards for world building, fan art,
-                  and lore production.
+                  ENGAGEMENT COMPETITIONS REWARDS FOR WORLD BUILDING, FAN ART, AND LORE PRODUCTION.
                 </p>
                 <p className="ml-[15px] text-[30px] leading-[50px]">Q3 2022</p>
               </div>
@@ -385,10 +376,10 @@ export default function Home() {
             <div className="relative mb-[20px] flex justify-center gap-[10px]">
               <div className="absolute left-0 bottom-[0] w-2/5">
                 <p className="ml-[15px] text-[30px] uppercase leading-[50px]">
-                  Omni Wars
+                  OMNI X
                 </p>
                 <p className="text-[20px] leading-[30px]">
-                  Alpha gameplay launch
+                  NFT MARKETPLACE MAINNET RELEASE
                 </p>
                 <p className="ml-[15px] text-[30px] leading-[50px]">Q4 2022</p>
               </div>
@@ -420,21 +411,19 @@ export default function Home() {
               <div className="right-0 bottom-[0] order-1 w-4/6">
                 <div className="absolute left-0 top-[-200px] w-4/6 ">
                   <p className="text-[30px] uppercase leading-[50px]">
-                    Community & Core team Growth
+                    COMMUNITY & CORE TEAM GROWTH
                   </p>
                   <p className="text-[20px] leading-[30px]">
-                    Launched Socials and github launched to establish, foster
-                    and grow community.
+                    LAUNCHED SOCIALS AND GITHUB LAUNCHED TO ESTABLISH FOSTER AND GROW COMMUNITY.
                   </p>
                   <p className="text-[30px] leading-[50px]">Mar 2022</p>
                 </div>
                 <div className="absolute left-0 bottom-[0] w-4/6 ">
                   <p className="text-[30px] uppercase leading-[50px]">
-                    Capital Raise
+                    CAPITAL RAISE
                   </p>
                   <p className="text-[20px] leading-[30px]">
-                    Expanded team and added core contributors to collaborate on
-                    development.
+                    EXPANDED TEAM AND ADDED CORE CONTRIBUTORS TO COLLABORATE ON DEVELOPMENT.
                   </p>
                   <p className="text-[30px] leading-[50px]">APR 2022</p>
                 </div>
@@ -452,8 +441,8 @@ export default function Home() {
               <div className="right-0 bottom-[0] order-1 w-4/6 md:absolute">
                 <p className="text-[30px] uppercase leading-[50px]">GREG</p>
                 <p className="text-[20px] leading-[30px]">
-                  Launch Website showcasing interchain nft asset transfer.{' '}
-                  <br /> Genesis omniverse greg omni-nft colection.
+                  LAUNCH WEBSITE SHOWCASING INTERCHAIN NFT ASSET TRANSFER{' '}
+                  <br /> GENESIS OMNIVERSE GREG OMNI-NFT COLLECTION.
                 </p>
                 <p className="text-[30px] leading-[50px]">MAY 2022</p>
               </div>
@@ -468,9 +457,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="right-0 bottom-[0] order-1 w-4/6 md:absolute">
-                <p className="text-[30px] uppercase leading-[50px]">Omni X</p>
+                <p className="text-[30px] uppercase leading-[50px]">OMNI X BETA</p>
                 <p className="text-[20px] leading-[30px]">
-                  Alpha NFT marketplace infrastructure release
+                  BETA NFT MARKETPLACE INFRASTRUCTURE RELEASE.
                 </p>
                 <p className="text-[30px] leading-[50px]">JUNE 2022</p>
               </div>
@@ -486,13 +475,10 @@ export default function Home() {
               </div>
               <div className="right-0 bottom-[0] order-1 w-4/6 md:absolute">
                 <p className="text-[30px] uppercase leading-[50px]">
-                  faction nfts
+                  COMMUNITY GROWTH
                 </p>
                 <p className="text-[20px] leading-[30px]">
-                  NFT PFP Collections: faction specific GENESIS collections.{' '}
-                  <br />
-                  Engagement Competitions: rewards for world building, fan art,
-                  and lore production.
+                  ENGAGEMENT COMPETITIONS REWARDS FOR WORLD BUILDING, FAN ART, AND LORE PRODUCTION.
                 </p>
                 <p className="text-[30px] leading-[50px]">Q3 2022</p>
               </div>
@@ -508,10 +494,10 @@ export default function Home() {
               </div>
               <div className="right-0 bottom-[0] order-1 w-4/6 md:absolute">
                 <p className="text-[30px] uppercase leading-[50px]">
-                  Omni Wars
+                  OMNI X  
                 </p>
                 <p className="text-[20px] leading-[30px]">
-                  Alpha gameplay launch
+                  NFT MARKETPLACE MAINNET RELEASE
                 </p>
                 <p className="text-[30px] leading-[50px]">Q4 2022</p>
               </div>
