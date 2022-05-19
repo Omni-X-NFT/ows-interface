@@ -716,7 +716,7 @@ export default function Greg() {
   },[toChain,transferNFT])
 
   return (
-    <div className='w-full main raleway'>
+    <div className='w-full main raleway overflow-hidden'>
       <Head>
         <title>Omniverse DAO</title>
         <meta name='description' content='A homepage for Omniverse DAO'/>
