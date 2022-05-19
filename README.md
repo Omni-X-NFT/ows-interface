@@ -13,10 +13,12 @@ Notes:
 
     https://omniverse-dao.vercel.app/
 
-https://rinkeby.etherscan.io/address/0xe5B227D2b91225f37D742C44F1708FB8886Dc816
-https://testnet.bscscan.com/address/0xe880C81E71acfc8d6f53b663A98676c52eec3Aa3
-https://testnet.snowtrace.io/address/0x2ce33635c398c5C4D2864Baa870Cbd7E36060b26
-https://mumbai.polygonscan.com/address/0x2E7D05Effb588EaFF8f3ae141B9462cef13cFddD
-https://testnet.arbiscan.io/address/0x580ce08aaD9e99cC2a124509F424795173fcB8FD
-https://kovan-optimistic.etherscan.io/address/0xfF6D4F31096988056611Eba104dBb70474a3C250
-https://testnet.ftmscan.com/address/0x8471371AeFDd6Ad7db1C93d97F07EeE2006b25E8
+
+
+https://rinkeby.etherscan.io/address/0xC8759D18D5c96cce77074249330b9b41A618e51A
+https://testnet.bscscan.com/address/0xCB3041291724B893E8BB3E876aC8f250D475685D
+https://testnet.snowtrace.io/address/0xd88af13d0f204156BFad1680E1199EbEd0487A07
+https://mumbai.polygonscan.com/address/0x864BA3671B20c2fD3Fe90788189e52Ef6D98fb65
+https://testnet.arbiscan.io/address/0x900501b343e8975b0ec4f1439f355f0bf15c7b9f
+https://kovan-optimistic.etherscan.io/address/0x5464Af1E4a6AF705920eD1CD0f4cb10638A89FD8
+https://testnet.ftmscan.com/address/0x484F40fC64D43fF7eECA7Ca51a801dB28A0F105d

@@ -10,43 +10,53 @@ import social5 from '../static/social/social-5.svg'
 import logo from '../static/logo/omniverse-logo.svg'
 
 const Footer = () => {
-  return(
-    <div className='footer flex justify-between h-[80px] py-[5px] px-5 fixed bottom-0 w-full abel'>
-      <Link href='/' passHref>
-        <div className='logo flex items-center cursor-pointer gap-[20px]'>
-          <Image src={logo} className='w-[70px]' />
-          <p className='text-[30px] leading-[50px]'>Omniverse </p>
+  return (
+    <div className="footer abel fixed left-0 right-0 bottom-0 flex h-[80px]  justify-between py-[5px] px-5">
+      <Link href="/" passHref>
+        <div className="logo flex cursor-pointer items-center gap-[20px]">
+          <Image src={logo} className="w-[70px]" />
+          <p className="hidden text-[30px] leading-[50px] sm:block">
+            Omniverse{' '}
+          </p>
         </div>
       </Link>
-      <ul className='gap-[30px] lg:flex items-center hidden'>
+      <ul className="flex items-center gap-[10px] sm:gap-[30px]">
         <li>
-          <Link href='/' passHref>
-            <Image src={social5} className='cursor-pointer'>
-            </Image>
+          <Link
+            href="https://www.youtube.com/channel/UCZ-dkwDXPIyppqvZWrShkjA"
+            passHref
+          >
+            <a target="_blank">
+              <Image src={social5} className="cursor-pointer"></Image>
+            </a>
           </Link>
         </li>
         <li>
-          <Link href='/' passHref>
-            <Image src={social1} className='cursor-pointer'>
-            </Image>
+          <Link href="https://github.com/Omniverse-DAO" passHref>
+            <a target="_blank">
+              <Image src={social1} className="cursor-pointer"></Image>
+            </a>
           </Link>
         </li>
         <li>
-          <Link href='/' passHref>
-            <Image src={social2} className='cursor-pointer'>
-            </Image>
+          <Link href="https://daniel-67.gitbook.io/omniverse-dao/" passHref>
+            <a target="_blank">
+              <Image src={social2} className="cursor-pointer"></Image>
+            </a>
           </Link>
         </li>
         <li>
-          <Link href='/' passHref>
-            <Image src={social3} className='cursor-pointer'>
-            </Image>
+          <Link href="https://discord.com/invite/omniversedao" passHref>
+            <a target="_blank">
+              <Image src={social3} className="cursor-pointer"></Image>
+            </a>
           </Link>
         </li>
         <li>
-          <Link href='/' passHref>
-            <Image src={social4} className='cursor-pointer'>
-            </Image>
+          <Link href="https://twitter.com/omniversedao" passHref>
+            <a target="_blank">
+              <Image src={social4} className="cursor-pointer"></Image>
+            </a>
           </Link>
         </li>
       </ul>

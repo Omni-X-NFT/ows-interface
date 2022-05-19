@@ -9,6 +9,7 @@ class MyDocument extends Document {
             name="description"
             content="Mint Omniverse NFT and Transfer between networks"
           />
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
           <link rel="icon" href="/static/favicon.ico" />
           <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" />
