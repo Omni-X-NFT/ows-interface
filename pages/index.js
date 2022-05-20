@@ -20,6 +20,10 @@ export default function Home() {
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
       <MainNav />
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+
       <div
         data-aos="fade-up"
         className="flex h-screen w-full flex-col items-center justify-center"
