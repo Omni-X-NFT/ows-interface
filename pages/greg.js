@@ -724,6 +724,8 @@ export default function Greg() {
       </Head>
       <MainNav setNetId={setNetId} netId={netId} addresses={addresses} />
       <ToastContainer />
+  
+
 
       <div className='pt-[200px] mb-[50px]' data-aos='fade-left'>
         <div className='rounded-[25px] bg-[#000207C9] w-5/6 max-w-[1200px] min-w-[320px] lg:px-[30px] px-0 mx-auto flex lg:flex-row flex-col'>

@@ -14,7 +14,6 @@ Notes:
     https://omniverse-dao.vercel.app/
 
 
-
 https://rinkeby.etherscan.io/address/0xC8759D18D5c96cce77074249330b9b41A618e51A
 https://testnet.bscscan.com/address/0xCB3041291724B893E8BB3E876aC8f250D475685D
 https://testnet.snowtrace.io/address/0xd88af13d0f204156BFad1680E1199EbEd0487A07
