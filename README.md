@@ -1,24 +1,34 @@
-# Omni Wars Interface
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Welcome to Omniverse DAO and Omni Wars website!
+## Getting Started
 
-Please follow the [instructions](./instructions.md) to start contributing to this repository.
+First, run the development server:
 
-Notes:
-* [Next.js documentation](https://nextjs.org/docs/basic-features/pages)
-* For configuring Tailwind CSS theme refer to the [documentation](https://tailwindcss.com/docs/theme)
-* Dm @exakoss if you have a question, open an issue if you have a problem with setting up and running the dapp
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-## live Link
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-    https://omniverse-dao.vercel.app/
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-https://rinkeby.etherscan.io/address/0xC8759D18D5c96cce77074249330b9b41A618e51A
-https://testnet.bscscan.com/address/0xCB3041291724B893E8BB3E876aC8f250D475685D
-https://testnet.snowtrace.io/address/0xd88af13d0f204156BFad1680E1199EbEd0487A07
-https://mumbai.polygonscan.com/address/0x864BA3671B20c2fD3Fe90788189e52Ef6D98fb65
-https://testnet.arbiscan.io/address/0x900501b343e8975b0ec4f1439f355f0bf15c7b9f
-https://kovan-optimistic.etherscan.io/address/0x5464Af1E4a6AF705920eD1CD0f4cb10638A89FD8
-https://testnet.ftmscan.com/address/0x484F40fC64D43fF7eECA7Ca51a801dB28A0F105d
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

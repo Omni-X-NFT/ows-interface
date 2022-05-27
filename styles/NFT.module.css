@@ -1,0 +1,151 @@
+
+.nftcontainer{
+    font-family: 'Graphit';
+    color: #ffffff;
+}
+.nftmainWrap{
+    max-width: 1180px;
+    margin: 50px auto;
+    position: relative;
+}
+.nftdataCon{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 70px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.nftdataL {
+    flex-basis: 50%;
+}
+.nftdataR{
+    flex-basis: 44%;
+    background: #9e5df425;
+    align-self: flex-start;
+    margin-top: 40px;
+    padding: 50px;
+    border-radius: 13.7139px
+}
+.nftdataWrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 36px;
+    margin-bottom: 32px;
+}
+.dataSelected{
+    border: 2px solid #4A0773;
+    border-radius: 12px;
+}
+.dataSelected .activeBtn{
+    background-color: #4A0773 !important;
+    color: #ffffff !important;
+    transition: 0.3s;
+}
+.dataSelected .activeBtn:hover{
+    background: #64099c !important;
+    transition: 0.3s;
+}
+.nftdatatext{
+    font-size: 22px;
+    font-family: 'Raleway', sans-serif;
+}
+.nftselbtn button{
+    outline: none;
+    border: none;
+    /* background-color: #4A0773; */
+    background-color: #242126;
+    font-family: 'Graphit';
+    font-size: 16px;
+    color: #ffffff6c;
+    padding: 10px 24px;
+    border-radius: 28px;
+    letter-spacing: 3px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.nftselbtn button:hover{
+    background: #4A0773;
+    transition: 0.3s;
+    color: #ffffff;
+}
+
+.transferHeading {
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.tranDataConT{
+    margin-top: 28px;
+}
+.tranDataWrapT{
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tranData p{
+    font-weight: 300;
+    color: #BDBDBD;
+}
+.tranData h2{
+   font-weight: 300;
+   margin-top: 5px; 
+}
+.tranDataConB {
+    margin-top: 120px;
+}
+.tranDataConB p{
+    color: #BDBDBD;
+    font-weight: 300;
+}
+.transbtn{
+    margin-bottom: 20px;
+}
+.transbtn button{
+    outline: none;
+    border: none;
+    background-color: #4A0773;
+    font-family: 'Graphit';
+    font-size: 20px;
+    color: #ffffff;
+    padding: 14px 26px;
+    border-radius: 28px;
+    letter-spacing: 8px;
+    font-weight: 300;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+.transbtn button:hover{
+    background: #64099c;
+    transition: 0.3s;
+}
+.transSelWrap{
+    background: #cc79ff56;
+    border-radius: 28px;
+    padding-right: 32px;
+    padding-left: 32px;
+    margin: 32px 0px;
+}
+.transSelWrap select{
+    outline: none;
+    border: none;
+    /* background-color: #4A0773; */
+    font-family: 'Graphit';
+    background: transparent;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 300;
+    border-radius: 28px;
+    padding: 14px 0px 12px 0px;
+    letter-spacing: 5px;
+    font-weight: 300;
+    cursor: pointer;
+    width: 100%;
+}
+.transSelWrap select option{
+    color: #ffffff;
+    background: #4A0773;
+}

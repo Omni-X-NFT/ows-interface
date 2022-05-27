@@ -1,0 +1,115 @@
+.secHeadingCon{
+  color: #fff;
+  font-family: 'Graphit';
+}
+.secHeadingWrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+.secHeadingWrap h3{
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 0px 12px;
+}
+.secHeadImgL, .secHeadImgR{
+  width: 100%;
+  max-width: 150px;
+}
+.secHeadingCon{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.secHeadingCon h1{
+  font-size: 65px;
+  text-align: center;
+    font-size: 65px;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+}
+
+/* Partnars */
+.partCompGrid{
+  max-width: 1330px;
+  margin: 70px auto 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.PartCompWrap {
+  flex-basis: 23%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 24px;
+  margin-bottom: 50px;
+}
+
+/* Roadmap */
+.roadmapCon{
+  max-width: 1200px;
+  margin: 100px auto 100px auto;
+    color: #fff;
+  font-family: 'Graphit';
+}
+.roadmapWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ContL{
+  flex-basis: 50%;
+}
+.ContL h1{
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 5px;
+}
+.ContL .purpletxt{
+  color: #CB17C3;
+}
+.ContL .BgWrap{
+  position: relative;
+}
+.ContL .roadmapTxt{
+  position: absolute;
+  top: 43%;
+  left: 49%;
+  width: 100%;
+  max-width: 370px;
+  transform: translate(-43%, -49%);
+}
+.ContL .roadmapTxt h3{
+  color: #02CAE5;
+  font-weight: 300;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+.ContR{
+  flex-basis: 50%;
+  position: relative;
+}
+.roadlineImg{
+  padding-top: 150px;
+  max-width: 330px;
+}
+.roadlineBlue{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.alignLine{
+  width: 100%;
+  max-width: 330px;
+  padding-top: 150px;
+}
+.linehide{
+  opacity: 0;
+  transform: scale(0);
+}

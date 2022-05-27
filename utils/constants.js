@@ -1,1 +1,0 @@
-export const NetworkContextName = `${new Date().getTime()}-NETWORK`;

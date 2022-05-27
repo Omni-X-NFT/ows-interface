@@ -1,0 +1,138 @@
+.mintHero{
+    background: url(../static/MintPage-Hero.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-bottom: 100px;
+}
+.mintHero .container{
+    max-width: 1300px;
+    margin: 0 auto;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+.mintImgWrap{
+    flex-basis: 50%;
+}
+.mintImgT {
+    max-width: 600px;
+}
+.mintImgB {
+    max-width: 610px;
+    position: relative;
+}
+.mintDesc {
+    flex-basis: 49%;
+    padding-top: 70px;
+    /* background: #365a2693; */
+    font-family: 'Graphit';
+    padding-right: 24px;
+}
+.mintDesc p{
+    font-size: 22px;
+    margin-top: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.mintDesc h1{
+    font-weight: 500;
+    font-family: 'Graphit';
+    font-size: 38px;
+    letter-spacing: 1px;
+}
+.mintImgtext{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mintImgtext h1{
+    font-weight: 500;
+    font-family: 'Graphit';
+    font-size: 38px;
+    letter-spacing: 4px;
+}
+.mintDataGrid {
+    display: flex;
+    margin: 50px 0px;
+}
+.mintDataGrid .line{
+    display: block;
+    height: 75px;
+    width: 2px;
+    background-color: #ffffff;
+    margin: 0px 32px;
+}
+.mintDataWrap {
+    /* background: #4a07735d; */
+    text-align: center;
+}
+.mintDataWrap h5{
+    font-size: 22px;
+    font-weight: 400;
+}
+.mintDataWrap span{
+    display: block;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 15px;
+}
+.counterWrap{
+    display: flex;
+    align-items: center;
+}
+.counterWrap span{
+    margin: 16px 16px 0px 16px;
+}
+.counterWrap button{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 5px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.mintBtnWrap button{
+    outline: none;
+    border: none;
+    background-color: #4A0773;
+    font-family: 'Graphit';
+    font-size: 20px;
+    color: #ffffff;
+    padding: 14px 26px;
+    border-radius: 28px;
+    letter-spacing: 5px;
+    font-weight: 300;
+    cursor: pointer;
+}
+.mintBtnWrap button:hover{
+    background: #64099c;
+    transition: 0.3s;
+}
+
+.blackGradientBottom2{
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 80%, #000 100%);
+}
+.nfthead {
+    padding-top: 50px;
+}
+.nfthead h1{
+    text-align: center;
+    font-size: 65px;
+    letter-spacing: 10px;
+    color: #ffffff;
+    font-family: 'Graphit';
+}
