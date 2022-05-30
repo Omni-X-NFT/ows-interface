@@ -1,0 +1,39 @@
+/* Slider Section */
+.slideContainer{
+  color: #fff;
+  font-family: 'Graphit';
+}
+.omniSlideWrap{
+  max-width: 700px;
+  position: relative;
+  margin: 0 auto;
+}
+.slideContent{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.slideTxt ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.slideTxt h3{
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.slideTxt ul li{
+  padding-bottom: 10px;
+  font-weight: 300;
+}
+.slideLogo{
+  max-width: 190px;
+}

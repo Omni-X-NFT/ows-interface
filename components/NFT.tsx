@@ -11,7 +11,9 @@ const NFT : React.FC = () => {
     <>
     <div className={nftstyles.nftcontainer}>
         <div className={nftstyles.nftmainWrap}>
-          <Image src={NFTBg} alt="nft background" layout='responsive' />
+          <div className={nftstyles.NFTbgImg}>
+            <Image src={NFTBg} alt="nft background" layout='responsive' />
+          </div>
           <div className={nftstyles.nftdataCon}>
             <div className={nftstyles.nftdataL}>
               <div className={nftstyles.nftdataWrap}>

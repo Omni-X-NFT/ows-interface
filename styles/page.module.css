@@ -1,8 +1,10 @@
-.mintHero{
-    background: url(../static/MintPage-Hero.png);
+.pagebackground{
+    background: url(../static/page-bg.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+.mintHero{
     position: relative;
     padding-bottom: 100px;
 }
@@ -12,7 +14,6 @@
     color: #ffffff;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 50px;
     background-color: #00020775;
     padding: 32px;
     border-radius: 20px;
@@ -156,15 +157,6 @@
     background: #64099c;
     transition: 0.3s;
 }
-.blackGradientBottom2{
-    z-index: -1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 80%, #000 100%);
-}
 .mintheadingImg{
     padding-top: 50px;
     display: flex;
@@ -182,4 +174,55 @@
     text-align: center;
     font-size: 65px;
     letter-spacing: 10px;
+}
+
+@media (max-width:1280px){
+    .mintHero .container{
+        margin: 50px 12px 0px 12px;
+    }
+    .nftmainImgT {
+        padding: 0px 12px;
+    }
+}
+@media (max-width:880px){
+    .mintHero .container{
+        flex-direction: column;
+    }
+    .mintDesc {
+        margin-top: 32px;
+        width: 100%;
+        padding-right: 0px;
+    }
+}
+@media (max-width:580px){
+    .mintheadingImg{
+        flex-direction: column;
+    }
+    .nftmainImgT {
+        max-width: 300px;
+    }
+    .mintImgWrap{
+        min-height: 500px;
+    }
+    .mintHero .container{
+        padding: 12px;
+    }
+    .mintheadingImg{
+        padding-top: 0px;
+    }
+    .mintheadingImg .headImg{
+        width: 100%;
+        margin-right: 16px;
+    }
+    .mintheadingImg h1{
+        font-size: 32px;
+        letter-spacing: 5px;
+    }
+    .mintDataGrid .line{
+        margin: 0px 16px;
+    }
+    .mintDataWrap h5{
+        font-size: 18px;
+        font-weight: 300;
+    }
 }

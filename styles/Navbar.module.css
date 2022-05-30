@@ -1,6 +1,6 @@
 
 header .container{
-    max-width: 1350px;
+    max-width: 1250px;
     margin: 0 auto;
     padding: 1rem 1rem;
     display: flex;
@@ -22,6 +22,9 @@ header .container{
     align-items: center;
     border-radius: 26px;
 }
+.navLinks li {
+    border-radius: 19px;
+}
 .navLinks li a{
     display: block;
     font-size: 16px;
@@ -39,10 +42,31 @@ header .container{
     background: #64099c;
     transition: 0.3s;
 }
-.navLinks li a.active:hover{
+.navLinks li.active:hover{
     background: #64099c;
     transition: 0.3s;
 }
-.navLinks li a.active{
+.navLinks li.active{
     background-color: #52067D;
+}
+
+@media (max-width:550px){
+    header .container{
+        flex-direction: column;
+    }
+    .navLinks {
+    background-color: #03121D;
+    display: flex;
+    padding: 7px;
+    margin-top: 18px;
+}
+    .navLinks li a{
+    display: block;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 6px 24px;
+}
+.navLinks li:nth-child(2){
+    margin-left: 8px;
+}
 }

@@ -4,7 +4,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    padding-bottom: 100px;
+    padding-bottom: 32px;
 }
 .mintHero .container{
     max-width: 1300px;
@@ -12,7 +12,6 @@
     color: #ffffff;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 50px;
 }
 .mintImgWrap{
     flex-basis: 50%;
@@ -27,7 +26,6 @@
 .mintDesc {
     flex-basis: 49%;
     padding-top: 70px;
-    /* background: #365a2693; */
     font-family: 'Graphit';
     padding-right: 24px;
 }
@@ -70,7 +68,6 @@
     margin: 0px 32px;
 }
 .mintDataWrap {
-    /* background: #4a07735d; */
     text-align: center;
 }
 .mintDataWrap h5{
@@ -118,13 +115,15 @@
 }
 
 .blackGradientBottom2{
-    z-index: -1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     background: linear-gradient(to bottom, transparent 80%, #000 100%);
+}
+.mintSecBg{
+    background: url(../static/gregnftbg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    position: relative;
 }
 .nfthead {
     padding-top: 50px;
@@ -135,4 +134,56 @@
     letter-spacing: 10px;
     color: #ffffff;
     font-family: 'Graphit';
+}
+
+@media (max-width:1280px){
+    .mintDesc {
+    flex-basis: 50%;
+    padding-top: 0px;
+    padding-left: 24px;
+}
+}
+
+@media (max-width:880px){
+    .mintHero .container{
+        flex-direction: column;
+    }
+    .mintDesc {
+        margin-top: 50px;
+    }
+    .mintImgT {
+    margin: 0 auto;
+    padding: 0 12px;
+}
+    .mintImgB {
+    margin: 0 auto;
+    padding: 0 12px;
+}
+}
+
+@media (max-width:480px){
+    .mintImgtext h1{
+        font-weight: 400;
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+    .mintDataGrid .line{
+        margin: 0px 16px;
+    }
+    .mintDataWrap h5{
+        font-size: 18px;
+        font-weight: 300;
+    }
+   .mintDesc {
+        width: 100%;
+        padding-top: 0px;
+        padding-left: 12px;
+    }
+    .nfthead {
+        padding-top: 16px;
+    }
+    .nfthead h1{
+        font-size: 32px;
+        letter-spacing: 5px;
+    }
 }

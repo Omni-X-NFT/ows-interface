@@ -20,7 +20,6 @@ const mint: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={mintstyles.mintHero}> 
-        <div className={mintstyles.blackGradientBottom2}></div>
         <Navbar/>
         <div className={mintstyles.container}>
           <div className={mintstyles.mintImgWrap}>
@@ -68,11 +67,13 @@ const mint: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className={mintstyles.nfthead}>
-        <h1>YOUR NFTS</h1>
+      <div className={mintstyles.mintSecBg}>
+        <div className={mintstyles.nfthead}>
+          <h1>YOUR NFTS</h1>
+        </div>
+          <NFT/>
+        <Footer/>
       </div>
-        <NFT/>
-      <Footer/>
     </>
   )
 }

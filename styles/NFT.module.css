@@ -5,13 +5,14 @@
 }
 .nftmainWrap{
     max-width: 1180px;
-    margin: 50px auto;
+    margin: 50px auto 100px auto;
     position: relative;
 }
 .nftdataCon{
     position: absolute;
     top: 0;
     width: 100%;
+    height: 100%;
     padding: 70px 50px;
     display: flex;
     justify-content: space-between;
@@ -54,7 +55,6 @@
 .nftselbtn button{
     outline: none;
     border: none;
-    /* background-color: #4A0773; */
     background-color: #242126;
     font-family: 'Graphit';
     font-size: 16px;
@@ -148,4 +148,56 @@
 .transSelWrap select option{
     color: #ffffff;
     background: #4A0773;
+}
+
+@media (max-width:1080px){
+    .nftcontainer{
+        padding: 0px 12px;
+    }
+   .NFTbgImg{
+       opacity: 0;
+       transform: scale(0);
+       display: none;
+   } 
+   .nftdataCon{
+       position: relative;
+       flex-direction: column;
+       /* background: url(../static/NFTBg.png);
+       background-repeat: no-repeat;
+       background-size: cover; */
+       max-width: 768px;
+       margin: 0 auto;
+       padding: 70px 16px;
+
+   }
+    .nftdataL {
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+    }
+    .nftdataR{
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+    }
+}
+@media (max-width:480px){
+    .nftdataR{
+        padding: 24px;
+    }
+    .nftdataCon{
+        padding: 32px 0px;
+    }
+    .nftdataWrap{
+        padding: 16px 12px;
+        margin-bottom: 16px;
+    }
+    .nftdatatext{
+        font-size: 16px;
+    }
+    .nftselbtn button{
+        font-size: 16px;
+        letter-spacing: 2px;
+        padding: 10px 16px;
+    }
 }
