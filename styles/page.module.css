@@ -157,23 +157,15 @@
     background: #64099c;
     transition: 0.3s;
 }
-.mintheadingImg{
+ .nfthead {
     padding-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
-.mintheadingImg .headImg{
-    width: 100%;
-    max-width: 120px;
-    margin-right: 32px;
-}
-.mintheadingImg h1{
-    font-family: 'Graphit';
-    color: #ffffff;
+.nfthead h1{
     text-align: center;
     font-size: 65px;
     letter-spacing: 10px;
+    color: #ffffff;
+    font-family: 'Graphit';
 }
 
 @media (max-width:1280px){
@@ -195,9 +187,6 @@
     }
 }
 @media (max-width:580px){
-    .mintheadingImg{
-        flex-direction: column;
-    }
     .nftmainImgT {
         max-width: 300px;
     }
@@ -207,22 +196,24 @@
     .mintHero .container{
         padding: 12px;
     }
-    .mintheadingImg{
-        padding-top: 0px;
-    }
-    .mintheadingImg .headImg{
-        width: 100%;
-        margin-right: 16px;
-    }
-    .mintheadingImg h1{
-        font-size: 32px;
-        letter-spacing: 5px;
-    }
     .mintDataGrid .line{
         margin: 0px 16px;
     }
     .mintDataWrap h5{
         font-size: 18px;
         font-weight: 300;
+    }
+}
+
+@media (max-width:480px){
+    .mintHero{
+        padding-bottom: 50px;
+    }
+    .nfthead {
+        padding-top: 16px;
+    }
+    .nfthead h1{
+        font-size: 32px;
+        letter-spacing: 5px;
     }
 }

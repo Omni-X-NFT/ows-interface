@@ -125,15 +125,23 @@
     padding-top: 50px;
     position: relative;
 }
-.nfthead {
+.mintheadingImg{
     padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.nfthead h1{
+.mintheadingImg .headImg{
+    width: 100%;
+    max-width: 120px;
+    margin-right: 32px;
+}
+.mintheadingImg h1{
+    font-family: 'Graphit';
+    color: #ffffff;
     text-align: center;
     font-size: 65px;
     letter-spacing: 10px;
-    color: #ffffff;
-    font-family: 'Graphit';
 }
 
 @media (max-width:1280px){
@@ -179,10 +187,20 @@
         padding-top: 0px;
         padding-left: 12px;
     }
-    .nfthead {
-        padding-top: 16px;
+}
+@media (max-width:580px){
+    .mintheadingImg{
+        flex-direction: column;
     }
-    .nfthead h1{
+    .mintheadingImg{
+        padding-top: 0px;
+    }
+    .mintheadingImg .headImg{
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 16px;
+    }
+    .mintheadingImg h1{
         font-size: 32px;
         letter-spacing: 5px;
     }

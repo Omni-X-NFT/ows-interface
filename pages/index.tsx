@@ -48,6 +48,8 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
+         {/* Home Page BackGround */}
+        <div className={styles.HomePageBg}>
         {/* Feature Section */}
         <div className={styles.featureContentWrap}>
           <div className={styles.featureImg}>
@@ -69,33 +71,33 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-        {/* Home Page BackGround */}
-        <div className={styles.HomePageBg}>
         {/* Slider Section */}
-        <div className={styles.secHeadingCon}>
-          <div className={styles.secHeadingWrap}>
-            <div className={styles.secHeadImgL}>
-              <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
-            </div>
-            <h3>Omniverse</h3>
-            <div className={styles.secHeadImgR}>
-              <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
-            </div>
-          </div>
-        </div>
-        <Slider/>
-        <div className={styles.secHeadingCon}>
-          <div className={styles.secHeadingWrap}>
-            <div className={styles.secHeadImgL}>
-              <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
-            </div>
-            <h3>Omniverse</h3>
-            <div className={styles.secHeadImgR}>
-              <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
+        <div className={styles.sliderRootContainer}>
+          <div className={styles.secHeadingCon}>
+            <div className={styles.secHeadingWrap}>
+              <div className={styles.secHeadImgL}>
+                <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
+              </div>
+              <h3>Omniverse</h3>
+              <div className={styles.secHeadImgR}>
+                <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
+              </div>
             </div>
           </div>
+          <Slider/>
+          <div className={styles.secHeadingCon}>
+            <div className={styles.secHeadingWrap}>
+              <div className={styles.secHeadImgL}>
+                <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
+              </div>
+              <h3>Omniverse</h3>
+              <div className={styles.secHeadImgR}>
+                <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
+              </div>
+            </div>
+          </div>
+          <Slider/>
         </div>
-        <Slider/>
         {/* Roadmap Section */}
         <div className={styles.secHeadingCon}>
           <div className={styles.secHeadingWrap}>

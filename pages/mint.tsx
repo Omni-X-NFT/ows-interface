@@ -4,11 +4,12 @@ import Image from 'next/image'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import NFT from '../components/NFT'
-import MintMainImg from '../static/mint-main.png'
+// import MintMainImg from '../static/mint-main.png'
 import MintImgBottom from '../static/mintImg-bg.png'
 import PloyGoneImg from '../static/polygon logo.png'
 import MinusSign from '../static/minus-sign.png'
 import PlusSign from '../static/plus-sign.png'
+import HeadingImg from '../static/head-img.png'
 import mintstyles from '../styles/mint.module.css'
 
 const mint: NextPage = () => {
@@ -24,7 +25,18 @@ const mint: NextPage = () => {
         <div className={mintstyles.container}>
           <div className={mintstyles.mintImgWrap}>
             <div className={mintstyles.mintImgT}>
-              <Image src={MintMainImg} alt="mint" layout='responsive' />
+              {/* <Image src={MintMainImg} alt="mint" layout='responsive' /> */}
+              <video
+                style={{ objectFit: "cover" }}
+                width="100%"
+                height="100%"
+                autoPlay
+                loop
+                muted
+              >
+                <source src='../static/vid.mp4' type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
             <div className={mintstyles.mintImgB}>
               <Image src={MintImgBottom} alt="mint background" layout='responsive' />
@@ -68,10 +80,13 @@ const mint: NextPage = () => {
         </div>
       </div>
       <div className={mintstyles.mintSecBg}>
-        <div className={mintstyles.nfthead}>
-          <h1>YOUR NFTS</h1>
-        </div>
-          <NFT/>
+        <div className={mintstyles.mintheadingImg}>
+            <div className={mintstyles.headImg}>
+              <Image src={HeadingImg} alt='mint head' layout='responsive'></Image>
+            </div>
+            <h1>YOUR NFTS</h1>
+          </div>
+        <NFT/>
         <Footer/>
       </div>
     </>

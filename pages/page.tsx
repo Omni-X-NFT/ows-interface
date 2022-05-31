@@ -8,7 +8,7 @@ import ArrowsIcons from '../static/nft-arrows-icons.png'
 import PloyGoneImg from '../static/polygon logo.png'
 import MinusSign from '../static/minus-sign.png'
 import PlusSign from '../static/plus-sign.png'
-import HeadingImg from '../static/head-img.png'
+// import HeadingImg from '../static/head-img.png'
 import pagestyles from '../styles/page.module.css'
 import NFT from '../components/NFT'
 
@@ -73,10 +73,7 @@ const page: NextPage = () => {
           </div>
         </div>
         <div className={pagestyles.mintSecBg}>
-          <div className={pagestyles.mintheadingImg}>
-            <div className={pagestyles.headImg}>
-              <Image src={HeadingImg} alt='mint head' layout='responsive'></Image>
-            </div>
+          <div className={pagestyles.nfthead}>
             <h1>YOUR NFTS</h1>
           </div>
           <NFT/>
