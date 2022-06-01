@@ -89,10 +89,13 @@ const NFT : React.FC = () => {
                       setValue(e.target.value);
                     }}
                   >
-                    <option value="a">Arbitrum</option>
-                    <option value="b">b</option>
-                    <option value="c">c</option>
-                    <option value="d">d</option>
+                    <option value='4'>Rinkeby</option>
+                    <option value='97'>Bscscan</option>
+                    <option value='43113'>FUJI</option>
+                    <option value='80001'>Mumbai</option>
+                    <option value='421611'>Arbitrum</option>
+                    <option value='4002'>Fantom</option>
+                    <option value='69'>Kovan</option>
                   </select>
                 </div>
                 <div className={nftstyles.transbtn}>

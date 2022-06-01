@@ -16,10 +16,10 @@ const Footer : React.FC = () => {
                 <Image src={FooterLogo} alt="footer logo"></Image>
             </div>
             <ul className={footerstyles.socialWrapper}>
-                <li><Link href="https://github.com"><a><Image src={Github} alt="github"></Image></a></Link></li>
-                <li><Link href="/page"><a><Image src={Book} alt="book"></Image></a></Link></li>
-                <li><Link href="https://discord.com"><a><Image src={Discord} alt="discord"></Image></a></Link></li>
-                <li><Link href="https://twitter.com"><a><Image src={Twitter} alt="twitter"></Image></a></Link></li>
+                <li><Link href="https://github.com/Omniverse-DAO"><a target="_blank"><Image src={Github} alt="github"></Image></a></Link></li>
+                <li><Link href="https://daniel-67.gitbook.io/omniverse-dao/"><a target="_blank"><Image src={Book} alt="book"></Image></a></Link></li>
+                <li><Link href="https://discord.com/invite/omniversedao"><a target="_blank"><Image src={Discord} alt="discord"></Image></a></Link></li>
+                <li><Link href="https://twitter.com/omniversedao"><a target="_blank"><Image src={Twitter} alt="twitter"></Image></a></Link></li>
             </ul>
         </div>
     </footer>

@@ -96,6 +96,9 @@
     margin-top: 12px;
     cursor: pointer;
 }
+.mintBtnWrap{
+    margin: 1em;
+}
 .mintBtnWrap button{
     outline: none;
     border: none;

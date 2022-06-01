@@ -1,8 +1,14 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+
+// Components 
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import Slider from '../components/Slider'
+import Carousel from '../components/Carousel'
+
+// Images 
 import SecHeadArrowL from '../static/pinkArrow.png'
 import SecHeadArrowR from '../static/blue-Arrow.png'
 import BitScaleLogo from '../static/bitscale-logo.png'
@@ -14,9 +20,11 @@ import QuantstampLogo from '../static/quantstamp-logo.png'
 import RoadmapBg from '../static/roadmap-bg.png'
 import RoadmapBlueLine from '../static/roadmap-blue-line.png'
 import RoadmapPinkLine from '../static/roadmap-pink-line.png'
-import FeatureContenImg from '../static/feature-content-bg.png'
+import FeatureContenImg from '../static/feature-overview-bg.png'
+
+// StyleSheet 
 import styles from '../styles/Home.module.css'
-import Slider from '../components/Slider'
+
 
 const Home: NextPage = () => {
   return (
@@ -46,12 +54,7 @@ const Home: NextPage = () => {
                 <li><a></a></li>
               </ul>
             </div>
-          </div>
-        </div>
-         {/* Home Page BackGround */}
-        <div className={styles.HomePageBg}>
-        {/* Feature Section */}
-        <div className={styles.featureContentWrap}>
+            <div className={styles.featureContentWrap}>
           <div className={styles.featureImg}>
             <Image src={FeatureContenImg} layout="responsive" alt="bg"></Image>
           </div>
@@ -71,6 +74,11 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
+          </div>
+        </div>
+        {/* Home Page BackGround */}
+        <div className={styles.HomePageBg}>
+        {/* Feature Section */}
         {/* Slider Section */}
         <div className={styles.sliderRootContainer}>
           <div className={styles.secHeadingCon}>
@@ -78,7 +86,7 @@ const Home: NextPage = () => {
               <div className={styles.secHeadImgL}>
                 <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
               </div>
-              <h3>Omniverse</h3>
+              <h3>Omni X</h3>
               <div className={styles.secHeadImgR}>
                 <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
               </div>
@@ -90,32 +98,34 @@ const Home: NextPage = () => {
               <div className={styles.secHeadImgL}>
                 <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
               </div>
-              <h3>Omniverse</h3>
+              <h3>Omni Wars</h3>
               <div className={styles.secHeadImgR}>
                 <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
               </div>
             </div>
           </div>
-          <Slider/>
+          <Carousel/>
         </div>
         {/* Roadmap Section */}
-        <div className={styles.secHeadingCon}>
-          <div className={styles.secHeadingWrap}>
-            <div className={styles.secHeadImgL}>
-              <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
+        <div className={styles.roadmapSecHead}>
+          <div className={styles.secHeadingCon}>
+            <div className={styles.secHeadingWrap}>
+              <div className={styles.secHeadImgL}>
+                <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
+              </div>
+              <h3>Omniverse</h3>
+              <div className={styles.secHeadImgR}>
+                <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
+              </div>
             </div>
-            <h3>Omniverse</h3>
-            <div className={styles.secHeadImgR}>
-              <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
-            </div>
+            <h1>RoadMap</h1>
           </div>
-          <h1>RoadMap</h1>
         </div>
         <div className={styles.roadmapCon}>
           {/* First Phase */}
           <div className={styles.roadmapWrap}>
             <div className={styles.ContL}>
-              <h1 className={styles.purpletxt}>Mar 2022</h1>
+              <h1 className={styles.purpletxt}>MAR 2022</h1>
               <div className={styles.BgWrap}>
                 <div className={styles.BgImg}>
                   <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
@@ -158,7 +168,7 @@ const Home: NextPage = () => {
           {/* Third Phase */}
           <div className={styles.roadmapWrap}>
             <div className={styles.ContL}>
-              <h1>Mar 2022</h1>
+              <h1>MAY 2022</h1>
               <div className={styles.BgWrap}>
                 <div className={styles.BgImg}>
                   <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
@@ -279,8 +289,9 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className={styles.FooterAreaContain}>
-        <Footer/>
+        <div className={styles.FooterAreaContain}>
+          <div className={styles.hideBorder}></div>
+          <Footer/>
       </div>
     </>
   )

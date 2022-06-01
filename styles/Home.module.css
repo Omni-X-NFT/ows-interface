@@ -1,7 +1,8 @@
 .heroContainer{
   background: url(../static/home-hero-bg.png);
-  background-size: cover;
-  background-position: center;
+  background-size: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
   position: relative;
 }
 .heroContentWrap{
@@ -10,8 +11,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: column;
+  padding-top: 70px;
 }
 .heroContentWrap h1{
   font-size: 100px;
@@ -19,7 +21,7 @@
   letter-spacing: 24px;
 }
 .heroBtn{
-  margin-top: 32px;
+  margin-top: 24px;
 }
 .heroBtn button{
   outline: none;
@@ -44,12 +46,12 @@
     z-index: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent 50%, #000 100%);
+    /* background: linear-gradient(to bottom, transparent 50%, #000 100%); */
 }
 .navigationsWrap{
   position: absolute;
   right: 32px;
-  top: 40%;
+  top: 20%;
 }
 .navigationsWrap ul{
   list-style: none;
@@ -70,13 +72,15 @@
   transition: 0.3s;
   cursor: pointer;
 }
+
 /* feature Content Area */
 .featureContentWrap{
   color: #fff;
   font-family: 'Graphit';
   max-width: 1300px;
-  margin: 0px auto 100px auto;
+  margin: 0px auto 0px auto;
   position: relative;
+
 }
 .ContentWrap{
   position: absolute;
@@ -138,9 +142,14 @@
   text-align: center;
     font-size: 65px;
     letter-spacing: 12px;
+    text-align: center;
     text-transform: uppercase;
 }
-
+.roadmapSecHead .secHeadImgL,
+.roadmapSecHead .secHeadImgR{
+  width: 100%;
+  max-width: 100px;
+}
 /* Partnars */
 .partCompGrid{
   max-width: 1330px;
@@ -162,7 +171,7 @@
 /* Roadmap */
 .roadmapCon{
   max-width: 1200px;
-  margin: 100px auto 50px auto;
+  margin: 100px auto 100px auto;
     color: #fff;
   font-family: 'Graphit';
 }
@@ -225,25 +234,34 @@
 
 /* Home Page Background */
 .HomePageBg{
-  background: url(../static/homepage-bg.png);
+  background: url(../static/Homebackground.png);
   background-size: 100% 70%;
   background-position: top;
   background-repeat: no-repeat;
+  padding-top: 400px;
+  margin-top: -200px;
 }
 .FooterAreaContain{
-  background: url(../static/footer-bg.png);
-  height: 120vh;
-  background-size: cover;
+  background: url(../static/footer-bg-new.png);
+  height: 100vh;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
 }
 .FooterAreaContain footer{
   width: 100%;
+}
+.hideBorder{
+  background-color: #000000;
+  height: 10px;
+  width: 100%;
+  height: 7%;
+  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.849) 100%);
 }
 
 
@@ -266,7 +284,11 @@
     padding: 0px 12px;
   }
   .ContentWrap{
-    background: #1302299c;
+    /* background: #1302299c; */
+    background: url(../static/feature-content-bg-new.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 200%;
     position: relative;
     border-radius: 8px;
     top: 0;

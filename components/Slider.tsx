@@ -8,12 +8,12 @@ const Slider : React.FC = () => {
   return (
     <>
     <div className={sliderstyles.slideContainer}>
-        <div className={sliderstyles.omniSlideWrap}>
+      <div className={sliderstyles.omniSlideWrap}>
         <div className={sliderstyles.slideBg}>
             <Image src={SlideBg} layout="responsive" alt="slide Bg"></Image>
         </div>
         <div className={sliderstyles.slideContent}>
-            <div className={sliderstyles.slideTxt}>
+          <div className={sliderstyles.slideTxt}>
             <h3>NFT Ecosystem Hub</h3>
             <ul>
                 <li>Marketplace</li>
@@ -23,12 +23,13 @@ const Slider : React.FC = () => {
                 <li>Launches Gaming Integration</li>
                 <li>and so much more</li>
             </ul>
-            </div>
-            <div className={sliderstyles.slideLogo}>
-            <Image src={SlideLogo} alt="slide logo"></Image>
-            </div>
+          </div>
+          <div className={sliderstyles.slideLogo}>
+          <Image src={SlideLogo} alt="slide logo"></Image>
+          </div>
+          <span className={sliderstyles.slidetag}>Omni X</span>
         </div>
-        </div>
+      </div>
     </div>
     </>
   )
