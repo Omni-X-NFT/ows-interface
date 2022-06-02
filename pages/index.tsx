@@ -5,8 +5,9 @@ import Image from 'next/image'
 // Components 
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import Slider from '../components/Slider'
-import Carousel from '../components/Carousel'
+import Xcarousel from '../components/xCarousel'
+import Warcarousel from '../components/Warcarousel'
+
 
 // Images 
 import SecHeadArrowL from '../static/pinkArrow.png'
@@ -92,7 +93,7 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-          <Slider/>
+          <Xcarousel/>
           <div className={styles.secHeadingCon}>
             <div className={styles.secHeadingWrap}>
               <div className={styles.secHeadImgL}>
@@ -104,7 +105,7 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-          <Carousel/>
+          <Warcarousel/>
         </div>
         {/* Roadmap Section */}
         <div className={styles.roadmapSecHead}>
@@ -131,9 +132,8 @@ const Home: NextPage = () => {
                   <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                 </div>
                 <div className={styles.roadmapTxt}>
-                  <h3>Community &amp; Core team Growth</h3>
-                  <p>Launched Socials and github launched to 
-                  establish, foster and grow community.</p>
+                  <h3>COMMUNITY & CORE TEAM GROWTH</h3>
+                  <p>LAUNCHED SOCIALS AND GITHUB LAUNCHED TO ESTABLISH FOSTER AND GROW COMMUNITY.</p>
                 </div>
               </div>
             </div>
@@ -159,8 +159,8 @@ const Home: NextPage = () => {
                   <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                 </div>
                 <div className={styles.roadmapTxt}>
-                  <h3>Capital Raise</h3>
-                  <p>Expanded team and added core contributors to collaborate on development.</p>
+                  <h3>CAPITAL RAISE</h3>
+                  <p>EXPANDED TEAM AND ADDED CORE CONTRIBUTORS TO COLLABORATE ON DEVELOPMENT.</p>
                 </div>
               </div>
             </div>
@@ -175,8 +175,8 @@ const Home: NextPage = () => {
                 </div>
                 <div className={styles.roadmapTxt}>
                   <h3>GREG</h3>
-                  <p>Launch Website showcasing interchain nft asset transfer.
-                  Genesis omniverse greg omni-nft colection. </p>
+                  <p>LAUNCH WEBSITE SHOWCASING INTERCHAIN NFT ASSET TRANSFER.
+                  GENESIS OMNIVERSE GREG OMNI-NFT COLLECTION. </p>
                 </div>
               </div>
             </div>
@@ -196,14 +196,14 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className={styles.ContL}>
-              <h1>June 2022</h1>
+              <h1>JUNE 2022</h1>
               <div className={styles.BgWrap}>
                 <div className={styles.BgImg}>
                   <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                 </div>
                 <div className={styles.roadmapTxt}>
-                  <h3>Omni X</h3>
-                  <p>Alpha NFT marketplace infrastructure release.</p>
+                  <h3>Omni X BETA</h3>
+                  <p>BETA NFT MARKETPLACE INFRASTRUCTURE RELEASE.</p>
                 </div>
               </div>
             </div>
@@ -217,9 +217,8 @@ const Home: NextPage = () => {
                   <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                 </div>
                 <div className={styles.roadmapTxt}>
-                  <h3>faction nfts</h3>
-                  <p>NFT PFP Collections: faction specific GENESIS collections.
-                  Engagement Competitions: rewards for world building, fan art, and lore production. </p>
+                  <h3>COMMUNITY GROWTH</h3>
+                  <p>ENGAGEMENT COMPETITIONS REWARDS FOR WORLD BUILDING, FAN ART, AND LORE PRODUCTION. </p>
                 </div>
               </div>
             </div>
@@ -245,8 +244,8 @@ const Home: NextPage = () => {
                   <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                 </div>
                 <div className={styles.roadmapTxt}>
-                  <h3>Omni Wars</h3>
-                  <p>Alpha gameplay launch</p>
+                  <h3>OMNI X</h3>
+                  <p>NFT MARKETPLACE MAINNET RELEASE</p>
                 </div>
               </div>
             </div>

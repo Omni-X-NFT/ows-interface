@@ -6,14 +6,42 @@ import Navbar from '../components/Navbar'
 import NFT from '../components/NFT'
 import MintImgBottom from '../static/mintImg-bg.png'
 import PloyGoneImg from '../static/polygon logo.png'
+import RinkbyImage from '../static/logo/ethereum-eth-logo-1.svg'
+import BscscanImage from '../static/logo/dbanner1_copy_4_1.svg'
+import FUJIImage from '../static/logo/dbanner1_copy_1.svg'
+import MumbaiImage from '../static/logo/dbanner1_copy_3_1.svg'
+import ArbitrumImage from '../static/logo/dbanner1_copy_2_1.svg'
+import FantomImage from '../static/logo/fantom-ftm-logo-1.svg'
+import KovanImage from '../static/logo/JtpX95Rt_400x400-1.svg'
+
 import MinusSign from '../static/minus-sign.png'
 import PlusSign from '../static/plus-sign.png'
 import HeadingImg from '../static/head-img.png'
 import mintstyles from '../styles/mint.module.css'
+import selectstyles from '../styles/Selectchain.module.css'
 import WalletConnectProvider  from '@walletconnect/web3-provider'
 import Web3Modal from 'web3modal'
-import { ethers } from 'ethers'
+import { BigNumber, ethers } from 'ethers'
 import React, { useState , useEffect } from 'react'
+import AdvancedONT from '../services/abis/AdvancedONT.json'
+import { AbiItem } from 'web3-utils'
+
+interface Address {
+  address: string,
+  image: string,
+  name: string,
+  price: number,
+  chainId: string,
+  unit: string
+} 
+
+interface contractInfo {
+  [key: string]: Address;
+}
+ interface chains {
+   chainId: string,
+   name: string
+ }
 
 const providerOptions  = {
 	walletconnect: {
@@ -103,10 +131,11 @@ const providerOptions  = {
   },
 };
 
-const addresses:{[key:string]:object} = {
+
+const addresses:contractInfo = {
   '4': {
     address: '0xC8759D18D5c96cce77074249330b9b41A618e51A',
-    image: '../static/logo/ethereum-eth-logo-1.svg',
+    image: RinkbyImage,
     name: 'rinkeby',
     price: 0.05,
     chainId: '10001',
@@ -114,7 +143,7 @@ const addresses:{[key:string]:object} = {
   },
   '97': {
     address: '0xCB3041291724B893E8BB3E876aC8f250D475685D',
-    image: '../static/logo/dbanner1_copy_4_1.svg',
+    image: BscscanImage,
     name: 'bscscan',
     price: 0.375,
     chainId: '10002',
@@ -122,7 +151,7 @@ const addresses:{[key:string]:object} = {
   },
   '43113': {
     address: '0xd88af13d0f204156BFad1680E1199EbEd0487A07',
-    image: '../static/logo/dbanner1_copy_1.svg',
+    image: FUJIImage,
     name: 'FUJI',
     price: 2,
     chainId: '10006',
@@ -130,7 +159,7 @@ const addresses:{[key:string]:object} = {
   },
   '80001': {
     address: '0x864BA3671B20c2fD3Fe90788189e52Ef6D98fb65',
-    image: '../static/logo/dbanner1_copy_3_1.svg',
+    image: MumbaiImage,
     name: 'Mumbai',
     price: 108,
     chainId: '10009',
@@ -138,7 +167,7 @@ const addresses:{[key:string]:object} = {
   },
   '421611': {
     address: '0x900501b343e8975b0ec4f1439f355f0bf15c7b9f',
-    image: '../static/logo/dbanner1_copy_2_1.svg',
+    image: ArbitrumImage,
     name: 'Arbitrum',
     price: 0.05,
     chainId: '10010',
@@ -146,7 +175,7 @@ const addresses:{[key:string]:object} = {
   },
   '4002': {
     address: '0x484F40fC64D43fF7eECA7Ca51a801dB28A0F105d',
-    image: '../static/logo/fantom-ftm-logo-1.svg',
+    image: FantomImage,
     name: 'Fantom',
     price: 130,
     chainId: '10012',
@@ -154,21 +183,59 @@ const addresses:{[key:string]:object} = {
   },
   '69': {
     address: '0x5464Af1E4a6AF705920eD1CD0f4cb10638A89FD8',
-    image: '../static/logo/JtpX95Rt_400x400-1.svg',
+    image:KovanImage,
     name: 'Kovan',
     price: 0.05,
     chainId: '10011',
     unit: 'ETH'
   }
 }
-
+const chainIds: Array<chains> = [
+  {
+    chainId:'4',
+    name:'Rinkeby',
+  },
+  {
+    chainId:'97',
+    name:'Bscscan',
+  },
+  {
+    chainId:'43113',
+    name:'FUJI',
+  },
+  {
+    chainId:'80001',
+    name:'Mumbai',
+  },
+  {
+    chainId:'421611',
+    name:'Arbitrum',
+  },
+  {
+    chainId:'4002',
+    name:'Fantom',
+  },
+  {
+    chainId:'69',
+    name:'Kovan',
+  }
+]
 
 const mint: NextPage = () => {
   const [provider, setProvider] = useState<any>()
   const [library, setLibrary] = useState<any>()
   const [account, setAccount] = useState<any>()
-  const [network, setNetwork] = useState<any>()
+  const [network, setNetwork] = useState<string>('4')
   const [chainId, setChainId] = useState<any>();
+  const [toChain, setToChain] = useState<string>('4')
+  const [mintNum, setMintNum] = useState<number>(1)
+  const [ownToken, setOwnToken] = useState<Array<number>>([])
+  const [totalNFTCount, setTotalNFTCount] = useState<number>(0)
+  const [nextTokenId, setNextTokenId] = useState<number>(0)
+  const [transferNFT, setTransferNFT] = useState<number>(0)
+  
+
+
 
 	const connect = async():Promise<void> =>{
 		try {
@@ -189,6 +256,7 @@ const mint: NextPage = () => {
         if (accounts) 
           setAccount(accounts[0]);
         setChainId(network.chainId);
+        setNetwork(network.chainId.toString());
       }
 		} catch (error) {
 			console.error(error);
@@ -196,8 +264,7 @@ const mint: NextPage = () => {
 	}
 
   const handleNetwork = (e:any):void => {
-    const id = e.target.value;
-    setNetwork(Number(id));
+    setNetwork(e);
   }
 
   const switchNetwork = async ():Promise<void> => {
@@ -220,6 +287,142 @@ const mint: NextPage = () => {
     }
   }
 
+  const decrease = ():void => {
+    if(mintNum > 1) {
+      setMintNum(mintNum - 1)
+    }
+  }
+
+  const increase = ():void => {
+    if(mintNum < 5) {
+      setMintNum(mintNum + 1)
+    }
+  }
+
+  const getInfo = async ():Promise<void> => {
+    if(addresses[chainId]) 
+    {
+      try{
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
+
+        let result = await tokenContract.balanceOf(account)
+        let token, tokenlist = []
+        for (var i = 0 ;i < Number(result); i++) {
+          token = await tokenContract.tokenOfOwnerByIndex(account, i)
+          tokenlist.push(Number(token))
+        }
+  
+        setOwnToken(tokenlist)
+  
+        let max_mint = await tokenContract.MAX_MINT()
+        let nextId = await tokenContract.nextTokenId()
+  
+        setTotalNFTCount(Number(max_mint))
+        setNextTokenId(Number(nextId))
+      } catch(error){
+        console.log(error)
+      }
+    }
+  }
+
+  const mint = async ():Promise<void> => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+		const signer = provider.getSigner();
+    const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
+
+    let mintResult
+    // setIsMinting(true)
+
+    try {
+      let publicmintFlag = await tokenContract._publicSaleStarted()
+      let saleFlag = await tokenContract._saleStarted()
+      console.log(publicmintFlag, saleFlag)
+
+      if(saleFlag && publicmintFlag) {
+
+        mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
+        const receipt = await mintResult.wait()
+        if(receipt!=null){
+          // setIsMinting(false)
+          getInfo()
+        }
+        // add the the function to get the emit from the contract and call the getInfo()
+      } else if (saleFlag) {
+        mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
+        // add the the function to get the emit from the contract and call the getInfo()
+        const receipt = await mintResult.wait()
+        if(receipt!=null){
+          // setIsMinting(false)
+          getInfo()
+        }
+      } else {
+        // errorToast('Sale is not started yet')
+        // setIsMinting(false)
+      }
+    } catch (e:any) {
+      if(e['code'] == 4001){
+        // errorToast(e['message'].split(':')[1])
+      } else {
+        // errorToast('There is not enough fund to mint the NFT on '+ addresses[chainId].name)
+      }
+      // setIsMinting(false)
+    }
+  }
+
+  const sendNFT = async ():Promise<void> => {
+    if(!transferNFT){
+      // errorToast('Select NFT you want to transfer, please')
+      return
+    }
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+		  const signer = provider.getSigner();
+      const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
+
+      const estimateFee = await tokenContract.estimateFeesSendNFT(addresses[toChain].chainId, transferNFT)
+      const currentBalance = await library.getBalance(account)
+
+      if(Number(estimateFee) * 1.1 > Number(currentBalance)) {
+        // errorToast('You do not have enough balance for transfer')
+        return
+      }
+      let gasFee = Number(estimateFee)/Math.pow(10,18)*1.1*Math.pow(10,18)
+      gasFee = gasFee - gasFee%1
+      // setIsTransferring(true)
+      let mintResult = await tokenContract.sendNFT(addresses[toChain].chainId, transferNFT, {value: gasFee.toString()})
+      // please add the function to get the emit from the contract and call the getInfo()
+      const receipt = await mintResult.wait()
+      if(receipt!=null){
+        getInfo()
+        // setIsTransferring(false)
+      }
+      // add emit function after redploy the contract
+      const destination_contract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
+      destination_contract.on('Transfer',(from , to , tokenID) => {
+        if(to==account){
+          // toast.success(`${ addresses[chainId].name } sent greg#${ tokenID } to ${ addresses[toChain].name}`,{
+          //   position: toast.POSITION.TOP_RIGHT,
+          //   autoClose: 3000,
+          //   transition: Slide
+          // })
+          // setIsTransferring(false)
+        }
+      })
+
+    } catch (e:any) {
+      if(e['code'] == 4001){
+        // errorToast(e['message'].split(':')[1])
+      } else {
+        // errorToast('Sending NFT error, Please try again')
+      }
+      // setIsTransferring(false)
+    }
+    setTransferNFT(0)
+
+  }
+
   useEffect(() => {
     if (provider?.on) {
       const handleAccountsChanged = (accounts:any) => {
@@ -227,7 +430,7 @@ const mint: NextPage = () => {
       };
   
       const handleChainChanged = (chainId:any) => {
-        setChainId(chainId);
+        setChainId(parseInt(chainId,16));
       };
   
       provider.on("accountsChanged", handleAccountsChanged);
@@ -241,6 +444,23 @@ const mint: NextPage = () => {
       };
     }
   }, [provider]);
+
+  useEffect(()=>{
+    if(chainId){
+      getInfo()
+    }
+  },[chainId])
+
+  useEffect(()=>{
+    if(toChain){
+      console.log(chainId,toChain)
+    }
+  },[toChain])
+
+  useEffect(()=>{
+    switchNetwork()
+  },[network])
+
 
   useEffect(()=>{
     connect()
@@ -289,25 +509,46 @@ const mint: NextPage = () => {
             <div className={mintstyles.mintDataGrid}>
               <div className={mintstyles.mintDataWrap}>
                 <h5>MINTED</h5>
-                <span>0/750</span>
+                <span>{nextTokenId}/{totalNFTCount}</span>
               </div>
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
                 <h5>PRICE</h5>
-                <span>250 <Image src={PloyGoneImg} width={29.84} height={25.46} alt="ikon"></Image></span>
+                <span>{chainId?addresses[`${Number(chainId)}`].price:0}<Image src={chainId?addresses[`${Number(chainId)}`].image:PloyGoneImg} width={29.84} height={25.46} alt="ikon"></Image></span>
               </div>
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
                 <h5>QUANTITY</h5>
                 <div className={mintstyles.counterWrap}>
-                  <button><Image src={MinusSign} alt="minus"></Image></button>
-                  <span>1</span>
-                  <button><Image src={PlusSign} alt="plus"></Image></button>
+                  <button onClick={()=>decrease()}><Image src={MinusSign} alt="minus"></Image></button>
+                  <span>{mintNum}</span>
+                  <button onClick={()=>increase()}><Image src={PlusSign} alt="plus"></Image></button>
                 </div>
               </div>
             </div>
+            <div className={selectstyles.nftselectWrap}>
+                <label>Select chain to mint on</label>
+                <div className={selectstyles.transSelWrap}>
+                  <Image src={chainId?addresses[`${Number(network)}`].image:PloyGoneImg} width={29.84} height={25.46} alt="ikon"></Image>
+                  <select
+                    onChange={(e) => {
+                      handleNetwork(e.target.value);
+                    }}
+                  >
+                    {
+                      chainIds.map(function(chain, idx){
+                        if(chain.chainId==network){
+                          return <option key={idx} value={chain.chainId} selected>{chain.name}</option>
+                        } else {
+                          return <option key={idx} value={chain.chainId}>{chain.name}</option>
+                        }
+                      })
+                    }
+                  </select>
+                </div>
+            </div>
             <div className={mintstyles.mintBtnWrap}>
-              <button type='button'>MINT NOW</button>
+              <button type='button' onClick={()=>mint()}>MINT NOW</button>
             </div>
           </div>
         </div>
@@ -319,7 +560,14 @@ const mint: NextPage = () => {
             </div>
             <h1>YOUR NFTS</h1>
           </div>
-        <NFT/>
+        <NFT
+          mintedNFTs={ownToken}
+          transferNFT={transferNFT}
+          setTransferNFT={setTransferNFT}
+          toChain={toChain}
+          setToChain={setToChain}
+          sendNFT={sendNFT}
+        />
         <Footer/>
       </div>
     </>

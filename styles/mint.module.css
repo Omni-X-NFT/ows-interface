@@ -58,7 +58,7 @@
 }
 .mintDataGrid {
     display: flex;
-    margin: 50px 0px;
+    margin: 50px 0px 32px 0px;
 }
 .mintDataGrid .line{
     display: block;
@@ -97,7 +97,7 @@
     cursor: pointer;
 }
 .mintBtnWrap{
-    margin: 1em;
+    text-align: center;
 }
 .mintBtnWrap button{
     outline: none;
@@ -116,6 +116,44 @@
     background: #64099c;
     transition: 0.3s;
 }
+/* .nftselectWrap{
+    display: flex;
+    align-items: center;
+}
+.nftselectWrap label{
+    display: block;
+    width: 100%;
+    max-width: 120px;
+    margin-right: 32px;
+}
+.transSelWrap{
+    background: #cc79ff56;
+    border-radius: 28px;
+    padding-right: 32px;
+    padding-left: 32px;
+    margin: 32px 0px;
+    width: 100%;
+    max-width: 350px;
+}
+.transSelWrap select{
+    outline: none;
+    border: none;
+    font-family: 'Graphit';
+    background: transparent;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 300;
+    border-radius: 28px;
+    padding: 14px 0px 12px 0px;
+    letter-spacing: 5px;
+    font-weight: 300;
+    cursor: pointer;
+    width: 100%;
+}
+.transSelWrap select option{
+    color: #ffffff;
+    background: #4A0773;
+} */
 
 .blackGradientBottom2{
     background: linear-gradient(to bottom, transparent 80%, #000 100%);

@@ -19,6 +19,7 @@
   transform: translate(-50%, -50%);
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   max-width: 500px;
   margin: 0 auto;
@@ -46,7 +47,63 @@
 .slideLogo{
   max-width: 190px;
 }
+.slidetwoL{
+  max-width: 200px;
+  text-align: center;
+}
 
+.slidetwowrap{
+  max-width: 120px;
+  margin: 0 auto 24px auto;
+}
+.slidetwoR{
+  max-width: 250px;
+  text-align: center;
+  padding-top: 10px;
+}
+.buyLogo2{
+  max-width: 150px;
+  margin: 0 auto;
+}
+.slidetwoR p{
+  font-weight: 300;
+}
+.slidetwoR h4{
+  font-weight: 300;
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  text-decoration: underline;
+}
+.slidethreeR{
+flex-basis: 50%;
+padding-left: 32px;
+}
+.slidethreeR h4{
+    font-weight: 300;
+  position: absolute;
+  top: -40px;
+  right: 80px;
+  text-decoration: underline;
+}
+.slidethreeL {
+flex-basis: 50%;
+}
+.slidethreeL p{
+  margin-top: 10px;
+  font-weight: 100;
+}
+.slidethreeLogo{
+  max-width: 195px;
+  margin: 0 auto;
+}
+.slidethreeL ul{
+  list-style: none;
+}
+.slidethreeL ul li{
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.568);
+}
 .slidetag, .slidetag2{
   position: absolute;
   bottom: -40px;
