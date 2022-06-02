@@ -5,7 +5,7 @@ import Image from 'next/image'
 // Components 
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import Xcarousel from '../components/xCarousel'
+import Xcarousel from '../components/XCarousel'
 import Warcarousel from '../components/Warcarousel'
 
 
