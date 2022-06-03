@@ -25,6 +25,10 @@ import { BigNumber, ethers } from 'ethers'
 import React, { useState , useEffect } from 'react'
 import AdvancedONT from '../services/abis/AdvancedONT.json'
 import { AbiItem } from 'web3-utils'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { Slide } from 'react-toastify'
+
 
 interface Address {
   address: string,
@@ -75,7 +79,7 @@ const providerOptions  = {
     rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
     blockExplorerUrls: ['https://testnet.bscscan.com/']
   },
-  "0xA869": {
+  "0xa869": {
     chainId: '0xA869',
     chainName: 'Avalanche Testnet C-Chain',
     nativeCurrency: {
@@ -97,7 +101,8 @@ const providerOptions  = {
     rpcUrls: ['https://rpc-mumbai.maticvigil.com/'],
     blockExplorerUrls: ['https://polygonscan.com/']
   },
-  "0x66EEB": {
+  "0x66eeb": {
+    chainId: '0x66EEB',
     chainName: 'Arbitrum Rinkeby',
     nativeCurrency: {
         name: 'Arbitrum',
@@ -107,7 +112,7 @@ const providerOptions  = {
     rpcUrls: ['https://rinkeby.arbitrum.io/rpc'],
     blockExplorerUrls: ['https://testnet.arbiscan.io/']
   },
-  "0xFA2": {
+  "0xfa2": {
     chainId: '0xFA2',
     chainName: 'Fantom testnet',
     nativeCurrency: {
@@ -233,13 +238,13 @@ const mint: NextPage = () => {
   const [totalNFTCount, setTotalNFTCount] = useState<number>(0)
   const [nextTokenId, setNextTokenId] = useState<number>(0)
   const [transferNFT, setTransferNFT] = useState<number>(0)
+  const [init, setInitial] = useState<boolean>(false)
+  const [isMinting,setIsMinting] = useState<boolean>(false)
   
-
-
-
 	const connect = async():Promise<void> =>{
 		try {
       let web3Modal: Web3Modal | null
+
       if (typeof window !== 'undefined') {
         web3Modal = new Web3Modal({
           network: 'mainnet', // optional
@@ -255,15 +260,36 @@ const mint: NextPage = () => {
         setLibrary(library);
         if (accounts) 
           setAccount(accounts[0]);
-        setChainId(network.chainId);
-        setNetwork(network.chainId.toString());
+        if(isContainChains(network.chainId)){
+          setChainId(network.chainId);
+          setNetwork(network.chainId.toString());
+        } else {
+          setInitial(true)
+        }
+        
       }
 		} catch (error) {
 			console.error(error);
 		}
 	}
+  const isContainChains = (e:any):boolean => {
+    let returnValue:number = 0
+    chainIds.map(function(chain, idx){
+      if(chain.chainId==e.toString()){
+        returnValue=1
+      } 
+    })
+    if(returnValue==1){
+      return true
+    } else {
+      return false
+    }
+  }
 
   const handleNetwork = (e:any):void => {
+    if(init==false){
+      setInitial(true)
+    }
     setNetwork(e);
   }
 
@@ -280,9 +306,16 @@ const mint: NextPage = () => {
             method: "wallet_addEthereumChain",
             params: [networkParams[`0x${Number(network).toString(16)}`]]
           });
-        } catch (error) {
-          console.log(error);
+        } catch (error:any) {
+          errorToast("Fail to add the network, Please try again")
+          setNetwork(chainId)
         }
+      } else if(switchError.code == 4001) {
+        errorToast(switchError.message)
+        setNetwork(chainId)
+      } else {
+        errorToast("Please confirm the network connection")
+        setNetwork(chainId)
       }
     }
   }
@@ -297,6 +330,13 @@ const mint: NextPage = () => {
     if(mintNum < 5) {
       setMintNum(mintNum + 1)
     }
+  }
+  const errorToast = (error:string):void =>{
+    toast.error(error,{
+      position: toast.POSITION.BOTTOM_RIGHT,
+      autoClose: 3000,
+      transition: Slide
+    })
   }
 
   const getInfo = async ():Promise<void> => {
@@ -333,19 +373,18 @@ const mint: NextPage = () => {
     const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
 
     let mintResult
-    // setIsMinting(true)
+    setIsMinting(true)
 
     try {
       let publicmintFlag = await tokenContract._publicSaleStarted()
       let saleFlag = await tokenContract._saleStarted()
-      console.log(publicmintFlag, saleFlag)
 
       if(saleFlag && publicmintFlag) {
 
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
         const receipt = await mintResult.wait()
         if(receipt!=null){
-          // setIsMinting(false)
+          setIsMinting(false)
           getInfo()
         }
         // add the the function to get the emit from the contract and call the getInfo()
@@ -354,20 +393,21 @@ const mint: NextPage = () => {
         // add the the function to get the emit from the contract and call the getInfo()
         const receipt = await mintResult.wait()
         if(receipt!=null){
-          // setIsMinting(false)
+          setIsMinting(false)
           getInfo()
         }
       } else {
-        // errorToast('Sale is not started yet')
-        // setIsMinting(false)
+        errorToast('Sale is not started yet')
+        setIsMinting(false)
       }
     } catch (e:any) {
       if(e['code'] == 4001){
-        // errorToast(e['message'].split(':')[1])
+        errorToast(e.message)
       } else {
-        // errorToast('There is not enough fund to mint the NFT on '+ addresses[chainId].name)
+        console.log(e)
+        errorToast('There is not enough fund to mint the NFT on '+ addresses[chainId].name)
       }
-      // setIsMinting(false)
+      setIsMinting(false)
     }
   }
 
@@ -430,7 +470,13 @@ const mint: NextPage = () => {
       };
   
       const handleChainChanged = (chainId:any) => {
-        setChainId(parseInt(chainId,16));
+        if(isContainChains(parseInt(chainId,16))){
+          setChainId(parseInt(chainId,16));
+        }else{
+          errorToast("The current network is not supported, please change the network")
+          switchNetwork()
+          setNetwork('4')
+        }
       };
   
       provider.on("accountsChanged", handleAccountsChanged);
@@ -447,19 +493,22 @@ const mint: NextPage = () => {
 
   useEffect(()=>{
     if(chainId){
+      console.log("getInfo")
       getInfo()
     }
   },[chainId])
 
   useEffect(()=>{
     if(toChain){
-      console.log(chainId,toChain)
+      // console.log(chainId,toChain)
     }
   },[toChain])
 
   useEffect(()=>{
-    switchNetwork()
-  },[network])
+    if(init==true){
+      switchNetwork()
+    }
+  },[network, init])
 
 
   useEffect(()=>{
@@ -472,7 +521,9 @@ const mint: NextPage = () => {
         <title>Omini Verse | Mint</title>
         <meta name="description" content="Generated by create next app" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       </Head>
+      <ToastContainer />
       <div className={mintstyles.mintHero}> 
         <Navbar/>
         <div className={mintstyles.container}>
@@ -514,7 +565,7 @@ const mint: NextPage = () => {
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
                 <h5>PRICE</h5>
-                <span>{chainId?addresses[`${Number(chainId)}`].price:0}<Image src={chainId?addresses[`${Number(chainId)}`].image:PloyGoneImg} width={29.84} height={25.46} alt="ikon"></Image></span>
+                <span>{chainId?addresses[`${Number(chainId)}`].price:0}<Image src={chainId?addresses[`${Number(chainId)}`].image:RinkbyImage} width={29.84} height={25.46} alt="ikon"></Image></span>
               </div>
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
@@ -529,7 +580,7 @@ const mint: NextPage = () => {
             <div className={selectstyles.nftselectWrap}>
                 <label>Select chain to mint on</label>
                 <div className={selectstyles.transSelWrap}>
-                  <Image src={chainId?addresses[`${Number(network)}`].image:PloyGoneImg} width={29.84} height={25.46} alt="ikon"></Image>
+                  <Image src={chainId?addresses[`${Number(network)}`].image:RinkbyImage} width={29.84} height={25.46} alt="ikon"></Image>
                   <select
                     onChange={(e) => {
                       handleNetwork(e.target.value);
@@ -548,7 +599,13 @@ const mint: NextPage = () => {
                 </div>
             </div>
             <div className={mintstyles.mintBtnWrap}>
-              <button type='button' onClick={()=>mint()}>MINT NOW</button>
+              {
+                isMinting?
+                <button type='button' onClick={()=>mint()}><i  className="fa fa-spinner fa-spin" style={{"letterSpacing":"normal"}}/>MINT NOW</button>
+                :
+                <button type='button' onClick={()=>mint()}>MINT NOW</button>
+              }
+              
             </div>
           </div>
         </div>

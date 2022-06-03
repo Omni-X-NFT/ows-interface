@@ -107,14 +107,13 @@ const Xcarousel : React.FC = () => {
               </div>
               <div className={sliderstyles.slideContent}>
                 <div className={sliderstyles.slidethreeL}>
-                  <p>omnichain native ORC-20 token</p>
-                  <p>platform revenue redistribution in $OMNI &amp; ETH</p>
+                  <p>omnichain native fungible (OFT-20) token</p>
+                  <p>platform revenue redistribution in $OMNI &amp; USDC</p>
                   <p>reduced platform fees</p>
                   <ul>
                     <li>- for individuals transacting</li>
-                    <li>- curve wars style gauge voting for largest holders</li>
+                    <li>- curve wars style rewards for largest holders</li>
                   </ul>
-                  <p>governance</p>
                 </div>
                 <div className={sliderstyles.slidethreeR}>
                   <h4>$OMNI</h4>

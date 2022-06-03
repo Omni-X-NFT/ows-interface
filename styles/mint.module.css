@@ -96,9 +96,11 @@
     margin-top: 12px;
     cursor: pointer;
 }
+
 .mintBtnWrap{
     text-align: center;
 }
+
 .mintBtnWrap button{
     outline: none;
     border: none;

@@ -18,7 +18,24 @@ const Warcarousel : React.FC = () => {
   return (
     <>
     <div className={sliderstyles.swiperRooterWrap}>
-      <Swiper
+      <div className={sliderstyles.slideContainer}>
+        <div className={sliderstyles.omniSlideWrap}>
+          <div className={sliderstyles.slideBg}>
+            <Image src={SlideBg} layout="responsive" alt="slide Bg"></Image>
+          </div>
+          <div className={sliderstyles.slideContent}>
+            <div className={sliderstyles.slideTxt}>
+              <h3>Compete-to-Earn &#40;C2E&#41; Multi-Blockchain Game</h3>
+              <p>a competitive strategy game with blockchain based factions in a rich universe of lore, art, and community</p>
+            </div>
+            <div className={sliderstyles.slideLogo}>
+            <Image src={SlideLogo2} alt="slide logo"></Image>
+            </div>
+            <span className={sliderstyles.slidetag2}>Omni Wars</span>
+          </div>
+        </div>
+      </div>
+      {/* <Swiper
         modules={[Navigation, EffectCoverflow]}
         navigation={true}
         slidesPerView={"auto"}
@@ -119,7 +136,7 @@ const Warcarousel : React.FC = () => {
             </div>
           </div>
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
     </div>
     </>
   )
