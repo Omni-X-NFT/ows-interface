@@ -11,7 +11,39 @@ interface Props{
   setTransferNFT:(transferNFT: number) => void,
   toChain:string,
   setToChain:(toChain: string) => void,
-  sendNFT:()=>void
+  sendNFT:()=>void,
+  estimateFee:string
+}
+
+interface selectOptionColor {
+  color: string
+} 
+
+interface selectOption {
+  [key: string]: selectOptionColor;
+}
+const selectOptions:selectOption = {
+  '4': {
+    color:'#8C8C8C'
+  },
+  '97': {
+    color:'#F3BA2F'
+  },
+  '43113': {
+    color:'#E84142'
+  },
+  '80001': {
+    color:'#8247E5'
+  },
+  '421611': {
+    color:'#28A0F0'
+  },
+  '4002': {
+    color:'#13B5EC'
+  },
+  '69': {
+    color:'#FF0320'
+  }
 }
 
 const NFT : React.FC<Props> = (Props) => {
@@ -72,7 +104,7 @@ const NFT : React.FC<Props> = (Props) => {
               }
               <div className={nftstyles.tranDataConB}>
                 <p>Destination Network</p>
-                <div className={nftstyles.transSelWrap}>
+                <div className={nftstyles.transSelWrap} style={{"background":selectOptions[Props.toChain].color}}>
                   <select
                     onChange={(e) => {
                       Props.setToChain(e.target.value);
@@ -87,6 +119,7 @@ const NFT : React.FC<Props> = (Props) => {
                     <option value='69'>Kovan</option>
                   </select>
                 </div>
+                <p>{Props.estimateFee}</p>  
                 <div className={nftstyles.transbtn}>
                   <button onClick={()=>Props.sendNFT()}>TRANSFER</button>
                 </div>

@@ -162,9 +162,10 @@
    .nftdataCon{
        position: relative;
        flex-direction: column;
-       /* background: url(../static/NFTBg.png);
+       background: url(../static/NFTBg.png);
        background-repeat: no-repeat;
-       background-size: cover; */
+       background-size: 100% 100%;
+       background-position: top;
        max-width: 768px;
        margin: 0 auto;
        padding: 70px 16px;
@@ -200,4 +201,26 @@
         letter-spacing: 2px;
         padding: 10px 16px;
     }
+    .nftdataR{
+         max-width: 300px;
+    }
 }
+@media (max-width:400px){
+    .nftdataR{
+         max-width: 280px;
+    }
+}
+@media (max-width:360px){
+ .transferHeading {
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: 1px;
+    }
+    .nftdataR{
+        padding: 12px;
+    }
+    .tranDataConB p{
+        font-size: 14px;
+    }
+}
+

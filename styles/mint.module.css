@@ -248,3 +248,36 @@
         letter-spacing: 5px;
     }
 }
+
+@media (max-width:360px){
+    .mintImgtext h1{
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    .mintDesc {
+        font-size: 18px;
+        margin-top: 18px;
+    }
+    .mintDesc h1{
+        font-size: 32px;
+    }
+    .mintDesc p{
+        font-size: 16px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width:330px){
+    .mintDataGrid {
+        display: flex;
+        flex-direction: column;
+        margin: 32px 0px 18px 0px;
+        align-items: center;
+        justify-content: center;
+    }
+    .mintDataGrid .line{
+        transform: rotate(90deg);
+
+    }
+}

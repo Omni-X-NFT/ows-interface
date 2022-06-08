@@ -7,7 +7,7 @@ import SlideLogo3 from '../static/slide-logo-3.png'
 import SlideLogo from '../static/omniverse logo slide.png'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, EffectCoverflow } from 'swiper'
+import { Navigation, EffectCoverflow, FreeMode } from 'swiper'
 
 //Swiper CSS
 import 'swiper/css'
@@ -26,17 +26,22 @@ const Xcarousel : React.FC = () => {
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
+        loop= {true}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
           depth: 700,
           modifier: 1,
-          slideShadows: true,
+          slideShadows: false,
         }}
         breakpoints={{
-          500: {
+          320: {
             slidesPerView: "auto",
-            spaceBetween: 16,
+            spaceBetween: 0,
+            freeMode:true,
+            coverflowEffect:{
+              depth: 0,
+            }
           },
           768: {
             slidesPerView: "auto",
@@ -121,7 +126,7 @@ const Xcarousel : React.FC = () => {
                     <Image src={SlideLogo3} alt="slide logo"></Image>
                   </div>
                 </div>
-                <span className={sliderstyles.slidetag2}>Omni X</span>
+                <span className={`${sliderstyles.slidetag2} ${sliderstyles.slidetag3}`}>Omni X</span>
               </div>
             </div>
           </div>
