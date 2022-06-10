@@ -494,6 +494,21 @@ const mint: NextPage = () => {
       )
     }
   }
+  const selectOptions = () => {
+    return(
+      <>
+        {
+          chainIds.map(function(chain, idx){
+            if(chain.chainId==network){
+              return <option key={idx} value={chain.chainId} selected>{chain.name}</option>
+            } else {
+              return <option key={idx} value={chain.chainId}>{chain.name}</option>
+            }
+          })
+        }
+      </>
+    )
+  }
 
   useEffect(() => {
     if (provider?.on) {
@@ -643,15 +658,7 @@ const mint: NextPage = () => {
                       handleNetwork(e.target.value);
                     }}
                   >
-                    {
-                      chainIds.map(function(chain, idx){
-                        if(chain.chainId==network){
-                          return <option key={idx} value={chain.chainId} selected>{chain.name}</option>
-                        } else {
-                          return <option key={idx} value={chain.chainId}>{chain.name}</option>
-                        }
-                      })
-                    }
+                    {selectOptions()}
                   </select>
                 </div>
             </div>

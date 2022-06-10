@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Script from 'next/script'
 
 // Components 
 import Footer from '../components/Footer'
@@ -23,24 +24,13 @@ import RoadmapBlueLine from '../static/roadmap-blue-line.png'
 import RoadmapPinkLine from '../static/roadmap-pink-line.png'
 import FeatureContenImg from '../static/feature-overview-bg.png'
 // Carousels
-
-import { Link } from 'react-scroll'
+import { Link, } from 'react-scroll'
 
 // StyleSheet 
 import styles from '../styles/Home.module.css'
 //
 import { useState,useRef } from 'react'
 
-// let slides:Array<React.ReactNode> = []
-// slides.push(<Image src={NFT} alt="NFT Ecosystem" />)
-// slides.push(<Image src={Liquidity} alt="limitless and liquidity" />)
-// slides.push(<Image src={Omni} alt="omni" />)
-let slides = [
-  <img  src="https://picsum.photos/800/300/?random" alt="1" />,
-  <img  src="https://picsum.photos/800/301/?random" alt="2" />  ,
-  <img  src="https://picsum.photos/800/302/?random" alt="3" />  ,
-  <img  src="https://picsum.photos/800/303/?random" alt="4" />  ,
-  <img src="https://picsum.photos/800/304/?random" alt="5" />   ];
 const quickNavbars:Array<string> = ["omniverse","overview","omniwars","roadmap","partner"]
 
 
@@ -60,32 +50,33 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossOrigin="anonymous"/>
       </Head>
-      {/* <div onWheel={(e) => {e?setWheel(e.pageY):null}}> */}
+      <Script src="//analytics.aweber.com/js/awt_analytics.js?id=X3co" />
+
       <div>
         {/* Hero Section */}
         <div className={styles.navigationsWrap}>
           <ul>
-            {
-              quickNavbars.map(function(quickNavbar, idx){
-                if(navbarid==idx){
-                  return <li key={idx}><a className={styles.active}></a></li>
-                } else {
-                  return <li key={idx} >
-                    <a href={quickNavbar}>
-                      <Link
-                        activeClass="active"
-                        to={quickNavbar}
-                        spy={true}
-                        smooth={true}
-                        duration={1000}
-                        onClick={()=>setNavbarID(idx)}
-                      />
-                    </a>
-                  </li>
-                }
-              })
-            }
-          </ul>
+              {
+                quickNavbars.map(function(quickNavbar, idx){
+                  if(navbarid==idx){
+                    return <li key={idx}><a className={styles.active}></a></li>
+                  } else {
+                    return <li key={idx} >
+                      <a href={quickNavbar}>
+                        <Link
+                          activeClass="active"
+                          to={quickNavbar}
+                          spy={true}
+                          smooth={true}
+                          duration={1000}
+                          onClick={()=>setNavbarID(idx)}
+                        />
+                      </a>
+                    </li>
+                  }
+                })
+              }
+            </ul>
         </div>
         <div className={styles.heroContainer}>
           <div className={styles.blackGradientBottom2}>
@@ -94,25 +85,25 @@ const Home: NextPage = () => {
               <div className={styles.heroContentWrap} >
                   <h1>Omniverse</h1>
                   <div className={styles.heroBtn}>
-                    <Link
+                  <Link
                         activeClass="active"
                         to="overview"
                         spy={true}
                         smooth={true}
                         duration={1500}
                     >
-                        <button>Explore</button>
+                        <button onClick={()=>setNavbarID(1)}>Explore</button>
                     </Link>
                   </div>
               </div>
             </section>
 
 
-            <div className={styles.featureContentWrap}>
-              <div className={styles.featureImg}>
-                <Image src={FeatureContenImg} layout="responsive" alt="bg"></Image>
-              </div>
-              <section id="overview"  ref={overviewSection}>
+            <section id="overview"  ref={overviewSection}>
+              <div className={styles.featureContentWrap}>
+                <div className={styles.featureImg}>
+                  <Image src={FeatureContenImg} layout="responsive" alt="bg"></Image>
+                </div>
                 <div className={styles.ContentWrap}  >
                   <div className={styles.contentBody}>
                     <h3>OVERVIEW</h3>
@@ -128,8 +119,9 @@ const Home: NextPage = () => {
                     Built by the Omniverse DAO with an emphasis on superior user experience.</p>
                   </div>
                 </div>
-              </section>
-            </div>
+              </div>
+            </section>
+
           </div>
         </div>
         {/* Home Page BackGround */}

@@ -47,6 +47,41 @@ const selectOptions:selectOption = {
 }
 
 const NFT : React.FC<Props> = (Props) => {
+  const transferNFTParts = () =>{
+    return(
+      <>
+        {
+          Props.mintedNFTs.map((nftId, idx)=>{
+            if(nftId!=Props.transferNFT){
+              return(
+                <div key={idx} className={nftstyles.nftdataWrap}>
+                  <div className={nftstyles.logo}>
+                    <Image src={NFTLogo} width={50} height={50} alt="nft"></Image>
+                  </div>
+                  <span className={nftstyles.nftdatatext}>greg #{nftId}</span>
+                  <div className={nftstyles.nftselbtn}>
+                    <button type='button' onClick={()=>Props.setTransferNFT(nftId)}>SELECT</button>
+                  </div>
+                </div>
+              )
+            } else{
+              return(
+                <div key={idx} className={`${nftstyles.nftdataWrap} ${nftstyles.dataSelected}`}>
+                  <div className={nftstyles.logo}>
+                    <Image src={NFTLogo} width={50} height={50} alt="nft"></Image>
+                  </div>
+                  <span className={nftstyles.nftdatatext}>greg #{nftId}</span>
+                  <div className={nftstyles.nftselbtn}>
+                    <button className={nftstyles.activeBtn} type='button'>SELECTED</button>
+                  </div>
+                </div>
+              )
+            }
+          })
+        }   
+      </>
+    )
+  }
   return (
     <>
     <div className={nftstyles.nftcontainer}>
@@ -56,35 +91,7 @@ const NFT : React.FC<Props> = (Props) => {
           </div>
           <div className={nftstyles.nftdataCon}>
             <div className={nftstyles.nftdataL}>
-              {
-                Props.mintedNFTs.map(function(nftId, idx){
-                  if(nftId!=Props.transferNFT){
-                    return(
-                      <div key={idx} className={nftstyles.nftdataWrap}>
-                        <div className={nftstyles.logo}>
-                          <Image src={NFTLogo} width={50} height={50} alt="nft"></Image>
-                        </div>
-                        <span className={nftstyles.nftdatatext}>greg #{nftId}</span>
-                        <div className={nftstyles.nftselbtn}>
-                          <button type='button' onClick={()=>Props.setTransferNFT(nftId)}>SELECT</button>
-                        </div>
-                      </div>
-                    )
-                  } else{
-                    return(
-                      <div key={idx} className={`${nftstyles.nftdataWrap} ${nftstyles.dataSelected}`}>
-                        <div className={nftstyles.logo}>
-                          <Image src={NFTLogo} width={50} height={50} alt="nft"></Image>
-                        </div>
-                        <span className={nftstyles.nftdatatext}>greg #{nftId}</span>
-                        <div className={nftstyles.nftselbtn}>
-                          <button className={nftstyles.activeBtn} type='button'>SELECTED</button>
-                        </div>
-                      </div>
-                    )
-                  }
-                })
-              }
+              {transferNFTParts()}
             </div>
             <div className={nftstyles.nftdataR}>
               <h1 className={nftstyles.transferHeading}>Transfer  NFT</h1>
