@@ -31,7 +31,7 @@ const Warcarousel : React.FC = () => {
             <div className={sliderstyles.slideLogo}>
             <Image src={SlideLogo2} alt="slide logo"></Image>
             </div>
-            <span className={sliderstyles.slidetag2}>Omni Wars</span>
+            <span className={`${sliderstyles.slidetag2} ${sliderstyles.slidetagwar}`}>Omni Wars</span>
           </div>
         </div>
       </div>

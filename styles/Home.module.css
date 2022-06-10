@@ -433,7 +433,20 @@
   }
 }
 @media (max-width:480px){
-  .sliderRootContainer{
-    display: none;
+  .featureContentWrap{
+    background: url(../static/feature-mobile-bg.png);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: 100% 100%;
+    position: relative;
+    border-radius: 8px;
+    margin: 0 12px;
+    top: 0;
+  }
+  .FooterAreaContain{
+    height: 100vh;
+    background: url(../static/footer-bg-mobile-new.png);
+    background-size: 100% 100%;
+    background-position: top;
   }
 }

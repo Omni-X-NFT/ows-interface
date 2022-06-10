@@ -119,8 +119,6 @@ flex-basis: 50%;
   .slideBg{
     display: none;
   }
-  .slideContainer{
-  }
   .omniSlideWrap{
   display: flex;
   align-items: center;
@@ -229,5 +227,123 @@ flex-basis: 50%;
 .slidethreeR h4{
   top: 0px;
   right: 80px;
+}
+}
+
+@media (max-width:520px){
+.omniSlideWrap{
+  display: flex;
+  align-items: center;
+  max-width: 700px;
+  position: relative;
+  margin: 0 auto;
+  background: url(../static/Group.png);
+  background-position: top;
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  min-height: 550px;
+  padding-right: 16px;
+}
+.slideContent{
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: translate(-0%, -0%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  max-width: 500px;
+  margin: -100px auto 0px auto;
+  height: 100%;
+  padding: 0px 40px;
+}
+.slideTxt{
+  /* margin-top: 16px; */
+  max-width: 220px;
+  /* background-color: #fff; */
+  margin: 16px auto 0px auto;
+}
+.slideTxt h3{
+  font-size: 18px;
+}
+.slidetag, .slidetag2{
+  position: absolute;
+  bottom: -45px;
+  right: 70px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.slidetag2 {
+  bottom: -60px;
+  font-size: 16px;
+}
+/* .slidetagwar {
+  right: 50px;
+} */
+.slidethreeL {
+  max-width: 280px;
+  font-size: 14px;
+  padding: 0px 12px;
+}
+.slidetag3{
+bottom: -50px !important;
+}
+.slidethreeR h4{
+  top: -40px;
+  right: 40%;
+}
+.slidetwowrap{
+   max-width: 70px; 
+}
+.slidetwoR{
+  margin-bottom: 32px;
+}
+.buyLogo2{
+  max-width: 100px;
+}
+}
+
+@media (max-width:400px){
+  .slidetagwar {
+  right: 50px;
+  bottom: -60px;
+}
+}
+@media (max-width:380px){
+  .slidetagwar {
+  right: 50px;
+  bottom: -60px;
+  font-size: 14px;
+}
+}
+@media (max-width:360px){
+  .slidetagwar {
+  right: 50px;
+  bottom: -60px;
+  font-size: 14px;
+}
+}
+@media (max-width:340px){
+  .slidetagwar {
+  right: 45px;
+  bottom: -60px;
+  font-size: 14px;
+}
+}
+
+@media (max-width:320px){
+  .slidetagwar {
+  right: 38px;
+  bottom: -60px;
+  font-size: 14px;
+}
+}
+@media (max-width:311px){
+  .slidetagwar {
+  right: 35px;
+  bottom: -50px;
+  font-size: 14px;
 }
 }

@@ -5,7 +5,6 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import NFT from '../components/NFT'
 import MintImgBottom from '../static/mintImg-bg.png'
-import PloyGoneImg from '../static/polygon logo.png'
 import RinkbyImage from '../static/logo/ethereum-eth-logo-1.svg'
 import BscscanImage from '../static/logo/dbanner1_copy_4_1.svg'
 import FUJIImage from '../static/logo/dbanner1_copy_1.svg'
@@ -16,12 +15,11 @@ import KovanImage from '../static/logo/JtpX95Rt_400x400-1.svg'
 
 import MinusSign from '../static/minus-sign.png'
 import PlusSign from '../static/plus-sign.png'
-import HeadingImg from '../static/head-img.png'
 import mintstyles from '../styles/mint.module.css'
 import selectstyles from '../styles/Selectchain.module.css'
 import WalletConnectProvider  from '@walletconnect/web3-provider'
 import Web3Modal from 'web3modal'
-import { BigNumber, ethers } from 'ethers'
+import { ethers } from 'ethers'
 import React, { useState , useEffect } from 'react'
 import AdvancedONT from '../services/abis/AdvancedONT.json'
 import { ToastContainer, toast } from 'react-toastify'
@@ -138,7 +136,7 @@ const providerOptions  = {
 
 const addresses:contractInfo = {
   '4': {
-    address: '0xC8759D18D5c96cce77074249330b9b41A618e51A',
+    address: '0x165865de32bA3d9552FF814C2F283964c2B61a7D',
     image: RinkbyImage,
     name: 'rinkeby',
     price: 0.05,
@@ -147,7 +145,7 @@ const addresses:contractInfo = {
     color:'#8C8C8C'
   },
   '97': {
-    address: '0xCB3041291724B893E8BB3E876aC8f250D475685D',
+    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
     image: BscscanImage,
     name: 'bscscan',
     price: 0.375,
@@ -156,7 +154,7 @@ const addresses:contractInfo = {
     color:'#F3BA2F'
   },
   '43113': {
-    address: '0xd88af13d0f204156BFad1680E1199EbEd0487A07',
+    address: '0x8B690C0e9424b751A9E9A16A43280C0fa38523Db',
     image: FUJIImage,
     name: 'FUJI',
     price: 2,
@@ -165,7 +163,7 @@ const addresses:contractInfo = {
     color:'#E84142'
   },
   '80001': {
-    address: '0x864BA3671B20c2fD3Fe90788189e52Ef6D98fb65',
+    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2',
     image: MumbaiImage,
     name: 'Mumbai',
     price: 108,
@@ -174,7 +172,7 @@ const addresses:contractInfo = {
     color:'#8247E5'
   },
   '421611': {
-    address: '0x900501b343e8975b0ec4f1439f355f0bf15c7b9f',
+    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2',
     image: ArbitrumImage,
     name: 'Arbitrum',
     price: 0.05,
@@ -183,7 +181,7 @@ const addresses:contractInfo = {
     color:'#28A0F0'
   },
   '4002': {
-    address: '0x484F40fC64D43fF7eECA7Ca51a801dB28A0F105d',
+    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2',
     image: FantomImage,
     name: 'Fantom',
     price: 130,
@@ -192,7 +190,7 @@ const addresses:contractInfo = {
     color:'#13B5EC'
   },
   '69': {
-    address: '0x5464Af1E4a6AF705920eD1CD0f4cb10638A89FD8',
+    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2 ',
     image:KovanImage,
     name: 'Kovan',
     price: 0.05,
@@ -248,6 +246,7 @@ const mint: NextPage = () => {
   const [isMinting,setIsMinting] = useState<boolean>(false)
   const [estimateFee, setEstimateFee] = useState<string>('')
   const [mintable, setMintable] = useState<boolean>(false)
+  const [isTransferring,setIsTransferring] = useState<boolean>(false)
 
 	const connect = async():Promise<void> =>{
 		try {
@@ -364,15 +363,15 @@ const mint: NextPage = () => {
   
         setOwnToken(tokenlist)
   
-        let max_mint = await tokenContract.MAX_MINT()
-        let nextId = await tokenContract.nextTokenId()
+        let max_mint = await tokenContract.maxMintId()
+        let nextId = await tokenContract.nextMintId()
   
         setTotalNFTCount(Number(max_mint))
         setNextTokenId(Number(nextId))
 
         let publicmintFlag = await tokenContract._publicSaleStarted()
         let saleFlag = await tokenContract._saleStarted()
-        if(saleFlag==false && publicmintFlag==false){
+        if(!saleFlag && !publicmintFlag){
           setMintable(false)
         } else {
           setMintable(true)
@@ -420,7 +419,6 @@ const mint: NextPage = () => {
       if(e['code'] == 4001){
         errorToast(e.message)
       } else {
-        console.log(e)
         errorToast('There is not enough fund to mint the NFT on '+ addresses[chainId].name)
       }
       setIsMinting(false)
@@ -429,51 +427,52 @@ const mint: NextPage = () => {
 
   const sendNFT = async ():Promise<void> => {
     if(!transferNFT){
-      // errorToast('Select NFT you want to transfer, please')
+      errorToast('Select NFT you want to transfer, please')
       return
     }
     try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 		  const signer = provider.getSigner();
       const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
+      const adapterParam = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000])
 
-      const estimateFee = await tokenContract.estimateFeesSendNFT(addresses[toChain].chainId, transferNFT)
+      const estimateFee = await tokenContract.estimateSendFee(addresses[toChain].chainId, account,transferNFT,false,adapterParam)
       const currentBalance = await library.getBalance(account)
 
-      if(Number(estimateFee) * 1.1 > Number(currentBalance)) {
+      if(Number(estimateFee[0]) * 1.1 > Number(currentBalance)) {
         // errorToast('You do not have enough balance for transfer')
         return
       }
-      let gasFee = Number(estimateFee)/Math.pow(10,18)*1.1*Math.pow(10,18)
+      let gasFee = Number(estimateFee[0])/Math.pow(10,18)*1.1*Math.pow(10,18)
       gasFee = gasFee - gasFee%1
       // setIsTransferring(true)
-      let mintResult = await tokenContract.sendNFT(addresses[toChain].chainId, transferNFT, {value: gasFee.toString()})
+      let mintResult = await tokenContract.sendFrom(account,addresses[toChain].chainId,account, transferNFT,account,  "0x000000000000000000000000000000000000dEaD",adapterParam, {value: gasFee.toString()})
       // please add the function to get the emit from the contract and call the getInfo()
       const receipt = await mintResult.wait()
       if(receipt!=null){
         getInfo()
-        // setIsTransferring(false)
+        setIsTransferring(false)
       }
       // add emit function after redploy the contract
       const destination_contract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
       destination_contract.on('Transfer',(from , to , tokenID) => {
         if(to==account){
-          // toast.success(`${ addresses[chainId].name } sent greg#${ tokenID } to ${ addresses[toChain].name}`,{
-          //   position: toast.POSITION.TOP_RIGHT,
-          //   autoClose: 3000,
-          //   transition: Slide
-          // })
-          // setIsTransferring(false)
+          toast.success(`${ addresses[chainId].name } sent greg#${ tokenID } to ${ addresses[toChain].name}`,{
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 3000,
+            transition: Slide
+          })
+          setIsTransferring(false)
         }
       })
 
     } catch (e:any) {
       if(e['code'] == 4001){
-        // errorToast(e['message'].split(':')[1])
+        errorToast(e["message"])
       } else {
-        // errorToast('Sending NFT error, Please try again')
+        errorToast('Sending NFT error, Please try again')
       }
-      // setIsTransferring(false)
+      setIsTransferring(false)
     }
     setTransferNFT(0)
 
@@ -531,9 +530,9 @@ const mint: NextPage = () => {
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
           const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
-    
-          const fee:any = await tokenContract.estimateFeesSendNFT(addresses[toChain].chainId, transferNFT)
-          setEstimateFee("Estimate Fee :"+(Number(fee)/Math.pow(10,18)*1.1).toFixed(10)+addresses[chainId].unit)
+          const adapterParam = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000])
+          const fee:any = await tokenContract.estimateSendFee(addresses[toChain].chainId, account,transferNFT,false,adapterParam)
+          setEstimateFee("Estimate Fee :"+(Number(fee[0])/Math.pow(10,18)*1.1).toFixed(10)+addresses[chainId].unit)
         } else {
           setEstimateFee('')
         }
@@ -547,7 +546,6 @@ const mint: NextPage = () => {
       }
     }
     calculateFee()
-    console.log("toChain", toChain)
   },[toChain,transferNFT])
 
 
