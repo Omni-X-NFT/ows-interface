@@ -23,25 +23,45 @@ import RoadmapBg from '../static/roadmap-bg.png'
 import RoadmapBlueLine from '../static/roadmap-blue-line.png'
 import RoadmapPinkLine from '../static/roadmap-pink-line.png'
 import FeatureContenImg from '../static/feature-overview-bg.png'
-// Carousels
+// Scroll
 import { Link, } from 'react-scroll'
 
 // StyleSheet 
 import styles from '../styles/Home.module.css'
-//
-import { useState,useRef } from 'react'
+//animation
+// import { Options } from "react-lottie";
+// import * as starsAnimation from "../services/animations/stars.json";
+
+
+import { useState,useRef,useEffect } from 'react'
 
 const quickNavbars:Array<string> = ["omniverse","overview","omniwars","roadmap","partner"]
 
 
 const Home: NextPage = () => {
   const [navbarid, setNavbarID] = useState<number>(0)
-  const omniverseSection = useRef<HTMLDivElement | null>(null);
-  const overviewSection = useRef<HTMLDivElement | null>(null);
-  const omniwarsSection = useRef<HTMLDivElement | null>(null);
-  const roadmapSection = useRef<HTMLDivElement | null>(null);
-  const partnerSection = useRef<HTMLDivElement | null>(null);
+  const [wheel, setWheel] = useState<number>()
 
+  const omniverseSection = useRef<HTMLDivElement | null>(null)
+  const overviewSection = useRef<HTMLDivElement | null>(null)
+  const omniwarsSection = useRef<HTMLDivElement | null>(null)
+  const roadmapSection = useRef<HTMLDivElement | null>(null)
+  const partnerSection = useRef<HTMLDivElement | null>(null)
+  useEffect(()=>{
+    if(wheel){
+      if(wheel<Number(overviewSection.current?.offsetTop)){
+        setNavbarID(0)
+      } else if(wheel<Number(omniwarsSection.current?.offsetTop)){
+        setNavbarID(1)
+      }else if(wheel<Number(roadmapSection.current?.offsetTop)){
+        setNavbarID(2)
+      }else if(wheel<Number(partnerSection.current?.offsetTop)){
+        setNavbarID(3)
+      }else {
+        setNavbarID(4)
+      }
+    }
+  },[wheel])
   return (
     <>
       <Head>
@@ -51,8 +71,8 @@ const Home: NextPage = () => {
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossOrigin="anonymous"/>
       </Head>
       <Script src="//analytics.aweber.com/js/awt_analytics.js?id=X3co" />
-
-      <div>
+      {/* <div> */}
+      <div onWheel={(e) => {e?setWheel(e.pageY):null}}>
         {/* Hero Section */}
         <div className={styles.navigationsWrap}>
           <ul>

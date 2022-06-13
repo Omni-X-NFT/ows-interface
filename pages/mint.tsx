@@ -190,7 +190,7 @@ const addresses:contractInfo = {
     color:'#13B5EC'
   },
   '69': {
-    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2 ',
+    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2',
     image:KovanImage,
     name: 'Kovan',
     price: 0.05,
@@ -393,7 +393,6 @@ const mint: NextPage = () => {
     try {
       let publicmintFlag = await tokenContract._publicSaleStarted()
       let saleFlag = await tokenContract._saleStarted()
-
       if(saleFlag && publicmintFlag) {
 
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
@@ -404,12 +403,18 @@ const mint: NextPage = () => {
         }
         // add the the function to get the emit from the contract and call the getInfo()
       } else if (saleFlag) {
-        mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
-        // add the the function to get the emit from the contract and call the getInfo()
-        const receipt = await mintResult.wait()
-        if(receipt!=null){
+        const whitelist = await tokenContract._allowList(account)
+        if(Number(whitelist)) {
+          mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
+          // add the the function to get the emit from the contract and call the getInfo()
+          const receipt = await mintResult.wait()
+          if(receipt!=null){
+            setIsMinting(false)
+            getInfo()
+          }
+        } else {
+          errorToast('You are not whitelisted on '+ addresses[chainId].name)
           setIsMinting(false)
-          getInfo()
         }
       } else {
         errorToast('Sale is not started yet')
@@ -440,7 +445,7 @@ const mint: NextPage = () => {
       const currentBalance = await library.getBalance(account)
 
       if(Number(estimateFee[0]) * 1.1 > Number(currentBalance)) {
-        // errorToast('You do not have enough balance for transfer')
+        errorToast('You do not have enough balance for transfer')
         return
       }
       let gasFee = Number(estimateFee[0])/Math.pow(10,18)*1.1*Math.pow(10,18)
