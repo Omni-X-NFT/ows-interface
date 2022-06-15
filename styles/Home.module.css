@@ -1,9 +1,14 @@
+.body {
+  background: url(../static/home.png);
+  background-size: 100% 100%;
+  overflow:hidden;
+}
 .heroContainer{
-  background: url(../static/home-hero-bg.png);
+  /* background: url(../static/home-hero-bg.png);
   background-size: 100%;
   background-position: top;
   background-repeat: no-repeat;
-  position: relative;
+  position: relative; */
 }
 .heroContentWrap{
   color: #fff;
@@ -110,8 +115,46 @@
   margin-bottom: 16px;
   letter-spacing: 1px;
 }
-
+.animStar {
+  margin-top: -250px;
+  z-index: -999;
+  max-height: 350px;
+}
+.animStarTwo{
+  position: absolute;
+  top: -200px;
+  left: 0;
+  width: 100%;
+  transform: rotate(225deg);
+}
+.roadmap {
+  position: relative;
+}
+.blueEarth {
+  position: absolute;
+  width: 20%;
+  bottom: -20%;
+  right: -3%;
+}
+.blueEarthTwo {
+  width: 20%;
+  position:relative;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+.planet {
+  width: 35%;
+  position: absolute;
+  right: 0%;
+  top: 65%;
+}
 /* Heading Section*/
+.omniwars {
+  margin-top: 100px;
+}
+.overview {
+  position: relative;
+}
 .secHeadingCon{
   color: #fff;
   font-family: 'Graphit';
@@ -173,7 +216,7 @@
 /* Roadmap */
 .roadmapCon{
   max-width: 1200px;
-  margin: 100px auto 100px auto;
+  margin: 150px auto 100px auto;
     color: #fff;
   font-family: 'Graphit';
 }
@@ -214,10 +257,15 @@
   flex-basis: 50%;
   position: relative;
 }
+.ContRPlanet{
+  flex-basis: 50%;
+  position: relative;
+}
 .roadlineImg{
   padding-top: 150px;
   max-width: 330px;
 }
+
 .roadlineBlue{
   display: flex;
   align-items: center;
@@ -236,15 +284,15 @@
 
 /* Home Page Background */
 .HomePageBg{
-  background: url(../static/Homebackground.png);
+  /* background: url(../static/Homebackground.png);
   background-size: 100% 70%;
   background-position: top;
   background-repeat: no-repeat;
-  padding-top: 400px;
-  margin-top: -200px;
+  /* padding-top: 400px; */
+  /* margin-top: -400px; */
 }
 .FooterAreaContain{
-  background: url(../static/footer-bg-new.png);
+  /* background: url(../static/footer-bg-new.png); */
   height: 100vh;
   background-size: 100% 100%;
   background-position: center;
@@ -259,11 +307,11 @@
   width: 100%;
 }
 .hideBorder{
-  background-color: #000000;
+  /* background-color: #000000; */
   height: 10px;
   width: 100%;
   height: 7%;
-  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.849) 100%);
+  /* background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.849) 100%); */
 }
 
 
@@ -297,6 +345,13 @@
     padding: 16px 32px;
     margin: 0px auto 0px auto;
   }
+  .blueEarth {
+    position: absolute;
+    width: 20%;
+    bottom: -40%;
+    right: -5%;
+  }
+
 }
 
 @media (max-width:880px){
@@ -305,10 +360,10 @@
     letter-spacing: 10px;
   }
   .heroContainer{
-  background: url(../static/home-hero-bg.png);
+  /* background: url(../static/home-hero-bg.png);
   background-size: cover;
   background-position: top;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 .heroContentWrap{
   color: #fff;
@@ -333,8 +388,17 @@
   .ContR{
     display: none;
   }
+  .ContRPlanet{
+    display: none;
+  }
   .ContL{
     flex-basis: 100%;
+  }
+  .blueEarth {
+    position: absolute;
+    width: 25%;
+    bottom: -30%;
+    right: -5%;
   }
 }
 
@@ -395,12 +459,12 @@
     display: none;
   }
   .BgWrap{
-    background: url(../static/roadmap-bg.png);
+    /* background: url(../static/roadmap-bg.png);
     background-position: top;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding: 32px 16px;
-    min-height: 250px;
+    min-height: 250px; */
   }
   .ContL .roadmapTxt{
     position: relative;
@@ -445,8 +509,13 @@
   }
   .FooterAreaContain{
     height: 100vh;
-    background: url(../static/footer-bg-mobile-new.png);
+    /* background: url(../static/footer-bg-mobile-new.png); */
     background-size: 100% 100%;
     background-position: top;
   }
+  .body {
+    background: url(../static/root-bg.png);
+    background-size: 100% 100%;
+  }
 }
+

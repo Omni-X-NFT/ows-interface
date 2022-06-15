@@ -15,6 +15,18 @@ import 'swiper/css/navigation'
 
 import sliderstyles from '../styles/Slider.module.css'
 
+// animation
+import * as logo from "../services/animations/logo 2.json"
+import Lottie from 'react-lottie'
+const animationLogoOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: logo,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+  }
+};
+
 const Xcarousel : React.FC = () => {
   return (
     <>
@@ -72,7 +84,10 @@ const Xcarousel : React.FC = () => {
                 </ul>
               </div>
               <div className={sliderstyles.slideLogo}>
-              <Image src={SlideLogo} alt="slide logo"></Image>
+                <Lottie
+                  options={animationLogoOptions}
+                  isClickToPauseDisabled
+                />
               </div>
               <span className={sliderstyles.slidetag}>Omni X</span>
             </div>
