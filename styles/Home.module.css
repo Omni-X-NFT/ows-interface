@@ -149,16 +149,16 @@
   top: 65%;
 }
 .redPlanet {
-  width: 90%;
+  width: 60%;
   position: absolute;
-  left: -40%;
+  left: -30%;
   transform: rotate(45deg);
 }
 .redPlanetTwo{
-
-  width: 90%;
+  width: 60%;
   position: absolute;
-  right:0%;
+  right:-20%;
+  top: 10%;
 }
 /* Heading Section*/
 .omniwars {
@@ -363,6 +363,12 @@
     bottom: -40%;
     right: -5%;
   }
+  .redPlanetTwo{
+    width: 60%;
+    position: absolute;
+    right:-20%;
+    top: 50%;
+  }
 
 }
 
@@ -428,6 +434,12 @@
     padding-top: 150px;
     margin-top: -300px;
   }
+  .redPlanet {
+    width: 64%;
+    position: absolute;
+    left: -40%;
+    transform: translateY(200px) rotate(45deg);
+  }
   
 }
 @media (max-width:680px){
@@ -448,6 +460,12 @@
     left: 0;
     width: 100%;
     transform: rotate(225deg);
+  }
+  .redPlanet {
+    width: 66%;
+    position: absolute;
+    left: -40%;
+    transform:translateY(400px)  rotate(45deg) ;
   }
 }
 
@@ -484,6 +502,12 @@
     left: 0;
     width: 100%;
     transform: rotate(225deg);
+  }
+  .redPlanet {
+    width: 70%;
+    position: absolute;
+    left: -40%;
+    transform: translateY(600px) rotate(45deg)  ;
   }
 }
 
@@ -567,6 +591,12 @@
     width: 35%;
     bottom: -20%;
     right: -15%;
+  }
+  .redPlanet {
+    width: 80%;
+    position: absolute;
+    left: -50%;
+    transform: translateY(900px) rotate(45deg);
   }
   .featureContentWrap{
     background: url(../static/feature-mobile-bg.png);

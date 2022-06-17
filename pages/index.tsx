@@ -175,7 +175,6 @@ const Home: NextPage = () => {
                     </div>
                     
                   </div>
-                  
                 </div>
                 <div className={styles.redPlanet}>
                   <Image src={RedPlanetImg} layout="responsive" alt="bg"></Image>
@@ -258,7 +257,11 @@ const Home: NextPage = () => {
                   isClickToPauseDisabled
                 />
               </div>
+              <div className={styles.redPlanetTwo}>
+                <Image src={RedPlanetImg} layout="responsive" alt="bg"></Image>
+              </div>
             </section>
+
 
             <div className={styles.roadmapCon}>
               {/* First Phase */}
@@ -287,9 +290,6 @@ const Home: NextPage = () => {
                   </div>
                 </div>
               </div>
-              <div className={styles.redPlanetTwo}>
-              <Image src={RedPlanetImg} layout="responsive" alt="bg"></Image>
-            </div>
               {/* Second Phase */}
               <div className={styles.roadmapWrap}>
                 <div className={styles.ContR}>
