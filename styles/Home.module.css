@@ -148,6 +148,18 @@
   right: 0%;
   top: 65%;
 }
+.redPlanet {
+  width: 90%;
+  position: absolute;
+  left: -40%;
+  transform: rotate(45deg);
+}
+.redPlanetTwo{
+
+  width: 90%;
+  position: absolute;
+  right:0%;
+}
 /* Heading Section*/
 .omniwars {
   margin-top: 100px;
@@ -396,9 +408,46 @@
   }
   .blueEarth {
     position: absolute;
+    width: 23%;
+    bottom: -35%;
+    right: -7%;
+  }
+  .animStar {
+    margin-top: 0px;
+    z-index: -999;
+    max-height: 350px;
+  }
+  .animStarTwo{
+    position: absolute;
+    top: -170px;
+    left: 0;
+    width: 100%;
+    transform: rotate(225deg);
+  }
+  .HomePageBg{
+    padding-top: 150px;
+    margin-top: -300px;
+  }
+  
+}
+@media (max-width:680px){
+  .FooterAreaContain{
+    height: 70vh;
+    background-size: 150% 100%;
+    background-position: top;
+  }
+  .blueEarth {
+    position: absolute;
     width: 25%;
-    bottom: -30%;
-    right: -5%;
+    bottom: -35%;
+    right: -7%;
+  }
+  .animStarTwo{
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100%;
+    transform: rotate(225deg);
   }
 }
 
@@ -423,12 +472,25 @@
   .PartCompWrap:nth-child(even){
     margin-left: 0px;
   }
+  .blueEarth {
+    position: absolute;
+    width: 30%;
+    bottom: -27%;
+    right: -10%;
+  }
+  .animStarTwo{
+    position: absolute;
+    top: -130px;
+    left: 0;
+    width: 100%;
+    transform: rotate(225deg);
+  }
 }
 
 @media (max-width:480px){
   .HomePageBg{
     padding-top: 150px;
-    margin-top: -50px;
+    margin-top: -200px;
   }
   
   .heroContentWrap h1{
@@ -459,12 +521,12 @@
     display: none;
   }
   .BgWrap{
-    /* background: url(../static/roadmap-bg.png);
+    background: url(../static/roadmap-bg.png);
     background-position: top;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding: 32px 16px;
-    min-height: 250px; */
+    min-height: 250px;
   }
   .ContL .roadmapTxt{
     position: relative;
@@ -484,19 +546,28 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-}
-.PartCompWrap{
-    max-width: 250px;
-}
-}
-@media (max-width:680px){
-  .FooterAreaContain{
-    height: 70vh;
-    background-size: 150% 100%;
-    background-position: top;
   }
-}
-@media (max-width:480px){
+  .PartCompWrap{
+      max-width: 250px;
+  }
+  .animStar {
+    margin-top: 0px;
+    z-index: -999;
+    max-height: 350px;
+  }
+  .animStarTwo{
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    transform: rotate(225deg);
+  }
+  .blueEarth {
+    position: absolute;
+    width: 35%;
+    bottom: -20%;
+    right: -15%;
+  }
   .featureContentWrap{
     background: url(../static/feature-mobile-bg.png);
     background-repeat: no-repeat;

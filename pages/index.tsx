@@ -23,6 +23,7 @@ import RoadmapBg from '../static/roadmap-bg.png'
 import RoadmapBlueLine from '../static/roadmap-blue-line.png'
 import RoadmapPinkLine from '../static/roadmap-pink-line.png'
 import FeatureContenImg from '../static/feature-overview-bg.png'
+import RedPlanetImg from '../static/redplanet.png'
 // Scroll
 import { Link, } from 'react-scroll'
 
@@ -176,6 +177,9 @@ const Home: NextPage = () => {
                   </div>
                   
                 </div>
+                <div className={styles.redPlanet}>
+                  <Image src={RedPlanetImg} layout="responsive" alt="bg"></Image>
+                </div>
                 <div className={styles.blueEarth}>
                   <Lottie
                     options={animationBlueEarthsOptions}
@@ -183,6 +187,7 @@ const Home: NextPage = () => {
                   />
                 </div>
               </section>
+
               <div className={styles.animStar}>
                 <Lottie
                   options={animationStarsOptions}
@@ -255,7 +260,6 @@ const Home: NextPage = () => {
               </div>
             </section>
 
-
             <div className={styles.roadmapCon}>
               {/* First Phase */}
               <div className={styles.roadmapWrap}>
@@ -283,6 +287,9 @@ const Home: NextPage = () => {
                   </div>
                 </div>
               </div>
+              <div className={styles.redPlanetTwo}>
+              <Image src={RedPlanetImg} layout="responsive" alt="bg"></Image>
+            </div>
               {/* Second Phase */}
               <div className={styles.roadmapWrap}>
                 <div className={styles.ContR}>
@@ -394,6 +401,7 @@ const Home: NextPage = () => {
             </div>
             {/* Home Page BackGround End*/}
           </div>
+
           {/* Home Page BackGround End*/}
           {/* Partners Section */}
           <section>
