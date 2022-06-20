@@ -1,3 +1,4 @@
+
 /* Slider Section */
 .slideContainer{
   color: #fff;
@@ -43,7 +44,7 @@
 .slideTxt p{
   line-height: 2;
   font-weight: 100;
-  /* color: rgba(255, 255, 255, 0.7); */
+  opacity: 0.7;
 }
 .slideLogo{
   max-width: 190px;

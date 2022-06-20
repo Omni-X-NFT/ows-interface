@@ -48,7 +48,7 @@ const Xcarousel : React.FC = () => {
         }}
         breakpoints={{
           320: {
-            slidesPerView: "auto",
+            slidesPerView: 1,
             spaceBetween: 0,
             freeMode:true,
             coverflowEffect:{
@@ -56,11 +56,11 @@ const Xcarousel : React.FC = () => {
             }
           },
           768: {
-            slidesPerView: "auto",
+            slidesPerView: 1,
             spaceBetween: 16,
           },
           1024: {
-            slidesPerView: "auto",
+            slidesPerView: 1,
             spaceBetween: 16,
           },
         }}
@@ -75,12 +75,12 @@ const Xcarousel : React.FC = () => {
               <div className={sliderstyles.slideTxt}>
                 <h3>NFT Ecosystem Hub</h3>
                 <ul>
-                    <li>Marketplace</li>
-                    <li>Social Interactivity </li>
-                    <li>Deep Analytics</li>
-                    <li>Curated NFT Launches</li>
-                    <li>Launches Gaming Integration</li>
-                    <li>and so much more</li>
+                    <li style={{"color":"#CCCCCC"}}>Marketplace</li>
+                    <li style={{"color":"#BBBBBB"}}>Social Interactivity </li>
+                    <li style={{"color":"#AAAAAA"}}>Deep Analytics</li>
+                    <li style={{"color":"#999999"}}>Curated NFT Launches</li>
+                    <li style={{"color":"#888888"}}>Launches Gaming Integration</li>
+                    <li style={{"color":"#777777"}}>and so much more</li>
                 </ul>
               </div>
               <div className={sliderstyles.slideLogo}>
@@ -131,8 +131,8 @@ const Xcarousel : React.FC = () => {
                   <p>platform revenue redistribution in $OMNI &amp; USDC</p>
                   <p>reduced platform fees</p>
                   <ul>
-                    <li>- for individuals transacting</li>
-                    <li>- curve wars style rewards for largest holders</li>
+                    <li  style={{"opacity":"0.7"}}>- for individuals transacting</li>
+                    <li  style={{"opacity":"0.7"}}>- curve wars style rewards for largest holders</li>
                   </ul>
                 </div>
                 <div className={sliderstyles.slidethreeR}>

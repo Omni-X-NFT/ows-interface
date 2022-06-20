@@ -2,11 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import footerstyles from '../styles/Footer.module.css'
-import FooterLogo from '../static/Footer_Logo.png'
-import Github from '../static/Github.png'
-import Book from '../static/book-icon.png'
-import Discord from '../static/Discord.png'
-import Twitter from '../static/Twitter.png'
+import FooterLogo from '../static/footer_img/Footer_Logo.png'
+import Github from '../static/footer_img/Github.png'
+import Book from '../static/footer_img/book-icon.png'
+import Discord from '../static/footer_img/Discord.png'
+import Twitter from '../static/footer_img/Twitter.png'
 
 const Footer : React.FC = () => {
   return (
