@@ -12,6 +12,7 @@ import { Navigation, EffectCoverflow, FreeMode } from 'swiper'
 //Swiper CSS
 import 'swiper/css'
 import 'swiper/css/navigation'
+// import 
 
 import sliderstyles from '../styles/Slider.module.css'
 
@@ -43,9 +44,9 @@ const Xcarousel : React.FC = () => {
           rotate: 0,
           stretch: 0,
           depth: 700,
-          modifier: 1,
+          modifier:1,
           slideShadows: false,
-        }}
+        }}  
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -57,11 +58,11 @@ const Xcarousel : React.FC = () => {
           },
           768: {
             slidesPerView: 1,
-            spaceBetween: 16,
+            spaceBetween: 800,
           },
           1024: {
             slidesPerView: 1,
-            spaceBetween: 16,
+            spaceBetween: 1000,
           },
         }}
       >

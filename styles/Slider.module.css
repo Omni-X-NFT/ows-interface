@@ -4,10 +4,11 @@
   color: #fff;
   font-family: 'Graphit';
 }
-/* .swiperRooterWrap{
+.swiperRooterWrap{
   max-width: 880px;
   margin: 0 auto;
-} */
+  opacity: 1;
+}
 
 .omniSlideWrap{
   max-width: 700px;
@@ -116,6 +117,20 @@ flex-basis: 50%;
 }
 .slidetag2 {
   bottom: -50px;
+}
+@media (max-width:1080px){
+  .swiperRooterWrap{
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: 1;
+  }
+}
+@media (max-width:880px){
+  .swiperRooterWrap{
+    max-width: 680px;
+    margin: 0 auto;
+    opacity: 1;
+  }
 }
 
 @media (max-width:650px){

@@ -118,7 +118,7 @@ const NFT : React.FC<Props> = (Props) => {
                     }}
                   >
                     <option value='4'>Rinkeby</option>
-                    <option value='97'>Bscscan</option>
+                    <option value='97'>BNB Chain</option>
                     <option value='43113'>FUJI</option>
                     <option value='80001'>Mumbai</option>
                     <option value='421611'>Arbitrum</option>

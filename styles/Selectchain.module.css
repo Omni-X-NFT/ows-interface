@@ -37,6 +37,10 @@
     color: #ffffff;
     background: #4A0773;
 }
+/* .iconColor{
+    background-color: black;
+    border-radius: 50%;
+} */
 @media (max-width:480px){
     .nftselectWrap label{
         display: block;
