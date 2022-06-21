@@ -598,16 +598,12 @@ const mint: NextPage = () => {
     if(chainId){
       getInfo()
     }
-  },[chainId])
+  },[chainId,account])
 
-  useEffect(()=>{
-    if(toChain){
-      // console.log(chainId,toChain)
-    }
-  },[toChain])
 
   useEffect(()=>{
     if(init==true){
+      setTransferNFT(0)
       switchNetwork()
     }
   },[network, init])
@@ -709,6 +705,7 @@ const mint: NextPage = () => {
           transferNFT={transferNFT}
           setTransferNFT={setTransferNFT}
           toChain={toChain}
+          chainName = {addresses[toChain].name}
           isTransferring = {isTransferring}
           setToChain={setToChain}
           sendNFT={sendNFT}

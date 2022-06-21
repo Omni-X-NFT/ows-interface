@@ -10,6 +10,7 @@ interface Props{
   transferNFT:number,
   setTransferNFT:(transferNFT: number) => void,
   toChain:string,
+  chainName: string,
   isTransferring: boolean,
   setToChain:(toChain: string) => void,
   sendNFT:()=>void,
@@ -17,7 +18,7 @@ interface Props{
 }
 
 interface selectOptionColor {
-  color: string
+  color: string,
 } 
 
 interface selectOption {
@@ -136,7 +137,7 @@ const NFT : React.FC<Props> = (Props) => {
                     <button onClick={()=>Props.sendNFT()}>TRANSFER</button>
                   }
                 </div>
-                <p>Your item will show up in your wallet on Arbitrum. Unused gas will be refunded to your wallet.</p>
+                <p>Your item will show up in your wallet on {Props.chainName}. Unused gas will be refunded to your wallet.</p>
               </div>
             </div>
           </div>
