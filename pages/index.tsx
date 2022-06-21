@@ -13,17 +13,20 @@ import Warcarousel from '../components/Warcarousel'
 // Images 
 import SecHeadArrowL from '../static/pinkArrow.png'
 import SecHeadArrowR from '../static/blue-Arrow.png'
-import BitScaleLogo from '../static/bitscale-logo.png'
-import ChainLinkLogo from '../static/chainlink-logo.png'
-import ImmuteableLogo from '../static/immuteable-logo.png'
-import LotusLogo from '../static/lotus_white.png'
-import BitcoinLogo from '../static/Bitcoincom.png'
-import QuantstampLogo from '../static/quantstamp-logo.png'
+
 import RoadmapBg from '../static/roadmap-bg.png'
 import RoadmapBlueLine from '../static/roadmap-blue-line.png'
 import RoadmapPinkLine from '../static/roadmap-pink-line.png'
 import FeatureContenImg from '../static/feature-overview-bg.png'
 import RedPlanetImg from '../static/redplanet.png'
+//Partnership
+import Sneaky from '../static/partnership/Sneaky 1.svg'
+import LayerZero from '../static/partnership/LayerZero_Logo_Full 1.svg'
+import PolygonStudios from '../static/partnership/pstud 1.svg'
+import AvaLabs from '../static/partnership/ava labs white 1.svg'
+import BNBChain from '../static/partnership/bnb-chain 1.svg'
+import TBA from '../static/partnership/TBA.svg'
+
 // Scroll
 import { Link, } from 'react-scroll'
 
@@ -417,27 +420,27 @@ const Home: NextPage = () => {
               <h1>Our Partners</h1>
             </div>
           </section>
-
           <div className={styles.partCompGrid}>
-            <div className={styles.PartCompWrap}>
-              <Image src={BitScaleLogo} alt="bitscale" width={200}></Image>
+            <div className={styles.PartCompWrapf}>
+              <Image src={Sneaky} alt="Sneaky" width={200}></Image>
             </div>
-            <div className={styles.PartCompWrap}>
-              <Image src={ChainLinkLogo} alt="bitscale" width={240}></Image>
+            <div className={styles.PartCompWrapf}>
+              <Image src={LayerZero} alt="LayerZero" width={240}></Image>
             </div>
-            <div className={styles.PartCompWrap}>
-              <Image src={ImmuteableLogo} alt="bitscale" width={350}></Image>
+            <div className={styles.PartCompWraps}>
+              <Image src={PolygonStudios} alt="PolygonStudios" width={350}></Image>
             </div>
-            <div className={styles.PartCompWrap}>
-              <Image src={LotusLogo} alt="bitscale" width={180}></Image>
+            <div className={styles.PartCompWraps}>
+              <Image src={AvaLabs} alt="AvaLabs" width={180}></Image>
             </div>
-            <div className={styles.PartCompWrap}>
-              <Image src={BitcoinLogo} alt="bitscale" width={280}></Image>
+            <div className={styles.PartCompWraps}>
+              <Image src={BNBChain} alt="BNBChain" width={280}></Image>
             </div>
-            <div className={styles.PartCompWrap}>
-              <Image src={QuantstampLogo} alt="bitscale" width={370}></Image>
+            <div className={styles.PartCompWrapt}>
+              <Image src={TBA} alt="TBA" width={370}></Image>
             </div>
           </div>
+
         </div>
         <div className={styles.FooterAreaContain}>
           <div className={styles.hideBorder}/>
