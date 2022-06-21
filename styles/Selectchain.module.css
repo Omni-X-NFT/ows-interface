@@ -37,10 +37,13 @@
     color: #ffffff;
     background: #4A0773;
 }
-/* .iconColor{
-    background-color: black;
-    border-radius: 50%;
-} */
+.chainIcon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: auto;
+    margin-top: auto;
+    width: 30%;
+}
 @media (max-width:480px){
     .nftselectWrap label{
         display: block;

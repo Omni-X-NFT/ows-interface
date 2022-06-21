@@ -10,6 +10,7 @@ interface Props{
   transferNFT:number,
   setTransferNFT:(transferNFT: number) => void,
   toChain:string,
+  isTransferring: boolean,
   setToChain:(toChain: string) => void,
   sendNFT:()=>void,
   estimateFee:string
@@ -128,7 +129,12 @@ const NFT : React.FC<Props> = (Props) => {
                 </div>
                 <p>{Props.estimateFee}</p>  
                 <div className={nftstyles.transbtn}>
-                  <button onClick={()=>Props.sendNFT()}>TRANSFER</button>
+                  {
+                  Props.isTransferring?
+                    <button onClick={()=>Props.sendNFT()}><i  className="fa fa-spinner fa-spin" style={{"letterSpacing":"normal"}}/>TRANSFER</button>
+                    :
+                    <button onClick={()=>Props.sendNFT()}>TRANSFER</button>
+                  }
                 </div>
                 <p>Your item will show up in your wallet on Arbitrum. Unused gas will be refunded to your wallet.</p>
               </div>

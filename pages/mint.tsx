@@ -5,13 +5,21 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import NFT from '../components/NFT'
 import MintImgBottom from '../static/mintImg-bg.png'
-import RinkbyImage from '../static/logo/ethereum-eth-logo-1.svg'
-import BscscanImage from '../static/logo/dbanner1_copy_4_1.svg'
-import FUJIImage from '../static/logo/dbanner1_copy_1.svg'
-import MumbaiImage from '../static/logo/dbanner1_copy_3_1.svg'
-import ArbitrumImage from '../static/logo/dbanner1_copy_2_1.svg'
-import FantomImage from '../static/logo/fantom-ftm-logo-1.svg'
-import KovanImage from '../static/logo/JtpX95Rt_400x400-1.svg'
+import RinkbyImageSVG from '../static/logo/ethereum-eth-logo-1.svg'
+import BscscanImageSVG from '../static/logo/dbanner1_copy_4_1.svg'
+import FUJIImageSVG from '../static/logo/dbanner1_copy_1.svg'
+import MumbaiImageSVG from '../static/logo/dbanner1_copy_3_1.svg'
+import ArbitrumImageSVG from '../static/logo/dbanner1_copy_2_1.svg'
+import FantomImageSVG from '../static/logo/fantom-ftm-logo-1.svg'
+import KovanImageSVG from '../static/logo/JtpX95Rt_400x400-1.svg'
+
+import RinkbyImage from '../static/logo/ethereum-eth-logo-1.png'
+import BscscanImage from '../static/logo/dbanner1_copy_4_1.png'
+import FUJIImage from '../static/logo/dbanner1_copy_1.png'
+import MumbaiImage from '../static/logo/dbanner1_copy_3_1.png'
+import ArbitrumImage from '../static/logo/dbanner1_copy_2_1.png'
+import FantomImage from '../static/logo/fantom-ftm-logo-1.png'
+import KovanImage from '../static/logo/JtpX95Rt_400x400-1.png'
 
 import MinusSign from '../static/minus-sign.png'
 import PlusSign from '../static/plus-sign.png'
@@ -22,14 +30,18 @@ import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
 import React, { useState , useEffect } from 'react'
 import AdvancedONT from '../services/abis/AdvancedONT.json'
+import wladdresses from '../services/whitelist/wladdress.json'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-toastify'
 
+const { MerkleTree } = require("merkletreejs");
+const keccak256 = require('keccak256');
 
 interface Address {
   address: string,
-  image: string,
+  imageSVG: string,
+  image: any,
   name: string,
   price: number,
   chainId: string,
@@ -136,7 +148,8 @@ const providerOptions  = {
 
 const addresses:contractInfo = {
   '4': {
-    address: '0x165865de32bA3d9552FF814C2F283964c2B61a7D',
+    address: '0x4A64265539615DAC2211fe5a9A652c5A67Bed37b',
+    imageSVG: RinkbyImageSVG,
     image: RinkbyImage,
     name: 'rinkeby',
     price: 0.05,
@@ -144,35 +157,9 @@ const addresses:contractInfo = {
     unit: 'ETH',
     color:'#8C8C8C'
   },
-  '97': {
-    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
-    image: BscscanImage,
-    name: 'bscscan',
-    price: 0.375,
-    chainId: '10002',
-    unit: 'BNB',
-    color:'#F3BA2F'
-  },
-  '43113': {
-    address: '0x8B690C0e9424b751A9E9A16A43280C0fa38523Db',
-    image: FUJIImage,
-    name: 'FUJI',
-    price: 2,
-    chainId: '10006',
-    unit: 'AVAX',
-    color:'#E84142'
-  },
-  '80001': {
-    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2',
-    image: MumbaiImage,
-    name: 'Mumbai',
-    price: 108,
-    chainId: '10009',
-    unit: 'MATIC',
-    color:'#8247E5'
-  },
   '421611': {
-    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2',
+    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
+    imageSVG: ArbitrumImageSVG,
     image: ArbitrumImage,
     name: 'Arbitrum',
     price: 0.05,
@@ -180,23 +167,55 @@ const addresses:contractInfo = {
     unit: 'ETH',
     color:'#28A0F0'
   },
-  '4002': {
-    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2',
-    image: FantomImage,
-    name: 'Fantom',
-    price: 130,
-    chainId: '10012',
-    unit: 'FTM',
-    color:'#13B5EC'
+  '80001': {
+    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
+    imageSVG: MumbaiImageSVG,
+    image: MumbaiImage,
+    name: 'Mumbai',
+    price: 0.05,
+    chainId: '10009',
+    unit: 'MATIC',
+    color:'#8247E5'
+  },
+  '43113': {
+    address: '0x6fc746b78ae749a97630d276125F6b2F1DfF4094',
+    imageSVG:FUJIImageSVG,
+    image: FUJIImage,
+    name: 'FUJI',
+    price: 0.05,
+    chainId: '10006',
+    unit: 'AVAX',
+    color:'#E84142'
+  },
+  '97': {
+    address: '0xBD240EF6B388A5E270709cA51e6367fc238703F2',
+    imageSVG:BscscanImageSVG,
+    image: BscscanImage,
+    name: 'BNB Chain',
+    price: 0.05,
+    chainId: '10002',
+    unit: 'BNB',
+    color:'#F3BA2F'
   },
   '69': {
-    address: '0x402A928DD8342f5604A9a416D00997105C76BfA2',
+    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
+    imageSVG:KovanImageSVG,
     image:KovanImage,
     name: 'Kovan',
     price: 0.05,
     chainId: '10011',
     unit: 'ETH',
     color:'#FF0320'
+  },
+  '4002': {
+    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
+    imageSVG: FantomImageSVG,
+    image: FantomImage,
+    name: 'Fantom',
+    price: 0.05,
+    chainId: '10012',
+    unit: 'FTM',
+    color:'#13B5EC'
   }
 }
 const chainIds: Array<chains> = [
@@ -205,29 +224,29 @@ const chainIds: Array<chains> = [
     name:'Rinkeby',
   },
   {
-    chainId:'97',
-    name:'BNB Chain',
-  },
-  {
-    chainId:'43113',
-    name:'FUJI',
+    chainId:'421611',
+    name:'Arbitrum',
   },
   {
     chainId:'80001',
     name:'Mumbai',
   },
   {
-    chainId:'421611',
-    name:'Arbitrum',
+    chainId:'43113',
+    name:'FUJI',
+  },
+  {
+    chainId:'97',
+    name:'BNB Chain',
+  },
+  {
+    chainId:'69',
+    name:'Kovan',
   },
   {
     chainId:'4002',
     name:'Fantom',
   },
-  {
-    chainId:'69',
-    name:'Kovan',
-  }
 ]
 
 const mint: NextPage = () => {
@@ -373,6 +392,7 @@ const mint: NextPage = () => {
         let saleFlag = await tokenContract._saleStarted()
         if(!saleFlag && !publicmintFlag){
           setMintable(false)
+          errorToast('Sale is not started on '+ addresses[chainId].name)
         } else {
           setMintable(true)
         }
@@ -386,6 +406,10 @@ const mint: NextPage = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 		const signer = provider.getSigner();
     const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
+    const wladdress = wladdresses.wl;
+    const leafNodes = wladdress.map(addr => keccak256(addr));
+    const merkleTree = new MerkleTree(leafNodes, keccak256,{sortPairs: true});
+    const merkleProof = merkleTree.getHexProof(keccak256(account));
 
     let mintResult
     setIsMinting(true)
@@ -394,6 +418,7 @@ const mint: NextPage = () => {
       let publicmintFlag = await tokenContract._publicSaleStarted()
       let saleFlag = await tokenContract._saleStarted()
       if(saleFlag && publicmintFlag) {
+        const currentBalance = await library.getBalance(account)
 
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
         const receipt = await mintResult.wait()
@@ -403,28 +428,24 @@ const mint: NextPage = () => {
         }
         // add the the function to get the emit from the contract and call the getInfo()
       } else if (saleFlag) {
-        const whitelist = await tokenContract._allowList(account)
-        if(Number(whitelist)) {
-          mintResult = await tokenContract.mint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
-          // add the the function to get the emit from the contract and call the getInfo()
-          const receipt = await mintResult.wait()
-          if(receipt!=null){
-            setIsMinting(false)
-            getInfo()
-          }
-        } else {
-          errorToast('You are not whitelisted on '+ addresses[chainId].name)
-          setIsMinting(false)
-        }
-      } else {
-        errorToast('Sale is not started yet')
-        setIsMinting(false)
-      }
+            mintResult = await tokenContract.mint(mintNum,merkleProof, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
+            // add the the function to get the emit from the contract and call the getInfo()
+            const receipt = await mintResult.wait()
+            if(receipt!=null){
+              setIsMinting(false)
+              getInfo()
+            }
+      } 
     } catch (e:any) {
       if(e['code'] == 4001){
-        errorToast(e.message)
+        errorToast("user denied transaction signature")
       } else {
-        errorToast('There is not enough fund to mint the NFT on '+ addresses[chainId].name)
+        const currentBalance = await library.getBalance(account)
+        if(Number(currentBalance)<addresses[chainId].price*mintNum){
+          errorToast("There is not enough money to mint nft")
+        } else {
+          errorToast('your address is not whitelisted on '+ addresses[chainId].name)
+        }
       }
       setIsMinting(false)
     }
@@ -450,7 +471,7 @@ const mint: NextPage = () => {
       }
       let gasFee = Number(estimateFee[0])/Math.pow(10,18)*1.1*Math.pow(10,18)
       gasFee = gasFee - gasFee%1
-      // setIsTransferring(true)
+      setIsTransferring(true)
       let mintResult = await tokenContract.sendFrom(account,addresses[toChain].chainId,account, transferNFT,account,  "0x000000000000000000000000000000000000dEaD",adapterParam, {value: gasFee.toString()})
       // please add the function to get the emit from the contract and call the getInfo()
       const receipt = await mintResult.wait()
@@ -473,14 +494,17 @@ const mint: NextPage = () => {
 
     } catch (e:any) {
       if(e['code'] == 4001){
-        errorToast(e["message"])
+        errorToast("user denied transaction signature")
       } else {
-        errorToast('Sending NFT error, Please try again')
+        if(String(chainId)==toChain){
+          errorToast(`${addresses[toChain].name} is currently unavailable for transfer`)
+        } else {
+          errorToast('Sending NFT error, Please try again')
+        }
       }
       setIsTransferring(false)
     }
     setTransferNFT(0)
-
   }
   const mintButton = () => {
     if(mintable){
@@ -557,7 +581,7 @@ const mint: NextPage = () => {
           setEstimateFee('')
         }
       } catch(error){
-        if(chainId == toChain){
+        if(String(chainId) == toChain){
           errorToast(`${addresses[toChain].name} is currently unavailable for transfer`)
         } else {
           errorToast('Please Check the Internet Connection!!!')
@@ -565,6 +589,7 @@ const mint: NextPage = () => {
 
       }
     }
+    console.log(chainId,toChain,transferNFT)
     calculateFee()
   },[toChain,transferNFT])
 
@@ -642,7 +667,7 @@ const mint: NextPage = () => {
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
                 <h5>PRICE</h5>
-                <span>{chainId?addresses[`${Number(chainId)}`].price:0}<Image src={chainId?addresses[`${Number(chainId)}`].image:RinkbyImage} width={29.84} height={25.46} alt="ikon"></Image></span>
+                <span>{chainId?addresses[`${Number(chainId)}`].price:0}<Image src={chainId?addresses[`${Number(chainId)}`].imageSVG:RinkbyImageSVG} width={29.84} height={25.46} alt="ikon"></Image></span>
               </div>
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
@@ -657,7 +682,9 @@ const mint: NextPage = () => {
             <div className={selectstyles.nftselectWrap}>
                 <label>Select chain to mint on</label>
                 <div className={selectstyles.transSelWrap} style={{"background":addresses[network].color}}>
-                    <Image style={{"background":"black","borderRadius":"50%"}}  src={chainId?addresses[`${Number(network)}`].image:RinkbyImage} width={29.84} height={25.46} alt="ikon"></Image>
+                  <div className={selectstyles.chainIcon}>
+                    <Image  style={{"borderRadius":"50%"}}  src={chainId?addresses[`${Number(network)}`].image:RinkbyImage} width={29.84} height={25.46} alt="ikon"></Image>
+                  </div>
                   <select
                     onChange={(e) => {
                       handleNetwork(e.target.value);
@@ -682,6 +709,7 @@ const mint: NextPage = () => {
           transferNFT={transferNFT}
           setTransferNFT={setTransferNFT}
           toChain={toChain}
+          isTransferring = {isTransferring}
           setToChain={setToChain}
           sendNFT={sendNFT}
           estimateFee={estimateFee}
