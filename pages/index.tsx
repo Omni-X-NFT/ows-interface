@@ -26,7 +26,8 @@ import PolygonStudios from '../static/partnership/pstud 1.svg'
 import AvaLabs from '../static/partnership/ava labs white 1.svg'
 import BNBChain from '../static/partnership/bnb-chain 1.svg'
 import TBA from '../static/partnership/TBA.svg'
-
+// Animation Gif
+import IceBerg from '../services/animations/ice berg.gif'
 // Scroll
 import { Link, } from 'react-scroll'
 
@@ -36,6 +37,7 @@ import styles from '../styles/Home.module.css'
 import * as starsanimation from "../services/animations/stars.json"
 import * as blueearthanimation from "../services/animations/blue_earth.json"
 import * as planethanimation from "../services/animations/planet.json"
+import * as iceBerganimation from '../services/animations/iceberg.json'
 
 import Lottie from 'react-lottie'
 
@@ -70,6 +72,15 @@ const animationPlanetOptions = {
     preserveAspectRatio: "xMidYMid slice"
   }
 };
+
+const animationIceBergOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: iceBerganimation,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+  }
+};
 const quickNavbars:Array<string> = ["omniverse","overview","omniwars","roadmap","partner"]
 
 
@@ -84,6 +95,7 @@ const Home: NextPage = () => {
   const omniwarsSection = useRef<HTMLDivElement | null>(null)
   const roadmapSection = useRef<HTMLDivElement | null>(null)
   const partnerSection = useRef<HTMLDivElement | null>(null)
+  const overviewTextSection = useRef<HTMLDivElement | null>(null)
 
 
   useEffect(()=>{
@@ -140,62 +152,67 @@ const Home: NextPage = () => {
           </div>
           <div className={styles.heroContainer}>
             <div className={styles.blackGradientBottom2}>
-              <Navbar/>
-              <section id="omniverse" ref={omniverseSection}>
-                <div className={styles.heroContentWrap} >
-                    <h1>Omniverse</h1>
-                    <div className={styles.heroBtn}>
-                    <Link
-                          activeClass="active"
-                          to="overview"
-                          spy={true}
-                          smooth={true}
-                          duration={1500}
-                      >
-                          <button onClick={()=>setNavbarID(1)}>Explore</button>
-                      </Link>
-                    </div>
-                </div>
-              </section>
-              <section id="overview" className={styles.overview} ref={overviewSection}>
-                <div className={styles.featureContentWrap}>
-                  <div className={styles.featureImg}>
-                    <Image src={FeatureContenImg} layout="responsive" alt="bg"></Image>
+                <Navbar/>
+                <section id="omniverse" ref={omniverseSection}>
+                  <div className={styles.heroContentWrap} >
+                      <h1>Omniverse</h1>
+                      <div className={styles.heroBtn}>
+                      <Link
+                            activeClass="active"
+                            to="overview"
+                            spy={true}
+                            smooth={true}
+                            duration={1500}
+                        >
+                            <button onClick={()=>setNavbarID(1)}>Explore</button>
+                        </Link>
+                      </div>
                   </div>
-                  <div className={styles.ContentWrap}  >
-                    <div className={styles.contentBody}>
-                      <h3>OVERVIEW</h3>
-                      <p>The Omniverse is an ecosystem of media, tools, and protocols unified by their development 
-                      and interoperability via Layer Zero technology.</p>
-                      <p>Built by the Omniverse DAO with an emphasis on superior user experience.</p>
-                    </div>
-                    <div className={styles.contentBody}>
-                      <h3>VISION</h3>
-                      <p>Creating a revolutionary game on groundbreaking interoperable blockchain technology will lead to us to developing a host of follow on products. There are no tools for this era of DAO run communities operating on multiple blockchains.</p>
-                      <p>
-                      With Omni X, we seek to change this. The first gaming DAO tool we are building is a multi-chain NFT marketplace framework. The Omni Wars game marketplace will be built on this framework, but we seek to open up this development to any other blockchain game looking to quickly bootstrap their own unique game specific NFT marketplace.</p>
-                    </div>
-                    
-                  </div>
-                </div>
-                <div className={styles.redPlanet}>
-                  <Image src={RedPlanetImg} layout="responsive" alt="bg"></Image>
-                </div>
-                <div className={styles.blueEarth}>
-                  <Lottie
-                    options={animationBlueEarthsOptions}
-                    isClickToPauseDisabled
-                  />
-                </div>
-              </section>
+                </section>
 
-              <div className={styles.animStar}>
-                <Lottie
-                  options={animationStarsOptions}
-                  isClickToPauseDisabled
-                />
+            </div>
+          </div>
+          <div className={styles.heroContainerhidebar}></div>
+
+          <section id="overview" className={styles.overview} ref={overviewSection}>
+            <div className={styles.featureContentWrap}>
+              <div className={styles.featureImg}>
+                <Image src={FeatureContenImg} layout="responsive" alt="bg"></Image>
+              </div>
+              <div className={styles.ContentWrap}  >
+                <div className={styles.contentBody}>
+                  <h3>OVERVIEW</h3>
+                  <div className={styles.overviewTextSection}  ref={overviewTextSection}>
+                    <p>The Omniverse is an ecosystem of media, tools, and protocols unified by their development and interoperability via Layer Zero technology.</p>
+                    <p>Built by the Omniverse DAO with an emphasis on superior user experience.</p>
+                  </div>
+                </div>
+                <div className={styles.contentBody}>
+                  <h3>VISION</h3>
+                  <p>Creating a revolutionary game on groundbreaking interoperable blockchain technology will lead to us to developing a host of follow on products. There are no tools for this era of DAO run communities operating on multiple blockchains.</p>
+                  <p>
+                  With Omni X, we seek to change this. The first gaming DAO tool we are building is a multi-chain NFT marketplace framework. The Omni Wars game marketplace will be built on this framework, but we seek to open up this development to any other blockchain game looking to quickly bootstrap their own unique game specific NFT marketplace.
+                  </p>
+                </div>
+                
               </div>
             </div>
+            <div className={styles.redPlanet}>
+              <Image src={RedPlanetImg} layout="responsive" alt="bg"></Image>
+            </div>
+            <div className={styles.blueEarth}>
+              <Lottie
+                options={animationBlueEarthsOptions}
+                isClickToPauseDisabled
+              />
+            </div>
+          </section>
+
+          <div className={styles.animStar}>
+            <Lottie
+              options={animationStarsOptions}
+              isClickToPauseDisabled
+            />
           </div>
 
 
@@ -275,8 +292,8 @@ const Home: NextPage = () => {
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                     </div>
                     <div className={styles.roadmapTxt}>
-                      <h3>COMMUNITY &amp; CORE TEAM GROWTH</h3>
-                      <p>LAUNCHED SOCIALS AND GITHUB LAUNCHED TO ESTABLISH FOSTER AND GROW COMMUNITY.</p>
+                      <h3>Community & Core team Growth</h3>
+                      <p>Launched Socials and github launched to establish, foster and grow community.</p>
                     </div>
                   </div>
                 </div>
@@ -309,8 +326,8 @@ const Home: NextPage = () => {
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                     </div>
                     <div className={styles.roadmapTxt}>
-                      <h3>CAPITAL RAISE</h3>
-                      <p>EXPANDED TEAM AND ADDED CORE CONTRIBUTORS TO COLLABORATE ON DEVELOPMENT.</p>
+                      <h3>Capital Raise</h3>
+                      <p>Expanded team and added core contributors to collaborate on development.</p>
                     </div>
                   </div>
                 </div>
@@ -325,8 +342,7 @@ const Home: NextPage = () => {
                     </div>
                     <div className={styles.roadmapTxt}>
                       <h3>GREG</h3>
-                      <p>LAUNCH WEBSITE SHOWCASING INTERCHAIN NFT ASSET TRANSFER.
-                      GENESIS OMNIVERSE GREG OMNI-NFT COLLECTION. </p>
+                      <p>Launch Website showcasing interchain nft asset transfer. Genesis omniverse greg omni-nft colection. </p>
                     </div>
                   </div>
                 </div>
@@ -353,7 +369,7 @@ const Home: NextPage = () => {
                     </div>
                     <div className={styles.roadmapTxt}>
                       <h3>Omni X BETA</h3>
-                      <p>BETA NFT MARKETPLACE INFRASTRUCTURE RELEASE.</p>
+                      <p>Beta NFT marketplace infrastructure release</p>
                     </div>
                   </div>
                 </div>
@@ -367,8 +383,8 @@ const Home: NextPage = () => {
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                     </div>
                     <div className={styles.roadmapTxt}>
-                      <h3>COMMUNITY GROWTH</h3>
-                      <p>ENGAGEMENT COMPETITIONS REWARDS FOR WORLD BUILDING, FAN ART, AND LORE PRODUCTION. </p>
+                      <h3>Community Growth</h3>
+                      <p>NFT PFP Collections: faction specific GENESIS collections. Engagement Competitions: rewards for world building, fan art, and lore production. </p>
                     </div>
                   </div>
                 </div>
@@ -395,7 +411,7 @@ const Home: NextPage = () => {
                     </div>
                     <div className={styles.roadmapTxt}>
                       <h3>OMNI X</h3>
-                      <p>NFT MARKETPLACE MAINNET RELEASE</p>
+                      <p>NFT Platform Mainnet Release</p>
                     </div>
                   </div>
                 </div>
@@ -442,8 +458,15 @@ const Home: NextPage = () => {
           </div>
 
         </div>
+        
         <div className={styles.FooterAreaContain}>
           <div className={styles.hideBorder}/>
+          <div>
+            <Lottie
+              options={animationStarsOptions}
+              isClickToPauseDisabled
+            />
+          </div>
           <Footer/>
         </div>
       </div>

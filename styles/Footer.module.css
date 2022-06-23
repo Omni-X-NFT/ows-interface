@@ -12,11 +12,23 @@
     align-items: center;
     justify-content: space-between;
 }
+.footer{
+    display: flex;
+    justify-content: center;
+}
+.footerLogo {
+    width: 70px;
+    color: white;
+    margin-top: 10px;
+}
 
-
-.footerLogo img{
-    width: 100%;
-    max-width: 260px;
+.footerLogoText {
+    font-size: 30px;
+    font-weight: 400;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
 }
 .socialWrapper{
     display: flex;
@@ -37,5 +49,19 @@
 }
 .socialWrapper{
     margin-top: 18px;
+}
+.footerLogo {
+    width: 60px;
+    color: white;
+    margin-top: 10px;
+}
+
+.footerLogoText {
+    font-size: 25px;
+    font-weight: 300;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+  
 }
 }

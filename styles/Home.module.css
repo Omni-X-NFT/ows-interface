@@ -4,11 +4,13 @@
   overflow:hidden;
 }
 .heroContainer{
-  /* background: url(../static/home-hero-bg.png);
-  background-size: 100%;
+  background: url('https://gateway.pinata.cloud/ipfs/QmciabGow14UT81EbssuSXjcUshR7hQ9486Yx7TV6zo7FE');
+  height: 120vh;
+  background-size: 170% 100%;
   background-position: top;
   background-repeat: no-repeat;
-  position: relative; */
+  position: relative;
+  z-index: 1;
 }
 .heroContentWrap{
   color: #fff;
@@ -24,6 +26,12 @@
   font-size: 100px;
   text-transform: uppercase;
   letter-spacing: 24px;
+}
+.heroContainerhidebar {
+  /* background-color: red;
+  height: 10vh;
+
+  background: linear-gradient(359.85deg, rgba(0, 0, 0, 0) 0.07%, #000000 43.33%, rgba(0, 0, 0, 0) 84.59%); */
 }
 .heroBtn{
   margin-top: 24px;
@@ -53,6 +61,7 @@
     height: 100%;
     /* background: linear-gradient(to bottom, transparent 50%, #000 100%); */
 }
+
 .navigationsWrap{
   position: fixed;
   right: 32px;
@@ -166,7 +175,21 @@
 }
 .overview {
   position: relative;
+  background: url('https://gateway.pinata.cloud/ipfs/QmbSShYdmNWeCgtFdTcm436AjhLszFuoN34xt7oc1FHv1y'); 
+  background-size: 100% 100%;
+  background-position: top;
+  background-repeat: no-repeat;
 }
+/* background for carosuels */
+.sliderRootContainer {
+  /* background: url(../services/animations/2nd\ background.gif); */
+  /* height: 120vh; */
+  /* background-size: 100% 100%;
+  background-position: top;
+  background-repeat: no-repeat; */
+
+}
+/*  */
 .secHeadingCon{
   color: #fff;
   font-family: 'Graphit';
@@ -210,7 +233,7 @@
 /* Partnars */
 .partCompGrid{
   max-width: 1330px;
-  margin: 70px auto 0px auto;
+  margin: 200px auto 0px auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,9 +281,11 @@
   flex-basis: 50%;
 }
 .ContL h1{
-  font-weight: 300;
+  font-weight: 500;
   text-align: center;
   letter-spacing: 5px;
+  size: 40px;
+  line-height: 50px;
 }
 .ContL .purpletxt{
   color: #CB17C3;
@@ -275,12 +300,16 @@
   width: 100%;
   max-width: 370px;
   transform: translate(-43%, -49%);
+  line-height: 27px;
+  font-size: 20px;
+  font-weight: 500;
 }
 .ContL .roadmapTxt h3{
   color: #02CAE5;
-  font-weight: 300;
+  font-weight: 500;
   margin-bottom: 10px;
-  font-size: 22px;
+  font-size: 26px;
+  line-height: 33px;
 }
 .ContR{
   flex-basis: 50%;
@@ -320,10 +349,11 @@
   /* padding-top: 400px; */
   /* margin-top: -400px; */
 }
+
 .FooterAreaContain{
-  /* background: url(../static/footer-bg-new.png); */
-  height: 100vh;
-  background-size: 100% 100%;
+  background: url('https://gateway.pinata.cloud/ipfs/QmcdGtwF6pDqsErBG5vgfRNEe62U5fvvSkaRn5qam4LsyV');
+  height: 120vh;
+  background-size: 130% 100%;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -331,22 +361,45 @@
   justify-content: space-between;
   flex-direction: column;
   width: 100%;
+  z-index: -999;
 }
 .FooterAreaContain footer{
   width: 100%;
 }
 .hideBorder{
-  /* background-color: #000000; */
+  background-color: #000000;
   height: 10px;
   width: 100%;
   height: 7%;
-  /* background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.849) 100%); */
+  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.849) 100%);
 }
 
-
+/* loading text css */
+.overviewTextSection {
+  /* display: none; */
+}
+.loadingText {
+  animation-name: loadingTexts;
+  animation-duration: 2s;
+}
+@keyframes loadingTexts {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 /* Media Queries */
-
+@media (max-width:1280px){
+  .FooterAreaContain{
+    height: 110vh;
+    background-size: 120% 100%;
+    background-position: top;
+  }
+}
 @media (max-width:1080px){
+  .heroContainer{
+    height: 120vh;
+    background-size: 200% 100%;
+    background-position: top;
+  }
   .heroContentWrap h1{
     font-size: 70px;
     letter-spacing: 16px;
@@ -386,19 +439,27 @@
     right:-20%;
     top: 50%;
   }
+  
+  .FooterAreaContain{
+    height: 90vh;
+    background-size: 110% 100%;
+    background-position: top;
+  }
 
 }
 
 @media (max-width:880px){
-  .heroContentWrap h1{
-    font-size: 70px;
+.heroContentWrap h1{
+    font-size: 60px;
     letter-spacing: 10px;
-  }
-  .heroContainer{
-  /* background: url(../static/home-hero-bg.png);
+}
+.heroContainer{
+  height: 80vh;
+  background-size: 250% 100%;
+  /* background: url(../static/home-hero-bg.png); */
   background-size: cover;
   background-position: top;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 }
 .heroContentWrap{
   color: #fff;
@@ -429,6 +490,7 @@
   .ContL{
     flex-basis: 100%;
   }
+
   .blueEarth {
     position: absolute;
     width: 23%;
@@ -457,12 +519,26 @@
     left: -40%;
     transform: translateY(200px) rotate(45deg);
   }
+
+  .FooterAreaContain{
+    height: 80vh;
+    background-size: 110% 100%;
+    background-position: top;
+  }
   
+}
+@media (max-width:780px){
+.FooterAreaContain{
+  height: 70vh;
+  background-size: 110% 100%;
+  background-position: top;
+}
+
 }
 @media (max-width:680px){
   .FooterAreaContain{
-    height: 70vh;
-    background-size: 150% 100%;
+    height: 60vh;
+    background-size: 110% 100%;
     background-position: top;
   }
   .blueEarth {
@@ -496,7 +572,7 @@
   }
   .partCompGrid{
     max-width: 1330px;
-    margin: 50px auto 0px auto;
+    margin: 150px auto 0px auto;
   }
   .PartCompWrapf {
     flex-basis: 35%;
@@ -544,6 +620,11 @@
     left: -40%;
     transform: translateY(600px) rotate(45deg)  ;
   }
+  .FooterAreaContain{
+    height: 50vh;
+    background-size: 110% 100%;
+    background-position: top;
+  }
 }
 
 @media (max-width:480px){
@@ -551,6 +632,17 @@
     padding-top: 150px;
     margin-top: -200px;
   }
+  .heroContainer{
+    height: 100vh;
+    background-size: 300% 100%;
+    background-position: top;
+
+    /* background: url('');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat; */
+  }
+
   
   .heroContentWrap h1{
     font-size: 38px;
@@ -559,6 +651,11 @@
   .secHeadingCon h1{
     font-size: 28px;
     letter-spacing: 7px;
+  }
+  /* Omni X Carosules section */
+  .secHeadImgL, .secHeadImgR{
+    width: 100%;
+    max-width: 100px;
   }
   /* Feature Section */
   .contentBody {
@@ -599,7 +696,7 @@
   }
   .partCompGrid{
     max-width: 1330px;
-    margin: 70px auto 0px auto;
+    margin: 140px auto 0px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -667,13 +764,12 @@
     top: 0;
   }
   .FooterAreaContain{
-    height: 100vh;
-    /* background: url(../static/footer-bg-mobile-new.png); */
-    background-size: 100% 100%;
+    height: 50vh;
+    background-size: 110% 100%;
     background-position: top;
   }
   .body {
-    background: url(../static/root-bg.png);
+    background: url(../static/root-bg4.png);
     background-size: 100% 100%;
   }
 }

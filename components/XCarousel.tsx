@@ -80,7 +80,7 @@ const Xcarousel : React.FC = () => {
                     <li style={{"color":"#BBBBBB"}}>Social Interactivity </li>
                     <li style={{"color":"#AAAAAA"}}>Deep Analytics</li>
                     <li style={{"color":"#999999"}}>Curated NFT Launches</li>
-                    <li style={{"color":"#888888"}}>Launches Gaming Integration</li>
+                    <li style={{"color":"#888888"}}>Gaming Integration</li>
                     <li style={{"color":"#777777"}}>and so much more</li>
                 </ul>
               </div>
