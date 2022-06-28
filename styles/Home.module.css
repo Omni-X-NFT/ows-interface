@@ -4,9 +4,7 @@
   overflow:hidden;
 }
 .heroContainer{
-  background: url('https://gateway.pinata.cloud/ipfs/QmciabGow14UT81EbssuSXjcUshR7hQ9486Yx7TV6zo7FE');
-  /* background: url(../services/animations//background.gif); */
-
+  /* background: url(../static/home-hero-bg.png); */
   height: 120vh;
   background-size: 170% 100%;
   background-position: top;
@@ -30,10 +28,8 @@
   letter-spacing: 24px;
 }
 .heroContainerhidebar {
-  /* background-color: red;
   height: 10vh;
-
-  background: linear-gradient(359.85deg, rgba(0, 0, 0, 0) 0.07%, #000000 43.33%, rgba(0, 0, 0, 0) 84.59%); */
+  background: linear-gradient(359.85deg, rgba(0, 0, 0, 0) 0.07%, #000000 43.33%, rgba(0, 0, 0, 0) 84.59%);
 }
 .heroBtn{
   margin-top: 24px;
@@ -58,10 +54,9 @@
    transition: 0.3s;
 }
 .blackGradientBottom2{
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    /* background: linear-gradient(to bottom, transparent 50%, #000 100%); */
+  position:absolute;
+  top: 0;
+  width: 100%;
 }
 
 .navigationsWrap{
@@ -98,7 +93,6 @@
   max-width: 1300px;
   margin: 0px auto 0px auto;
   position: relative;
-
 }
 .ContentWrap{
   position: absolute;
@@ -113,15 +107,16 @@
 }
 .contentBody {
   max-width: 880px;
-  /* margin: 0px auto 100px auto; */
+  line-height: 23px;
+  /* margin: 0px auto 0px auto; */
 }
 .contentBody p{
   margin-bottom: 40px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 300;
 }
 .contentBody h3{
-  font-size: 22px;
+  font-size: 40px;
   font-weight: 300;
   margin-bottom: 16px;
   letter-spacing: 1px;
@@ -133,7 +128,8 @@
 }
 .animStarTwo{
   position: absolute;
-  top: -200px;
+  margin-bottom: 300px;
+  top: 0px;
   left: 0;
   width: 100%;
   transform: rotate(225deg);
@@ -177,13 +173,16 @@
 }
 .overview {
   position: relative;
-  background: url('https://gateway.pinata.cloud/ipfs/QmbSShYdmNWeCgtFdTcm436AjhLszFuoN34xt7oc1FHv1y'); 
+  /* background: url('https://gateway.pinata.cloud/ipfs/QmbSShYdmNWeCgtFdTcm436AjhLszFuoN34xt7oc1FHv1y');  */
   /* background: url(../services/animations/2nd\ background.gif); */
 
   background-size: 100% 100%;
   background-position: top;
   background-repeat: no-repeat;
+  
 }
+
+
 /* background for carosuels */
 .sliderRootContainer {
   /* background: url(../services/animations/2nd\ background.gif); */
@@ -206,9 +205,10 @@
   max-width: 520px;
   margin-bottom: 20px;
 }
-.secHeadingWrap h3{
-  font-weight: 300;
-  letter-spacing: 1px;
+.secHeadingWrap h2{
+  font-size: 80px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   margin: 0px 12px;
 }
 .secHeadImgL, .secHeadImgR{
@@ -222,7 +222,7 @@
   justify-content: center;
 }
 .secHeadingCon h1{
-  font-size: 65px;
+  font-size: 80px;
   text-align: center;
     font-size: 65px;
     letter-spacing: 12px;
@@ -355,11 +355,9 @@
 }
 
 .FooterAreaContain{
-  background: url('https://gateway.pinata.cloud/ipfs/QmcdGtwF6pDqsErBG5vgfRNEe62U5fvvSkaRn5qam4LsyV');
-  /* background: url(../services/animations/ice\ berg.gif); */
-
-  height: 120vh;
-  background-size: 130% 100%;
+  background: url(../static/footer-bg.png);
+  height: 150vh;
+  background-size: 120% 100%;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -367,7 +365,12 @@
   justify-content: space-between;
   flex-direction: column;
   width: 100%;
-  z-index: -999;
+  z-index: 999;
+}
+.footervideo{
+  /* position: absolute;
+  width: 100%; */
+
 }
 .FooterAreaContain footer{
   width: 100%;
@@ -393,6 +396,9 @@
   animation: animText 1s ease-out 1 both;
   display: inline-block;
 }
+.animImg{
+  animation: animImage 2s ease-out 1 both;
+}
 
 @keyframes animHead{
   from{
@@ -415,18 +421,27 @@
   }
 }
 
+@keyframes animImage{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
 /* Media Queries */
 @media (max-width:1280px){
   .FooterAreaContain{
-    height: 110vh;
-    background-size: 120% 100%;
+    height: 130vh;
+    background-size: 150% 100%;
     background-position: top;
   }
 }
 @media (max-width:1080px){
   .heroContainer{
     height: 120vh;
-    background-size: 200% 100%;
+    background-size: 160% 100%;
     background-position: top;
   }
   .heroContentWrap h1{
@@ -470,14 +485,18 @@
   }
   
   .FooterAreaContain{
-    height: 90vh;
-    background-size: 110% 100%;
+    height: 120vh;
+    background-size: 160% 100%;
     background-position: top;
   }
 
 }
 
 @media (max-width:880px){
+  .featureContentWrap{
+    margin-top: -50px;
+    z-index: 100;
+  }
 .heroContentWrap h1{
     font-size: 60px;
     letter-spacing: 10px;
@@ -506,8 +525,13 @@
 }
   /* Section heading*/
   .secHeadingCon h1{
-    font-size: 40px;
-    letter-spacing: 7px;
+    font-size: 60px;
+    letter-spacing: 0.2em;
+  }
+  .secHeadingWrap h2{
+    font-size: 60px;
+    letter-spacing: 0.2em;
+    margin: 0px 12px;
   }
   /*Roadmap Section*/
   .ContR{
@@ -532,11 +556,7 @@
     max-height: 350px;
   }
   .animStarTwo{
-    position: absolute;
-    top: -170px;
-    left: 0;
-    width: 100%;
-    transform: rotate(225deg);
+    margin-bottom: 400px;
   }
   .HomePageBg{
     padding-top: 150px;
@@ -550,24 +570,32 @@
   }
 
   .FooterAreaContain{
-    height: 80vh;
-    background-size: 110% 100%;
+    height: 130vh;
+    background-size: 160% 100%;
     background-position: top;
   }
   
 }
 @media (max-width:780px){
+.featureContentWrap{
+  margin-top: -100px;
+  z-index: 100;
+}
 .FooterAreaContain{
-  height: 70vh;
-  background-size: 110% 100%;
+  height: 120vh;
+  background-size: 170% 100%;
   background-position: top;
 }
 
 }
 @media (max-width:680px){
+  .featureContentWrap{
+    margin-top: -150px;
+    z-index: 100;
+  }
   .FooterAreaContain{
-    height: 60vh;
-    background-size: 110% 100%;
+    height: 110vh;
+    background-size: 190% 100%;
     background-position: top;
   }
   .blueEarth {
@@ -577,11 +605,7 @@
     right: -7%;
   }
   .animStarTwo{
-    position: absolute;
-    top: -150px;
-    left: 0;
-    width: 100%;
-    transform: rotate(225deg);
+    margin-bottom: 400px;
   }
   .redPlanet {
     width: 66%;
@@ -592,6 +616,10 @@
 }
 
 @media (max-width:580px){
+  .featureContentWrap{
+    margin-top: -200px;
+    z-index: 100;
+  }
   .heroContentWrap h1{
     font-size: 50px;
     letter-spacing: 10px;
@@ -638,7 +666,7 @@
   }
   .animStarTwo{
     position: absolute;
-    top: -130px;
+    top: 0px;
     left: 0;
     width: 100%;
     transform: rotate(225deg);
@@ -650,9 +678,19 @@
     transform: translateY(600px) rotate(45deg)  ;
   }
   .FooterAreaContain{
-    height: 50vh;
-    background-size: 110% 100%;
+    height: 100vh;
+    background-size: 200% 100%;
     background-position: top;
+  }
+  .secHeadingCon h1{
+    font-weight: 400;
+    letter-spacing: 0.2em;
+  }
+  .secHeadingWrap h2{
+    font-size: 50px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    margin: 0px 12px;
   }
 }
 
@@ -674,8 +712,15 @@
     letter-spacing: 5px;
   }
   .secHeadingCon h1{
-    font-size: 28px;
-    letter-spacing: 7px;
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+  }
+  .secHeadingWrap h2{
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    margin: 0px 12px;
   }
   /* Omni X Carosules section */
   .secHeadImgL, .secHeadImgR{
@@ -744,7 +789,7 @@
   }
   .animStarTwo{
     position: absolute;
-    top: -100px;
+    top: 0px;
     left: 0;
     width: 100%;
     transform: rotate(225deg);
@@ -787,10 +832,14 @@
     border-radius: 8px;
     margin: 0 12px;
     top: 0;
+    margin-top: -300px;
+    z-index: 100;
   }
   .FooterAreaContain{
-    height: 50vh;
-    background-size: 110% 100%;
+    background: url(../static/footer-bg-mobile-new.png);
+
+    height: 100vh;
+    background-size: 100% 100%;
     background-position: top;
   }
   .body {

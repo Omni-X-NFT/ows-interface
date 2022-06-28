@@ -7,7 +7,6 @@ import Script from 'next/script'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Xcarousel from '../components/XCarousel'
-import Warcarousel from '../components/Warcarousel'
 
 
 // Images 
@@ -27,7 +26,7 @@ import AvaLabs from '../static/partnership/ava labs white 1.svg'
 import BNBChain from '../static/partnership/bnb-chain 1.svg'
 import TBA from '../static/partnership/TBA.svg'
 // Animation Gif
-import IceBerg from '../services/animations/ice berg.gif'
+
 // Scroll
 import { Link, } from 'react-scroll'
 
@@ -123,7 +122,6 @@ const Home: NextPage = () => {
       <Script src="../static/js/textanim.js"></Script>
       <Script src="//analytics.aweber.com/js/awt_analytics.js?id=X3co" />
       <div className={styles.body}>
-
         <div onWheel={(e) => {e?setWheel(e.pageY):null}}>
           {/* Hero Section */}
           <div className={styles.navigationsWrap}>
@@ -151,25 +149,34 @@ const Home: NextPage = () => {
             </ul>
           </div>
           <div className={styles.heroContainer}>
+            <video
+              style={{ objectFit: "cover" }}
+              width="100%"
+              height="100%"
+              autoPlay
+              muted
+            >
+              <source src='../static/video/background.mp4' type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <div className={styles.blackGradientBottom2}>
-                <Navbar/>
-                <section id="omniverse" ref={omniverseSection}>
-                  <div className={styles.heroContentWrap} >
-                      <h1>Omniverse</h1>
-                      <div className={styles.heroBtn}>
-                      <Link
-                            activeClass="active"
-                            to="overview"
-                            spy={true}
-                            smooth={true}
-                            duration={1500}
-                        >
-                            <button onClick={()=>setNavbarID(1)}>Explore</button>
-                        </Link>
-                      </div>
-                  </div>
-                </section>
-
+              <Navbar/>
+              <section id="omniverse" ref={omniverseSection}>
+                <div className={styles.heroContentWrap} >
+                    <h1>Omni X</h1>
+                    <div className={styles.heroBtn}>
+                    <Link
+                          activeClass="active"
+                          to="overview"
+                          spy={true}
+                          smooth={true}
+                          duration={1500}
+                      >
+                          <button onClick={()=>setNavbarID(1)}>Explore</button>
+                      </Link>
+                    </div>
+                </div>
+              </section>
             </div>
           </div>
           <div className={styles.heroContainerhidebar}></div>
@@ -181,15 +188,14 @@ const Home: NextPage = () => {
               </div>
               <div className={styles.ContentWrap}  >
                 <div className={styles.contentBody}>
-                  <h3 id="overview_head">OVERVIEW</h3>
-                  <p id="overview_text1">The Omniverse is an ecosystem of media, tools, and protocols unified by their development and interoperability via Layer Zero technology.</p>
-                  <p id="overview_text2">Built by the Omniverse DAO with an emphasis on superior user experience.</p>
+                  <h3 id="overview_head">Overview</h3>
+                  <p id="overview_text1">The Omniverse is an ecosystem of media and protocols developed with Layer Zero technology.All products are built by the Omniverse DAO with an emphasis on superior user experience.</p>
                 </div>
                 <div className={styles.contentBody}>
-                  <h3 id="version_head">VERSION</h3>
-                  <p id="version_text1">Creating a revolutionary game on groundbreaking interoperable blockchain technology will lead to us to developing a host of follow on products. There are no tools for this era of DAO run communities operating on multiple blockchains.</p>
-                  <p id="version_text2">With Omni X, we seek to change this. The first gaming DAO tool we are building is a multi-chain NFT marketplace framework. The Omni Wars game marketplace will be built on this framework, but we seek to open up this development to any other blockchain game looking to quickly bootstrap their own unique game specific NFT marketplace.
-                  </p>
+                  <h3 id="version_head">Vision</h3>
+                  <p id="version_text1">We seek to enable the first true metaverse - where virtual worlds,user, and protocls deployed on any blockchain are able to freely communicate and exchange value in a frictionless manner.</p>
+                  <p id="version_text2">Omni X is our flagship endeavor into this initiative. Omni X is the first omnichain NFT platform. Beyond a simple marketplace, Omni X connects communities, creators, and enthusiasts on a level never before seen.</p>
+                  <p id="version_text3">As our project grows, we will continue to build and push the boundaries of what blockchain technology allows, always with the ultimate goal in mind of creating the best possible experience for every type of user.</p>
                 </div>
                 
               </div>
@@ -221,28 +227,10 @@ const Home: NextPage = () => {
               <div className={styles.sliderRootContainer} >
                 <div id="omnix" className={styles.secHeadingCon}>
                   <div className={styles.secHeadingWrap}>
-                    <div className={styles.secHeadImgL}>
-                      <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
-                    </div>
-                    <h3>Omni X</h3>
-                    <div className={styles.secHeadImgR}>
-                      <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
-                    </div>
+                    <h2>FEATURES</h2>
                   </div>
                 </div>
                 <Xcarousel/>
-                <div className={styles.secHeadingCon}>
-                  <div className={styles.secHeadingWrap}>
-                    <div className={styles.secHeadImgL}>
-                      <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
-                    </div>
-                    <h3>Omni Wars</h3>
-                    <div className={styles.secHeadImgR}>
-                      <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
-                    </div>
-                  </div>
-                </div>
-                <Warcarousel/>
               </div>
             </section>
             <div className={styles.blueEarthTwo}>
@@ -255,15 +243,6 @@ const Home: NextPage = () => {
             <section ref={roadmapSection} className={styles.roadmap} id="roadmap">
               <div className={styles.roadmapSecHead} id="roadmap">
                 <div className={styles.secHeadingCon}>
-                  <div className={styles.secHeadingWrap}>
-                    <div className={styles.secHeadImgL}>
-                      <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
-                    </div>
-                    <h3>Omniverse</h3>
-                    <div className={styles.secHeadImgR}>
-                      <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
-                    </div>
-                  </div>
                   <h1 id="roadmaphead">RoadMap</h1>
                 </div>
               </div>

@@ -2,11 +2,12 @@ var overview = document.getElementById('overview');
 var textanim = false;
 document.getElementById("overview_head").style.opacity = 0;
 document.getElementById("overview_text1").style.opacity = 0;
-document.getElementById("overview_text2").style.opacity = 0;
 
 document.getElementById("version_head").style.opacity = 0;
 document.getElementById("version_text1").style.opacity = 0;
 document.getElementById("version_text2").style.opacity = 0;
+document.getElementById("version_text3").style.opacity = 0;
+
 
 var omnix = document.getElementById('omnix');
 var omnixanim = false;
@@ -71,188 +72,169 @@ document.getElementById('roadmap6text').style.opacity = 0;
 var roadmapanim6 = false;
 
 window.addEventListener("wheel", async(event) => {
-    console.log(overview.offsetTop,roadmap1.offsetTop,roadmap2.offsetTop,window.pageYOffset)
-    if(overview.offsetTop < window.pageYOffset + 250 && textanim == false){
-        textanim = true;
-
-        //overview part
-        document.getElementById("overview_head").style.opacity = 1;
-        var text = document.getElementById('overview_head');
-        var newDom = '';
-        var animationDelay = 100;
-        for(let i = 0; i <text.innerHTML.length; i++)
-        {
-            newDom += '<span class="Home_charHead__EIWfi">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
-        }
-        text.innerHTML = newDom;
-        var length = text.children.length;
-
-        for(let i = 0; i < length; i++)
-        {
-            text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
-        }
-
-
-        let delayres = await delay(3000); 
-
-        document.getElementById("overview_text1").style.opacity = 1;
-        var text = document.getElementById('overview_text1');
-        var newDom = '';
-        var animationDelay = 1;
-        for(let i = 0; i <text.innerHTML.length; i++)
-        {
-            newDom += '<span class="Home_char__KeR7S">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+  '</span>';
-        }
-
-        text.innerHTML = newDom;
-        var length = text.children.length;
-
-        for(let i = 0; i < length; i++)
-        {
-            text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
-        }
-        delayres = await delay(1000); 
-
-        document.getElementById("overview_text2").style.opacity = 1;
-        var text = document.getElementById('overview_text2');
-        var newDom = '';
-        var animationDelay = 1;
-        for(let i = 0; i <text.innerHTML.length; i++)
-        {
-            newDom += '<span class="Home_char__KeR7S">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
-        }
-
-        text.innerHTML = newDom;
-        var length = text.children.length;
-
-        for(let i = 0; i < length; i++)
-        {
-            text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
-        }
-
-        delayres = await delay(1000); 
-
-        //version part
-        document.getElementById("version_head").style.opacity = 1;
-        var text = document.getElementById('version_head');
-        var newDom = '';
-        var animationDelay = 100;
-        for(let i = 0; i <text.innerHTML.length; i++)
-        {
-            newDom += '<span class="Home_charHead__EIWfi">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
-        }
-        text.innerHTML = newDom;
-        var length = text.children.length;
-
-        for(let i = 0; i < length; i++)
-        {
-            text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
-        }
-
-
-        delayres = await delay(3000); 
-
-        document.getElementById("version_text1").style.opacity = 1;
-        var text = document.getElementById('version_text1');
-        var newDom = '';
-        var animationDelay = 1;
-        for(let i = 0; i <text.innerHTML.length; i++)
-        {
-            newDom += '<span class="Home_char__KeR7S">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
-        }
-
-        text.innerHTML = newDom;
-        var length = text.children.length;
-
-        for(let i = 0; i < length; i++)
-        {
-            text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
-        }
-        delayres = await delay(2000); 
-
-        document.getElementById("version_text2").style.opacity = 1;
-        var text = document.getElementById('version_text2');
-        var newDom = '';
-        var animationDelay = 1;
-        for(let i = 0; i <text.innerHTML.length; i++)
-        {
-            newDom += '<span class="Home_char__KeR7S">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
-        }
-
-        text.innerHTML = newDom;
-        var length = text.children.length;
-
-        for(let i = 0; i < length; i++)
-        {
-            text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
-        }
-    }
-    if(omnix.offsetTop < window.pageYOffset + 250 && omnixanim == false){
-        omnixanim = true;
-        var text = document.getElementById('nfthub');
-        var newDom = '';
-        var animationDelay = 100;
-        console.log(text.innerHTML)
-        for(let i = 0; i <text.innerHTML.length; i++)
-        {
-            newDom += '<span class="Slider_omni__X21fa">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+  '</span>';
-        }
-        console.log(text)
-
-        text.innerHTML = newDom;
-        console.log(text)
-
-        var length = text.children.length;
-
-        for(let i = 0; i < length; i++)
-        {
-            text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
-        }
+    if(overview.offsetTop>0){
+        if(overview.offsetTop < window.pageYOffset + 250 && textanim == false){
+            textanim = true;
     
-    }
-    if(roadmap.offsetTop<window.pageYOffset + 450 && roadmapanim == false ){
-        roadmapanim = true;
-        document.getElementById('roadmaphead').style.opacity = 1;
-        var text = document.getElementById('roadmaphead');
-        var newDom = '';
-        var animationDelay = 100;
-        for(let i = 0; i <text.innerHTML.length; i++)
-        {
-            newDom += '<span class="Home_charHead__EIWfi">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
+            //overview part
+            document.getElementById("overview_head").style.opacity = 1;
+            var text = document.getElementById('overview_head');
+            var newDom = '';
+            var animationDelay = 5;
+            for(let i = 0; i <text.innerHTML.length; i++)
+            {
+                newDom += '<span class="Home_charHead__EIWfi">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
+            }
+            text.innerHTML = newDom;
+            var length = text.children.length;
+    
+            for(let i = 0; i < length; i++)
+            {
+                text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+            }
+    
+    
+            let delayres = await delay(2000); 
+    
+            document.getElementById("overview_text1").style.opacity = 1;
+            var text = document.getElementById('overview_text1');
+            var newDom = '';
+            var animationDelay = 1;
+            for(let i = 0; i <text.innerHTML.length; i++)
+            {
+                newDom += '<span class="Home_char__KeR7S">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+  '</span>';
+            }
+    
+            text.innerHTML = newDom;
+            var length = text.children.length;
+    
+            for(let i = 0; i < length; i++)
+            {
+                text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+            }
+            delayres = await delay(1000); 
+    
+    
+            //version part
+            document.getElementById("version_head").style.opacity = 1;
+            var text = document.getElementById('version_head');
+            var newDom = '';
+            var animationDelay = 5;
+            for(let i = 0; i <text.innerHTML.length; i++)
+            {
+                newDom += '<span class="Home_charHead__EIWfi">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
+            }
+            text.innerHTML = newDom;
+            var length = text.children.length;
+    
+            for(let i = 0; i < length; i++)
+            {
+                text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+            }
+    
+    
+            delayres = await delay(1000); 
+    
+            document.getElementById("version_text1").style.opacity = 1;
+            var text = document.getElementById('version_text1');
+            var newDom = '';
+            var animationDelay = 1;
+            for(let i = 0; i <text.innerHTML.length; i++)
+            {
+                newDom += '<span class="Home_char__KeR7S">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
+            }
+    
+            text.innerHTML = newDom;
+            var length = text.children.length;
+    
+            for(let i = 0; i < length; i++)
+            {
+                text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+            }
+            delayres = await delay(1000); 
+    
+            document.getElementById("version_text2").style.opacity = 1;
+            var text = document.getElementById('version_text2');
+            var newDom = '';
+            var animationDelay = 1;
+            for(let i = 0; i <text.innerHTML.length; i++)
+            {
+                newDom += '<span class="Home_char__KeR7S">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
+            }
+    
+            text.innerHTML = newDom;
+            var length = text.children.length;
+    
+            for(let i = 0; i < length; i++)
+            {
+                text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+            }
+    
+            delayres = await delay(1000); 
+    
+            document.getElementById("version_text3").style.opacity = 1;
+            var text = document.getElementById('version_text3');
+            var newDom = '';
+            var animationDelay = 1;
+            for(let i = 0; i <text.innerHTML.length; i++)
+            {
+                newDom += '<span class="Home_char__KeR7S">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
+            }
+    
+            text.innerHTML = newDom;
+            var length = text.children.length;
+    
+            for(let i = 0; i < length; i++)
+            {
+                text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+            }
         }
-        text.innerHTML = newDom;
-        var length = text.children.length;
-
-        for(let i = 0; i < length; i++)
-        {
-            text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+        if(roadmap.offsetTop<window.pageYOffset + 450 && roadmapanim == false ){
+            roadmapanim = true;
+            document.getElementById('roadmaphead').style.opacity = 1;
+            var text = document.getElementById('roadmaphead');
+            var newDom = '';
+            var animationDelay = 5;
+            for(let i = 0; i <text.innerHTML.length; i++)
+            {
+                newDom += '<span class="Home_charHead__EIWfi">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
+            }
+            text.innerHTML = newDom;
+            var length = text.children.length;
+    
+            for(let i = 0; i < length; i++)
+            {
+                text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+            }
+        }
+        if(roadmap1.offsetTop<window.pageYOffset + 450  && roadmapanim1 == false ){
+            animation('roadmap1title','roadmap1image','roadmap1head','roadmap1text','roadmap1line')
+            roadmapanim1 = true;
+        }
+        if(roadmap2.offsetTop<window.pageYOffset + 450  && roadmapanim2 == false && roadmapanim1 == true ){
+            animation('roadmap2title','roadmap2image','roadmap2head','roadmap2text','roadmap2line')
+            roadmapanim2 = true;
+        }
+        if(roadmap3.offsetTop<window.pageYOffset + 450  && roadmapanim3 == false && roadmapanim2 == true ){
+            animation('roadmap3title','roadmap3image','roadmap3head','roadmap3text','roadmap3line')
+            roadmapanim3 = true;
+        }
+        if(roadmap4.offsetTop<window.pageYOffset + 450  && roadmapanim4 == false && roadmapanim3 == true ){
+            animation('roadmap4title','roadmap4image','roadmap4head','roadmap4text','roadmap4line')
+            roadmapanim4 = true;
+        }
+        if(roadmap5.offsetTop<window.pageYOffset + 450  && roadmapanim5 == false && roadmapanim4 == true ){
+            animation('roadmap5title','roadmap5image','roadmap5head','roadmap5text','roadmap5line')
+            roadmapanim5 = true;
+        }
+        if(roadmap6.offsetTop<window.pageYOffset + 450  && roadmapanim6 == false && roadmapanim5 == true ){
+            animation('roadmap6title','roadmap6image','roadmap6head','roadmap6text','roadmap6line')
+            roadmapanim6 = true;
         }
     }
-    if(roadmap1.offsetTop<window.pageYOffset + 450  && roadmapanim1 == false ){
-        animation('roadmap1title','roadmap1image','roadmap1head','roadmap1text','roadmap1line')
-        roadmapanim1 = true;
-    }
-    if(roadmap2.offsetTop<window.pageYOffset + 450  && roadmapanim2 == false && roadmapanim1 == true ){
-        animation('roadmap2title','roadmap2image','roadmap2head','roadmap2text','roadmap2line')
-        roadmapanim2 = true;
-    }
-    if(roadmap3.offsetTop<window.pageYOffset + 450  && roadmapanim3 == false && roadmapanim2 == true ){
-        animation('roadmap3title','roadmap3image','roadmap3head','roadmap3text','roadmap3line')
-        roadmapanim3 = true;
-    }
-    if(roadmap4.offsetTop<window.pageYOffset + 450  && roadmapanim4 == false && roadmapanim3 == true ){
-        animation('roadmap4title','roadmap4image','roadmap4head','roadmap4text','roadmap4line')
-        roadmapanim4 = true;
-    }
-    if(roadmap5.offsetTop<window.pageYOffset + 450  && roadmapanim5 == false && roadmapanim4 == true ){
-        animation('roadmap5title','roadmap5image','roadmap5head','roadmap5text','roadmap5line')
-        roadmapanim5 = true;
-    }
-    if(roadmap6.offsetTop<window.pageYOffset + 450  && roadmapanim6 == false && roadmapanim5 == true ){
-        animation('roadmap6title','roadmap6image','roadmap6head','roadmap6text','roadmap6line')
-        roadmapanim6 = true;
-    }
+    
 });
+
 
 function delay(delayInms) {
     return new Promise(resolve => {
@@ -266,7 +248,7 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
     document.getElementById(animtitle).style.opacity = 1;
     var text = document.getElementById(animtitle);
     var newDom = '';
-    var animationDelay = 50;
+    var animationDelay = 5;
     for(let i = 0; i <text.innerHTML.length; i++)
     {
         newDom += '<span class="Home_charHead__EIWfi">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
@@ -278,13 +260,14 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
     {
         text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
     }
-    let delayres = await delay(2000); 
+    let delayres = await delay(1000); 
     document.getElementById(animimage).style.opacity = 1;
+    document.getElementById(animimage).classList.add('Home_animImg__TmLoY');
 
     document.getElementById(animhead).style.opacity = 1;
     var text = document.getElementById(animhead);
     var newDom = '';
-    var animationDelay = 100;
+    var animationDelay = 5;
     for(let i = 0; i <text.innerHTML.length; i++)
     {
         newDom += '<span class="Home_charHead__EIWfi">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
@@ -298,9 +281,9 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
     }
 
     if(animhead=='roadmap1head'){
-        delayres = await delay(5000); 
+        delayres = await delay(1000); 
     } else {
-        delayres = await delay(3000); 
+        delayres = await delay(1000); 
     }
 
 
@@ -320,9 +303,10 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
         text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
     }
 
-    delayres = await delay(2000); 
-
+    delayres = await delay(1000); 
+    
     if(animline != "roadmap6line"){
         document.getElementById(animline).style.opacity = 1;
+        document.getElementById(animline).classList.add('Home_animImg__TmLoY');
     }
 }

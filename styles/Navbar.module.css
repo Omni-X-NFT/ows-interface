@@ -14,6 +14,26 @@ header .container{
     letter-spacing: 1px;
     font-weight: 500;
 }
+
+.links {
+    display: flex;
+    gap: 8px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.logoImage {
+    width: 70px;
+    color: white;
+    margin-top: 10px;
+}
+
+.logoImageText {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
 .navLinks {
     background-color: #03121D;
     display: flex;
@@ -50,7 +70,17 @@ header .container{
     background-color: #52067D;
 }
 
-@media (max-width:550px){
+
+@media (max-width:680px){
+    .logoImage {
+        width: 50px;
+        color: white;
+        margin-top: 10px;
+    }
+    
+    .logoImageText {
+        font-size: 15px;
+    }
     header .container{
         flex-direction: column;
     }
@@ -62,9 +92,29 @@ header .container{
 }
     .navLinks li a{
     display: block;
-    font-size: 16px;
+    font-size: 14px;
     color: #ffffff;
     padding: 6px 24px;
+}
+.navLinks li:nth-child(2){
+    margin-left: 8px;
+}
+}
+@media (max-width:375px){
+    header .container{
+        flex-direction: column;
+    }
+    .navLinks {
+    background-color: #03121D;
+    display: flex;
+    padding: 7px;
+    margin-top: 18px;
+}
+    .navLinks li a{
+    display: block;
+    font-size: 10px;
+    color: #ffffff;
+    padding: 6px 18px;
 }
 .navLinks li:nth-child(2){
     margin-left: 8px;

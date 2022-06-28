@@ -2,7 +2,6 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import footerstyles from '../styles/Footer.module.css'
-import FooterLogo from '../static/footer_img/Footer_Logo.png'
 import OmniverseLogo from '../static/footer_img/omniverse-logo.svg'
 import Github from '../static/footer_img/Github.png'
 import Book from '../static/footer_img/book-icon.png'
@@ -18,7 +17,7 @@ const Footer : React.FC = () => {
                   <Image src={OmniverseLogo}  alt="footer logo"></Image>
               </div>
               <div className={footerstyles.footerLogoText}>
-                <p>OMNIVERSE</p>
+                <p>OMNI X</p>
               </div>
             </div>
             <ul className={footerstyles.socialWrapper}>

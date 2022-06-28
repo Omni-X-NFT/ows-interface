@@ -636,7 +636,7 @@ const mint: NextPage = () => {
                 loop
                 muted
               >
-                <source src='../static/vid.mp4' type="video/mp4" />
+                <source src='../static/video/vid.mp4' type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -650,7 +650,6 @@ const mint: NextPage = () => {
           <div className={mintstyles.mintDesc}>
             <h1>Description</h1>
             <div className={mintstyles.mintDescSec}>
-              <p>Welcome to the omniverse</p>
               <p>greg is our genesis collection that represents our community and technological breakthroughs</p>
               <p>mint greg below from any chain you wish and transfer him to any other chain using the “Transfer” box below</p>
               <p>5 mints per wallet</p>
