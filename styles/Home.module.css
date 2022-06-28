@@ -5,6 +5,8 @@
 }
 .heroContainer{
   background: url('https://gateway.pinata.cloud/ipfs/QmciabGow14UT81EbssuSXjcUshR7hQ9486Yx7TV6zo7FE');
+  /* background: url(../services/animations//background.gif); */
+
   height: 120vh;
   background-size: 170% 100%;
   background-position: top;
@@ -111,10 +113,10 @@
 }
 .contentBody {
   max-width: 880px;
-  margin: 0px auto 100px auto;
+  /* margin: 0px auto 100px auto; */
 }
 .contentBody p{
-  margin-bottom: 24px;
+  margin-bottom: 40px;
   font-size: 17px;
   font-weight: 300;
 }
@@ -176,6 +178,8 @@
 .overview {
   position: relative;
   background: url('https://gateway.pinata.cloud/ipfs/QmbSShYdmNWeCgtFdTcm436AjhLszFuoN34xt7oc1FHv1y'); 
+  /* background: url(../services/animations/2nd\ background.gif); */
+
   background-size: 100% 100%;
   background-position: top;
   background-repeat: no-repeat;
@@ -352,6 +356,8 @@
 
 .FooterAreaContain{
   background: url('https://gateway.pinata.cloud/ipfs/QmcdGtwF6pDqsErBG5vgfRNEe62U5fvvSkaRn5qam4LsyV');
+  /* background: url(../services/animations/ice\ berg.gif); */
+
   height: 120vh;
   background-size: 130% 100%;
   background-position: center;
@@ -375,17 +381,40 @@
 }
 
 /* loading text css */
-.overviewTextSection {
-  /* display: none; */
+/* .hiddenText {
+  opacity: 0;
+} */
+
+.charHead{
+  animation: animHead 2s ease-out 1 both;
+  display: inline-block;
 }
-.loadingText {
-  animation-name: loadingTexts;
-  animation-duration: 2s;
+.char{
+  animation: animText 1s ease-out 1 both;
+  display: inline-block;
 }
-@keyframes loadingTexts {
-  from {opacity: 0;}
-  to {opacity: 1;}
+
+@keyframes animHead{
+  from{
+    opacity: 0;
+    font-size: 0px;
+  }
+  to{
+    opacity: 1;
+  }
 }
+
+@keyframes animText{
+  from{
+    opacity: 0;
+    transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+  }
+  to{
+      opacity: 1;
+      transform: perspective(500px) translate3d(0, 0, 0);
+  }
+}
+
 /* Media Queries */
 @media (max-width:1280px){
   .FooterAreaContain{

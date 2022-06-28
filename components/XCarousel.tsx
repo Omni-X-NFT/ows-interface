@@ -74,14 +74,14 @@ const Xcarousel : React.FC = () => {
             </div>
             <div className={sliderstyles.slideContent}>
               <div className={sliderstyles.slideTxt}>
-                <h3>NFT Ecosystem Hub</h3>
+                <h3 id="nfthub">NFT Ecosystem Hub</h3>
                 <ul>
-                    <li style={{"color":"#CCCCCC"}}>Marketplace</li>
-                    <li style={{"color":"#BBBBBB"}}>Social Interactivity </li>
-                    <li style={{"color":"#AAAAAA"}}>Deep Analytics</li>
-                    <li style={{"color":"#999999"}}>Curated NFT Launches</li>
-                    <li style={{"color":"#888888"}}>Gaming Integration</li>
-                    <li style={{"color":"#777777"}}>and so much more</li>
+                    <li style={{"color":"#CCCCCC"}} id="li1">Marketplace</li>
+                    <li style={{"color":"#BBBBBB"}} id="li2">Social Interactivity </li>
+                    <li style={{"color":"#AAAAAA"}} id="li3">Deep Analytics</li>
+                    <li style={{"color":"#999999"}} id="li4">Curated NFT Launches</li>
+                    <li style={{"color":"#888888"}} id="li5">Gaming Integration</li>
+                    <li style={{"color":"#777777"}} id="li6">and so much more</li>
                 </ul>
               </div>
               <div className={sliderstyles.slideLogo}>

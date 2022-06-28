@@ -95,7 +95,6 @@ const Home: NextPage = () => {
   const omniwarsSection = useRef<HTMLDivElement | null>(null)
   const roadmapSection = useRef<HTMLDivElement | null>(null)
   const partnerSection = useRef<HTMLDivElement | null>(null)
-  const overviewTextSection = useRef<HTMLDivElement | null>(null)
 
 
   useEffect(()=>{
@@ -121,6 +120,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossOrigin="anonymous"/>
       </Head>
+      <Script src="../static/js/textanim.js"></Script>
       <Script src="//analytics.aweber.com/js/awt_analytics.js?id=X3co" />
       <div className={styles.body}>
 
@@ -148,7 +148,7 @@ const Home: NextPage = () => {
                     }
                   })
                 }
-              </ul>
+            </ul>
           </div>
           <div className={styles.heroContainer}>
             <div className={styles.blackGradientBottom2}>
@@ -181,17 +181,14 @@ const Home: NextPage = () => {
               </div>
               <div className={styles.ContentWrap}  >
                 <div className={styles.contentBody}>
-                  <h3>OVERVIEW</h3>
-                  <div className={styles.overviewTextSection}  ref={overviewTextSection}>
-                    <p>The Omniverse is an ecosystem of media, tools, and protocols unified by their development and interoperability via Layer Zero technology.</p>
-                    <p>Built by the Omniverse DAO with an emphasis on superior user experience.</p>
-                  </div>
+                  <h3 id="overview_head">OVERVIEW</h3>
+                  <p id="overview_text1">The Omniverse is an ecosystem of media, tools, and protocols unified by their development and interoperability via Layer Zero technology.</p>
+                  <p id="overview_text2">Built by the Omniverse DAO with an emphasis on superior user experience.</p>
                 </div>
                 <div className={styles.contentBody}>
-                  <h3>VISION</h3>
-                  <p>Creating a revolutionary game on groundbreaking interoperable blockchain technology will lead to us to developing a host of follow on products. There are no tools for this era of DAO run communities operating on multiple blockchains.</p>
-                  <p>
-                  With Omni X, we seek to change this. The first gaming DAO tool we are building is a multi-chain NFT marketplace framework. The Omni Wars game marketplace will be built on this framework, but we seek to open up this development to any other blockchain game looking to quickly bootstrap their own unique game specific NFT marketplace.
+                  <h3 id="version_head">VERSION</h3>
+                  <p id="version_text1">Creating a revolutionary game on groundbreaking interoperable blockchain technology will lead to us to developing a host of follow on products. There are no tools for this era of DAO run communities operating on multiple blockchains.</p>
+                  <p id="version_text2">With Omni X, we seek to change this. The first gaming DAO tool we are building is a multi-chain NFT marketplace framework. The Omni Wars game marketplace will be built on this framework, but we seek to open up this development to any other blockchain game looking to quickly bootstrap their own unique game specific NFT marketplace.
                   </p>
                 </div>
                 
@@ -222,7 +219,7 @@ const Home: NextPage = () => {
             {/* Slider Section */}
             <section ref={omniwarsSection}  className={styles.omniwars} id="omniwars">
               <div className={styles.sliderRootContainer} >
-                <div className={styles.secHeadingCon}>
+                <div id="omnix" className={styles.secHeadingCon}>
                   <div className={styles.secHeadingWrap}>
                     <div className={styles.secHeadImgL}>
                       <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
@@ -256,7 +253,7 @@ const Home: NextPage = () => {
             </div>
             {/* Roadmap Section */}
             <section ref={roadmapSection} className={styles.roadmap} id="roadmap">
-              <div className={styles.roadmapSecHead} >
+              <div className={styles.roadmapSecHead} id="roadmap">
                 <div className={styles.secHeadingCon}>
                   <div className={styles.secHeadingWrap}>
                     <div className={styles.secHeadImgL}>
@@ -267,7 +264,7 @@ const Home: NextPage = () => {
                       <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
                     </div>
                   </div>
-                  <h1>RoadMap</h1>
+                  <h1 id="roadmaphead">RoadMap</h1>
                 </div>
               </div>
               <div className={styles.animStarTwo}>
@@ -284,21 +281,21 @@ const Home: NextPage = () => {
 
             <div className={styles.roadmapCon}>
               {/* First Phase */}
-              <div className={styles.roadmapWrap}>
+              <div className={styles.roadmapWrap} id="roadmap1">
                 <div className={styles.ContL}>
-                  <h1 className={styles.purpletxt}>MAR 2022</h1>
+                  <h1 className={styles.purpletxt} id="roadmap1title">MAR 2022</h1>
                   <div className={styles.BgWrap}>
-                    <div className={styles.BgImg}>
+                    <div className={styles.BgImg} id="roadmap1image">
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                     </div>
                     <div className={styles.roadmapTxt}>
-                      <h3>Community & Core team Growth</h3>
-                      <p>Launched Socials and github launched to establish, foster and grow community.</p>
+                      <h3 id="roadmap1head">Community Core team Growth</h3>
+                      <p id="roadmap1text">Launched Socials and github launched to establish, foster and grow community.</p>
                     </div>
                   </div>
                 </div>
                 <div className={styles.ContRPlanet}>
-                  <div className={styles.roadlineImg}>
+                  <div className={styles.roadlineImg}  id="roadmap1line">
                     <Image src={RoadmapBlueLine} layout="responsive" alt="blueline"></Image>
                   </div>
                   <div className={styles.planet}>
@@ -310,92 +307,92 @@ const Home: NextPage = () => {
                 </div>
               </div>
               {/* Second Phase */}
-              <div className={styles.roadmapWrap}>
+              <div className={styles.roadmapWrap} id="roadmap2">
                 <div className={styles.ContR}>
                   <div className={styles.roadlineBlue}>
-                    <div className={styles.alignLine}>
+                    <div className={styles.alignLine} id="roadmap2line">
                       <Image src={RoadmapPinkLine} layout="responsive" alt="blueline"></Image>
                     </div>
                   </div>
                 </div>
 
                 <div className={styles.ContL}>
-                  <h1>APR 2022</h1>
+                  <h1 id="roadmap2title">APR 2022</h1>
                   <div className={styles.BgWrap}>
-                    <div className={styles.BgImg}>
+                    <div className={styles.BgImg} id="roadmap2image">
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                     </div>
-                    <div className={styles.roadmapTxt}>
-                      <h3>Capital Raise</h3>
-                      <p>Expanded team and added core contributors to collaborate on development.</p>
+                    <div className={styles.roadmapTxt} >
+                      <h3 id="roadmap2head">Capital Raise</h3>
+                      <p id="roadmap2text">Expanded team and added core contributors to collaborate on development.</p>
                     </div>
                   </div>
                 </div>
               </div>
               {/* Third Phase */}
-              <div className={styles.roadmapWrap}>
+              <div className={styles.roadmapWrap} id="roadmap3">
                 <div className={styles.ContL}>
-                  <h1>MAY 2022</h1>
+                  <h1  id="roadmap3title">MAY 2022</h1>
                   <div className={styles.BgWrap}>
-                    <div className={styles.BgImg}>
+                    <div className={styles.BgImg}  id="roadmap3image">
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                     </div>
                     <div className={styles.roadmapTxt}>
-                      <h3>GREG</h3>
-                      <p>Launch Website showcasing interchain nft asset transfer. Genesis omniverse greg omni-nft colection. </p>
+                      <h3  id="roadmap3head">GREG</h3>
+                      <p  id="roadmap3text">Launch Website showcasing interchain nft asset transfer. Genesis omniverse greg omni-nft colection.</p>
                     </div>
                   </div>
                 </div>
                 <div className={styles.ContR}>
-                  <div className={styles.roadlineImg}>
+                  <div className={styles.roadlineImg}  id="roadmap3line">
                     <Image src={RoadmapBlueLine} layout="responsive" alt="blueline"></Image>
                   </div>
                 </div>
               </div>
               {/* Forth Phase */}
-              <div className={styles.roadmapWrap}>
+              <div className={styles.roadmapWrap}  id="roadmap4">
                 <div className={styles.ContR}>
                   <div className={styles.roadlineBlue}>
-                    <div className={styles.alignLine}>
+                    <div className={styles.alignLine} id="roadmap4line">
                       <Image src={RoadmapPinkLine} layout="responsive" alt="blueline"></Image>
                     </div>
                   </div>
                 </div>
                 <div className={styles.ContL}>
-                  <h1>JUNE 2022</h1>
+                  <h1 id="roadmap4title">JUNE 2022</h1>
                   <div className={styles.BgWrap}>
-                    <div className={styles.BgImg}>
+                    <div className={styles.BgImg} id="roadmap4image">
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                     </div>
                     <div className={styles.roadmapTxt}>
-                      <h3>Omni X BETA</h3>
-                      <p>Beta NFT marketplace infrastructure release</p>
+                      <h3 id="roadmap4head">Omni X BETA</h3>
+                      <p id="roadmap4text">Beta NFT marketplace infrastructure release</p>
                     </div>
                   </div>
                 </div>
               </div>
               {/* Fifth Phase */}
-              <div className={styles.roadmapWrap}>
+              <div className={styles.roadmapWrap} id="roadmap5">
                 <div className={styles.ContL}>
-                  <h1>Q3 2022</h1>
+                  <h1 id="roadmap5title">Q3 2022</h1>
                   <div className={styles.BgWrap}>
-                    <div className={styles.BgImg}>
+                    <div className={styles.BgImg} id="roadmap5image">
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                     </div>
                     <div className={styles.roadmapTxt}>
-                      <h3>Community Growth</h3>
-                      <p>NFT PFP Collections: faction specific GENESIS collections. Engagement Competitions: rewards for world building, fan art, and lore production. </p>
+                      <h3 id="roadmap5head">Community Growth</h3>
+                      <p id="roadmap5text">NFT PFP Collections: faction specific GENESIS collections. Engagement Competitions: rewards for world building, fan art, and lore production.</p>
                     </div>
                   </div>
                 </div>
                 <div className={styles.ContR}>
-                  <div className={styles.roadlineImg}>
+                  <div className={styles.roadlineImg} id="roadmap5line">
                     <Image src={RoadmapBlueLine} layout="responsive" alt="blueline"></Image>
                   </div>
                 </div>
               </div>
               {/* Sixth Phase */}
-              <div className={styles.roadmapWrap}>
+              <div className={styles.roadmapWrap} id="roadmap6">
                 <div className={styles.ContR}>
                   <div className={`${styles.roadlineBlue} ${styles.linehide}`}>
                     <div className={styles.alignLine}>
@@ -404,14 +401,14 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className={styles.ContL}>
-                  <h1>Q4 2022</h1>
+                  <h1 id="roadmap6title">Q4 2022</h1>
                   <div className={styles.BgWrap}>
-                    <div className={styles.BgImg}>
+                    <div className={styles.BgImg} id="roadmap6image">
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>
                     </div>
                     <div className={styles.roadmapTxt}>
-                      <h3>OMNI X</h3>
-                      <p>NFT Platform Mainnet Release</p>
+                      <h3 id="roadmap6head">OMNI X</h3>
+                      <p id="roadmap6text">NFT Platform Mainnet Release</p>
                     </div>
                   </div>
                 </div>
