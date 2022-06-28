@@ -389,15 +389,15 @@
 } */
 
 .charHead{
-  animation: animHead 2s ease-out 1 both;
+  animation: animHead 0.5s ease-out 1 both;
   display: inline-block;
 }
 .char{
-  animation: animText 1s ease-out 1 both;
+  animation: animText 0.3s ease-out 1 both;
   display: inline-block;
 }
 .animImg{
-  animation: animImage 2s ease-out 1 both;
+  animation: animImage 1s ease-out 1 both;
 }
 
 @keyframes animHead{

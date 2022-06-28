@@ -94,7 +94,7 @@ window.addEventListener("wheel", async(event) => {
             }
     
     
-            let delayres = await delay(2000); 
+            let delayres = await delay(1000); 
     
             document.getElementById("overview_text1").style.opacity = 1;
             var text = document.getElementById('overview_text1');
