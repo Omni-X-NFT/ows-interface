@@ -98,6 +98,7 @@ window.addEventListener("wheel", async(event) => {
     
             document.getElementById("overview_text1").style.opacity = 1;
             var text = document.getElementById('overview_text1');
+            var temp = text.innerHTML;
             var newDom = '';
             var animationDelay = 1;
             for(let i = 0; i <text.innerHTML.length; i++)
@@ -113,6 +114,7 @@ window.addEventListener("wheel", async(event) => {
                 text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
             }
             delayres = await delay(100); 
+            text.innerHTML = temp;
     
     
             //version part
@@ -137,6 +139,7 @@ window.addEventListener("wheel", async(event) => {
     
             document.getElementById("version_text1").style.opacity = 1;
             var text = document.getElementById('version_text1');
+            var temp = text.innerHTML;
             var newDom = '';
             var animationDelay = 1;
             for(let i = 0; i <text.innerHTML.length; i++)
@@ -152,9 +155,11 @@ window.addEventListener("wheel", async(event) => {
                 text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
             }
             delayres = await delay(100); 
+            text.innerHTML = temp;
     
             document.getElementById("version_text2").style.opacity = 1;
             var text = document.getElementById('version_text2');
+            var temp = text.innerHTML;
             var newDom = '';
             var animationDelay = 1;
             for(let i = 0; i <text.innerHTML.length; i++)
@@ -171,9 +176,11 @@ window.addEventListener("wheel", async(event) => {
             }
     
             delayres = await delay(100); 
+            text.innerHTML = temp;
     
             document.getElementById("version_text3").style.opacity = 1;
             var text = document.getElementById('version_text3');
+            var temp = text.innerHTML;
             var newDom = '';
             var animationDelay = 1;
             for(let i = 0; i <text.innerHTML.length; i++)
@@ -188,6 +195,9 @@ window.addEventListener("wheel", async(event) => {
             {
                 text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
             }
+
+            delayres = await delay(100); 
+            text.innerHTML = temp;
         }
         if(roadmap.offsetTop<window.pageYOffset + 450 && roadmapanim == false ){
             roadmapanim = true;
@@ -247,6 +257,7 @@ function delay(delayInms) {
 async function  animation(animtitle, animimage, animhead, animtext, animline) {
     document.getElementById(animtitle).style.opacity = 1;
     var text = document.getElementById(animtitle);
+    var temp = text.innerHTML;
     var newDom = '';
     var animationDelay = 5;
     for(let i = 0; i <text.innerHTML.length; i++)
@@ -261,11 +272,14 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
         text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
     }
     let delayres = await delay(100); 
+    text.innerHTML = temp;
+
     document.getElementById(animimage).style.opacity = 1;
     document.getElementById(animimage).classList.add('Home_animImg__TmLoY');
 
     document.getElementById(animhead).style.opacity = 1;
     var text = document.getElementById(animhead);
+    var temp = text.innerHTML;
     var newDom = '';
     var animationDelay = 5;
     for(let i = 0; i <text.innerHTML.length; i++)
@@ -280,15 +294,15 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
         text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
     }
 
-    if(animhead=='roadmap1head'){
-        delayres = await delay(500); 
-    } else {
-        delayres = await delay(100); 
-    }
+
+    delayres = await delay(100); 
+    text.innerHTML = temp;
+
 
 
     document.getElementById(animtext).style.opacity = 1;
     var text = document.getElementById(animtext);
+    var temp = text.innerHTML;
     var newDom = '';
     var animationDelay = 1;
     for(let i = 0; i <text.innerHTML.length; i++)
@@ -304,6 +318,7 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
     }
 
     delayres = await delay(100); 
+    text.innerHTML = temp;
     
     if(animline != "roadmap6line"){
         document.getElementById(animline).style.opacity = 1;
