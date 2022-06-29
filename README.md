@@ -1,14 +1,6 @@
 # Omni X Interface
 
-Welcome to Omniverse DAO and Omni Wars website!
-
-Please follow the instructions to start contributing to this repository.
-
-Notes:
-
-- Next.js documentation
-- For configuring Tailwind CSS theme refer to the documentation
-- Dm @exakoss if you have a question, open an issue if you have a problem with setting up and running the dapp
+Welcome to Omni X website!
 
 ## Getting Started
 
@@ -19,14 +11,6 @@ npm run dev
 # or
 yarn dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Contract address
 
