@@ -4,9 +4,9 @@
   overflow:hidden;
 }
 .heroContainer{
-  /* background: url(../static/home-hero-bg.png); */
+  background: url(../static/home-hero-bg.png);
   height: 120vh;
-  background-size: 170% 100%;
+  background-size: 100% 100%;
   background-position: top;
   background-repeat: no-repeat;
   position: relative;
@@ -389,15 +389,15 @@
 } */
 
 .charHead{
-  animation: animHead 0.5s ease-out 1 both;
+  animation: animHead 0.3s ease-out 1 both;
   display: inline-block;
 }
 .char{
-  animation: animText 0.3s ease-out 1 both;
+  animation: animText 0.1s ease-out 1 both;
   display: inline-block;
 }
 .animImg{
-  animation: animImage 1s ease-out 1 both;
+  animation: animImage 0.3s ease-out 1 both;
 }
 
 @keyframes animHead{
@@ -432,6 +432,11 @@
 
 /* Media Queries */
 @media (max-width:1280px){
+  .heroContainer{
+    height: 120vh;
+    background-size: 150% 100%;
+    background-position: top;
+  }
   .FooterAreaContain{
     height: 130vh;
     background-size: 150% 100%;
@@ -441,7 +446,7 @@
 @media (max-width:1080px){
   .heroContainer{
     height: 120vh;
-    background-size: 160% 100%;
+    background-size: 200% 100%;
     background-position: top;
   }
   .heroContentWrap h1{
@@ -502,12 +507,8 @@
     letter-spacing: 10px;
 }
 .heroContainer{
-  height: 80vh;
+  height: 100vh;
   background-size: 250% 100%;
-  /* background: url(../static/home-hero-bg.png); */
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
 }
 .heroContentWrap{
   color: #fff;

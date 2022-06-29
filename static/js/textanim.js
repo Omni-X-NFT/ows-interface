@@ -94,7 +94,7 @@ window.addEventListener("wheel", async(event) => {
             }
     
     
-            let delayres = await delay(1000); 
+            let delayres = await delay(100); 
     
             document.getElementById("overview_text1").style.opacity = 1;
             var text = document.getElementById('overview_text1');
@@ -112,7 +112,7 @@ window.addEventListener("wheel", async(event) => {
             {
                 text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
             }
-            delayres = await delay(1000); 
+            delayres = await delay(100); 
     
     
             //version part
@@ -133,7 +133,7 @@ window.addEventListener("wheel", async(event) => {
             }
     
     
-            delayres = await delay(1000); 
+            delayres = await delay(100); 
     
             document.getElementById("version_text1").style.opacity = 1;
             var text = document.getElementById('version_text1');
@@ -151,7 +151,7 @@ window.addEventListener("wheel", async(event) => {
             {
                 text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
             }
-            delayres = await delay(1000); 
+            delayres = await delay(100); 
     
             document.getElementById("version_text2").style.opacity = 1;
             var text = document.getElementById('version_text2');
@@ -170,7 +170,7 @@ window.addEventListener("wheel", async(event) => {
                 text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
             }
     
-            delayres = await delay(1000); 
+            delayres = await delay(100); 
     
             document.getElementById("version_text3").style.opacity = 1;
             var text = document.getElementById('version_text3');
@@ -211,23 +211,23 @@ window.addEventListener("wheel", async(event) => {
             animation('roadmap1title','roadmap1image','roadmap1head','roadmap1text','roadmap1line')
             roadmapanim1 = true;
         }
-        if(roadmap2.offsetTop<window.pageYOffset + 450  && roadmapanim2 == false && roadmapanim1 == true ){
+        if(roadmap2.offsetTop<window.pageYOffset + 450  && roadmapanim2 == false ){
             animation('roadmap2title','roadmap2image','roadmap2head','roadmap2text','roadmap2line')
             roadmapanim2 = true;
         }
-        if(roadmap3.offsetTop<window.pageYOffset + 450  && roadmapanim3 == false && roadmapanim2 == true ){
+        if(roadmap3.offsetTop<window.pageYOffset + 450  && roadmapanim3 == false ){
             animation('roadmap3title','roadmap3image','roadmap3head','roadmap3text','roadmap3line')
             roadmapanim3 = true;
         }
-        if(roadmap4.offsetTop<window.pageYOffset + 450  && roadmapanim4 == false && roadmapanim3 == true ){
+        if(roadmap4.offsetTop<window.pageYOffset + 450  && roadmapanim4 == false  ){
             animation('roadmap4title','roadmap4image','roadmap4head','roadmap4text','roadmap4line')
             roadmapanim4 = true;
         }
-        if(roadmap5.offsetTop<window.pageYOffset + 450  && roadmapanim5 == false && roadmapanim4 == true ){
+        if(roadmap5.offsetTop<window.pageYOffset + 450  && roadmapanim5 == false ){
             animation('roadmap5title','roadmap5image','roadmap5head','roadmap5text','roadmap5line')
             roadmapanim5 = true;
         }
-        if(roadmap6.offsetTop<window.pageYOffset + 450  && roadmapanim6 == false && roadmapanim5 == true ){
+        if(roadmap6.offsetTop<window.pageYOffset + 450  && roadmapanim6 == false ){
             animation('roadmap6title','roadmap6image','roadmap6head','roadmap6text','roadmap6line')
             roadmapanim6 = true;
         }
@@ -260,7 +260,7 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
     {
         text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
     }
-    let delayres = await delay(1000); 
+    let delayres = await delay(100); 
     document.getElementById(animimage).style.opacity = 1;
     document.getElementById(animimage).classList.add('Home_animImg__TmLoY');
 
@@ -281,9 +281,9 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
     }
 
     if(animhead=='roadmap1head'){
-        delayres = await delay(1000); 
+        delayres = await delay(500); 
     } else {
-        delayres = await delay(1000); 
+        delayres = await delay(100); 
     }
 
 
@@ -303,7 +303,7 @@ async function  animation(animtitle, animimage, animhead, animtext, animline) {
         text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
     }
 
-    delayres = await delay(1000); 
+    delayres = await delay(100); 
     
     if(animline != "roadmap6line"){
         document.getElementById(animline).style.opacity = 1;

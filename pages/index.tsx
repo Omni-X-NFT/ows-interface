@@ -149,16 +149,6 @@ const Home: NextPage = () => {
             </ul>
           </div>
           <div className={styles.heroContainer}>
-            <video
-              style={{ objectFit: "cover" }}
-              width="100%"
-              height="100%"
-              autoPlay
-              muted
-            >
-              <source src='../static/video/background.mp4' type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
             <div className={styles.blackGradientBottom2}>
               <Navbar/>
               <section id="omniverse" ref={omniverseSection}>
@@ -400,15 +390,6 @@ const Home: NextPage = () => {
           {/* Partners Section */}
           <section>
             <div className={styles.secHeadingCon} ref={partnerSection} id="partner">
-              <div className={styles.secHeadingWrap}>
-                <div className={styles.secHeadImgL}>
-                  <Image src={SecHeadArrowL} layout="responsive" alt="arrow"></Image>
-                </div>
-                <h3>Omniverse</h3>
-                <div className={styles.secHeadImgR}>
-                  <Image src={SecHeadArrowR} layout="responsive" alt="arrow"></Image>
-                </div>
-              </div>
               <h1>Our Partners</h1>
             </div>
           </section>
