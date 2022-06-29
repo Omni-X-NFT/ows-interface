@@ -97,6 +97,7 @@ const Home: NextPage = () => {
 
 
   useEffect(()=>{
+
     if(wheel){
       if(wheel<Number(overviewSection.current?.offsetTop)){
         setNavbarID(0)
@@ -111,6 +112,20 @@ const Home: NextPage = () => {
       }
     }
   },[wheel])
+
+  useEffect(() => {
+    if(window.pageYOffset<Number(overviewSection.current?.offsetTop)){
+      setNavbarID(0)
+    } else if(window.pageYOffset<Number(omniwarsSection.current?.offsetTop)){
+      setNavbarID(1)
+    }else if(window.pageYOffset<Number(roadmapSection.current?.offsetTop)){
+      setNavbarID(2)
+    }else if(window.pageYOffset<Number(partnerSection.current?.offsetTop)){
+      setNavbarID(3)
+    }else {
+      setNavbarID(4)
+    }
+  },[]);
   return (
     <>
       <Head>

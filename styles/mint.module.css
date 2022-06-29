@@ -8,7 +8,7 @@
 }
 .mintHero .container{
     max-width: 1300px;
-    margin: 0 auto;
+    margin: 15vh auto 0 auto;
     color: #ffffff;
     display: flex;
     justify-content: space-between;

@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 70vh;
   flex-direction: column;
   padding-top: 70px;
 }
@@ -32,7 +32,7 @@
   background: linear-gradient(359.85deg, rgba(0, 0, 0, 0) 0.07%, #000000 43.33%, rgba(0, 0, 0, 0) 84.59%);
 }
 .heroBtn{
-  margin-top: 24px;
+  margin-top: 6vh;
 }
 .heroBtn button{
   outline: none;
@@ -62,7 +62,7 @@
 .navigationsWrap{
   position: fixed;
   right: 32px;
-  top: 30%;
+  top: 28%;
   z-index: 999;
 }
 .navigationsWrap ul{
@@ -366,6 +366,7 @@
   flex-direction: column;
   width: 100%;
   z-index: 999;
+  margin-top: -25vh;
 }
 .footervideo{
   /* position: absolute;
@@ -376,11 +377,11 @@
   width: 100%;
 }
 .hideBorder{
-  background-color: #000000;
+  background-color: #000104;
   height: 10px;
   width: 100%;
-  height: 7%;
-  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.849) 100%);
+  height: 5%a;
+  background: linear-gradient(to top, transparent 0%, rgba(0, 1, 4, 0.849) 100%);
 }
 
 /* loading text css */
@@ -432,6 +433,10 @@
 
 /* Media Queries */
 @media (max-width:1280px){
+  .heroContentWrap{
+    min-height: 70vh;
+  }
+
   .heroContainer{
     height: 120vh;
     background-size: 150% 100%;
@@ -444,15 +449,23 @@
   }
 }
 @media (max-width:1080px){
+  .featureContentWrap {
+    margin-top: -25vh;
+  }
   .heroContainer{
     height: 120vh;
     background-size: 200% 100%;
     background-position: top;
   }
+  .heroContentWrap{
+    min-height: 70vh;
+  }
   .heroContentWrap h1{
     font-size: 70px;
     letter-spacing: 16px;
   }
+
+
   .featureContentWrap{
     background: url(../static/feature-content-bg-new.png);
     background-repeat: no-repeat;
@@ -462,6 +475,9 @@
     border-radius: 8px;
     margin: 0 12px;
     top: 0;
+    margin-top: -25vh;
+    z-index: 100;
+
   }
   .ContentWrap{
     padding-top: 32px !important;
@@ -498,8 +514,14 @@
 }
 
 @media (max-width:880px){
+  .navigationsWrap{
+    top: 22%;
+  }
+  .heroContentWrap{
+    min-height: 55vh;
+  }
   .featureContentWrap{
-    margin-top: -50px;
+    margin-top: -30vh;
     z-index: 100;
   }
 .heroContentWrap h1{
@@ -510,16 +532,7 @@
   height: 100vh;
   background-size: 250% 100%;
 }
-.heroContentWrap{
-  color: #fff;
-  font-family: 'Graphit';
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
-  flex-direction: column;
-  padding-top: 0px;
-}
+
 .contentBody {
   max-width: 880px;
   margin: 0px auto 0px auto;
@@ -578,8 +591,11 @@
   
 }
 @media (max-width:780px){
+.heroContentWrap{
+  min-height: 55vh;
+}
 .featureContentWrap{
-  margin-top: -100px;
+  margin-top: -40vh;
   z-index: 100;
 }
 .FooterAreaContain{
@@ -590,8 +606,12 @@
 
 }
 @media (max-width:680px){
+
+  .heroContentWrap{
+    min-height: 50vh;
+  }
   .featureContentWrap{
-    margin-top: -150px;
+    margin-top: -50vh;
     z-index: 100;
   }
   .FooterAreaContain{
@@ -617,8 +637,11 @@
 }
 
 @media (max-width:580px){
+  .heroContentWrap{
+    min-height: 50vh;
+  }
   .featureContentWrap{
-    margin-top: -200px;
+    margin-top: -55vh;
     z-index: 100;
   }
   .heroContentWrap h1{
@@ -810,7 +833,7 @@
   .navigationsWrap{
     position: fixed;
     right: 4px;
-    top: 30%;
+    top: 25%;
     z-index: 999;
   }
   .navigationsWrap ul{
@@ -824,6 +847,9 @@
     margin-bottom: 15px;
     transition: 0.3s;
   }
+  .heroContentWrap{
+    min-height: 50vh;
+  }
   .featureContentWrap{
     background: url(../static/feature-mobile-bg.png);
     background-repeat: no-repeat;
@@ -833,7 +859,7 @@
     border-radius: 8px;
     margin: 0 12px;
     top: 0;
-    margin-top: -300px;
+    margin-top: -60vh;
     z-index: 100;
   }
   .FooterAreaContain{
