@@ -1,14 +1,14 @@
 # Omni X Interface
 
-    Welcome to Omniverse DAO and Omni Wars website!
+Welcome to Omniverse DAO and Omni Wars website!
 
-    Please follow the instructions to start contributing to this repository.
+Please follow the instructions to start contributing to this repository.
 
-    Notes:
+Notes:
 
-        - Next.js documentation
-        - For configuring Tailwind CSS theme refer to the documentation
-        - Dm @exakoss if you have a question, open an issue if you have a problem with setting up and running the dapp
+- Next.js documentation
+- For configuring Tailwind CSS theme refer to the documentation
+- Dm @exakoss if you have a question, open an issue if you have a problem with setting up and running the dapp
 
 ## Getting Started
 
