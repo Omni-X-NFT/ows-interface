@@ -46,14 +46,14 @@ const Footer = () => {
           </Link>
         </li>
         <li>
-          <Link href="https://discord.com/invite/omniversedao" passHref>
+          <Link href="https://discord.com/invite/omni-x" passHref>
             <a target="_blank">
               <Image src={social3} className="cursor-pointer"></Image>
             </a>
           </Link>
         </li>
         <li>
-          <Link href="https://twitter.com/omniversedao" passHref>
+          <Link href="https://twitter.com/omnix_nft" passHref>
             <a target="_blank">
               <Image src={social4} className="cursor-pointer"></Image>
             </a>
