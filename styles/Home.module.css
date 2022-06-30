@@ -449,9 +449,6 @@
   }
 }
 @media (max-width:1080px){
-  .featureContentWrap {
-    margin-top: -25vh;
-  }
   .heroContainer{
     height: 120vh;
     background-size: 200% 100%;
@@ -475,7 +472,7 @@
     border-radius: 8px;
     margin: 0 12px;
     top: 0;
-    margin-top: -25vh;
+    margin-top: -15vh;
     z-index: 100;
 
   }
@@ -521,7 +518,7 @@
     min-height: 55vh;
   }
   .featureContentWrap{
-    margin-top: -30vh;
+    margin-top: -20vh;
     z-index: 100;
   }
 .heroContentWrap h1{
@@ -595,7 +592,7 @@
   min-height: 55vh;
 }
 .featureContentWrap{
-  margin-top: -40vh;
+  margin-top: -30vh;
   z-index: 100;
 }
 .FooterAreaContain{
@@ -611,7 +608,7 @@
     min-height: 50vh;
   }
   .featureContentWrap{
-    margin-top: -50vh;
+    margin-top: -40vh;
     z-index: 100;
   }
   .FooterAreaContain{
@@ -641,7 +638,7 @@
     min-height: 50vh;
   }
   .featureContentWrap{
-    margin-top: -55vh;
+    margin-top: -45vh;
     z-index: 100;
   }
   .heroContentWrap h1{
@@ -859,7 +856,7 @@
     border-radius: 8px;
     margin: 0 12px;
     top: 0;
-    margin-top: -55vh;
+    margin-top: -45vh;
     z-index: 100;
   }
   .FooterAreaContain{
