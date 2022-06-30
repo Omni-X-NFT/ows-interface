@@ -359,7 +359,7 @@ const mint: NextPage = () => {
   }
   const errorToast = (error:string):void =>{
     toast.error(error,{
-      position: toast.POSITION.BOTTOM_RIGHT,
+      position: toast.POSITION.TOP_RIGHT,
       autoClose: 3000,
       transition: Slide
     })

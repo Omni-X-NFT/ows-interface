@@ -345,14 +345,9 @@
 
 
 /* Home Page Background */
-.HomePageBg{
-  /* background: url(../static/Homebackground.png);
-  background-size: 100% 70%;
-  background-position: top;
-  background-repeat: no-repeat;
-  /* padding-top: 400px; */
-  /* margin-top: -400px; */
-}
+/* .HomePageBg{
+
+} */
 
 .FooterAreaContain{
   background: url(../static/footer-bg.png);
@@ -368,11 +363,7 @@
   z-index: 999;
   margin-top: -25vh;
 }
-.footervideo{
-  /* position: absolute;
-  width: 100%; */
 
-}
 .FooterAreaContain footer{
   width: 100%;
 }
@@ -384,10 +375,6 @@
   background: linear-gradient(to top, transparent 0%, rgba(0, 1, 4, 0.849) 100%);
 }
 
-/* loading text css */
-/* .hiddenText {
-  opacity: 0;
-} */
 
 .charHead{
   animation: animHead 0.3s ease-out 1 both;
