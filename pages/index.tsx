@@ -439,9 +439,10 @@ const Home: NextPage = () => {
               isClickToPauseDisabled
             />
           </div>
-          <Footer/>
+          {/* <Footer/> */}
         </div>
       </div>
+      <Footer/>
     </>
   )
 }

@@ -351,8 +351,8 @@
 
 .FooterAreaContain{
   background: url(../static/footer-bg.png);
-  height: 150vh;
-  background-size: 120% 100%;
+  height: 100vh;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -360,8 +360,9 @@
   justify-content: space-between;
   flex-direction: column;
   width: 100%;
-  z-index: 999;
-  margin-top: -25vh;
+  z-index: -999;
+  margin-top: -20vh;
+  margin-bottom: -10vh;
 }
 
 .FooterAreaContain footer{
@@ -425,14 +426,16 @@
   }
 
   .heroContainer{
-    height: 120vh;
-    background-size: 150% 100%;
+    height: 100vh;
+    background-size: 100% 100%;
     background-position: top;
   }
   .FooterAreaContain{
-    height: 130vh;
-    background-size: 150% 100%;
+    height: 100vh;
+    background-size: 120% 100%;
     background-position: top;
+    margin-top: -20vh;
+    margin-bottom: -10vh;
   }
 }
 @media (max-width:1080px){
@@ -490,9 +493,11 @@
   }
   
   .FooterAreaContain{
-    height: 120vh;
+    height: 90vh;
     background-size: 160% 100%;
     background-position: top;
+    margin-top: -20vh;
+    margin-bottom: -10vh;
   }
 
 }
@@ -568,9 +573,11 @@
   }
 
   .FooterAreaContain{
-    height: 130vh;
+    height: 80vh;
     background-size: 160% 100%;
     background-position: top;
+    margin-top: -15vh;
+    margin-bottom: -5vh;
   }
   
 }
@@ -583,9 +590,11 @@
   z-index: 100;
 }
 .FooterAreaContain{
-  height: 120vh;
+  height: 70vh;
   background-size: 170% 100%;
   background-position: top;
+  margin-top: -15vh;
+  margin-bottom: -5vh;
 }
 
 }
@@ -599,9 +608,11 @@
     z-index: 100;
   }
   .FooterAreaContain{
-    height: 110vh;
+    height: 60vh;
     background-size: 190% 100%;
     background-position: top;
+    margin-top: -15vh;
+    margin-bottom: -5vh;
   }
   .blueEarth {
     position: absolute;
@@ -686,9 +697,11 @@
     transform: translateY(600px) rotate(45deg)  ;
   }
   .FooterAreaContain{
-    height: 100vh;
+    height: 60vh;
     background-size: 200% 100%;
     background-position: top;
+    margin-top: -15vh;
+    margin-bottom: -5vh;
   }
   .secHeadingCon h1{
     font-weight: 400;
@@ -849,9 +862,11 @@
   .FooterAreaContain{
     background: url(../static/footer-bg-mobile-new.png);
 
-    height: 100vh;
+    height: 80vh;
     background-size: 100% 100%;
     background-position: top;
+    margin-top: 5vh;
+    margin-bottom: -15vh;
   }
   .body {
     background: url(../static/root-bg4.png);
