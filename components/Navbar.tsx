@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import OmniverseLogo from '../static/Navbar/logo.svg'
+import OmniverseLogo from '../static/Navbar/omnix.svg'
 import { useRouter } from 'next/router'
 import navstyles from '../styles/Navbar.module.css'
 
