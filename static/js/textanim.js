@@ -72,14 +72,13 @@ document.getElementById('roadmap6text').style.opacity = 0;
 var roadmapanim6 = false;
 
 if(overview.offsetTop>0){
-    f();
+    setInterval(f, 500)
 }
 
 window.addEventListener("wheel", async(event) => {
     if(overview.offsetTop>0){
         f();
     }
-    
 });
 
 

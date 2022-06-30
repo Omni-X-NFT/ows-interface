@@ -5,7 +5,7 @@
 }
 .heroContainer{
   background: url(../static/home-hero-bg.png);
-  height: 120vh;
+  height: 150vh;
   background-size: 100% 100%;
   background-position: top;
   background-repeat: no-repeat;
@@ -62,7 +62,7 @@
 .navigationsWrap{
   position: fixed;
   right: 32px;
-  top: 28%;
+  top: 25%;
   z-index: 999;
 }
 .navigationsWrap ul{
@@ -724,7 +724,7 @@
     margin-top: -200px;
   }
   .heroContainer{
-    height: 100vh;
+    height: 125vh;
     background-size: 300% 100%;
     background-position: top;
 
@@ -859,7 +859,7 @@
     border-radius: 8px;
     margin: 0 12px;
     top: 0;
-    margin-top: -60vh;
+    margin-top: -55vh;
     z-index: 100;
   }
   .FooterAreaContain{
