@@ -266,6 +266,8 @@ const mint: NextPage = () => {
   const [estimateFee, setEstimateFee] = useState<string>('')
   const [mintable, setMintable] = useState<boolean>(false)
   const [isTransferring,setIsTransferring] = useState<boolean>(false)
+  const [isSwitchingNetwork,setIsSwitchingNetwork] = useState<boolean>(false)
+
 
 	const connect = async():Promise<void> =>{
 		try {
@@ -320,11 +322,13 @@ const mint: NextPage = () => {
   }
 
   const switchNetwork = async ():Promise<void> => {
+    setIsSwitchingNetwork(true);
     try {
       await library.provider.request({
         method: "wallet_switchEthereumChain",
         params: [{ chainId:`0x${Number(network).toString(16)}` }]
       });
+      window.location.reload();
     } catch (switchError:any) {
       if (switchError.code === 4902) {
         try {
@@ -344,6 +348,7 @@ const mint: NextPage = () => {
         setNetwork(chainId)
       }
     }
+    setIsSwitchingNetwork(false);
   }
 
   const decrease = ():void => {
@@ -414,6 +419,7 @@ const mint: NextPage = () => {
     let mintResult
     setIsMinting(true)
 
+
     try {
       let publicmintFlag = await tokenContract._publicSaleStarted()
       let saleFlag = await tokenContract._saleStarted()
@@ -428,6 +434,7 @@ const mint: NextPage = () => {
         }
         // add the the function to get the emit from the contract and call the getInfo()
       } else if (saleFlag) {
+
             mintResult = await tokenContract.mint(mintNum,merkleProof, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
             // add the the function to get the emit from the contract and call the getInfo()
             const receipt = await mintResult.wait()
@@ -437,10 +444,13 @@ const mint: NextPage = () => {
             }
       } 
     } catch (e:any) {
+      console.log(e);
       if(e['code'] == 4001){
         errorToast("user denied transaction signature")
       } else {
+        console.log(e)
         const currentBalance = await library.getBalance(account)
+       
         if(Number(currentBalance)<addresses[chainId].price*mintNum){
           errorToast("There is not enough money to mint nft")
         } else {
@@ -510,16 +520,22 @@ const mint: NextPage = () => {
     if(mintable){
       if(isMinting){
         return(
-          <button type='button' onClick={()=>mint()} disabled><i  className="fa fa-spinner fa-spin" style={{"letterSpacing":"normal"}}/>MINT NOW</button>
+          <button type='button'  disabled><i  className="fa fa-spinner fa-spin" style={{"letterSpacing":"normal"}}/>MINT NOW</button>
         )
       } else {
-        return(
-          <button type='button' onClick={()=>mint()}>MINT NOW</button>
-        )
+        if(isSwitchingNetwork){
+          return(
+            <button type='button' disabled>MINT NOW</button>
+          )
+        } else {
+          return(
+            <button type='button' onClick={()=>mint()}>MINT NOW</button>
+          )
+        }
       }
     } else{
       return(
-        <button type='button' onClick={()=>mint()} disabled>MINT NOW</button>
+        <button type='button'  disabled>MINT NOW</button>
       )
     }
   }
