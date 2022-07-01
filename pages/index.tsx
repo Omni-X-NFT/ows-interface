@@ -98,13 +98,14 @@ const Home: NextPage = () => {
 
 
   useEffect(() => {
+    console.log(window.pageYOffset)
     if(window.pageYOffset<Number(overviewSection.current?.offsetTop)){
       setNavbarID(0)
-    } else if(window.pageYOffset<Number(omniwarsSection.current?.offsetTop)){
+    } else if(window.pageYOffset+200<Number(omniwarsSection.current?.offsetTop)){
       setNavbarID(1)
-    }else if(window.pageYOffset<Number(roadmapSection.current?.offsetTop)){
+    }else if(window.pageYOffset+200<Number(roadmapSection.current?.offsetTop)){
       setNavbarID(2)
-    }else if(window.pageYOffset<Number(partnerSection.current?.offsetTop)){
+    }else if(window.pageYOffset+200<Number(partnerSection.current?.offsetTop)){
       setNavbarID(3)
     }else {
       setNavbarID(4)
