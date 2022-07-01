@@ -1,0 +1,61 @@
+.nftselectWrap{
+    display: flex;
+    align-items: center;
+}
+.nftselectWrap label{
+    display: block;
+    width: 100%;
+    max-width: 120px;
+    margin-right: 32px;
+}
+.transSelWrap{
+    display: flex;
+    background: #cc79ff56;
+    border-radius: 28px;
+    padding-right: 32px;
+    padding-left: 32px;
+    margin: 32px 0px;
+    width: 100%;
+    max-width: 350px;
+}
+.transSelWrap select{
+    outline: none;
+    border: none;
+    font-family: 'Graphit';
+    background: transparent;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 300;
+    border-radius: 28px;
+    padding: 14px 0px 12px 0px;
+    letter-spacing: 5px;
+    font-weight: 300;
+    cursor: pointer;
+    width: 100%;
+}
+.transSelWrap select option{
+    color: #ffffff;
+    background: #4A0773;
+}
+.chainIcon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: auto;
+    margin-top: auto;
+    width: 30%;
+}
+@media (max-width:480px){
+    .nftselectWrap label{
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin-right: 0px;
+    }
+}
+@media (max-width:580px){
+    .nftselectWrap{
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+    }
+}

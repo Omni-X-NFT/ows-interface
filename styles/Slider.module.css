@@ -1,0 +1,388 @@
+
+/* Slider Section */
+.slideContainer{
+  color: #fff;
+  font-family: 'Graphit';
+}
+.swiperRooterWrap{
+  max-width: 880px;
+  margin: 0 auto;
+  opacity: 1;
+}
+
+.omniSlideWrap{
+  max-width: 700px;
+  position: relative;
+  margin: 0 auto;
+}
+.slideContent{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.slideTxt ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.slideTxt h3{
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.slideTxt ul li{
+  padding-bottom: 10px;
+  font-weight: 300;
+}
+.slideTxt p{
+  line-height: 2;
+  font-weight: 100;
+  opacity: 0.7;
+}
+.slideLogo{
+  max-width: 190px;
+  border-radius: 50%;
+}
+.slidetwoL{
+  max-width: 200px;
+  text-align: center;
+}
+
+.slidetwowrap{
+  max-width: 120px;
+  margin: 0 auto 24px auto;
+}
+.slidetwoR{
+  max-width: 250px;
+  text-align: center;
+  padding-top: 10px;
+}
+.buyLogo2{
+  max-width: 150px;
+  margin: 0 auto;
+}
+.slidetwoR p{
+  font-weight: 300;
+}
+.slidetwoR h4{
+  font-weight: 300;
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  text-decoration: underline;
+}
+.slidethreeR{
+flex-basis: 50%;
+padding-left: 32px;
+}
+.slidethreeR h4{
+    font-weight: 300;
+  position: absolute;
+  top: -40px;
+  right: 80px;
+  text-decoration: underline;
+}
+.slidethreeL {
+flex-basis: 50%;
+}
+.slidethreeL p{
+  margin-top: 10px;
+  font-weight: 100;
+}
+.slidethreeLogo{
+  max-width: 195px;
+  margin: 0 auto;
+}
+.slidethreeL ul{
+  list-style: none;
+}
+.slidethreeL ul li{
+  padding-left: 10px;
+  /* color: rgba(255, 255, 255, 0.568); */
+}
+.slidetag, .slidetag2{
+  position: absolute;
+  bottom: -40px;
+  right: 40px;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+.slidetag2 {
+  bottom: -50px;
+}
+/* animation */
+
+
+.omni{
+  animation: omnixText 2s ease-out 1 both;
+  display: inline-block;
+}
+
+@keyframes omnixText{
+  from{
+    opacity: 0;
+    transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+  }
+  to{
+      opacity: 1;
+      transform: perspective(500px) translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width:1080px){
+  .swiperRooterWrap{
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: 1;
+  }
+}
+@media (max-width:880px){
+  .swiperRooterWrap{
+    max-width: 680px;
+    margin: 0 auto;
+    opacity: 1;
+  }
+}
+
+@media (max-width:650px){
+  .slideBg{
+    display: none;
+  }
+  .omniSlideWrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  position: relative;
+  margin: 0 auto;
+  background: url(../static/slide-bg-croped.png);
+  background-position: top;
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  min-height: 400px;
+  padding-right: 16px;
+}
+.slideContent{
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: translate(-0%, -0%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 500px;
+  margin: -50px auto 0px auto;
+  height: 100%;
+  padding: 0px 40px;
+}
+.slideLogo{
+  max-width: 120px;
+  border-radius: 50%;
+}
+.slidetag, .slidetag2, .slidetag3{
+  position: absolute;
+  bottom: -20px;
+  right: 80px;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+.slidetag3{
+  bottom: -8px !important;
+}
+.slidetag2 {
+  bottom: -45px;
+}
+.slidetwowrap{
+   max-width: 90px;
+}
+.buyLogo2{
+  max-width: 120px;
+}
+.slidetwoR h4{
+  font-weight: 300;
+  position: absolute;
+  top: -40px;
+  right: 50px;
+  text-decoration: underline;
+}
+.slidethreeLogo{
+  max-width: 140px;
+}
+}
+@media (max-width:550px){
+
+.slideContent{
+  padding: 0px 70px;
+}
+.slidetag, .slidetag2, .slidetag3{
+  bottom: -20px;
+  right: 80px;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+.slideLogo{
+  max-width: 100px;
+  border-radius: 50%;
+}
+.slidetag3{
+  bottom: -8px !important;
+}
+.slidetag2 {
+  bottom: -45px;
+}
+.slidetwowrap{
+   max-width: 50px;
+}
+.buyLogo2{
+  max-width: 80px;
+}
+.slidetwoR h4{
+  top: -40px;
+  right: 50px;
+}
+.slidethreeLogo{
+  max-width: 140px;
+}
+.slideTxt {
+  font-size: 14px;
+}
+.slidetwoL p{
+  font-size: 12px;
+}
+.slidetwoR p{
+  font-size: 12px;
+}
+.slidethreeR h4{
+  top: 0px;
+  right: 80px;
+}
+}
+
+@media (max-width:520px){
+.omniSlideWrap{
+  display: flex;
+  align-items: center;
+  max-width: 700px;
+  position: relative;
+  margin: 0 auto;
+  background: url(../static/Group.png);
+  background-position: top;
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  min-height: 550px;
+  padding-right: 16px;
+}
+.slideContent{
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: translate(-0%, -0%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  max-width: 500px;
+  margin: -100px auto 0px auto;
+  height: 100%;
+  padding: 0px 40px;
+}
+.slideTxt{
+  /* margin-top: 16px; */
+  max-width: 220px;
+  /* background-color: #fff; */
+  margin: 16px auto 0px auto;
+}
+.slideTxt h3{
+  font-size: 18px;
+}
+.slidetag, .slidetag2{
+  position: absolute;
+  bottom: -45px;
+  right: 70px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.slidetag2 {
+  bottom: -60px;
+  font-size: 16px;
+}
+/* .slidetagwar {
+  right: 50px;
+} */
+.slidethreeL {
+  max-width: 280px;
+  font-size: 14px;
+  padding: 0px 12px;
+}
+.slidetag3{
+bottom: -50px !important;
+}
+.slidethreeR h4{
+  top: -40px;
+  right: 40%;
+}
+.slidetwowrap{
+   max-width: 70px; 
+}
+.slidetwoR{
+  margin-bottom: 32px;
+}
+.buyLogo2{
+  max-width: 100px;
+}
+}
+
+@media (max-width:400px){
+  .slidetagwar {
+  right: 50px;
+  bottom: -60px;
+}
+}
+@media (max-width:380px){
+  .slidetagwar {
+  right: 50px;
+  bottom: -60px;
+  font-size: 14px;
+}
+}
+@media (max-width:360px){
+  .slidetagwar {
+  right: 50px;
+  bottom: -60px;
+  font-size: 14px;
+}
+}
+@media (max-width:340px){
+  .slidetagwar {
+  right: 45px;
+  bottom: -60px;
+  font-size: 14px;
+}
+}
+
+@media (max-width:320px){
+  .slidetagwar {
+  right: 38px;
+  bottom: -60px;
+  font-size: 14px;
+}
+}
+@media (max-width:311px){
+  .slidetagwar {
+  right: 35px;
+  bottom: -50px;
+  font-size: 14px;
+}
+}

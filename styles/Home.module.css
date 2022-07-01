@@ -1,0 +1,876 @@
+.body {
+  background: url(../static/home.png);
+  background-size: 100% 100%;
+  overflow:hidden;
+}
+.heroContainer{
+  background: url(../static/home-hero-bg.png);
+  height: 150vh;
+  background-size: 100% 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+.heroContentWrap{
+  color: #fff;
+  font-family: 'Graphit';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  flex-direction: column;
+  padding-top: 70px;
+}
+.heroContentWrap h1{
+  font-size: 100px;
+  text-transform: uppercase;
+  letter-spacing: 24px;
+}
+.heroContainerhidebar {
+  height: 10vh;
+  background: linear-gradient(359.85deg, rgba(0, 0, 0, 0) 0.07%, #000000 43.33%, rgba(0, 0, 0, 0) 84.59%);
+}
+.heroBtn{
+  margin-top: 6vh;
+}
+.heroBtn button{
+  outline: none;
+  border: none;
+  background-color: #03121D;
+  font-family: 'Graphit';
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 14px 26px;
+  border-radius: 28px;
+  letter-spacing: 7px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.heroBtn button:hover{
+   background-color: #051f30;
+   transition: 0.3s;
+}
+.blackGradientBottom2{
+  position:absolute;
+  top: 0;
+  width: 100%;
+}
+
+.navigationsWrap{
+  position: fixed;
+  right: 32px;
+  top: 25%;
+  z-index: 999;
+}
+.navigationsWrap ul{
+  list-style: none;
+}
+.navigationsWrap ul li a{
+  display: block;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #02CAE5;
+  margin-bottom: 12px;
+  transition: 0.3s;
+}
+.navigationsWrap ul li a.active{
+  background-color: #02CAE5;
+}
+
+.navigationsWrap ul li a:hover{
+  background-color: #02CAE5;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* feature Content Area */
+.featureContentWrap{
+  color: #fff;
+  font-family: 'Graphit';
+  max-width: 1300px;
+  margin: 0px auto 0px auto;
+  position: relative;
+}
+.ContentWrap{
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+}
+.contentBody {
+  max-width: 880px;
+  line-height: 23px;
+  /* margin: 0px auto 0px auto; */
+}
+.contentBody p{
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: 300;
+}
+.contentBody h3{
+  font-size: 40px;
+  font-weight: 300;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+.animStar {
+  margin-top: -250px;
+  z-index: -999;
+  max-height: 350px;
+}
+.animStarTwo{
+  position: absolute;
+  margin-bottom: 300px;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  transform: rotate(225deg);
+}
+.roadmap {
+  position: relative;
+}
+.blueEarth {
+  position: absolute;
+  width: 20%;
+  bottom: -20%;
+  right: -3%;
+}
+.blueEarthTwo {
+  width: 20%;
+  position:relative;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+.planet {
+  width: 35%;
+  position: absolute;
+  right: 0%;
+  top: 65%;
+}
+.redPlanet {
+  width: 60%;
+  position: absolute;
+  left: -30%;
+  transform: rotate(45deg);
+}
+.redPlanetTwo{
+  width: 60%;
+  position: absolute;
+  right:-20%;
+  top: 10%;
+}
+/* Heading Section*/
+.omniwars {
+  margin-top: 100px;
+}
+.overview {
+  position: relative;
+  /* background: url('https://gateway.pinata.cloud/ipfs/QmbSShYdmNWeCgtFdTcm436AjhLszFuoN34xt7oc1FHv1y');  */
+  /* background: url(../services/animations/2nd\ background.gif); */
+
+  background-size: 100% 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  
+}
+
+
+/* background for carosuels */
+.sliderRootContainer {
+  /* background: url(../services/animations/2nd\ background.gif); */
+  /* height: 120vh; */
+  /* background-size: 100% 100%;
+  background-position: top;
+  background-repeat: no-repeat; */
+
+}
+/*  */
+.secHeadingCon{
+  color: #fff;
+  font-family: 'Graphit';
+}
+.secHeadingWrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+.secHeadingWrap h2{
+  font-size: 80px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin: 0px 12px;
+}
+.secHeadImgL, .secHeadImgR{
+  width: 100%;
+  max-width: 150px;
+}
+.secHeadingCon{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.secHeadingCon h1{
+  font-size: 80px;
+  text-align: center;
+    font-size: 65px;
+    letter-spacing: 12px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.roadmapSecHead .secHeadImgL,
+.roadmapSecHead .secHeadImgR{
+  width: 100%;
+  max-width: 100px;
+}
+/* Partnars */
+.partCompGrid{
+  max-width: 1330px;
+  margin: 200px auto 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.PartCompWrapf {
+  flex-basis: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: 24px; */
+  margin-bottom: 50px;
+}
+.PartCompWraps {
+  flex-basis: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: 24px; */
+  margin-bottom: 50px;
+}
+.PartCompWrapt {
+  flex-basis: 23%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: 24px; */
+  margin-bottom: 50px;
+}
+
+/* Roadmap */
+.roadmapCon{
+  max-width: 1200px;
+  margin: 150px auto 100px auto;
+    color: #fff;
+  font-family: 'Graphit';
+}
+.roadmapWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ContL{
+  flex-basis: 50%;
+}
+.ContL h1{
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 5px;
+  size: 40px;
+  line-height: 50px;
+}
+.ContL .purpletxt{
+  color: #CB17C3;
+}
+.ContL .BgWrap{
+  position: relative;
+}
+.ContL .roadmapTxt{
+  position: absolute;
+  top: 43%;
+  left: 49%;
+  width: 100%;
+  max-width: 370px;
+  transform: translate(-43%, -49%);
+  line-height: 27px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.ContL .roadmapTxt h3{
+  color: #02CAE5;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-size: 26px;
+  line-height: 33px;
+}
+.ContR{
+  flex-basis: 50%;
+  position: relative;
+}
+.ContRPlanet{
+  flex-basis: 50%;
+  position: relative;
+}
+.roadlineImg{
+  padding-top: 150px;
+  max-width: 330px;
+}
+
+.roadlineBlue{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.alignLine{
+  width: 100%;
+  max-width: 330px;
+  padding-top: 150px;
+}
+.linehide{
+  opacity: 0;
+  transform: scale(0);
+}
+
+
+/* Home Page Background */
+/* .HomePageBg{
+
+} */
+
+.FooterAreaContain{
+  background: url(../static/footer-bg.png);
+  height: 100vh;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  z-index: -999;
+  margin-top: -20vh;
+  margin-bottom: -10vh;
+}
+
+.FooterAreaContain footer{
+  width: 100%;
+}
+.hideBorder{
+  background-color: #000104;
+  height: 10px;
+  width: 100%;
+  height: 5%a;
+  background: linear-gradient(to top, transparent 0%, rgba(0, 1, 4, 0.849) 100%);
+}
+
+
+.charHead{
+  animation: animHead 0.3s ease-out 1 both;
+  display: inline-block;
+}
+.char{
+  animation: animText 0.1s ease-out 1 both;
+  display: inline-block;
+}
+.animImg{
+  animation: animImage 0.3s ease-out 1 both;
+}
+
+@keyframes animHead{
+  from{
+    opacity: 0;
+    font-size: 0px;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes animText{
+  from{
+    opacity: 0;
+    transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+  }
+  to{
+      opacity: 1;
+      transform: perspective(500px) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes animImage{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+/* Media Queries */
+@media (max-width:1280px){
+  .heroContentWrap{
+    min-height: 70vh;
+  }
+
+  .heroContainer{
+    height: 100vh;
+    background-size: 100% 100%;
+    background-position: top;
+  }
+  .FooterAreaContain{
+    height: 100vh;
+    background-size: 120% 100%;
+    background-position: top;
+    margin-top: -20vh;
+    margin-bottom: -10vh;
+  }
+}
+@media (max-width:1080px){
+  .heroContainer{
+    height: 120vh;
+    background-size: 200% 100%;
+    background-position: top;
+  }
+  .heroContentWrap{
+    min-height: 70vh;
+  }
+  .heroContentWrap h1{
+    font-size: 70px;
+    letter-spacing: 16px;
+  }
+
+
+  .featureContentWrap{
+    background: url(../static/feature-content-bg-new.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 112%;
+    position: relative;
+    border-radius: 8px;
+    margin: 0 12px;
+    top: 0;
+    margin-top: -15vh;
+    z-index: 100;
+
+  }
+  .ContentWrap{
+    padding-top: 32px !important;
+    position: relative;
+    top: 0;
+  }
+  /* Feature Section */
+  .featureImg{
+    display: none;
+  }
+  .contentBody {
+    padding: 16px 32px;
+    margin: 0px auto 0px auto;
+  }
+  .blueEarth {
+    position: absolute;
+    width: 20%;
+    bottom: -40%;
+    right: -5%;
+  }
+  .redPlanetTwo{
+    width: 60%;
+    position: absolute;
+    right:-20%;
+    top: 50%;
+  }
+  
+  .FooterAreaContain{
+    height: 90vh;
+    background-size: 160% 100%;
+    background-position: top;
+    margin-top: -20vh;
+    margin-bottom: -10vh;
+  }
+
+}
+
+@media (max-width:880px){
+  .navigationsWrap{
+    top: 22%;
+  }
+  .heroContentWrap{
+    min-height: 55vh;
+  }
+  .featureContentWrap{
+    margin-top: -20vh;
+    z-index: 100;
+  }
+.heroContentWrap h1{
+    font-size: 60px;
+    letter-spacing: 10px;
+}
+.heroContainer{
+  height: 100vh;
+  background-size: 250% 100%;
+}
+
+.contentBody {
+  max-width: 880px;
+  margin: 0px auto 0px auto;
+}
+  /* Section heading*/
+  .secHeadingCon h1{
+    font-size: 60px;
+    letter-spacing: 0.2em;
+  }
+  .secHeadingWrap h2{
+    font-size: 60px;
+    letter-spacing: 0.2em;
+    margin: 0px 12px;
+  }
+  /*Roadmap Section*/
+  .ContR{
+    display: none;
+  }
+  .ContRPlanet{
+    display: none;
+  }
+  .ContL{
+    flex-basis: 100%;
+  }
+
+  .blueEarth {
+    position: absolute;
+    width: 23%;
+    bottom: -35%;
+    right: -7%;
+  }
+  .animStar {
+    margin-top: 0px;
+    z-index: -999;
+    max-height: 350px;
+  }
+  .animStarTwo{
+    margin-bottom: 400px;
+  }
+  .HomePageBg{
+    padding-top: 150px;
+    margin-top: -300px;
+  }
+  .redPlanet {
+    width: 64%;
+    position: absolute;
+    left: -40%;
+    transform: translateY(200px) rotate(45deg);
+  }
+
+  .FooterAreaContain{
+    height: 80vh;
+    background-size: 160% 100%;
+    background-position: top;
+    margin-top: -15vh;
+    margin-bottom: -5vh;
+  }
+  
+}
+@media (max-width:780px){
+.heroContentWrap{
+  min-height: 55vh;
+}
+.featureContentWrap{
+  margin-top: -30vh;
+  z-index: 100;
+}
+.FooterAreaContain{
+  height: 70vh;
+  background-size: 170% 100%;
+  background-position: top;
+  margin-top: -15vh;
+  margin-bottom: -5vh;
+}
+
+}
+@media (max-width:680px){
+
+  .heroContentWrap{
+    min-height: 50vh;
+  }
+  .featureContentWrap{
+    margin-top: -40vh;
+    z-index: 100;
+  }
+  .FooterAreaContain{
+    height: 60vh;
+    background-size: 190% 100%;
+    background-position: top;
+    margin-top: -15vh;
+    margin-bottom: -5vh;
+  }
+  .blueEarth {
+    position: absolute;
+    width: 25%;
+    bottom: -35%;
+    right: -7%;
+  }
+  .animStarTwo{
+    margin-bottom: 400px;
+  }
+  .redPlanet {
+    width: 66%;
+    position: absolute;
+    left: -40%;
+    transform:translateY(400px)  rotate(45deg) ;
+  }
+}
+
+@media (max-width:580px){
+  .heroContentWrap{
+    min-height: 50vh;
+  }
+  .featureContentWrap{
+    margin-top: -45vh;
+    z-index: 100;
+  }
+  .heroContentWrap h1{
+    font-size: 50px;
+    letter-spacing: 10px;
+  }
+  .secHeadingWrap{
+    padding: 0px 12px;
+  }
+  .partCompGrid{
+    max-width: 1330px;
+    margin: 150px auto 0px auto;
+  }
+  .PartCompWrapf {
+    flex-basis: 35%;
+  }
+  .PartCompWrapf:nth-child(odd){
+    margin-right: 24px;
+  }
+  .PartCompWrapf:nth-child(even){
+    margin-left: 0px;
+  }
+  .PartCompWraps {
+    flex-basis: 35%;
+  }
+  .PartCompWraps:nth-child(odd){
+    margin-right: 24px;
+  }
+  .PartCompWraps:nth-child(even){
+    margin-left: 0px;
+  }
+  .PartCompWrapt {
+    flex-basis: 35%;
+  }
+  .PartCompWrapt:nth-child(odd){
+    margin-right: 24px;
+  }
+  .PartCompWrapt:nth-child(even){
+    margin-left: 0px;
+  }
+  .blueEarth {
+    position: absolute;
+    width: 30%;
+    bottom: -27%;
+    right: -10%;
+  }
+  .animStarTwo{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    transform: rotate(225deg);
+  }
+  .redPlanet {
+    width: 70%;
+    position: absolute;
+    left: -40%;
+    transform: translateY(600px) rotate(45deg)  ;
+  }
+  .FooterAreaContain{
+    height: 60vh;
+    background-size: 200% 100%;
+    background-position: top;
+    margin-top: -15vh;
+    margin-bottom: -5vh;
+  }
+  .secHeadingCon h1{
+    font-weight: 400;
+    letter-spacing: 0.2em;
+  }
+  .secHeadingWrap h2{
+    font-size: 50px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    margin: 0px 12px;
+  }
+}
+
+@media (max-width:480px){
+  .HomePageBg{
+    padding-top: 150px;
+    margin-top: -200px;
+  }
+  .heroContainer{
+    height: 125vh;
+    background-size: 300% 100%;
+    background-position: top;
+
+  }
+
+  
+  .heroContentWrap h1{
+    font-size: 38px;
+    letter-spacing: 5px;
+  }
+  .secHeadingCon h1{
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+  }
+  .secHeadingWrap h2{
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    margin: 0px 12px;
+  }
+  /* Omni X Carosules section */
+  .secHeadImgL, .secHeadImgR{
+    width: 100%;
+    max-width: 100px;
+  }
+  /* Feature Section */
+  .contentBody {
+    padding: 16px 12px;
+    margin: 0px auto 0px auto;
+  }
+  .featureContentWrap{
+    padding: 0px 12px;
+  }
+  .ContentWrap{
+    padding: 0px;
+    margin-top: 50px;
+  }
+  /* Roadmap Section */
+  .roadmapCon{
+    margin: 50px auto 50px auto;
+  }
+  .BgImg{
+    display: none;
+  }
+  .BgWrap{
+    background: url(../static/roadmap-bg.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 32px 16px;
+    min-height: 250px;
+  }
+  .ContL .roadmapTxt{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    max-width: 100%;
+    transform: translate(0%, 0%);
+    text-align: center;
+    padding: 24px;
+  }
+  .partCompGrid{
+    max-width: 1330px;
+    margin: 140px auto 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .PartCompWrapf{
+      max-width: 250px;
+  }
+  .PartCompWraps{
+    max-width: 250px;
+  }
+  .PartCompWrapt{
+    max-width: 250px;
+  }
+  .animStar {
+    margin-top: 0px;
+    z-index: -999;
+    max-height: 350px;
+  }
+  .animStarTwo{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    transform: rotate(225deg);
+  }
+  .blueEarth {
+    position: absolute;
+    width: 35%;
+    bottom: -20%;
+    right: -15%;
+  }
+  .redPlanet {
+    width: 80%;
+    position: absolute;
+    left: -50%;
+    transform: translateY(900px) rotate(45deg);
+  }
+  .navigationsWrap{
+    position: fixed;
+    right: 4px;
+    top: 25%;
+    z-index: 999;
+  }
+  .navigationsWrap ul{
+    list-style: none;
+  }
+  .navigationsWrap ul li a{
+    display: block;
+    height: 10px;
+    width: 10px;
+    border: 1px solid #02CAE5;
+    margin-bottom: 15px;
+    transition: 0.3s;
+  }
+  .heroContentWrap{
+    min-height: 50vh;
+  }
+  .featureContentWrap{
+    background: url(../static/feature-mobile-bg.png);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: 100% 100%;
+    position: relative;
+    border-radius: 8px;
+    margin: 0 12px;
+    top: 0;
+    margin-top: -45vh;
+    z-index: 100;
+  }
+  .FooterAreaContain{
+    background: url(../static/footer-bg-mobile-new.png);
+
+    height: 80vh;
+    background-size: 100% 100%;
+    background-position: top;
+    margin-top: 5vh;
+    margin-bottom: -15vh;
+  }
+  .body {
+    background: url(../static/root-bg4.png);
+    background-size: 100% 100%;
+  }
+}
+

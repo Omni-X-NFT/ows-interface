@@ -1,0 +1,122 @@
+
+header .container{
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo h1{
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: 'Graphit';
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.links {
+    display: flex;
+    gap: 8px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.logoImage {
+    width: 70px;
+    color: white;
+    margin-top: 10px;
+}
+
+.logoImageText {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+.navLinks {
+    background-color: #03121D;
+    display: flex;
+    padding: 10px;
+    list-style: none;
+    align-items: center;
+    border-radius: 26px;
+}
+.navLinks li {
+    border-radius: 19px;
+}
+.navLinks li a{
+    display: block;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 8px 32px;
+    border-radius: 19px;
+    text-align: center;
+    font-family: 'Graphit';
+    transition: 0.3s;
+}
+.navLinks li:nth-child(2){
+    margin-left: 12px;
+}
+.navLinks li a:hover{
+    background: #64099c;
+    transition: 0.3s;
+}
+.navLinks li.active:hover{
+    background: #64099c;
+    transition: 0.3s;
+}
+.navLinks li.active{
+    background-color: #52067D;
+}
+
+
+@media (max-width:680px){
+    .logoImage {
+        width: 50px;
+        color: white;
+        margin-top: 10px;
+    }
+    
+    .logoImageText {
+        font-size: 15px;
+    }
+    header .container{
+        flex-direction: column;
+    }
+    .navLinks {
+    background-color: #03121D;
+    display: flex;
+    padding: 7px;
+    margin-top: 18px;
+}
+    .navLinks li a{
+    display: block;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 6px 24px;
+}
+.navLinks li:nth-child(2){
+    margin-left: 8px;
+}
+}
+@media (max-width:375px){
+    header .container{
+        flex-direction: column;
+    }
+    .navLinks {
+    background-color: #03121D;
+    display: flex;
+    padding: 7px;
+    margin-top: 18px;
+}
+    .navLinks li a{
+    display: block;
+    font-size: 10px;
+    color: #ffffff;
+    padding: 6px 18px;
+}
+.navLinks li:nth-child(2){
+    margin-left: 8px;
+}
+}

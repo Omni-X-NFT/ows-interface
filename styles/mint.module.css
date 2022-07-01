@@ -1,0 +1,283 @@
+.mintHero{
+    background: url(../static/MintPage-Hero.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-bottom: 32px;
+}
+.mintHero .container{
+    max-width: 1300px;
+    margin: 20vh auto 0 auto;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+}
+.mintImgWrap{
+    flex-basis: 50%;
+}
+.mintImgT {
+    max-width: 600px;
+}
+.mintImgB {
+    max-width: 610px;
+    position: relative;
+}
+.mintDesc {
+    flex-basis: 49%;
+    padding-top: 70px;
+    font-family: 'Graphit';
+    padding-right: 24px;
+}
+.mintDesc p{
+    font-size: 22px;
+    margin-top: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.mintDesc h1{
+    font-weight: 500;
+    font-family: 'Graphit';
+    font-size: 38px;
+    letter-spacing: 1px;
+}
+.mintImgtext{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mintImgtext h1{
+    font-weight: 500;
+    font-family: 'Graphit';
+    font-size: 38px;
+    letter-spacing: 4px;
+}
+.mintDataGrid {
+    display: flex;
+    margin: 50px 0px 32px 0px;
+}
+.mintDataGrid .line{
+    display: block;
+    height: 75px;
+    width: 2px;
+    background-color: #ffffff;
+    margin: 0px 32px;
+}
+.mintDataWrap {
+    text-align: center;
+}
+.mintDataWrap h5{
+    font-size: 22px;
+    font-weight: 400;
+}
+.mintDataWrap span{
+    display: block;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 15px;
+}
+.counterWrap{
+    display: flex;
+    align-items: center;
+}
+.counterWrap span{
+    margin: 16px 16px 0px 16px;
+}
+.counterWrap button{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 5px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.mintBtnWrap{
+    text-align: center;
+}
+
+.mintBtnWrap button{
+    outline: none;
+    border: none;
+    background-color: #4A0773;
+    font-family: 'Graphit';
+    font-size: 20px;
+    color: #ffffff;
+    padding: 14px 26px;
+    border-radius: 28px;
+    letter-spacing: 5px;
+    font-weight: 300;
+    cursor: pointer;
+}
+.mintBtnWrap button:hover{
+    background: #64099c;
+    transition: 0.3s;
+}
+/* .nftselectWrap{
+    display: flex;
+    align-items: center;
+}
+.nftselectWrap label{
+    display: block;
+    width: 100%;
+    max-width: 120px;
+    margin-right: 32px;
+}
+.transSelWrap{
+    background: #cc79ff56;
+    border-radius: 28px;
+    padding-right: 32px;
+    padding-left: 32px;
+    margin: 32px 0px;
+    width: 100%;
+    max-width: 350px;
+}
+.transSelWrap select{
+    outline: none;
+    border: none;
+    font-family: 'Graphit';
+    background: transparent;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 300;
+    border-radius: 28px;
+    padding: 14px 0px 12px 0px;
+    letter-spacing: 5px;
+    font-weight: 300;
+    cursor: pointer;
+    width: 100%;
+}
+.transSelWrap select option{
+    color: #ffffff;
+    background: #4A0773;
+} */
+
+.blackGradientBottom2{
+    background: linear-gradient(to bottom, transparent 80%, #000 100%);
+}
+.mintSecBg{
+    background: url(../static/gregnftbg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    position: relative;
+}
+.mintheadingImg{
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mintheadingImg .headImg{
+    width: 100%;
+    max-width: 120px;
+    margin-right: 32px;
+}
+.mintheadingImg h1{
+    font-family: 'Graphit';
+    color: #ffffff;
+    text-align: center;
+    font-size: 65px;
+    letter-spacing: 10px;
+}
+
+@media (max-width:1280px){
+    .mintDesc {
+    flex-basis: 50%;
+    padding-top: 0px;
+    padding-left: 24px;
+}
+}
+
+@media (max-width:880px){
+    .mintHero .container{
+        flex-direction: column;
+    }
+    .mintDesc {
+        margin-top: 50px;
+    }
+    .mintImgT {
+    margin: 0 auto;
+    padding: 0 12px;
+}
+    .mintImgB {
+    margin: 0 auto;
+    padding: 0 12px;
+}
+}
+
+@media (max-width:480px){
+    .mintImgtext h1{
+        font-weight: 400;
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+    .mintDataGrid .line{
+        margin: 0px 16px;
+    }
+    .mintDataWrap h5{
+        font-size: 18px;
+        font-weight: 300;
+    }
+   .mintDesc {
+        width: 100%;
+        padding-top: 0px;
+        padding-left: 12px;
+    }
+}
+@media (max-width:580px){
+    .mintheadingImg{
+        flex-direction: column;
+    }
+    .mintheadingImg{
+        padding-top: 0px;
+    }
+    .mintheadingImg .headImg{
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 16px;
+    }
+    .mintheadingImg h1{
+        font-size: 32px;
+        letter-spacing: 5px;
+    }
+}
+
+@media (max-width:360px){
+    .mintImgtext h1{
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    .mintDesc {
+        font-size: 18px;
+        margin-top: 18px;
+    }
+    .mintDesc h1{
+        font-size: 32px;
+    }
+    .mintDesc p{
+        font-size: 16px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width:330px){
+    .mintDataGrid {
+        display: flex;
+        flex-direction: column;
+        margin: 32px 0px 18px 0px;
+        align-items: center;
+        justify-content: center;
+    }
+    .mintDataGrid .line{
+        transform: rotate(90deg);
+
+    }
+}

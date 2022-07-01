@@ -1,0 +1,219 @@
+.pagebackground{
+    background: url(../static/page-bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.mintHero{
+    position: relative;
+    padding-bottom: 100px;
+}
+.mintHero .container{
+    max-width: 1300px;
+    margin: 50px auto 0px auto;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    background-color: #00020775;
+    padding: 32px;
+    border-radius: 20px;
+}
+.mintImgWrap{
+    flex-basis: 40%;
+    background: #02070C;
+    min-height: 600px;
+    border-radius: 20px;
+    position: relative;
+}
+.nftmainImgT {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 400px;
+}
+.nftmainImgtxt{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+}
+.nftmainImgtxt h3{
+    font-family: 'Graphit';
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.mintDesc {
+    flex-basis: 55%;
+    font-family: 'Graphit';
+    padding-right: 24px;
+}
+.nftDescSec{
+    background: #000207;
+    padding: 24px;
+    border-radius: 16px;
+    margin-top: 32px;
+}
+.nftDescSec p{
+    font-size: 20px;
+    margin-top: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.nftDescSec .nftdeschead{
+    display: flex;
+    align-items: center;
+}
+.nftDescSec .nftdeschead h3{
+    font-family: 'Graphit';
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin: 0px 16px;
+}
+.nftDescSec .nftdeschead span{
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #BDBDBD;
+}
+.mintDesc h1{
+    font-weight: 500;
+    font-family: 'Graphit';
+    font-size: 38px;
+    letter-spacing: 1px;
+}
+.mintImgtext{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mintImgtext h1{
+    font-weight: 500;
+    font-family: 'Graphit';
+    font-size: 38px;
+    letter-spacing: 4px;
+}
+.mintDataGrid {
+    display: flex;
+    margin: 50px 0px;
+}
+.mintDataGrid .line{
+    display: block;
+    height: 75px;
+    width: 2px;
+    background-color: #ffffff;
+    margin: 0px 32px;
+}
+.mintDataWrap {
+    text-align: center;
+}
+.mintDataWrap h5{
+    font-size: 22px;
+    font-weight: 400;
+}
+.mintDataWrap span{
+    display: block;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 15px;
+}
+.counterWrap{
+    display: flex;
+    align-items: center;
+}
+.counterWrap span{
+    margin: 16px 16px 0px 16px;
+}
+.counterWrap button{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 5px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.mintBtnWrap button{
+    outline: none;
+    border: none;
+    background-color: #4A0773;
+    font-family: 'Graphit';
+    font-size: 20px;
+    color: #ffffff;
+    padding: 14px 26px;
+    border-radius: 28px;
+    letter-spacing: 5px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.mintBtnWrap button:hover{
+    background: #64099c;
+    transition: 0.3s;
+}
+ .nfthead {
+    padding-top: 50px;
+}
+.nfthead h1{
+    text-align: center;
+    font-size: 65px;
+    letter-spacing: 10px;
+    color: #ffffff;
+    font-family: 'Graphit';
+}
+
+@media (max-width:1280px){
+    .mintHero .container{
+        margin: 50px 12px 0px 12px;
+    }
+    .nftmainImgT {
+        padding: 0px 12px;
+    }
+}
+@media (max-width:880px){
+    .mintHero .container{
+        flex-direction: column;
+    }
+    .mintDesc {
+        margin-top: 32px;
+        width: 100%;
+        padding-right: 0px;
+    }
+}
+@media (max-width:580px){
+    .nftmainImgT {
+        max-width: 300px;
+    }
+    .mintImgWrap{
+        min-height: 500px;
+    }
+    .mintHero .container{
+        padding: 12px;
+    }
+    .mintDataGrid .line{
+        margin: 0px 16px;
+    }
+    .mintDataWrap h5{
+        font-size: 18px;
+        font-weight: 300;
+    }
+}
+
+@media (max-width:480px){
+    .mintHero{
+        padding-bottom: 50px;
+    }
+    .nfthead {
+        padding-top: 16px;
+    }
+    .nfthead h1{
+        font-size: 32px;
+        letter-spacing: 5px;
+    }
+}
