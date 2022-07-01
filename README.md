@@ -29,4 +29,3 @@ Kovan: https://kovan-optimistic.etherscan.io/address/0x8506554c599C274C9277E887b
 
 Fantom: https://testnet.ftmscan.com/address/0x8506554c599C274C9277E887b1c865c2A9E0089a
 
-
