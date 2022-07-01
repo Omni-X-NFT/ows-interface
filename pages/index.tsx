@@ -43,6 +43,7 @@ import Lottie from 'react-lottie'
 // import { Container, LottieWrapper } from "../components/animation/staranimation.styled";
 //react
 import { useState,useRef,useEffect } from 'react'
+import useScrollPosition from "../components/useScrollPosition"
 
 
 const animationStarsOptions = {
@@ -82,12 +83,12 @@ const animationIceBergOptions = {
 };
 const quickNavbars:Array<string> = ["omniverse","overview","omniwars","roadmap","partner"]
 
+// const scrollPosition = useScrollPosition();
 
 const Home: NextPage = () => {
 
   const [navbarid, setNavbarID] = useState<number>(0)
   const [wheel, setWheel] = useState<number>()
-  // const [starAnimation, setStarAnimation] = useState<Options>(animationStarsOptions)
 
   const omniverseSection = useRef<HTMLDivElement | null>(null)
   const overviewSection = useRef<HTMLDivElement | null>(null)
@@ -95,23 +96,6 @@ const Home: NextPage = () => {
   const roadmapSection = useRef<HTMLDivElement | null>(null)
   const partnerSection = useRef<HTMLDivElement | null>(null)
 
-
-  useEffect(()=>{
-
-    if(wheel){
-      if(wheel<Number(overviewSection.current?.offsetTop)){
-        setNavbarID(0)
-      } else if(wheel<Number(omniwarsSection.current?.offsetTop)){
-        setNavbarID(1)
-      }else if(wheel<Number(roadmapSection.current?.offsetTop)){
-        setNavbarID(2)
-      }else if(wheel<Number(partnerSection.current?.offsetTop)){
-        setNavbarID(3)
-      }else {
-        setNavbarID(4)
-      }
-    }
-  },[wheel])
 
   useEffect(() => {
     if(window.pageYOffset<Number(overviewSection.current?.offsetTop)){
@@ -125,7 +109,8 @@ const Home: NextPage = () => {
     }else {
       setNavbarID(4)
     }
-  },[]);
+  },[window.pageYOffset]);
+  
   return (
     <>
       <Head>
