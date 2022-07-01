@@ -98,7 +98,6 @@ const Home: NextPage = () => {
 
 
   useEffect(() => {
-    console.log(window.pageYOffset)
     if(window.pageYOffset<Number(overviewSection.current?.offsetTop)){
       setNavbarID(0)
     } else if(window.pageYOffset+200<Number(omniwarsSection.current?.offsetTop)){
