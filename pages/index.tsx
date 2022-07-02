@@ -177,16 +177,18 @@ const Home: NextPage = () => {
                 <Image src={FeatureContenImg} layout="responsive" alt="bg"></Image>
               </div>
               <div className={styles.ContentWrap}  >
+              <div className={styles.contentBody}>
+                  <h3 id="version_head">Vision</h3>
+                  <p id="version_text1">We at Omni X seek to enable the first true metaverse - where virtual worlds, users, and protocols deployed on  any blockchain are able to freely communicate and exchange value in a frictionless manner.</p>
+                  <p id="version_text2">We are driven to create products that unlock the full potential of artists and communities to interact and prosper. Our emphasis on intuitive user experience, empowered by LayerZero technology, innovative tooling and social interactivity combines for a powerful and novel experience unlike any created before.</p>
+                </div>
+
                 <div className={styles.contentBody}>
                   <h3 id="overview_head">Overview</h3>
-                  <p id="overview_text1">The Omniverse is an ecosystem of media and protocols developed with Layer Zero technology.All products are built by the Omniverse DAO with an emphasis on superior user experience.</p>
+                  <p id="overview_text1">Omni X is our flagship endeavor into this initiative. Omni X is the first omnichain NFT platform. Beyond a simple marketplace, Omni X connects communities, creators, and enthusiasts on a level never before seen. Launch omnichain NFTs and gain access to unparalleled liquidity that allows users to buy and sell NFTs from any blockchain to any other blockchain.</p>
+                  <p id="overview_text2">As our project grows, we will continue to build and push the boundaries of what blockchain technology allows, always with the ultimate goal in mind of creating the best possible experience for every type of user.</p>
                 </div>
-                <div className={styles.contentBody}>
-                  <h3 id="version_head">Vision</h3>
-                  <p id="version_text1">We seek to enable the first true metaverse - where virtual worlds,user, and protocls deployed on any blockchain are able to freely communicate and exchange value in a frictionless manner.</p>
-                  <p id="version_text2">Omni X is our flagship endeavor into this initiative. Omni X is the first omnichain NFT platform. Beyond a simple marketplace, Omni X connects communities, creators, and enthusiasts on a level never before seen.</p>
-                  <p id="version_text3">As our project grows, we will continue to build and push the boundaries of what blockchain technology allows, always with the ultimate goal in mind of creating the best possible experience for every type of user.</p>
-                </div>
+
                 
               </div>
             </div>
