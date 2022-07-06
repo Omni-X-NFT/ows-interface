@@ -7,8 +7,10 @@ import Github from '../static/footer_img/Github.png'
 import Book from '../static/footer_img/book-icon.png'
 import Discord from '../static/footer_img/Discord.png'
 import Twitter from '../static/footer_img/Twitter.png'
+import { useRouter } from 'next/router'
 
 const Footer : React.FC = () => {
+  const router = useRouter();
   return (
     <footer className={footerstyles.footerBg}>
         <div className={footerstyles.container}>
@@ -19,12 +21,19 @@ const Footer : React.FC = () => {
               <div className={footerstyles.footerLogoText}>
                 <p>OMNI X</p>
               </div>
+
             </div>
             <ul className={footerstyles.socialWrapper}>
-                <li><Link href="https://github.com/Omniverse-DAO"><a target="_blank"><Image src={Github} alt="github"></Image></a></Link></li>
-                <li><Link href="https://omni-x.gitbook.io/omni-x-nft-marketplace/"><a target="_blank"><Image src={Book} alt="book"></Image></a></Link></li>
-                <li><Link href="https://discord.com/invite/omni-x"><a target="_blank"><Image src={Discord} alt="discord"></Image></a></Link></li>
-                <li><Link href="https://twitter.com/omnix_nft"><a target="_blank"><Image src={Twitter} alt="twitter"></Image></a></Link></li>
+              <li><Link href="/disclaimer"><a>DisClaimer</a></Link></li>
+              <li><Link href="/term"><a>Terms & Conditions</a></Link></li>
+            </ul>
+
+            <ul className={footerstyles.socialWrapper}>
+
+              <li><Link href="https://github.com/Omniverse-DAO"><a target="_blank"><Image src={Github} alt="github"></Image></a></Link></li>
+              <li><Link href="https://omni-x.gitbook.io/omni-x-nft-marketplace/"><a target="_blank"><Image src={Book} alt="book"></Image></a></Link></li>
+              <li><Link href="https://discord.com/invite/omni-x"><a target="_blank"><Image src={Discord} alt="discord"></Image></a></Link></li>
+              <li><Link href="https://twitter.com/omnix_nft"><a target="_blank"><Image src={Twitter} alt="twitter"></Image></a></Link></li>
             </ul>
         </div>
     </footer>

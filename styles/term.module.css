@@ -1,0 +1,106 @@
+.mintHero{
+    background: url(../static/MintPage-Hero.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-bottom: 32px;
+}
+.featureContentWrap{
+    color: #fff;
+    font-family: 'Graphit';
+    max-width: 1300px;
+    margin: 10vh auto 0px auto;
+    position: relative;
+}
+
+.ContentWrap{
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+  }
+  .contentBody {
+    max-width: 880px;
+    line-height: 17px;
+    /* margin: 0px auto 0px auto; */
+    color: white;
+  }
+  .contentBody p{
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .contentBody h3{
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+@media (max-width: 1200px){
+    .featureContentWrap{
+        background: url(../static/feature-content-bg-new.png);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100% 112%;
+        position: relative;
+        border-radius: 5%;
+        margin: 0 12px;
+        top: 0;
+        margin-top: 15vh;
+        margin-bottom: 10vh;
+        z-index: 100;
+    }
+    .featureImg{
+        display: none;
+    }
+    .ContentWrap{
+        padding-top: 32px !important;
+        position: relative;
+        top: 0;
+    }
+    .contentBody {
+        padding: 16px 32px;
+        margin: 0px auto 0px auto;
+    }
+}
+
+@media(max-width: 880px){
+    .featureContentWrap{
+        margin-top: 15vh;
+        z-index: 100;
+    }
+    .contentBody {
+        max-width: 880px;
+        margin: 0px auto 0px auto;
+    }
+} 
+
+  @media(max-width: 480px){
+    .featureContentWrap{
+        background: url(../static/feature-mobile-bg.png);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: 100% 100%;
+        position: relative;
+        border-radius: 8px;
+        top: 0;
+        margin-top: 10vh;
+        z-index: 100;
+        padding: 0px 12px;
+      }
+    .contentBody {
+        padding: 16px 12px;
+        margin: 0px auto 0px auto;
+    }
+    .ContentWrap{
+        padding: 0px;
+        margin-top: 50px;
+    }
+  }
