@@ -23,11 +23,12 @@ const Footer : React.FC = () => {
               </div>
 
             </div>
-            <ul className={footerstyles.socialWrapper}>
-              <li><Link href="/disclaimer"><a>DisClaimer</a></Link></li>
-              <li><Link href="/term"><a>Terms & Conditions</a></Link></li>
-            </ul>
-
+            <div>
+              <ul className={footerstyles.socialWrapper}>
+                <li><Link href="/disclaimer"><a>Disclaimer</a></Link></li>
+                <li><Link href="/term"><a>Terms & Conditions</a></Link></li>
+              </ul>
+            </div>
             <ul className={footerstyles.socialWrapper}>
 
               <li><Link href="https://github.com/Omniverse-DAO"><a target="_blank"><Image src={Github} alt="github"></Image></a></Link></li>

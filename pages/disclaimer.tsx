@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
-import mintstyles from '../styles/mint.module.css'
 import distyles from '../styles/disclaimer.module.css'
 
 import FeatureContenImg from '../static/feature-overview-bg.png'
