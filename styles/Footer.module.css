@@ -1,5 +1,5 @@
 .footerBg{
-    background-color: #000000;
+    background-color: #000B0F;
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
     padding: 16px 0px;
@@ -37,13 +37,17 @@
 }
 .socialWrapper li {
     margin: 0 16px;
+
+}
+.socialWrapper li a {
+    color: white;
 }
 .socialWrapper li a:hover{
     opacity: 0.5;
     transition: 0.3s;
 }
 
-@media (max-width:550px){
+@media (max-width:680px){
 .footerBg .container{
     flex-direction: column;
 }
