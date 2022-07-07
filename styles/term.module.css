@@ -7,12 +7,11 @@
     padding-bottom: 32px;
 }
 .featureContentWrap{
-    color: #fff;
-    font-family: 'Graphit';
-    max-width: 1300px;
-    margin: 10vh auto 0px auto;
-    position: relative;
-
+  color: #fff;
+  font-family: 'Graphit';
+  max-width: 1300px;
+  margin: 0px auto 0px auto;
+  position: relative;
 }
 
 .ContentWrap{
@@ -25,34 +24,38 @@
     width: 100%;
     height: 100%;
     padding-top: 50px;
-  }
-  .contentBody {
-    max-width: 880px;
-    line-height: 17px;
-    color: white;
-  }
-  .contentBody .term {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 60vh;
-    margin-bottom: 5vh;
-  }
-  .term h3{
-    line-height: 30px;
-  }
-  
-  .contentBody p{
-    margin-bottom: 30px;
-    font-size: 14px;
-    font-weight: 300;
-  }
-  .contentBody h3{
-    font-size: 30px;
-    font-weight: 300;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-    line-height: 30px;
-  }
+}
+
+.contentBody {
+  max-width: 880px;
+  line-height: 17px;
+  color: white;
+}
+
+.contentBody .term {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height:auto!important;
+  max-height:30em;
+  margin-bottom: 5vh;
+}
+
+.term h3{
+  line-height: 30px;
+}
+
+.contentBody p{
+  margin-bottom: 30px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.contentBody h3{
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
 
 @media (max-width: 1200px){
     .term {
