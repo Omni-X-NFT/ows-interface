@@ -25,25 +25,25 @@ interface selectOption {
   [key: string]: selectOptionColor;
 }
 const selectOptions:selectOption = {
-  '4': {
+  '1': {
     color:'#8C8C8C'
   },
-  '97': {
+  '56': {
     color:'#F3BA2F'
   },
-  '43113': {
+  '43114': {
     color:'#E84142'
   },
-  '80001': {
+  '137': {
     color:'#8247E5'
   },
-  '421611': {
+  '42161': {
     color:'#28A0F0'
   },
-  '4002': {
+  '250': {
     color:'#13B5EC'
   },
-  '69': {
+  '10': {
     color:'#FF0320'
   }
 }

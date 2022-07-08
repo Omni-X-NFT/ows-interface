@@ -61,103 +61,103 @@ const providerOptions  = {
 	walletconnect: {
 		package: WalletConnectProvider, 
 		options: {
-		infuraId: "https://rinkeby.infura.io/v3/12a4aa4f06fe4bc7b5d50d73da475e2a"
+		infuraId: "https://mainnet.infura.io/v3/12a4aa4f06fe4bc7b5d50d73da475e2a"
 		}
 	}
  }
 
  const networkParams:{[key:string]:object} = {
   "0x4": {
-    chainId: "0x4",
-    rpcUrls: ['https://rinkeby.infura.io/v3/'],
-    chainName: 'Rinkeby Test Network',
+    chainId: "0x1",
+    rpcUrls: ['https://api.mycryptoapi.com/eth'],
+    chainName: 'ETH',
     nativeCurrency: {
-      name: 'rinkeby',
+      name: 'Ether',
       symbol: 'ETH',
       decimals: 18
     },
-    blockExplorerUrls: ['https://rinkeby.etherscan.io']
+    blockExplorerUrls: ['https://etherscan.io']
   },
   "0x61": {
-    chainId: '0x61',
-    chainName: 'BNB Smart Chain Testnet',
+    chainId: '0x38',
+    chainName: 'Binance Smart Chain Mainnet',
     nativeCurrency: {
-        name: 'Binance Coin',
-        symbol: 'tBNB',
+        name: 'BSC',
+        symbol: 'BNB',
         decimals: 18
     },
-    rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
-    blockExplorerUrls: ['https://testnet.bscscan.com/']
+    rpcUrls: ['https://bsc-dataseed1.binance.org'],
+    blockExplorerUrls: ['']
   },
-  "0xa869": {
-    chainId: '0xA869',
-    chainName: 'Avalanche Testnet C-Chain',
+  "0xa86a": {
+    chainId: '0xA86A',
+    chainName: 'Avalanche Mainnet',
     nativeCurrency: {
         name: 'Avalanche',
         symbol: 'AVAX',
         decimals: 18
     },
-    rpcUrls: ['https://api.avax-test.network/ext/bc/C/rpc'],
-    blockExplorerUrls: ['https://testnet.snowtrace.io/']
+    rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
+    blockExplorerUrls: ['']
   },
-  "0x13881": {
-    chainId: '0x13881',
-    chainName: 'Mumbai Testnet',
+  "0x89": {
+    chainId: '0x89',
+    chainName: 'Matic Mainnet',
     nativeCurrency: {
-        name: 'Mumbai',
+        name: 'Matic',
         symbol: 'MATIC',
         decimals: 18
     },
-    rpcUrls: ['https://rpc-mumbai.maticvigil.com/'],
+    rpcUrls: ['https://polygon-rpc.com'],
     blockExplorerUrls: ['https://polygonscan.com/']
   },
-  "0x66eeb": {
-    chainId: '0x66EEB',
-    chainName: 'Arbitrum Rinkeby',
+  "0xa4b1": {
+    chainId: '0xA4B1',
+    chainName: 'Arbitrum Mainnet',
     nativeCurrency: {
         name: 'Arbitrum',
         symbol: 'ETH',
         decimals: 18
     },
-    rpcUrls: ['https://rinkeby.arbitrum.io/rpc'],
-    blockExplorerUrls: ['https://testnet.arbiscan.io/']
+    rpcUrls: ['https://arb1.arbitrum.io/rpc'],
+    blockExplorerUrls: ['https://arbiscan.io/']
   },
-  "0xfa2": {
-    chainId: '0xFA2',
-    chainName: 'Fantom testnet',
+  "0xfc": {
+    chainId: '0xFC',
+    chainName: 'FTM',
     nativeCurrency: {
         name: 'Fantom',
         symbol: 'MTF',
         decimals: 18
     },
-    rpcUrls: ['https://rpc.testnet.fantom.network/'],
-    blockExplorerUrls: ['https://faucet.fantom.network/']
+    rpcUrls: ['https://rpcapi.fantom.network'],
+    blockExplorerUrls: ['https://ftmscan.com']
   },
-  "0x45": {
-    chainId: '0x45',
-    chainName: 'Optimistic Ethereum Testnet Kovan',
+  "0xa": {
+    chainId: '0xa',
+    chainName: 'Optimistic Ethereum',
     nativeCurrency: {
-        name: 'Kovan',
-        symbol: 'KOR',
+        name: 'ETH',
+        symbol: 'ETH',
         decimals: 18
     },
-    rpcUrls: ['https://kovan.optimism.io/'],
+    rpcUrls: ['https://mainnet.optimism.io'],
     blockExplorerUrls: ['']
   },
 };
 
 const addresses:contractInfo = {
-  '4': {
+  '1': {
     address: '0x4A64265539615DAC2211fe5a9A652c5A67Bed37b',
     imageSVG: RinkbyImageSVG,
     image: RinkbyImage,
-    name: 'rinkeby',
+    name: 'Ethereum',
     price: 0.05,
     chainId: '10001',
     unit: 'ETH',
     color:'#8C8C8C'
   },
-  '421611': {
+  '42161': {
     address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
     imageSVG: ArbitrumImageSVG,
     image: ArbitrumImage,
@@ -167,7 +167,7 @@ const addresses:contractInfo = {
     unit: 'ETH',
     color:'#28A0F0'
   },
-  '80001': {
+  '137': {
     address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
     imageSVG: MumbaiImageSVG,
     image: MumbaiImage,
@@ -177,7 +177,7 @@ const addresses:contractInfo = {
     unit: 'MATIC',
     color:'#8247E5'
   },
-  '43113': {
+  '43114': {
     address: '0x6fc746b78ae749a97630d276125F6b2F1DfF4094',
     imageSVG:FUJIImageSVG,
     image: FUJIImage,
@@ -187,7 +187,7 @@ const addresses:contractInfo = {
     unit: 'AVAX',
     color:'#E84142'
   },
-  '97': {
+  '56': {
     address: '0xBD240EF6B388A5E270709cA51e6367fc238703F2',
     imageSVG:BscscanImageSVG,
     image: BscscanImage,
@@ -197,7 +197,7 @@ const addresses:contractInfo = {
     unit: 'BNB',
     color:'#F3BA2F'
   },
-  '69': {
+  '10': {
     address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
     imageSVG:KovanImageSVG,
     image:KovanImage,
@@ -207,7 +207,7 @@ const addresses:contractInfo = {
     unit: 'ETH',
     color:'#FF0320'
   },
-  '4002': {
+  '250': {
     address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
     imageSVG: FantomImageSVG,
     image: FantomImage,
@@ -220,31 +220,31 @@ const addresses:contractInfo = {
 }
 const chainIds: Array<chains> = [
   {
-    chainId:'4',
-    name:'Rinkeby',
+    chainId:'1',
+    name:'Ethereum',
   },
   {
-    chainId:'421611',
+    chainId:'42161',
     name:'Arbitrum',
   },
   {
-    chainId:'80001',
-    name:'Mumbai',
+    chainId:'137',
+    name:'Polygon',
   },
   {
-    chainId:'43113',
-    name:'FUJI',
+    chainId:'43114',
+    name:'Avalanche',
   },
   {
-    chainId:'97',
+    chainId:'56',
     name:'BNB Chain',
   },
   {
-    chainId:'69',
+    chainId:'10',
     name:'Kovan',
   },
   {
-    chainId:'4002',
+    chainId:'250',
     name:'Fantom',
   },
 ]
