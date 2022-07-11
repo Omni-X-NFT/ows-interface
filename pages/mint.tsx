@@ -455,10 +455,9 @@ const mint: NextPage = () => {
       if(e['code'] == 4001){
         errorToast("user denied transaction signature")
       } else {
-        console.log(e)
         const currentBalance = await library.getBalance(account)
        
-        if(Number(currentBalance)<addresses[chainId].price*mintNum){
+        if(Number(currentBalance)/Math.pow(10,18)<addresses[chainId].price*mintNum){
           errorToast("There is not enough money to mint nft")
         } else {
           errorToast('your address is not whitelisted on '+ addresses[chainId].name)
