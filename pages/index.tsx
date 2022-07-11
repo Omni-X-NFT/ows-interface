@@ -44,6 +44,7 @@ import Lottie from 'react-lottie'
 // import { Container, LottieWrapper } from "../components/animation/staranimation.styled";
 //react
 import { useState,useRef,useEffect } from 'react'
+import useScrollPosition from "../components/useScrollPosition"
 
 
 const animationStarsOptions = {
@@ -73,6 +74,14 @@ const animationPlanetOptions = {
   }
 };
 
+const animationIceBergOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: iceBerganimation,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+  }
+};
 const quickNavbars:Array<string> = ["omniverse","overview","omniwars","roadmap","partner"]
 
 // const scrollPosition = useScrollPosition();
@@ -88,32 +97,36 @@ const Home: NextPage = () => {
   const partnerSection = useRef<HTMLDivElement | null>(null)
 
 
-  useEffect(() => {
-    if(window.pageYOffset<Number(overviewSection.current?.offsetTop)){
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    if(position<Number(overviewSection.current?.offsetTop)){
       setNavbarID(0)
-    } else if(window.pageYOffset+200<Number(omniwarsSection.current?.offsetTop)){
+    } else if(position+200<Number(omniwarsSection.current?.offsetTop)){
       setNavbarID(1)
-    }else if(window.pageYOffset+200<Number(roadmapSection.current?.offsetTop)){
+    }else if(position+200<Number(roadmapSection.current?.offsetTop)){
       setNavbarID(2)
-    }else if(window.pageYOffset+200<Number(partnerSection.current?.offsetTop)){
+    }else if(position+200<Number(partnerSection.current?.offsetTop)){
       setNavbarID(3)
     }else {
       setNavbarID(4)
     }
-  },[window.pageYOffset]);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
   return (
     <>
       <Head>
         <title>Omni X</title>
         <meta name="description" content="Omnix" />
-        <meta name="twitter:title" content="Omni X"/>
-        <meta name="twitter:description" content="Omni X | Greg Mint & Transfer"/>
-        <meta name="twitter:url" content="https://twitter.com/omnix_nft"/>
-        <meta name="twitter:card" content=""/>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico"/>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossOrigin="anonymous"/>
- 
       </Head>
       <Script src="../static/js/textanim.js"></Script>
       <Script src="//analytics.aweber.com/js/awt_analytics.js?id=X3co" />
