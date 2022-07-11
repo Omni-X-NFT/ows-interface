@@ -97,19 +97,28 @@ const Home: NextPage = () => {
   const partnerSection = useRef<HTMLDivElement | null>(null)
 
 
-  useEffect(() => {
-    if(window.pageYOffset<Number(overviewSection.current?.offsetTop)){
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    if(position<Number(overviewSection.current?.offsetTop)){
       setNavbarID(0)
-    } else if(window.pageYOffset+200<Number(omniwarsSection.current?.offsetTop)){
+    } else if(position+200<Number(omniwarsSection.current?.offsetTop)){
       setNavbarID(1)
-    }else if(window.pageYOffset+200<Number(roadmapSection.current?.offsetTop)){
+    }else if(position+200<Number(roadmapSection.current?.offsetTop)){
       setNavbarID(2)
-    }else if(window.pageYOffset+200<Number(partnerSection.current?.offsetTop)){
+    }else if(position+200<Number(partnerSection.current?.offsetTop)){
       setNavbarID(3)
     }else {
       setNavbarID(4)
     }
-  },[window.pageYOffset]);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
   return (
     <>
