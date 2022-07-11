@@ -31,10 +31,10 @@ const Footer : React.FC = () => {
             </div>
             <ul className={footerstyles.socialWrapper}>
 
-              <li><Link href="https://github.com/Omniverse-DAO"><a target="_blank"><Image src={Github} alt="github"></Image></a></Link></li>
-              <li><Link href="https://omni-x.gitbook.io/omni-x-nft-marketplace/"><a target="_blank"><Image src={Book} alt="book"></Image></a></Link></li>
-              <li><Link href="https://discord.com/invite/omni-x"><a target="_blank"><Image src={Discord} alt="discord"></Image></a></Link></li>
-              <li><Link href="https://twitter.com/omnix_nft"><a target="_blank"><Image src={Twitter} alt="twitter"></Image></a></Link></li>
+              <li><Link href="https://github.com/Omniverse-DAO"><a target="_blank" rel="noopener noreferrer"><Image src={Github} alt="github"></Image></a></Link></li>
+              <li><Link href="https://omni-x.gitbook.io/omni-x-nft-marketplace/"><a target="_blank" rel="noopener noreferrer"><Image src={Book} alt="book"></Image></a></Link></li>
+              <li><Link href="https://discord.com/invite/omni-x"><a target="_blank" rel="noopener noreferrer"><Image src={Discord} alt="discord"></Image></a></Link></li>
+              <li><Link href="https://twitter.com/omnix_nft"><a target="_blank" rel="noopener noreferrer"><Image src={Twitter} alt="twitter"></Image></a></Link></li>
             </ul>
         </div>
     </footer>

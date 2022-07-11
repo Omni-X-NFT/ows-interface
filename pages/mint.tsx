@@ -5,21 +5,21 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import NFT from '../components/NFT'
 import MintImgBottom from '../static/mintImg-bg.png'
-import RinkbyImageSVG from '../static/logo/ethereum-eth-logo-1.svg'
+import EthereumImageSVG from '../static/logo/ethereum-eth-logo-1.svg'
 import BscscanImageSVG from '../static/logo/dbanner1_copy_4_1.svg'
-import FUJIImageSVG from '../static/logo/dbanner1_copy_1.svg'
-import MumbaiImageSVG from '../static/logo/dbanner1_copy_3_1.svg'
+import AvaxImageSVG from '../static/logo/dbanner1_copy_1.svg'
+import PolygonImageSVG from '../static/logo/dbanner1_copy_3_1.svg'
 import ArbitrumImageSVG from '../static/logo/dbanner1_copy_2_1.svg'
 import FantomImageSVG from '../static/logo/fantom-ftm-logo-1.svg'
-import KovanImageSVG from '../static/logo/JtpX95Rt_400x400-1.svg'
+import OptimisticImageSVG from '../static/logo/JtpX95Rt_400x400-1.svg'
 
-import RinkbyImage from '../static/logo/ethereum-eth-logo-1.png'
+import EthereumImage from '../static/logo/ethereum-eth-logo-1.png'
 import BscscanImage from '../static/logo/dbanner1_copy_4_1.png'
-import FUJIImage from '../static/logo/dbanner1_copy_1.png'
-import MumbaiImage from '../static/logo/dbanner1_copy_3_1.png'
+import AvaxImage from '../static/logo/dbanner1_copy_1.png'
+import PolygonImage from '../static/logo/dbanner1_copy_3_1.png'
 import ArbitrumImage from '../static/logo/dbanner1_copy_2_1.png'
 import FantomImage from '../static/logo/fantom-ftm-logo-1.png'
-import KovanImage from '../static/logo/JtpX95Rt_400x400-1.png'
+import OptimisticImage from '../static/logo/JtpX95Rt_400x400-1.png'
 
 import MinusSign from '../static/minus-sign.png'
 import PlusSign from '../static/plus-sign.png'
@@ -67,7 +67,7 @@ const providerOptions  = {
  }
 
  const networkParams:{[key:string]:object} = {
-  "0x4": {
+  "0x1": {
     chainId: "0x1",
     rpcUrls: ['https://api.mycryptoapi.com/eth'],
     chainName: 'ETH',
@@ -78,7 +78,7 @@ const providerOptions  = {
     },
     blockExplorerUrls: ['https://etherscan.io']
   },
-  "0x61": {
+  "0x38": {
     chainId: '0x38',
     chainName: 'Binance Smart Chain Mainnet',
     nativeCurrency: {
@@ -87,18 +87,18 @@ const providerOptions  = {
         decimals: 18
     },
     rpcUrls: ['https://bsc-dataseed1.binance.org'],
-    blockExplorerUrls: ['']
+    blockExplorerUrls: ['https://bscscan.com']
   },
   "0xa86a": {
     chainId: '0xA86A',
-    chainName: 'Avalanche Mainnet',
+    chainName: 'Avalanche Network',
     nativeCurrency: {
         name: 'Avalanche',
         symbol: 'AVAX',
         decimals: 18
     },
     rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
-    blockExplorerUrls: ['']
+    blockExplorerUrls: ['https://snowtrace.io/']
   },
   "0x89": {
     chainId: '0x89',
@@ -122,19 +122,19 @@ const providerOptions  = {
     rpcUrls: ['https://arb1.arbitrum.io/rpc'],
     blockExplorerUrls: ['https://arbiscan.io/']
   },
-  "0xfc": {
-    chainId: '0xFC',
-    chainName: 'FTM',
+  "0xfa": {
+    chainId: '0xFA',
+    chainName: 'Fantom Mainnet',
     nativeCurrency: {
         name: 'Fantom',
         symbol: 'MTF',
         decimals: 18
     },
-    rpcUrls: ['https://rpcapi.fantom.network'],
+    rpcUrls: ['https://rpc.fantom.network'],
     blockExplorerUrls: ['https://ftmscan.com']
   },
   "0xa": {
-    chainId: '0xa',
+    chainId: '0xA',
     chainName: 'Optimistic Ethereum',
     nativeCurrency: {
         name: 'ETH',
@@ -142,77 +142,77 @@ const providerOptions  = {
         decimals: 18
     },
     rpcUrls: ['https://mainnet.optimism.io'],
-    blockExplorerUrls: ['']
+    blockExplorerUrls: ['https://optimistic.ethereum.io']
   },
 };
 
 const addresses:contractInfo = {
   '1': {
-    address: '0x4A64265539615DAC2211fe5a9A652c5A67Bed37b',
-    imageSVG: RinkbyImageSVG,
-    image: RinkbyImage,
+    address: '0x7FFE2672C100bFb0094ad0B4d592Dd9f9416f1AC',
+    imageSVG: EthereumImageSVG,
+    image: EthereumImage,
     name: 'Ethereum',
-    price: 0.05,
+    price: 0.04,
     chainId: '10001',
     unit: 'ETH',
     color:'#8C8C8C'
   },
   '42161': {
-    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
+    address: '0x6c25c2c42928Ee8D65D2C3b0a29571BD4549A96B',
     imageSVG: ArbitrumImageSVG,
     image: ArbitrumImage,
     name: 'Arbitrum',
-    price: 0.05,
+    price: 0.04,
     chainId: '10010',
     unit: 'ETH',
     color:'#28A0F0'
   },
   '137': {
-    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
-    imageSVG: MumbaiImageSVG,
-    image: MumbaiImage,
-    name: 'Mumbai',
-    price: 0.05,
+    address: '0x54417f05c4D5E08B079bd671d0158Ff2854a4a88',
+    imageSVG: PolygonImageSVG,
+    image: PolygonImage,
+    name: 'Polygon',
+    price: 83,
     chainId: '10009',
     unit: 'MATIC',
     color:'#8247E5'
   },
   '43114': {
-    address: '0x6fc746b78ae749a97630d276125F6b2F1DfF4094',
-    imageSVG:FUJIImageSVG,
-    image: FUJIImage,
-    name: 'FUJI',
-    price: 0.05,
+    address: '0x018BB96D00309236E6D56046BBD8E9e083cC8CE9',
+    imageSVG:AvaxImageSVG,
+    image: AvaxImage,
+    name: 'Avalanche',
+    price: 2.5,
     chainId: '10006',
     unit: 'AVAX',
     color:'#E84142'
   },
   '56': {
-    address: '0xBD240EF6B388A5E270709cA51e6367fc238703F2',
+    address: '0xc5F4f67442E688Bc4Da2d9D8a055374e642490a4',
     imageSVG:BscscanImageSVG,
     image: BscscanImage,
     name: 'BNB Chain',
-    price: 0.05,
+    price: 0.2,
     chainId: '10002',
     unit: 'BNB',
     color:'#F3BA2F'
   },
   '10': {
-    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
-    imageSVG:KovanImageSVG,
-    image:KovanImage,
-    name: 'Kovan',
-    price: 0.05,
+    address: '0xbb2e4B6e10FE9cCEBFDCa805cdCF9fA9fb65248F',
+    imageSVG:OptimisticImageSVG,
+    image:OptimisticImage,
+    name: 'Optimistic',
+    price: 0.04,
     chainId: '10011',
     unit: 'ETH',
     color:'#FF0320'
   },
   '250': {
-    address: '0x8506554c599C274C9277E887b1c865c2A9E0089a',
+    address: '0x165865de32bA3d9552FF814C2F283964c2B61a7D',
     imageSVG: FantomImageSVG,
     image: FantomImage,
     name: 'Fantom',
-    price: 0.05,
+    price: 176,
     chainId: '10012',
     unit: 'FTM',
     color:'#13B5EC'
@@ -241,7 +241,7 @@ const chainIds: Array<chains> = [
   },
   {
     chainId:'10',
-    name:'Kovan',
+    name:'Optimistic',
   },
   {
     chainId:'250',
@@ -253,9 +253,9 @@ const mint: NextPage = () => {
   const [provider, setProvider] = useState<any>()
   const [library, setLibrary] = useState<any>()
   const [account, setAccount] = useState<any>()
-  const [network, setNetwork] = useState<string>('4')
+  const [network, setNetwork] = useState<string>('1')
   const [chainId, setChainId] = useState<any>();
-  const [toChain, setToChain] = useState<string>('4')
+  const [toChain, setToChain] = useState<string>('1')
   const [mintNum, setMintNum] = useState<number>(1)
   const [ownToken, setOwnToken] = useState<Array<number>>([])
   const [totalNFTCount, setTotalNFTCount] = useState<number>(0)
@@ -424,7 +424,8 @@ const mint: NextPage = () => {
       let publicmintFlag = await tokenContract._publicSaleStarted()
       let saleFlag = await tokenContract._saleStarted()
       if(saleFlag && publicmintFlag) {
-        const currentBalance = await library.getBalance(account)
+        const currentBalance = await library.getBalance(account);
+        console.log(currentBalance)
 
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
         const receipt = await mintResult.wait()
@@ -434,6 +435,9 @@ const mint: NextPage = () => {
         }
         // add the the function to get the emit from the contract and call the getInfo()
       } else if (saleFlag) {
+
+            const mintbyowner = await tokenContract.balanceOf(account);
+            console.log(Number(mintbyowner))
 
             mintResult = await tokenContract.mint(mintNum,merkleProof, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
             // add the the function to get the emit from the contract and call the getInfo()
@@ -470,7 +474,7 @@ const mint: NextPage = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 		  const signer = provider.getSigner();
       const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
-      const adapterParam = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000])
+      const adapterParam = ethers.utils.solidityPack(["uint16", "uint256"], [1, 250000])
 
       const estimateFee = await tokenContract.estimateSendFee(addresses[toChain].chainId, account,transferNFT,false,adapterParam)
       const currentBalance = await library.getBalance(account)
@@ -678,7 +682,7 @@ const mint: NextPage = () => {
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
                 <h5>PRICE</h5>
-                <span>{chainId?addresses[`${Number(chainId)}`].price:0}<Image src={chainId?addresses[`${Number(chainId)}`].imageSVG:RinkbyImageSVG} width={29.84} height={25.46} alt="ikon"></Image></span>
+                <span>{chainId?addresses[`${Number(chainId)}`].price:0}<Image src={chainId?addresses[`${Number(chainId)}`].imageSVG:EthereumImageSVG} width={29.84} height={25.46} alt="ikon"></Image></span>
               </div>
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
@@ -694,7 +698,7 @@ const mint: NextPage = () => {
                 <label>Select chain to mint on</label>
                 <div className={selectstyles.transSelWrap} style={{"background":addresses[network].color}}>
                   <div className={selectstyles.chainIcon}>
-                    <Image  style={{"borderRadius":"50%"}}  src={chainId?addresses[`${Number(network)}`].image:RinkbyImage} width={29.84} height={25.46} alt="ikon"></Image>
+                    <Image  style={{"borderRadius":"50%"}}  src={chainId?addresses[`${Number(network)}`].image:EthereumImage} width={29.84} height={25.46} alt="ikon"></Image>
                   </div>
                   <select
                     onChange={(e) => {

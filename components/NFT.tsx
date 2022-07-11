@@ -119,13 +119,13 @@ const NFT : React.FC<Props> = (Props) => {
                       Props.setToChain(e.target.value);
                     }}
                   >
-                    <option value='4'>Rinkeby</option>
-                    <option value='97'>BNB Chain</option>
-                    <option value='43113'>FUJI</option>
-                    <option value='80001'>Mumbai</option>
-                    <option value='421611'>Arbitrum</option>
-                    <option value='4002'>Fantom</option>
-                    <option value='69'>Kovan</option>
+                    <option value='1'>Ethereum</option>
+                    <option value='42161'>Arbitrum</option>
+                    <option value='137'>Polygon</option>
+                    <option value='43114'>Avalanche</option>
+                    <option value='56'>BNB Chain</option>
+                    <option value='10'>Optimistic</option>
+                    <option value='250'>Fantom</option>
                   </select>
                 </div>
                 <p>{Props.estimateFee}</p>  
