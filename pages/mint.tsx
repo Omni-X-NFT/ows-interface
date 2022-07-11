@@ -397,7 +397,7 @@ const mint: NextPage = () => {
         let saleFlag = await tokenContract._saleStarted()
         if(!saleFlag && !publicmintFlag){
           setMintable(false)
-          errorToast('Sale is not started on '+ addresses[chainId].name)
+          errorToast('Sale has not started on '+ addresses[chainId].name)
         } else {
           setMintable(true)
         }
