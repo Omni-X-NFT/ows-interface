@@ -424,7 +424,6 @@ const mint: NextPage = () => {
       let publicmintFlag = await tokenContract._publicSaleStarted()
       let saleFlag = await tokenContract._saleStarted()
       if(saleFlag && publicmintFlag) {
-        const currentBalance = await library.getBalance(account)
 
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
         const receipt = await mintResult.wait()
@@ -434,7 +433,11 @@ const mint: NextPage = () => {
         }
         // add the the function to get the emit from the contract and call the getInfo()
       } else if (saleFlag) {
-
+          const currentBalance = await tokenContract.balanceOf(account);
+          if(Number(currentBalance) + mintNum > 5){
+            errorToast("You have already minted " + String(Number(currentBalance)) + " gregs \n" + "Can't mint more than 5 gregs in private sale")
+            setIsMinting(false)
+          } else{
             mintResult = await tokenContract.mint(mintNum,merkleProof, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
             // add the the function to get the emit from the contract and call the getInfo()
             const receipt = await mintResult.wait()
@@ -442,6 +445,7 @@ const mint: NextPage = () => {
               setIsMinting(false)
               getInfo()
             }
+          }
       } 
     } catch (e:any) {
       console.log(e);
@@ -470,7 +474,7 @@ const mint: NextPage = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 		  const signer = provider.getSigner();
       const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
-      const adapterParam = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000])
+      const adapterParam = ethers.utils.solidityPack(["uint16", "uint256"], [1, 250000])
 
       const estimateFee = await tokenContract.estimateSendFee(addresses[toChain].chainId, account,transferNFT,false,adapterParam)
       const currentBalance = await library.getBalance(account)
