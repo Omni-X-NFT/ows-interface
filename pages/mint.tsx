@@ -397,7 +397,7 @@ const mint: NextPage = () => {
         let saleFlag = await tokenContract._saleStarted()
         if(!saleFlag && !publicmintFlag){
           setMintable(false)
-          errorToast('Sale is not started on '+ addresses[chainId].name)
+          errorToast('Sale has not started on '+ addresses[chainId].name)
         } else {
           setMintable(true)
         }
@@ -658,7 +658,7 @@ const mint: NextPage = () => {
                 loop
                 muted
               >
-                <source src='../static/video/vid.mp4' type="video/mp4" />
+                <source src='../static/video/vidmain.mp4' type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
