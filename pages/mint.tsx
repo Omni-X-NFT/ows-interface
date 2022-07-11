@@ -433,7 +433,7 @@ const mint: NextPage = () => {
         }
         // add the the function to get the emit from the contract and call the getInfo()
       } else if (saleFlag) {
-          const currentBalance = await tokenContract.balanceOf('0xB49213fE8d39F22FECA3779ee5f15b66bF547375')
+          const currentBalance = await tokenContract.balanceOf(account)
           if(Number(currentBalance) + mintNum > 5){
             errorToast("You have already minted " + String(Number(currentBalance)) + " gregs \n" + "Can't mint more than 5 gregs in private sale")
             setIsMinting(false)
