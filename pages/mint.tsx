@@ -436,16 +436,19 @@ const mint: NextPage = () => {
         // add the the function to get the emit from the contract and call the getInfo()
       } else if (saleFlag) {
 
-            const mintbyowner = await tokenContract.balanceOf(account);
-            console.log(Number(mintbyowner))
-
-            mintResult = await tokenContract.mint(mintNum,merkleProof, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
-            // add the the function to get the emit from the contract and call the getInfo()
-            const receipt = await mintResult.wait()
-            if(receipt!=null){
-              setIsMinting(false)
-              getInfo()
-            }
+        const currentBalance = await tokenContract.balanceOf(account);
+        if(Number(currentBalance) + mintNum > 5){
+          errorToast("You have already minted " + String(Number(currentBalance)) + " gregs \n" + "Can't mint more than 5 gregs in private sale")
+          setIsMinting(false)
+        } else{
+          mintResult = await tokenContract.mint(mintNum,merkleProof, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
+          // add the the function to get the emit from the contract and call the getInfo()
+          const receipt = await mintResult.wait()
+          if(receipt!=null){
+            setIsMinting(false)
+            getInfo()
+          }
+        }
       } 
     } catch (e:any) {
       console.log(e);
@@ -571,7 +574,7 @@ const mint: NextPage = () => {
         }else{
           errorToast("The current network is not supported, please change the network")
           switchNetwork()
-          setNetwork('4')
+          setNetwork('1')
         }
       };
   
