@@ -423,8 +423,8 @@ const mint: NextPage = () => {
     try {
       let publicmintFlag = await tokenContract._publicSaleStarted()
       let saleFlag = await tokenContract._saleStarted()
-      if(saleFlag && publicmintFlag) {
 
+      if(saleFlag && publicmintFlag) {
         mintResult = await tokenContract.publicMint(mintNum, {value: ethers.utils.parseEther((addresses[chainId].price*mintNum).toString())})
         const receipt = await mintResult.wait()
         if(receipt!=null){
@@ -433,7 +433,7 @@ const mint: NextPage = () => {
         }
         // add the the function to get the emit from the contract and call the getInfo()
       } else if (saleFlag) {
-          const currentBalance = await tokenContract.balanceOf(account);
+          const currentBalance = await tokenContract.balanceOf('0xB49213fE8d39F22FECA3779ee5f15b66bF547375')
           if(Number(currentBalance) + mintNum > 5){
             errorToast("You have already minted " + String(Number(currentBalance)) + " gregs \n" + "Can't mint more than 5 gregs in private sale")
             setIsMinting(false)
@@ -452,10 +452,8 @@ const mint: NextPage = () => {
       if(e['code'] == 4001){
         errorToast("user denied transaction signature")
       } else {
-        console.log(e)
         const currentBalance = await library.getBalance(account)
-       
-        if(Number(currentBalance)<addresses[chainId].price*mintNum){
+        if(Number(currentBalance)/Math.pow(10,18)<addresses[chainId].price*mintNum){
           errorToast("There is not enough money to mint nft")
         } else {
           errorToast('your address is not whitelisted on '+ addresses[chainId].name)
