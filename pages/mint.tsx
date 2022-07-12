@@ -30,7 +30,17 @@ import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
 import React, { useState , useEffect } from 'react'
 import AdvancedONT from '../services/abis/AdvancedONT.json'
-import wladdresses from '../services/whitelist/wladdress.json'
+
+//whitelist address each network
+import arbitrumwl from '../services/whitelist/arbitrum.json'
+import avalanchewl from '../services/whitelist/avalanche.json'
+import bscwl from '../services/whitelist/bsc.json'
+import ethereumwl from '../services/whitelist/ethereum.json'
+import fantomwl from '../services/whitelist/fantom.json'
+import optimismwl from '../services/whitelist/optimism.json'
+import polygonwl from '../services/whitelist/polygon.json'
+
+
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-toastify'
@@ -402,7 +412,7 @@ const mint: NextPage = () => {
           setMintable(true)
         }
       } catch(error){
-        console.log(error)
+        errorToast("Please check the Internet Connection")
       }
     }
   }
@@ -411,7 +421,20 @@ const mint: NextPage = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 		const signer = provider.getSigner();
     const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
-    const wladdress = wladdresses.wl;
+    let wladdress = ethereumwl;
+    if(Number(chainId) === 42161) {
+      wladdress = arbitrumwl;
+    } else if(Number(chainId) === 137) {
+      wladdress = polygonwl;
+    } else if(Number(chainId) === 43114) {
+      wladdress = avalanchewl;
+    } else if(Number(chainId) === 56) {
+      wladdress = bscwl;
+    } else if(Number(chainId) === 10) {
+      wladdress = optimismwl;
+    } else if(Number(chainId) === 250) {
+      wladdress = fantomwl;
+    } 
     const leafNodes = wladdress.map(addr => keccak256(addr));
     const merkleTree = new MerkleTree(leafNodes, keccak256,{sortPairs: true});
     const merkleProof = merkleTree.getHexProof(keccak256(account));
