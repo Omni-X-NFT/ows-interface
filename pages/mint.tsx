@@ -45,6 +45,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-toastify'
 
+//video 
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require('keccak256');
 
@@ -163,7 +164,7 @@ const addresses:contractInfo = {
     image: EthereumImage,
     name: 'Ethereum',
     price: 0.04,
-    chainId: '10001',
+    chainId: '1',
     unit: 'ETH',
     color:'#8C8C8C'
   },
@@ -173,7 +174,7 @@ const addresses:contractInfo = {
     image: ArbitrumImage,
     name: 'Arbitrum',
     price: 0.04,
-    chainId: '10010',
+    chainId: '10',
     unit: 'ETH',
     color:'#28A0F0'
   },
@@ -183,7 +184,7 @@ const addresses:contractInfo = {
     image: PolygonImage,
     name: 'Polygon',
     price: 83,
-    chainId: '10009',
+    chainId: '9',
     unit: 'MATIC',
     color:'#8247E5'
   },
@@ -193,7 +194,7 @@ const addresses:contractInfo = {
     image: AvaxImage,
     name: 'Avalanche',
     price: 2.5,
-    chainId: '10006',
+    chainId: '6',
     unit: 'AVAX',
     color:'#E84142'
   },
@@ -203,7 +204,7 @@ const addresses:contractInfo = {
     image: BscscanImage,
     name: 'BNB Chain',
     price: 0.2,
-    chainId: '10002',
+    chainId: '2',
     unit: 'BNB',
     color:'#F3BA2F'
   },
@@ -213,7 +214,7 @@ const addresses:contractInfo = {
     image:OptimisticImage,
     name: 'Optimistic',
     price: 0.04,
-    chainId: '10011',
+    chainId: '11',
     unit: 'ETH',
     color:'#FF0320'
   },
@@ -223,7 +224,7 @@ const addresses:contractInfo = {
     image: FantomImage,
     name: 'Fantom',
     price: 176,
-    chainId: '10012',
+    chainId: '12',
     unit: 'FTM',
     color:'#13B5EC'
   }
@@ -304,7 +305,6 @@ const mint: NextPage = () => {
         } else {
           setInitial(true)
         }
-        
       }
 		} catch (error) {
 			console.error(error);
@@ -535,6 +535,7 @@ const mint: NextPage = () => {
       if(e['code'] == 4001){
         errorToast("user denied transaction signature")
       } else {
+
         if(String(chainId)==toChain){
           errorToast(`${addresses[toChain].name} is currently unavailable for transfer`)
         } else {
@@ -544,6 +545,124 @@ const mint: NextPage = () => {
       setIsTransferring(false)
     }
     setTransferNFT(0)
+  }
+  const videoSection = () => {
+    if(account){
+      if(Number(chainId) === 1) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/ethereum.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 42161) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/arbitrum.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 137) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/polygon.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 43114) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/avalanche.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 56) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/binance.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 10) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/optimistic.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 250) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/fantom.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      } 
+    } else {
+      return(<>
+        <video
+          style={{ objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          autoPlay
+          loop
+          muted
+        >
+          <source src='../static/video/ethereum.mp4' type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </>)
+    }
+
   }
   const mintButton = () => {
     if(mintable){
@@ -620,12 +739,14 @@ const mint: NextPage = () => {
           const signer = provider.getSigner();
           const tokenContract =  new ethers.Contract(addresses[`${Number(chainId).toString(10)}`].address, AdvancedONT.abi, signer)
           const adapterParam = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000])
+          console.log(addresses[toChain].chainId)
           const fee:any = await tokenContract.estimateSendFee(addresses[toChain].chainId, account,transferNFT,false,adapterParam)
           setEstimateFee("Estimate Fee :"+(Number(fee[0])/Math.pow(10,18)*1.1).toFixed(10)+addresses[chainId].unit)
         } else {
           setEstimateFee('')
         }
       } catch(error){
+        console.log(error)
         if(String(chainId) == toChain){
           errorToast(`${addresses[toChain].name} is currently unavailable for transfer`)
         } else {
@@ -672,18 +793,7 @@ const mint: NextPage = () => {
         <div className={mintstyles.container}>
           <div className={mintstyles.mintImgWrap}>
             <div className={mintstyles.mintImgT}>
-              {/* <Image src={MintMainImg} alt="mint" layout='responsive' /> */}
-              <video
-                style={{ objectFit: "cover" }}
-                width="100%"
-                height="100%"
-                autoPlay
-                loop
-                muted
-              >
-                <source src='../static/video/vidmain.mp4' type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              {videoSection()}
             </div>
             <div className={mintstyles.mintImgB}>
               <Image src={MintImgBottom} alt="mint background" layout='responsive' />
