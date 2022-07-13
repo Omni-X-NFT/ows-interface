@@ -547,7 +547,6 @@ const mint: NextPage = () => {
     setTransferNFT(0)
   }
   const videoSection = () => {
-    console.log(Number(chainId))
     if(Number(chainId) === 1) {
       return(<>
         <video
@@ -643,20 +642,6 @@ const mint: NextPage = () => {
           muted
         >
           <source src='../static/video/fantom.mp4' type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </>)
-    } else {
-      return(<>
-        <video
-          style={{ objectFit: "cover" }}
-          width="100%"
-          height="100%"
-          autoPlay
-          loop
-          muted
-        >
-          <source src='../static/video/ethereum.mp4' type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </>)
