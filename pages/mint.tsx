@@ -305,7 +305,6 @@ const mint: NextPage = () => {
         } else {
           setInitial(true)
         }
-        
       }
 		} catch (error) {
 			console.error(error);
@@ -547,7 +546,107 @@ const mint: NextPage = () => {
     setTransferNFT(0)
   }
   const videoSection = () => {
-    if(Number(chainId) === 1) {
+    if(account){
+      if(Number(chainId) === 1) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/ethereum.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 42161) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/arbitrum.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 137) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/polygon.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 43114) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/avalanche.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 56) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/binance.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 10) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/optimistic.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      }  else if(Number(chainId) === 250) {
+        return(<>
+          <video
+            style={{ objectFit: "cover" }}
+            width="100%"
+            height="100%"
+            autoPlay
+            loop
+            muted
+          >
+            <source src='../static/video/fantom.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </>)
+      } 
+    } else {
       return(<>
         <video
           style={{ objectFit: "cover" }}
@@ -561,91 +660,8 @@ const mint: NextPage = () => {
           Your browser does not support the video tag.
         </video>
       </>)
-    } else if(Number(chainId) === 42161) {
-      return(<>
-        <video
-          style={{ objectFit: "cover" }}
-          width="100%"
-          height="100%"
-          autoPlay
-          loop
-          muted
-        >
-          <source src='../static/video/arbitrum.mp4' type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </>)
-    } else if(Number(chainId) === 137) {
-      return(<>
-        <video
-          style={{ objectFit: "cover" }}
-          width="100%"
-          height="100%"
-          autoPlay
-          loop
-          muted
-        >
-          <source src='../static/video/polygon.mp4' type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </>)
-    } else if(Number(chainId) === 43114) {
-      return(<>
-        <video
-          style={{ objectFit: "cover" }}
-          width="100%"
-          height="100%"
-          autoPlay
-          loop
-          muted
-        >
-          <source src='../static/video/avalanche.mp4' type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </>)
-    } else if(Number(chainId) === 56) {
-      return(<>
-        <video
-          style={{ objectFit: "cover" }}
-          width="100%"
-          height="100%"
-          autoPlay
-          loop
-          muted
-        >
-          <source src='../static/video/binance.mp4' type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </>)
-    } else if(Number(chainId) === 10) {
-      return(<>
-        <video
-          style={{ objectFit: "cover" }}
-          width="100%"
-          height="100%"
-          autoPlay
-          loop
-          muted
-        >
-          <source src='../static/video/optimistic.mp4' type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </>)
-    } else if(Number(chainId) === 250) {
-      return(<>
-        <video
-          style={{ objectFit: "cover" }}
-          width="100%"
-          height="100%"
-          autoPlay
-          loop
-          muted
-        >
-          <source src='../static/video/fantom.mp4' type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </>)
     }
+
   }
   const mintButton = () => {
     if(mintable){
