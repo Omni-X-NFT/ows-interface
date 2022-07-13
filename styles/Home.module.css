@@ -22,6 +22,11 @@
   flex-direction: column;
   padding-top: 70px;
 }
+.heroContentWrap .title{
+  font-size: 100px;
+  text-transform: uppercase;
+  letter-spacing: 24px;
+}
 .heroContentWrap h1{
   font-size: 100px;
   text-transform: uppercase;
