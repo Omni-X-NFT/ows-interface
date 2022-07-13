@@ -45,6 +45,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-toastify'
 
+//video 
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require('keccak256');
 
@@ -545,6 +546,108 @@ const mint: NextPage = () => {
     }
     setTransferNFT(0)
   }
+  const videoSection = () => {
+    console.log(Number(chainId))
+    if(Number(chainId) === 1) {
+      return(<>
+        <video
+          style={{ objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          autoPlay
+          loop
+          muted
+        >
+          <source src='../static/video/ethereum.mp4' type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </>)
+    } else if(Number(chainId) === 42161) {
+      return(<>
+        <video
+          style={{ objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          autoPlay
+          loop
+          muted
+        >
+          <source src='../static/video/arbitrum.mp4' type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </>)
+    } else if(Number(chainId) === 137) {
+      return(<>
+        <video
+          style={{ objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          autoPlay
+          loop
+          muted
+        >
+          <source src='../static/video/polygon.mp4' type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </>)
+    } else if(Number(chainId) === 43114) {
+      return(<>
+        <video
+          style={{ objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          autoPlay
+          loop
+          muted
+        >
+          <source src='../static/video/avalanche.mp4' type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </>)
+    } else if(Number(chainId) === 56) {
+      return(<>
+        <video
+          style={{ objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          autoPlay
+          loop
+          muted
+        >
+          <source src='../static/video/binance.mp4' type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </>)
+    } else if(Number(chainId) === 10) {
+      return(<>
+        <video
+          style={{ objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          autoPlay
+          loop
+          muted
+        >
+          <source src='../static/video/optimistic.mp4' type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </>)
+    } else if(Number(chainId) === 250) {
+      return(<>
+        <video
+          style={{ objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          autoPlay
+          loop
+          muted
+        >
+          <source src='../static/video/fantom.mp4' type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </>)
+    } 
+  }
   const mintButton = () => {
     if(mintable){
       if(isMinting){
@@ -672,18 +775,7 @@ const mint: NextPage = () => {
         <div className={mintstyles.container}>
           <div className={mintstyles.mintImgWrap}>
             <div className={mintstyles.mintImgT}>
-              {/* <Image src={MintMainImg} alt="mint" layout='responsive' /> */}
-              <video
-                style={{ objectFit: "cover" }}
-                width="100%"
-                height="100%"
-                autoPlay
-                loop
-                muted
-              >
-                <source src='../static/video/vidmain.mp4' type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              {videoSection()}
             </div>
             <div className={mintstyles.mintImgB}>
               <Image src={MintImgBottom} alt="mint background" layout='responsive' />
