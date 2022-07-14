@@ -57,7 +57,8 @@ interface Address {
   price: number,
   chainId: string,
   unit: string,
-  color: string
+  color: string,
+  index: number
 } 
 
 interface contractInfo {
@@ -163,70 +164,77 @@ const addresses:contractInfo = {
     imageSVG: EthereumImageSVG,
     image: EthereumImage,
     name: 'Ethereum',
-    price: 0.04,
+    price: 0.05,
     chainId: '1',
     unit: 'ETH',
-    color:'#8C8C8C'
+    color:'#8C8C8C',
+    index: 0
   },
   '42161': {
     address: '0x6c25c2c42928Ee8D65D2C3b0a29571BD4549A96B',
     imageSVG: ArbitrumImageSVG,
     image: ArbitrumImage,
     name: 'Arbitrum',
-    price: 0.04,
+    price: 0.05,
     chainId: '10',
     unit: 'ETH',
-    color:'#28A0F0'
+    color:'#28A0F0',
+    index: 500
   },
   '137': {
     address: '0x54417f05c4D5E08B079bd671d0158Ff2854a4a88',
     imageSVG: PolygonImageSVG,
     image: PolygonImage,
     name: 'Polygon',
-    price: 83,
+    price: 88,
     chainId: '9',
     unit: 'MATIC',
-    color:'#8247E5'
+    color:'#8247E5',
+    index: 1350
   },
   '43114': {
     address: '0x018BB96D00309236E6D56046BBD8E9e083cC8CE9',
     imageSVG:AvaxImageSVG,
     image: AvaxImage,
     name: 'Avalanche',
-    price: 2.5,
+    price: 3,
     chainId: '6',
     unit: 'AVAX',
-    color:'#E84142'
+    color:'#E84142',
+    index: 2200
   },
   '56': {
     address: '0xc5F4f67442E688Bc4Da2d9D8a055374e642490a4',
     imageSVG:BscscanImageSVG,
     image: BscscanImage,
     name: 'BNB Chain',
-    price: 0.2,
+    price: 0.25,
     chainId: '2',
     unit: 'BNB',
-    color:'#F3BA2F'
+    color:'#F3BA2F',
+    index: 3050
   },
   '10': {
     address: '0xbb2e4B6e10FE9cCEBFDCa805cdCF9fA9fb65248F',
     imageSVG:OptimisticImageSVG,
     image:OptimisticImage,
-    name: 'Optimistic',
-    price: 0.04,
+    name: 'Optimism',
+    price: 0.05,
     chainId: '11',
     unit: 'ETH',
-    color:'#FF0320'
+    color:'#FF0320',
+    index:3900
   },
   '250': {
     address: '0x165865de32bA3d9552FF814C2F283964c2B61a7D',
     imageSVG: FantomImageSVG,
     image: FantomImage,
     name: 'Fantom',
-    price: 176,
+    price: 228,
     chainId: '12',
     unit: 'FTM',
-    color:'#13B5EC'
+    color:'#13B5EC',
+    index: 4200
   }
 }
 const chainIds: Array<chains> = [
@@ -252,7 +260,7 @@ const chainIds: Array<chains> = [
   },
   {
     chainId:'10',
-    name:'Optimistic',
+    name:'Optimism',
   },
   {
     chainId:'250',
@@ -271,6 +279,7 @@ const mint: NextPage = () => {
   const [ownToken, setOwnToken] = useState<Array<number>>([])
   const [totalNFTCount, setTotalNFTCount] = useState<number>(0)
   const [nextTokenId, setNextTokenId] = useState<number>(0)
+  const [substrateIndex, setSubStrateIndex] = useState<number>(0)
   const [transferNFT, setTransferNFT] = useState<number>(0)
   const [init, setInitial] = useState<boolean>(false)
   const [isMinting,setIsMinting] = useState<boolean>(false)
@@ -402,6 +411,7 @@ const mint: NextPage = () => {
   
         setTotalNFTCount(Number(max_mint))
         setNextTokenId(Number(nextId))
+        setSubStrateIndex(addresses[`${Number(chainId).toString(10)}`].index)
 
         let publicmintFlag = await tokenContract._publicSaleStarted()
         let saleFlag = await tokenContract._saleStarted()
@@ -812,7 +822,7 @@ const mint: NextPage = () => {
             <div className={mintstyles.mintDataGrid}>
               <div className={mintstyles.mintDataWrap}>
                 <h5>MINTED</h5>
-                <span>{nextTokenId}/{totalNFTCount}</span>
+                <span>{nextTokenId - substrateIndex}/{totalNFTCount - substrateIndex}</span>
               </div>
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>

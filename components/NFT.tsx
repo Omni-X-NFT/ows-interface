@@ -124,7 +124,7 @@ const NFT : React.FC<Props> = (Props) => {
                     <option value='137'>Polygon</option>
                     <option value='43114'>Avalanche</option>
                     <option value='56'>BNB Chain</option>
-                    <option value='10'>Optimistic</option>
+                    <option value='10'>Optimism</option>
                     <option value='250'>Fantom</option>
                   </select>
                 </div>
