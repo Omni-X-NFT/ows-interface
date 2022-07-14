@@ -14,18 +14,18 @@ yarn dev
 
 ## Contract address
 
-Rinkeby : https://rinkeby.etherscan.io/address/0x4A64265539615DAC2211fe5a9A652c5A67Bed37b 
+Ethereum : https://etherscan.io/address/0x7FFE2672C100bFb0094ad0B4d592Dd9f9416f1AC
 
-Arbitrum : https://testnet.arbiscan.io/address/0x8506554c599C274C9277E887b1c865c2A9E0089a 
+Arbitrum : https://arbiscan.io/address/0x6c25c2c42928Ee8D65D2C3b0a29571BD4549A96B
 
-Mumbai : https://mumbai.polygonscan.com/address/0x8506554c599C274C9277E887b1c865c2A9E0089a 
+Polygon : https://polygonscan.com/address/0x54417f05c4D5E08B079bd671d0158Ff2854a4a88
 
-FUJI : https://testnet.snowtrace.io/address/0x6fc746b78ae749a97630d276125F6b2F1DfF4094 
+Avalanche : https://snowtrace.io/address/0x018BB96D00309236E6D56046BBD8E9e083cC8CE9
 
-BNB Chain: https://testnet.bscscan.com/address/0xBD240EF6B388A5E270709cA51e6367fc238703F2 
+BNB Chain: https://bscscan.com/address/0xc5F4f67442E688Bc4Da2d9D8a055374e642490a4
 
 
-Kovan: https://kovan-optimistic.etherscan.io/address/0x8506554c599C274C9277E887b1c865c2A9E0089a 
+Optimism: https://optimistic.etherscan.io/address/0xbb2e4B6e10FE9cCEBFDCa805cdCF9fA9fb65248F
 
-Fantom: https://testnet.ftmscan.com/address/0x8506554c599C274C9277E887b1c865c2A9E0089a
+Fantom: https://ftmscan.com/address/0x165865de32bA3d9552FF814C2F283964c2B61a7D
 
