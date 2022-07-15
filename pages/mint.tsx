@@ -164,7 +164,7 @@ const addresses:contractInfo = {
     imageSVG: EthereumImageSVG,
     image: EthereumImage,
     name: 'Ethereum',
-    price: 0.05,
+    price: 0.06,
     chainId: '1',
     unit: 'ETH',
     color:'#8C8C8C',
@@ -175,7 +175,7 @@ const addresses:contractInfo = {
     imageSVG: ArbitrumImageSVG,
     image: ArbitrumImage,
     name: 'Arbitrum',
-    price: 0.05,
+    price: 0.06,
     chainId: '10',
     unit: 'ETH',
     color:'#28A0F0',
@@ -186,7 +186,7 @@ const addresses:contractInfo = {
     imageSVG: PolygonImageSVG,
     image: PolygonImage,
     name: 'Polygon',
-    price: 88,
+    price: 100,
     chainId: '9',
     unit: 'MATIC',
     color:'#8247E5',
@@ -197,7 +197,7 @@ const addresses:contractInfo = {
     imageSVG:AvaxImageSVG,
     image: AvaxImage,
     name: 'Avalanche',
-    price: 3,
+    price: 3.5,
     chainId: '6',
     unit: 'AVAX',
     color:'#E84142',
@@ -208,7 +208,7 @@ const addresses:contractInfo = {
     imageSVG:BscscanImageSVG,
     image: BscscanImage,
     name: 'BNB Chain',
-    price: 0.25,
+    price: 0.3,
     chainId: '2',
     unit: 'BNB',
     color:'#F3BA2F',
@@ -219,7 +219,7 @@ const addresses:contractInfo = {
     imageSVG:OptimisticImageSVG,
     image:OptimisticImage,
     name: 'Optimism',
-    price: 0.05,
+    price: 0.06,
     chainId: '11',
     unit: 'ETH',
     color:'#FF0320',
@@ -230,7 +230,7 @@ const addresses:contractInfo = {
     imageSVG: FantomImageSVG,
     image: FantomImage,
     name: 'Fantom',
-    price: 228,
+    price: 285,
     chainId: '12',
     unit: 'FTM',
     color:'#13B5EC',
@@ -822,7 +822,7 @@ const mint: NextPage = () => {
             <div className={mintstyles.mintDescSec}>
               <p>greg is our genesis collection that represents our community and technological breakthroughs</p>
               <p>mint greg below from any chain you wish and transfer him to any other chain using the “Transfer” box below</p>
-              <p>5 mints per wallet</p>
+              <p>5 mints per transaction</p>
             </div>
             <div className={mintstyles.mintDataGrid}>
               <div className={mintstyles.mintDataWrap}>
