@@ -8,6 +8,7 @@ import Book from '../static/footer_img/book-icon.png'
 import Discord from '../static/footer_img/Discord.png'
 import Twitter from '../static/footer_img/Twitter.png'
 import { useRouter } from 'next/router'
+import LinkedIn from '../static/footer_img/linkedinlogo.png'
 
 const Footer : React.FC = () => {
   const router = useRouter();
@@ -34,7 +35,7 @@ const Footer : React.FC = () => {
               <li><Link href="https://github.com/Omniverse-DAO"><a target="_blank" rel="noopener noreferrer"><Image src={Github} alt="github"></Image></a></Link></li>
               <li><Link href="https://omni-x.gitbook.io/omni-x-nft-marketplace/"><a target="_blank" rel="noopener noreferrer"><Image src={Book} alt="book"></Image></a></Link></li>
               <li><Link href="https://discord.com/invite/omni-x"><a target="_blank" rel="noopener noreferrer"><Image src={Discord} alt="discord"></Image></a></Link></li>
-              <li><Link href="https://twitter.com/omnix_nft"><a target="_blank" rel="noopener noreferrer"><Image src={Twitter} alt="twitter"></Image></a></Link></li>
+              <li className={footerstyles.footerLinkedinLogo}><Link href="https://www.linkedin.com/company/81944337/"><a target="_blank" rel="noopener noreferrer"><Image src={LinkedIn} alt="linkedin"></Image></a></Link></li>
             </ul>
         </div>
     </footer>

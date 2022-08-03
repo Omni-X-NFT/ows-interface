@@ -47,25 +47,29 @@
     transition: 0.3s;
 }
 
-@media (max-width:680px){
-.footerBg .container{
-    flex-direction: column;
-}
-.socialWrapper{
-    margin-top: 18px;
-}
-.footerLogo {
-    width: 60px;
-    color: white;
-    margin-top: 10px;
+.footerLinkedinLogo {
+    width: 28px;
 }
 
-.footerLogoText {
-    font-size: 25px;
-    font-weight: 300;
-    color: white;
-    margin-top: auto;
-    margin-bottom: auto;
-  
-}
+@media (max-width:680px){
+    .footerBg .container{
+        flex-direction: column;
+    }
+    .socialWrapper{
+        margin-top: 18px;
+    }
+    .footerLogo {
+        width: 60px;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .footerLogoText {
+        font-size: 25px;
+        font-weight: 300;
+        color: white;
+        margin-top: auto;
+        margin-bottom: auto;
+    
+    }
 }
