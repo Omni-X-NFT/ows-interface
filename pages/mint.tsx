@@ -165,7 +165,7 @@ const addresses:contractInfo = {
     image: EthereumImage,
     name: 'Ethereum',
     price: 0.06,
-    chainId: '1',
+    chainId: '101',
     unit: 'ETH',
     color:'#8C8C8C',
     index: 0
@@ -176,7 +176,7 @@ const addresses:contractInfo = {
     image: ArbitrumImage,
     name: 'Arbitrum',
     price: 0.06,
-    chainId: '10',
+    chainId: '110',
     unit: 'ETH',
     color:'#28A0F0',
     index: 500
@@ -187,7 +187,7 @@ const addresses:contractInfo = {
     image: PolygonImage,
     name: 'Polygon',
     price: 100,
-    chainId: '9',
+    chainId: '109',
     unit: 'MATIC',
     color:'#8247E5',
     index: 1350
@@ -198,7 +198,7 @@ const addresses:contractInfo = {
     image: AvaxImage,
     name: 'Avalanche',
     price: 3.5,
-    chainId: '6',
+    chainId: '106',
     unit: 'AVAX',
     color:'#E84142',
     index: 2200
@@ -209,7 +209,7 @@ const addresses:contractInfo = {
     image: BscscanImage,
     name: 'BNB Chain',
     price: 0.3,
-    chainId: '2',
+    chainId: '102',
     unit: 'BNB',
     color:'#F3BA2F',
     index: 3050
@@ -220,7 +220,7 @@ const addresses:contractInfo = {
     image:OptimisticImage,
     name: 'Optimism',
     price: 0.06,
-    chainId: '11',
+    chainId: '111',
     unit: 'ETH',
     color:'#FF0320',
     index:3900
@@ -231,7 +231,7 @@ const addresses:contractInfo = {
     image: FantomImage,
     name: 'Fantom',
     price: 285,
-    chainId: '12',
+    chainId: '112',
     unit: 'FTM',
     color:'#13B5EC',
     index: 4200
