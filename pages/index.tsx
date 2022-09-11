@@ -158,6 +158,9 @@ const Home: NextPage = () => {
             </ul>
           </div>
           <div className={styles.heroContainer}>
+            <video autoPlay muted loop>
+                <source src="../static/Neon1.mp4" type="video/mp4" />
+            </video>
             <div className={styles.blackGradientBottom2}>
               <Navbar/>
               <section id="omniverse" ref={omniverseSection}>
@@ -339,7 +342,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className={styles.ContL}>
-                  <h1 id="roadmap4title">JUNE 2022</h1>
+                  <h1 id="roadmap4title">SEPTEMBER 2022</h1>
                   <div className={styles.BgWrap}>
                     <div className={styles.BgImg} id="roadmap4image">
                       <Image src={RoadmapBg} layout="responsive" alt="bg"></Image>

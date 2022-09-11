@@ -4,7 +4,6 @@
   overflow:hidden;
 }
 .heroContainer{
-  background: url(../static/home-hero-bg.png);
   height: 150vh;
   background-size: 100% 100%;
   background-position: top;
@@ -12,6 +11,15 @@
   position: relative;
   z-index: 1;
 }
+
+.heroContainer video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
+}
+
 .heroContentWrap{
   color: #fff;
   font-family: 'Graphit';
