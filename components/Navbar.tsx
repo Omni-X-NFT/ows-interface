@@ -24,7 +24,7 @@ const Navbar : React.FC = () => {
                   <li className={router.pathname == "/mint" ? `${navstyles.active}` : ''}><Link href='/mint'><a>Greg</a></Link></li>
               </ul>
               <ul className={navstyles.navLinks}>
-                  <li  className={router.pathname == "/launch" ? `${navstyles.active}` : ''}><Link href="/">Launch App</Link></li>
+                  <li  className=''><Link href="/">Coming Soon</Link></li>
               </ul>
             </div>
 

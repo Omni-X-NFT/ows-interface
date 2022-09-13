@@ -165,7 +165,7 @@ const Home: NextPage = () => {
               <Navbar/>
               <section id="omniverse" ref={omniverseSection}>
                 <div className={styles.heroContentWrap} >
-                    <h1>Omni X</h1>
+                    <h1>Omni X Beta</h1>
                     <div className={styles.heroBtn}>
                     <Link
                           activeClass="active"
