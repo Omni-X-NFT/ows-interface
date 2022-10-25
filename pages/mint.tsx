@@ -848,7 +848,7 @@ const mint: NextPage = () => {
                 <label>Select chain to mint on</label>
                 <div className={selectstyles.transSelWrap} style={{"background":addresses[network].color}}>
                   <div className={selectstyles.chainIcon}>
-                    <Image  style={{"borderRadius":"50%"}}  src={chainId?addresses[`${Number(network)}`].image:EthereumImage} width={29.84} height={25.46} alt="ikon"></Image>
+                    <Image  style={{"borderRadius":"50%"}}  src={chainId?addresses[`${Number(network)}`].image:ArbitrumImage} width={29.84} height={25.46} alt="ikon"></Image>
                   </div>
                   <select
                     onChange={(e) => {
