@@ -272,7 +272,7 @@ const mint: NextPage = () => {
   const [provider, setProvider] = useState<any>()
   const [library, setLibrary] = useState<any>()
   const [account, setAccount] = useState<any>()
-  const [network, setNetwork] = useState<string>('1')
+  const [network, setNetwork] = useState<string>('42161')
   const [chainId, setChainId] = useState<any>();
   const [toChain, setToChain] = useState<string>('1')
   const [mintNum, setMintNum] = useState<number>(1)
