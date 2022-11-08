@@ -272,7 +272,7 @@ const mint: NextPage = () => {
   const [provider, setProvider] = useState<any>()
   const [library, setLibrary] = useState<any>()
   const [account, setAccount] = useState<any>()
-  const [network, setNetwork] = useState<string>('42161')
+  const [network, setNetwork] = useState<string>('43114')
   const [chainId, setChainId] = useState<any>();
   const [toChain, setToChain] = useState<string>('1')
   const [mintNum, setMintNum] = useState<number>(1)
@@ -832,7 +832,7 @@ const mint: NextPage = () => {
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
                 <h5>PRICE</h5>
-                <span>{chainId?addresses[`${Number(chainId)}`].price:0}<Image src={chainId?addresses[`${Number(chainId)}`].imageSVG:ArbitrumImageSVG} width={29.84} height={25.46} alt="ikon"></Image></span>
+                <span>{chainId?addresses[`${Number(chainId)}`].price:0}<Image src={chainId?addresses[`${Number(chainId)}`].imageSVG:AvaxImageSVG} width={29.84} height={25.46} alt="ikon"></Image></span>
               </div>
               <span className={mintstyles.line}></span>
               <div className={mintstyles.mintDataWrap}>
@@ -848,7 +848,7 @@ const mint: NextPage = () => {
                 <label>Select chain to mint on</label>
                 <div className={selectstyles.transSelWrap} style={{"background":addresses[network].color}}>
                   <div className={selectstyles.chainIcon}>
-                    <Image  style={{"borderRadius":"50%"}}  src={chainId?addresses[`${Number(network)}`].image:ArbitrumImage} width={29.84} height={25.46} alt="ikon"></Image>
+                    <Image  style={{"borderRadius":"50%"}}  src={chainId?addresses[`${Number(network)}`].image:AvaxImage} width={29.84} height={25.46} alt="ikon"></Image>
                   </div>
                   <select
                     onChange={(e) => {
