@@ -51,6 +51,10 @@
     width: 28px;
 }
 
+.footerTwitterLogo {
+    width: 30px;
+}
+
 @media (max-width:680px){
     .footerBg .container{
         flex-direction: column;
