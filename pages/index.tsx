@@ -432,8 +432,8 @@ const Home: NextPage = () => {
               </a>
             </div>
             <div className={styles.PartCompWraps}>
-              <a href={'https://www.bnbchain.org/en'} target={'_blank'} rel="noreferrer">
-                <Image src={BNBChain} alt="BNBChain" width={280}></Image>
+              <a href={'https://polygonstudios.com'} target={'_blank'} rel="noreferrer">
+                <Image src={PolygonStudios} alt="PolygonStudios" width={280}></Image>
               </a>
             </div>
             <div className={styles.PartCompWrapf}>
@@ -447,9 +447,7 @@ const Home: NextPage = () => {
               </a>
             </div>
             <div className={styles.PartCompWrapt}>
-              <a href={'https://tbacoin.ca'} target={'_blank'} rel="noreferrer">
-                <Image src={TBA} alt="TBA" width={370}></Image>
-              </a>
+              <Image src={TBA} alt="TBA" width={370}></Image>
             </div>
           </div>
 
