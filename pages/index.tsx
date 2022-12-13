@@ -3,13 +3,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 
-// Components 
+// Components
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Xcarousel from '../components/XCarousel'
 
 
-// Images 
+// Images
 import RoadmapBg from '../static/roadmap-bg.png'
 import RoadmapBlueLine from '../static/roadmap-blue-line.png'
 import RoadmapPinkLine from '../static/roadmap-pink-line.png'
@@ -22,8 +22,11 @@ import PolygonStudios from '../static/partnership/pstud 1.svg'
 import AvaLabs from '../static/partnership/ava labs white 1.svg'
 import BNBChain from '../static/partnership/bnb-chain 1.svg'
 import TBA from '../static/partnership/TBA.svg'
-import Galaxy from '../static/partnership/galaxy1.svg'
+import Galxe from '../static/partnership/galxe.svg'
 import Findora from '../static/partnership/Findora.jpg'
+import Pinata from '../static/partnership/pinata.svg'
+import Alchemy from '../static/partnership/alchemy.svg'
+import PhdCapital from '../static/partnership/phdCapital.svg'
 
 
 // Animation Gif
@@ -31,7 +34,7 @@ import Findora from '../static/partnership/Findora.jpg'
 // Scroll
 import { Link, } from 'react-scroll'
 
-// StyleSheet 
+// StyleSheet
 import styles from '../styles/Home.module.css'
 //animation
 import * as starsanimation from "../services/animations/stars.json"
@@ -119,7 +122,7 @@ const Home: NextPage = () => {
         window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
+
   return (
     <>
       <Head>
@@ -201,7 +204,7 @@ const Home: NextPage = () => {
                   <p id="overview_text2">As our project grows, we will continue to build and push the boundaries of what blockchain technology allows, always with the ultimate goal in mind of creating the best possible experience for every type of user.</p>
                 </div>
 
-                
+
               </div>
             </div>
             <div className={styles.redPlanet}>
@@ -409,33 +412,49 @@ const Home: NextPage = () => {
           </section>
           <div className={styles.partCompGrid}>
             <div className={styles.PartCompWrapf}>
-              <Image src={Sneaky} alt="Sneaky" width={200}></Image>
+              <a href={'https://www.sneaky.ventures'} target={'_blank'} rel="noreferrer">
+                <Image src={Sneaky} alt="Sneaky" width={200}></Image>
+              </a>
             </div>
             <div className={styles.PartCompWrapf}>
-              <Image src={LayerZero} alt="LayerZero" width={240}></Image>
+              <a href={'https://layerzero.network'} target={'_blank'} rel="noreferrer">
+                <Image src={LayerZero} alt="LayerZero" width={240}></Image>
+              </a>
             </div>
             <div className={styles.PartCompWraps}>
-              <Image src={PolygonStudios} alt="PolygonStudios" width={350}></Image>
+              <a href={'https://www.pinata.cloud'} target={'_blank'} rel="noreferrer">
+                <Image src={Pinata} alt="Pinata" width={350} height={100}></Image>
+              </a>
             </div>
             <div className={styles.PartCompWraps}>
-              <Image src={AvaLabs} alt="AvaLabs" width={180}></Image>
+              <a href={'https://alchemy.com'} target={'_blank'} rel="noreferrer">
+                <Image src={Alchemy} alt="Alchemy" width={180}></Image>
+              </a>
             </div>
             <div className={styles.PartCompWraps}>
-              <Image src={BNBChain} alt="BNBChain" width={280}></Image>
+              <a href={'https://www.bnbchain.org/en'} target={'_blank'} rel="noreferrer">
+                <Image src={BNBChain} alt="BNBChain" width={280}></Image>
+              </a>
             </div>
             <div className={styles.PartCompWrapf}>
-              <Image src={Findora} alt="Findora" width={140} height={140}></Image>
+              <a href={'https://www.phdcapital.fund'} target={'_blank'} rel="noreferrer">
+                <Image src={PhdCapital} alt="PhdCapital" height={140}></Image>
+              </a>
             </div>
             <div className={styles.PartCompWrapf}>
-              <Image src={Galaxy} alt="Galaxy" width={280} height={100} ></Image>
+              <a href={'https://galxe.com/'} target={'_blank'} rel="noreferrer">
+                <Image src={Galxe} alt="Galxe" width={280} height={100} ></Image>
+              </a>
             </div>
             <div className={styles.PartCompWrapt}>
-              <Image src={TBA} alt="TBA" width={370}></Image>
+              <a href={'https://layerzero.network/'} target={'_blank'} rel="noreferrer">
+                <Image src={TBA} alt="TBA" width={370}></Image>
+              </a>
             </div>
           </div>
 
         </div>
-        
+
         <div className={styles.FooterAreaContain}>
           <div className={styles.hideBorder}/>
           <div>
