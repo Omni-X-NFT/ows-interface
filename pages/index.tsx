@@ -447,7 +447,7 @@ const Home: NextPage = () => {
               </a>
             </div>
             <div className={styles.PartCompWrapt}>
-              <a href={'https://layerzero.network/'} target={'_blank'} rel="noreferrer">
+              <a href={'https://tbacoin.ca'} target={'_blank'} rel="noreferrer">
                 <Image src={TBA} alt="TBA" width={370}></Image>
               </a>
             </div>
