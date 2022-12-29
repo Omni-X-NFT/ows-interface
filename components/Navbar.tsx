@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import OmniverseLogo from '../static/Navbar/omnix.svg'
+import OmniXLogo from '../static/logo/logowhite.png'
 import { useRouter } from 'next/router'
 import navstyles from '../styles/Navbar.module.css'
 
@@ -12,7 +12,7 @@ const Navbar : React.FC = () => {
         <div className={navstyles.container}>
             <div className={navstyles.logo}>
                 <div className={navstyles.logoImage}>
-                  <Image src={OmniverseLogo} alt="logo"/>
+                  <Image src={OmniXLogo} alt="logo"/>
                 </div>
                 <div className={navstyles.logoImageText}>
                   <h1>Omni X</h1>
