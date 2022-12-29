@@ -5,6 +5,7 @@ import BuySlideLogo from '../static/buy-slide-log.png'
 import BuySlideLogo2 from '../static/buy slide logo 2.png'
 import SlideLogo3 from '../static/slide-logo-3.png'
 import SlideLogo from '../static/omniverse logo slide.png'
+import OmniXGif from '../static/logo/omnit.gif'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectCoverflow, FreeMode } from 'swiper'
@@ -15,18 +16,6 @@ import 'swiper/css/navigation'
 // import 
 
 import sliderstyles from '../styles/Slider.module.css'
-
-// animation
-import * as logo from "../services/animations/logo 2.json"
-import Lottie from 'react-lottie'
-const animationLogoOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: logo,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice"
-  }
-};
 
 const Xcarousel : React.FC = () => {
   return (
@@ -84,11 +73,8 @@ const Xcarousel : React.FC = () => {
                     <li style={{"color":"#777777"}} id="li6">and so much more</li>
                 </ul>
               </div>
-              <div className={sliderstyles.slideLogo}>
-                <Lottie
-                  options={animationLogoOptions}
-                  isClickToPauseDisabled
-                />
+              <div className={sliderstyles.slideLogo} >
+                <Image src={OmniXGif}/>
               </div>
               <span className={sliderstyles.slidetag}>NFT Hub</span>
             </div>
