@@ -16,6 +16,7 @@
     padding: 70px 50px;
     display: flex;
     justify-content: space-between;
+    overflow-y: auto;
 }
 .nftdataL {
     flex-basis: 50%;
