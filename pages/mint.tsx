@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import NFT from "../components/NFT";
@@ -725,23 +725,22 @@ const mint: NextPage = () => {
           </>
         );
       }
-    } else {
-      return (
-        <>
-          <video
-            style={{ objectFit: "cover" }}
-            width="100%"
-            height="100%"
-            autoPlay
-            loop
-            muted
-          >
-            <source src="../static/video/ethereum.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </>
-      );
     }
+    return (
+      <>
+        <video
+          style={{ objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          autoPlay
+          loop
+          muted
+        >
+          <source src="../static/video/ethereum.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </>
+    );
   };
   const mintButton = () => {
     if (mintable) {
@@ -977,7 +976,7 @@ const mint: NextPage = () => {
               <label>Select chain to mint on</label>
               <div
                 className={selectstyles.transSelWrap}
-                style={{ background: addresses[network].color }}
+                style={{ background: addresses[network] ? addresses[network].color : addresses["1"].color }}
               >
                 <div className={selectstyles.chainIcon}>
                   <Image

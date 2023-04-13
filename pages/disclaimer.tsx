@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import Footer from "../components/Footer";

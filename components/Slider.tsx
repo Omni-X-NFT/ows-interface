@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import SlideBg from "../static/slide-bg.png";
 import SlideLogo from "../static/omniverse logo slide.png";
 import sliderstyles from "../styles/Slider.module.css";

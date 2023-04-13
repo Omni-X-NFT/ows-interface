@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import OmniXLogo from "../static/logo/logowhite.png";
 import { useRouter } from "next/router";
 import navstyles from "../styles/Navbar.module.css";

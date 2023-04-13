@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import SlideBg from "../static/slide-bg.png";
 import BuySlideLogo from "../static/buy-slide-log.png";
 import BuySlideLogo2 from "../static/buy slide logo 2.png";

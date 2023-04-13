@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import NFTBg from "../static/NFTBg.png";
 import NFTLogo from "../static/nftLogo.png";
 import TransLogo from "../static/translogo.png";
