@@ -12,7 +12,7 @@ const Navbar : React.FC = () => {
         <div className={navstyles.container}>
             <div className={navstyles.logo}>
                 <div className={navstyles.logoImage}>
-                  <Image src={OmniXLogo} alt="logo"/>
+                  <Image src={OmniXLogo} width={60} height={60} alt="logo"/>
                 </div>
                 <div className={navstyles.logoImageText}>
                   <h1>Omni X</h1>
@@ -21,10 +21,10 @@ const Navbar : React.FC = () => {
             <div className={navstyles.links}>
               <ul className={navstyles.navLinks}>
                   <li className={router.pathname == "/" ? `${navstyles.active}` : ''}><Link href="/">Home</Link></li>
-                  <li className={router.pathname == "/mint" ? `${navstyles.active}` : ''}><Link href='/mint'><a>Mint</a></Link></li>
+                  <li className={router.pathname == "/mint" ? `${navstyles.active}` : ''}><Link href='/mint'>Mint</Link></li>
               </ul>
               <ul className={navstyles.navLinks}>
-                  <li  className=''><Link href="https://forms.gle/on4AtahgUZxyWjuK9" target="_blank"><a>Sign Up</a></Link></li>
+                  <li  className=''><Link href="https://forms.gle/on4AtahgUZxyWjuK9" target="_blank">Sign Up</Link></li>
               </ul>
             </div>
 

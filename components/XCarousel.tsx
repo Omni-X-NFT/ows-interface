@@ -13,7 +13,7 @@ import { Navigation, EffectCoverflow, FreeMode } from 'swiper'
 //Swiper CSS
 import 'swiper/css'
 import 'swiper/css/navigation'
-// import 
+// import
 
 import sliderstyles from '../styles/Slider.module.css'
 
@@ -35,7 +35,7 @@ const Xcarousel : React.FC = () => {
           depth: 700,
           modifier:1,
           slideShadows: false,
-        }}  
+        }}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -74,7 +74,7 @@ const Xcarousel : React.FC = () => {
                 </ul>
               </div>
               <div className={sliderstyles.slideLogo} >
-                <Image src={OmniXGif}/>
+                <Image layout={'responsive'} src={OmniXGif} alt={'omnix loading'}/>
               </div>
               <span className={sliderstyles.slidetag}>NFT Hub</span>
             </div>
@@ -118,14 +118,14 @@ const Xcarousel : React.FC = () => {
                   <p>platform revenue redistribution in $OMNI &amp; USDC</p>
                   <p>reduced platform fees</p>
                   <ul>
-                    <li  style={{"opacity":"0.7"}}>- for individuals transacting</li>
-                    <li  style={{"opacity":"0.7"}}>- curve wars style rewards for largest holders</li>
+                    <li style={{"opacity":"0.7"}}>- for individuals transacting</li>
+                    <li style={{"opacity":"0.7"}}>- curve wars style rewards for largest holders</li>
                   </ul>
                 </div>
                 <div className={sliderstyles.slidethreeR}>
                   <h4>$OMNI</h4>
                   <div className={sliderstyles.slidethreeLogo}>
-                    <Image src={SlideLogo3} alt="slide logo"></Image>
+                    <Image layout={'responsive'} src={SlideLogo3} alt="slide logo"></Image>
                   </div>
                 </div>
                 <span className={`${sliderstyles.slidetag2} ${sliderstyles.slidetag3}`}>$OMNI</span>
