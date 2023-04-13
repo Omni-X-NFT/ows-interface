@@ -1,6 +1,10 @@
-# Omni X Interface
+# OWS Interface [Deprecated]
 
 Welcome to Omni X website!
+
+This version has been deprecated and migrated to gregs.omni-x.io
+
+Support for it will be stopped after Mainnet Alpha Omni X Release
 
 ## Getting Started
 
