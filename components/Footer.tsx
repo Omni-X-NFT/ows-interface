@@ -7,11 +7,9 @@ import Github from "../static/footer_img/Github.png";
 import Book from "../static/footer_img/book-icon.png";
 import Discord from "../static/footer_img/Discord.png";
 import Twitter from "../static/footer_img/Twitter.png";
-import { useRouter } from "next/router";
 import LinkedIn from "../static/footer_img/linkedinlogo.png";
 
 const Footer: React.FC = () => {
-  const router = useRouter();
   return (
     <footer className={footerstyles.footerBg}>
       <div className={footerstyles.container}>

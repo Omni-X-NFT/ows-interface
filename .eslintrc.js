@@ -9,6 +9,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
     indent: ['error', 2],
   },
   env: {

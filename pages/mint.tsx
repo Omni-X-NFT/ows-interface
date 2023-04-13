@@ -314,7 +314,7 @@ const mint: NextPage = () => {
   };
   const isContainChains = (e: any): boolean => {
     let returnValue = 0;
-    chainIds.map(function (chain, idx) {
+    chainIds.map(function (chain) {
       if (chain.chainId == e.toString()) {
         returnValue = 1;
       }
@@ -327,7 +327,7 @@ const mint: NextPage = () => {
   };
 
   const handleNetwork = (e: any): void => {
-    if (init == false) {
+    if (!init) {
       setInitial(true);
     }
     setNetwork(e);

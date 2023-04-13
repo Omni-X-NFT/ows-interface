@@ -35,7 +35,6 @@ import styles from "../styles/Home.module.css";
 import * as starsanimation from "../services/animations/stars.json";
 import * as blueearthanimation from "../services/animations/blue_earth.json";
 import * as planethanimation from "../services/animations/planet.json";
-import * as iceBerganimation from "../services/animations/iceberg.json";
 
 import Lottie from "react-lottie";
 
