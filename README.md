@@ -24,8 +24,6 @@ Avalanche : https://snowtrace.io/address/0x018BB96D00309236E6D56046BBD8E9e083cC8
 
 BNB Chain: https://bscscan.com/address/0xc5F4f67442E688Bc4Da2d9D8a055374e642490a4
 
-
 Optimism: https://optimistic.etherscan.io/address/0xbb2e4B6e10FE9cCEBFDCa805cdCF9fA9fb65248F
 
 Fantom: https://ftmscan.com/address/0x165865de32bA3d9552FF814C2F283964c2B61a7D
-

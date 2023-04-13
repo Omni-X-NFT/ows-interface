@@ -9,9 +9,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
-    semi: ['error', 'never'],
     indent: ['error', 2],
-    quotes: [2, 'single', { avoidEscape: true }],
   },
   env: {
     browser: true,
