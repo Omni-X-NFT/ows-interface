@@ -32,13 +32,6 @@ import React, { useState, useEffect } from "react";
 import AdvancedONT from "../services/abis/AdvancedONT.json";
 
 //whitelist address each network
-import arbitrumwl from "../services/whitelist/arbitrum.json";
-import avalanchewl from "../services/whitelist/avalanche.json";
-import bscwl from "../services/whitelist/bsc.json";
-import ethereumwl from "../services/whitelist/ethereum.json";
-import fantomwl from "../services/whitelist/fantom.json";
-import optimismwl from "../services/whitelist/optimism.json";
-import polygonwl from "../services/whitelist/polygon.json";
 import earlysupporter from "../services/whitelist/earlysupporter.json";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -46,7 +39,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { Slide } from "react-toastify";
 
 //video
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { MerkleTree } = require("merkletreejs");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const keccak256 = require("keccak256");
 
 interface Address {
@@ -318,7 +313,7 @@ const mint: NextPage = () => {
     }
   };
   const isContainChains = (e: any): boolean => {
-    let returnValue: number = 0;
+    let returnValue = 0;
     chainIds.map(function (chain, idx) {
       if (chain.chainId == e.toString()) {
         returnValue = 1;
@@ -398,25 +393,25 @@ const mint: NextPage = () => {
           signer
         );
 
-        let result = await tokenContract.balanceOf(account);
-        let token,
-          tokenlist = [];
-        for (var i = 0; i < Number(result); i++) {
+        const result = await tokenContract.balanceOf(account);
+        let token;
+        const tokenlist = [];
+        for (let i = 0; i < Number(result); i++) {
           token = await tokenContract.tokenOfOwnerByIndex(account, i);
           tokenlist.push(Number(token));
         }
 
         setOwnToken(tokenlist);
 
-        let max_mint = await tokenContract.maxMintId();
-        let nextId = await tokenContract.nextMintId();
+        const max_mint = await tokenContract.maxMintId();
+        const nextId = await tokenContract.nextMintId();
 
         setTotalNFTCount(Number(max_mint));
         setNextTokenId(Number(nextId));
         setSubStrateIndex(addresses[`${Number(chainId).toString(10)}`].index);
 
-        let publicmintFlag = await tokenContract._publicSaleStarted();
-        let saleFlag = await tokenContract._saleStarted();
+        const publicmintFlag = await tokenContract._publicSaleStarted();
+        const saleFlag = await tokenContract._saleStarted();
         if (!saleFlag && !publicmintFlag) {
           setMintable(false);
           errorToast("Sale has not started on " + addresses[chainId].name);
@@ -455,7 +450,7 @@ const mint: NextPage = () => {
     // }
 
     /// second private sale
-    let wladdress = earlysupporter;
+    const wladdress = earlysupporter;
     const leafNodes = wladdress.map((addr) => keccak256(addr));
     const merkleTree = new MerkleTree(leafNodes, keccak256, {
       sortPairs: true,
@@ -466,8 +461,8 @@ const mint: NextPage = () => {
     setIsMinting(true);
 
     try {
-      let publicmintFlag = await tokenContract._publicSaleStarted();
-      let saleFlag = await tokenContract._saleStarted();
+      const publicmintFlag = await tokenContract._publicSaleStarted();
+      const saleFlag = await tokenContract._saleStarted();
       if (saleFlag && publicmintFlag) {
         const currentBalance = await library.getBalance(account);
         console.log(currentBalance);
@@ -564,7 +559,7 @@ const mint: NextPage = () => {
         (Number(estimateFee[0]) / Math.pow(10, 18)) * 1.1 * Math.pow(10, 18);
       gasFee = gasFee - (gasFee % 1);
       setIsTransferring(true);
-      let mintResult = await tokenContract.sendFrom(
+      const mintResult = await tokenContract.sendFrom(
         account,
         addresses[toChain].chainId,
         account,

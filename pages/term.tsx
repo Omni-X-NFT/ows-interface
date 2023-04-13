@@ -9,9 +9,9 @@ import termstyles from "../styles/term.module.css";
 
 import FeatureContenImg from "../static/feature-overview-bg.png";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const term: NextPage = () => {

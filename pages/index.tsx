@@ -18,11 +18,8 @@ import RedPlanetImg from "../static/redplanet.png";
 import Sneaky from "../static/partnership/Sneaky 1.svg";
 import LayerZero from "../static/partnership/LayerZero_Logo_Full 1.svg";
 import PolygonStudios from "../static/partnership/pstud 1.svg";
-import AvaLabs from "../static/partnership/ava labs white 1.svg";
-import BNBChain from "../static/partnership/bnb-chain 1.svg";
 import TBA from "../static/partnership/TBA.svg";
 import Galxe from "../static/partnership/galxe.svg";
-import Findora from "../static/partnership/Findora.jpg";
 import Pinata from "../static/partnership/pinata.svg";
 import Alchemy from "../static/partnership/alchemy.svg";
 import PhdCapital from "../static/partnership/phdCapital.svg";
@@ -45,7 +42,6 @@ import Lottie from "react-lottie";
 // import { Container, LottieWrapper } from "../components/animation/staranimation.styled";
 //react
 import { useState, useRef, useEffect } from "react";
-import useScrollPosition from "../components/useScrollPosition";
 
 const animationStarsOptions = {
   loop: true,
@@ -74,14 +70,6 @@ const animationPlanetOptions = {
   },
 };
 
-const animationIceBergOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: iceBerganimation,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
-  },
-};
 const quickNavbars: Array<string> = [
   "omniverse",
   "overview",

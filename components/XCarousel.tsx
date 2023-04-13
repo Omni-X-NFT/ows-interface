@@ -4,11 +4,10 @@ import SlideBg from "../static/slide-bg.png";
 import BuySlideLogo from "../static/buy-slide-log.png";
 import BuySlideLogo2 from "../static/buy slide logo 2.png";
 import SlideLogo3 from "../static/slide-logo-3.png";
-import SlideLogo from "../static/omniverse logo slide.png";
 import OmniXGif from "../static/logo/omnit.gif";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, EffectCoverflow, FreeMode } from "swiper";
+import { Navigation, EffectCoverflow } from "swiper";
 
 //Swiper CSS
 import "swiper/css";
