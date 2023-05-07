@@ -603,6 +603,7 @@ const mint: NextPage = () => {
             `${addresses[toChain].name} is currently unavailable for transfer`
           );
         } else {
+          console.error(e);
           errorToast("Sending NFT error, Please try again");
         }
       }
