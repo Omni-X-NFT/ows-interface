@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
                 router.pathname == "/mint" ? `${navstyles.active}` : ""
               }
             >
-              <Link href="/mint">Mint</Link>
+              <Link href="/mint">Send</Link>
             </li>
           </ul>
           <ul className={navstyles.navLinks}>

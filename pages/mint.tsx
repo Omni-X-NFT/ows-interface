@@ -905,8 +905,8 @@ const mint: NextPage = () => {
         ></link>
       </Head>
       <ToastContainer />
-      <div className={mintstyles.mintHero}>
-        <Navbar />
+      <Navbar />
+      {/*<div className={mintstyles.mintHero}>
         <div className={mintstyles.container}>
           <div className={mintstyles.mintImgWrap}>
             <div className={mintstyles.mintImgT}>{videoSection()}</div>
@@ -1004,7 +1004,7 @@ const mint: NextPage = () => {
             <div className={mintstyles.mintBtnWrap}>{mintButton()}</div>
           </div>
         </div>
-      </div>
+      </div>*/}
       <div className={mintstyles.mintSecBg}>
         <div className={mintstyles.mintheadingImg}>
           <h1>YOUR NFTS</h1>
